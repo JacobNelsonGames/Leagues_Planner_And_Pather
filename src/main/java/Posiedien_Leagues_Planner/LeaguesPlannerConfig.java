@@ -290,9 +290,9 @@ public interface LeaguesPlannerConfig extends Config
     }
 
     @ConfigSection(
-        name = "Settings",
+        name = "Pathfinding Settings",
         description = "Options for the pathfinding",
-        position = 0
+        position = 5
     )
     String sectionSettings = "sectionSettings";
 
@@ -516,7 +516,7 @@ public interface LeaguesPlannerConfig extends Config
     }
 
     @ConfigSection(
-        name = "Display",
+        name = "Pathfinding Display",
         description = "Options for displaying the path on the world map, minimap and scene tiles",
         position = 19
     )
@@ -567,8 +567,8 @@ public interface LeaguesPlannerConfig extends Config
     }
 
     @ConfigSection(
-        name = "Colours",
-        description = "Colours for the path map, minimap and scene tiles",
+        name = "Pathfinding Colors",
+        description = "Colors for the path map, minimap and scene tiles",
         position = 24
     )
     String sectionColours = "sectionColours";
@@ -634,7 +634,7 @@ public interface LeaguesPlannerConfig extends Config
     }
 
     @ConfigSection(
-        name = "Debug Options",
+        name = "Pathfinding Debug Options",
         description = "Various options for debugging",
         position = 30,
         closedByDefault = true
