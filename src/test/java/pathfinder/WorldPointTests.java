@@ -8,13 +8,13 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static shortestpath.WorldPointUtil.distanceBetween;
-import static shortestpath.WorldPointUtil.distanceToArea;
-import static shortestpath.WorldPointUtil.packWorldPoint;
-import static shortestpath.WorldPointUtil.unpackWorldPlane;
-import static shortestpath.WorldPointUtil.unpackWorldPoint;
-import static shortestpath.WorldPointUtil.unpackWorldX;
-import static shortestpath.WorldPointUtil.unpackWorldY;
+import static Posiedien_Leagues_Planner.WorldPointUtil.distanceBetween;
+import static Posiedien_Leagues_Planner.WorldPointUtil.distanceToArea;
+import static Posiedien_Leagues_Planner.WorldPointUtil.packWorldPoint;
+import static Posiedien_Leagues_Planner.WorldPointUtil.unpackWorldPlane;
+import static Posiedien_Leagues_Planner.WorldPointUtil.unpackWorldPoint;
+import static Posiedien_Leagues_Planner.WorldPointUtil.unpackWorldX;
+import static Posiedien_Leagues_Planner.WorldPointUtil.unpackWorldY;
 
 public class WorldPointTests {
     private static final WorldArea WILDERNESS_ABOVE_GROUND = new WorldArea(2944, 3523, 448, 448, 0);

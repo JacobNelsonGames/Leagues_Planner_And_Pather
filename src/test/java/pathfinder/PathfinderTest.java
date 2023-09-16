@@ -22,13 +22,13 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
-import shortestpath.ShortestPathConfig;
-import shortestpath.ShortestPathPlugin;
-import shortestpath.Transport;
-import shortestpath.Util;
-import shortestpath.pathfinder.Pathfinder;
-import shortestpath.pathfinder.PathfinderConfig;
-import shortestpath.pathfinder.SplitFlagMap;
+import Posiedien_Leagues_Planner.PosiedienLeaguesPlannerPlugin;
+import Posiedien_Leagues_Planner.LeaguesPlannerConfig;
+import Posiedien_Leagues_Planner.Transport;
+import Posiedien_Leagues_Planner.Util;
+import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
+import Posiedien_Leagues_Planner.pathfinder.PathfinderConfig;
+import Posiedien_Leagues_Planner.pathfinder.SplitFlagMap;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PathfinderTest {
@@ -40,7 +40,7 @@ public class PathfinderTest {
     Client client;
 
     @Mock
-    ShortestPathConfig config;
+    LeaguesPlannerConfig config;
 
     @Before
     public void before() {
@@ -122,7 +122,7 @@ public class PathfinderTest {
     private int[][] transportCoordinatesFromFile(String path) {
         List<int[]> populateCoords = new ArrayList<>();
         try {
-            String s = new String(Util.readAllBytes(ShortestPathPlugin.class.getResourceAsStream(path)), StandardCharsets.UTF_8);
+            String s = new String(Util.readAllBytes(PosiedienLeaguesPlannerPlugin.class.getResourceAsStream(path)), StandardCharsets.UTF_8);
             Scanner scanner = new Scanner(s);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();

@@ -3,9 +3,9 @@ package pathfinder;
 import net.runelite.api.coords.WorldPoint;
 import org.junit.Assert;
 import org.junit.Test;
-import shortestpath.PrimitiveIntHashMap;
-import shortestpath.Transport;
-import shortestpath.WorldPointUtil;
+import Posiedien_Leagues_Planner.PrimitiveIntHashMap;
+import Posiedien_Leagues_Planner.Transport;
+import Posiedien_Leagues_Planner.WorldPointUtil;
 
 import java.util.HashMap;
 import java.util.List;
