@@ -11,30 +11,20 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadFactory;
+import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
 import lombok.Getter;
-import net.runelite.api.Client;
-import net.runelite.api.KeyCode;
-import net.runelite.api.MenuAction;
-import net.runelite.api.MenuEntry;
-import net.runelite.api.Player;
-import net.runelite.api.Point;
-import net.runelite.api.SpriteID;
-import net.runelite.api.Varbits;
+import net.runelite.api.*;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.MenuEntryAdded;
-import net.runelite.api.events.MenuOpened;
+import net.runelite.api.events.*;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.worldmap.WorldMap;
@@ -134,7 +124,12 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private boolean startPointSet = false;
 
     @Override
-    protected void startUp() {
+    protected void startUp() throws Exception
+    {
+
+        InitializeRegionData();
+        overlayManager.add(regionBoundOverlay);
+
         SplitFlagMap map = SplitFlagMap.fromResources();
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
 
@@ -151,7 +146,12 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     }
 
     @Override
-    protected void shutDown() {
+    protected void shutDown() throws IOException
+    {
+        SaveRegionBounds();
+        overlayManager.remove(regionBoundOverlay);
+        worldMapPointManager.removeIf(x -> x.getName() != null && x.getName().contains("LP:"));
+
         overlayManager.remove(pathOverlay);
         overlayManager.remove(pathMinimapOverlay);
         overlayManager.remove(pathMapOverlay);
@@ -204,7 +204,28 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private final Pattern TRANSPORT_OPTIONS_REGEX = Pattern.compile("^(avoidWilderness|use\\w+)$");
 
     @Subscribe
-    public void onConfigChanged(ConfigChanged event) {
+    public void onConfigChanged(ConfigChanged event)
+    {
+        CurrentRegion = GetRegionBounds(config.GetEditRegion());
+        if (event.getKey().equals("GetEditRegion"))
+        {
+            if (config.GetEditRegion() == RegionType.NONE)
+            {
+                worldMapPointManager.removeIf(x -> x.getName() != null && x.getName().contains("LP: Region Bounds:"));
+            }
+            else
+            {
+                // Add all the serialized markers
+                for (LeagueRegionBounds LocalCurrentRegion : config.RegionData.RegionData)
+                {
+                    LocalCurrentRegion.RegionPoints.forEach((key, value) ->
+                    {
+                        SetMarkerActivation(value, false);
+                    });
+                }
+            }
+        }
+
         if (!CONFIG_GROUP.equals(event.getGroup())) {
             return;
         }
@@ -227,7 +248,22 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     }
 
     @Subscribe
-    public void onMenuOpened(MenuOpened event) {
+    public void onMenuOpened(MenuOpened event)
+    {
+        final Widget map = client.getWidget(WidgetInfo.WORLD_MAP_VIEW);
+        if (map == null)
+        {
+            return;
+        }
+
+        if (!map.getBounds().contains(client.getMouseCanvasPosition().getX(), client.getMouseCanvasPosition().getY()))
+        {
+            return;
+        }
+
+        CurrentRegion = GetRegionBounds(config.GetEditRegion());
+        AddRightClickMenuEntries(event);
+
         lastMenuOpenedPoint = client.getMouseCanvasPosition();
     }
 
@@ -578,22 +614,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         return polygon;
     }
 
-    @Inject
-    private Client client;
-
-    @Inject
-    private LeaguesPlannerConfig config;
-    @Inject
-    public OverlayManager overlayManager;
-
-    @Inject
-    private WorldMapPointManager worldMapPointManager;
-
-    @Inject
-    private WorldMapOverlay worldMapOverlay;
-
-
-    private Point LastMenuOpenedPoint;
 
     public LeagueRegionBounds CurrentRegion = null;
     public LeagueRegionPoint LastClickedRegionPoint = null;
@@ -612,30 +632,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     {
         File targ = new File("RegionBoundData.csv");
         config.RegionData.importFrom(targ);
-    }
-
-    @Subscribe
-    public void onConfigChanged(ConfigChanged event)
-    {
-        CurrentRegion = GetRegionBounds(config.GetEditRegion());
-        if (event.getKey().equals("GetEditRegion"))
-        {
-            if (config.GetEditRegion() == RegionType.NONE)
-            {
-                worldMapPointManager.removeIf(x -> x.getName() != null && x.getName().contains("LP: Region Bounds:"));
-            }
-            else
-            {
-                // Add all the serialized markers
-                for (LeagueRegionBounds LocalCurrentRegion : config.RegionData.RegionData)
-                {
-                    LocalCurrentRegion.RegionPoints.forEach((key, value) ->
-                    {
-                        SetMarkerActivation(value, false);
-                    });
-                }
-            }
-        }
     }
 
     private boolean GatherRegionBounds(WorldPointPolygon poly, ArrayList<RegionLine> regionLines, Set<UUID> VisitedPoints, LeagueRegionPoint nextPoint, LeagueRegionPoint parentPoint)
@@ -744,7 +740,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     public WorldPoint LastDisplayedWorldPoint;
 
-    private static final BufferedImage MARKER_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/marker.png");
     private static final BufferedImage ACTIVE_MARKER_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/activemarker.png");
 
     private static final BufferedImage BOUNDS_SELECTED = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/BoundPoint_Selected.png");
@@ -787,21 +782,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         return MARKER_IMAGE;
     }
 
-    @Override
-    protected void startUp() throws Exception
-    {
-        InitializeRegionData();
-        overlayManager.add(regionBoundOverlay);
-    }
-
-    @Override
-    protected void shutDown() throws Exception
-    {
-        SaveRegionBounds();
-        overlayManager.remove(regionBoundOverlay);
-        worldMapPointManager.removeIf(x -> x.getName() != null && x.getName().contains("LP:"));
-    }
-
     @Subscribe
     public void onGameStateChanged(GameStateChanged gameStateChanged)
     {
@@ -839,36 +819,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     LeaguesPlannerConfig provideConfig(ConfigManager configManager)
     {
         return configManager.getConfig(LeaguesPlannerConfig.class);
-    }
-
-    @Subscribe
-    public void onMenuOpened(MenuOpened event)
-    {
-        final Widget map = client.getWidget(WidgetInfo.WORLD_MAP_VIEW);
-        if (map == null)
-        {
-            return;
-        }
-
-        if (!map.getBounds().contains(client.getMouseCanvasPosition().getX(), client.getMouseCanvasPosition().getY()))
-        {
-            return;
-        }
-
-        LastMenuOpenedPoint = client.getMouseCanvasPosition();
-        CurrentRegion = GetRegionBounds(config.GetEditRegion());
-        AddRightClickMenuEntries(event);
-    }
-
-    @Subscribe
-    public void onGameTick(GameTick tick)
-    {
-        //log.info("TEST 2!");
-    }
-
-    @Subscribe
-    public void onMenuEntryAdded(MenuEntryAdded event)
-    {
     }
 
     private WorldPoint CalculateMapPoint(Point point)
@@ -1083,7 +1033,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     {
         List<MenuEntry> entries = new LinkedList<>(Arrays.asList(event.getMenuEntries()));
 
-        LastDisplayedWorldPoint = CalculateMapPoint(client.isMenuOpen() ? LastMenuOpenedPoint : client.getMouseCanvasPosition());
+        LastDisplayedWorldPoint = CalculateMapPoint(client.isMenuOpen() ? lastMenuOpenedPoint : client.getMouseCanvasPosition());
         if (LastDisplayedWorldPoint == null)
         {
             return;

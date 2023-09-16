@@ -1,4 +1,4 @@
-package com.Posiedien_Leagues_Planner;
+package Posiedien_Leagues_Planner;
 
 import java.awt.*;
 import java.awt.geom.Area;

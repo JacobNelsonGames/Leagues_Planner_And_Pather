@@ -1,4 +1,4 @@
-package com.Posiedien_Leagues_Planner;
+package Posiedien_Leagues_Planner;
 
 import net.runelite.api.Point;
 import net.runelite.api.World;
