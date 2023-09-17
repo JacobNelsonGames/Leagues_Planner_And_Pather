@@ -33,7 +33,7 @@ public class PathfinderConfig {
     private PrimitiveIntHashMap<List<Transport>> transportsPacked;
 
     private final Client client;
-    private final LeaguesPlannerConfig config;
+    final LeaguesPlannerConfig config;
 
     @Getter
     private long calculationCutoffMillis;

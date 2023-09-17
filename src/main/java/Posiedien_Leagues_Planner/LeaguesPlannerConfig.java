@@ -15,9 +15,10 @@ public interface LeaguesPlannerConfig extends Config
     public FullRegionData RegionData = new FullRegionData();
 
     @ConfigSection(
-            position = 1,
+            position = 3,
             name = "Editor",
-            description = "Editor functions"
+            description = "Editor functions",
+            closedByDefault = true
     )
     String editorSection = "editorSection";
 
@@ -57,7 +58,8 @@ public interface LeaguesPlannerConfig extends Config
     @ConfigSection(
             position = 2,
             name = "Region Plugin Colors",
-            description = "The colors to use for our regions"
+            description = "The colors to use for our regions",
+            closedByDefault = true
     )
     String regionColors = "regionColors";
 
@@ -173,7 +175,7 @@ public interface LeaguesPlannerConfig extends Config
 
 
     @ConfigSection(
-            position = 3,
+            position = 1,
             name = "Regions Unlocked",
             description = "The regions we currently have unlocked"
     )
@@ -292,7 +294,8 @@ public interface LeaguesPlannerConfig extends Config
     @ConfigSection(
         name = "Pathfinding Settings",
         description = "Options for the pathfinding",
-        position = 5
+        position = 5,
+            closedByDefault = true
     )
     String sectionSettings = "sectionSettings";
 
@@ -518,7 +521,8 @@ public interface LeaguesPlannerConfig extends Config
     @ConfigSection(
         name = "Pathfinding Display",
         description = "Options for displaying the path on the world map, minimap and scene tiles",
-        position = 19
+        position = 19,
+            closedByDefault = true
     )
     String sectionDisplay = "sectionDisplay";
 
@@ -569,7 +573,8 @@ public interface LeaguesPlannerConfig extends Config
     @ConfigSection(
         name = "Pathfinding Colors",
         description = "Colors for the path map, minimap and scene tiles",
-        position = 24
+        position = 24,
+            closedByDefault = true
     )
     String sectionColours = "sectionColours";
 

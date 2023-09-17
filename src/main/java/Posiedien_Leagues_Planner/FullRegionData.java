@@ -17,7 +17,7 @@ public class FullRegionData
 {
     public ArrayList<LeagueRegionBounds> RegionData = new ArrayList<>();
 
-    boolean IsTileInUnlockedRegion(LeaguesPlannerConfig config, WorldPoint TileLocation)
+    public boolean IsTileInUnlockedRegion(LeaguesPlannerConfig config, WorldPoint TileLocation)
     {
         ArrayList<RegionType> RegionsForTile = GetTileRegions(TileLocation);
 

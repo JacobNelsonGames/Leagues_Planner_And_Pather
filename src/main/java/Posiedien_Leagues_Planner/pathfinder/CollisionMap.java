@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import Posiedien_Leagues_Planner.RegionType;
 import Posiedien_Leagues_Planner.Transport;
 import Posiedien_Leagues_Planner.WorldPointUtil;
+import net.runelite.api.coords.WorldPoint;
 
 public class CollisionMap {
+
+    PathfinderConfig CachedConfig = null;
 
     // Enum.values() makes copies every time which hurts performance in the hotpath
     private static final OrdinalDirection[] ORDINAL_VALUES = OrdinalDirection.values();
@@ -22,8 +26,10 @@ public class CollisionMap {
         this.collisionData = collisionData;
     }
 
-    private boolean get(int x, int y, int z, int flag) {
-        return collisionData.get(x, y, z, flag);
+    private boolean get(int x, int y, int z, int flag)
+    {
+        return CachedConfig.config.RegionData.IsTileInUnlockedRegion(CachedConfig.config, new WorldPoint(x, y, z)) &&
+                collisionData.get(x, y, z, flag);
     }
 
     public boolean n(int x, int y, int z) {
@@ -82,6 +88,8 @@ public class CollisionMap {
 
         @SuppressWarnings("unchecked") // Casting EMPTY_LIST to List<Transport> is safe here
         List<Transport> transports = config.getTransportsPacked().getOrDefault(node.packedPosition, (List<Transport>)Collections.EMPTY_LIST);
+
+        CachedConfig = config;
 
         // Transports are pre-filtered by PathfinderConfig.refreshTransportData
         // Thus any transports in the list are guaranteed to be valid per the user's settings

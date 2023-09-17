@@ -142,8 +142,9 @@ public class Pathfinder implements Runnable {
                 cutoffTimeMillis = System.currentTimeMillis() + cutoffDurationMillis;
             }
 
+            // No limit
             if (System.currentTimeMillis() > cutoffTimeMillis) {
-                break;
+                //break;
             }
 
             // Check if target was found without processing the queue to find it
