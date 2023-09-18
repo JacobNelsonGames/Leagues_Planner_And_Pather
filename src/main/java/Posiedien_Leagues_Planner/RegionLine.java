@@ -18,7 +18,7 @@ public class RegionLine
         End = end;
     }
 
-    public GraphicsLine ConvertToGraphicsLine(WorldMapOverlay worldMapOverlay, Area worldMapClipArea)
+    public GraphicsLine ConvertToGraphicsLine(WorldMapOverlay worldMapOverlay)
     {
         GraphicsLine newLine = new GraphicsLine();
         Point GraphicsStart = worldMapOverlay.mapWorldPointToGraphicsPoint(Start);

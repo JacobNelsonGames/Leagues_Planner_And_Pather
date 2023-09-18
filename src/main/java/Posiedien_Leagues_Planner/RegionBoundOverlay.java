@@ -79,7 +79,7 @@ public class RegionBoundOverlay extends Overlay
             {
                 for (RegionLine line : regionDatum.RegionLines)
                 {
-                    GraphicsLine convertedLine = line.ConvertToGraphicsLine(worldMapOverlay, WorldMapClipArea);
+                    GraphicsLine convertedLine = line.ConvertToGraphicsLine(worldMapOverlay);
                     if (convertedLine != null)
                     {
                         graphics.drawLine(convertedLine.x1, convertedLine.y1, convertedLine.x2, convertedLine.y2);
@@ -89,7 +89,7 @@ public class RegionBoundOverlay extends Overlay
 
             for (WorldPointPolygon WorldPointPoly : regionDatum.RegionPolygons)
             {
-                Polygon convertedPoly = WorldPointPoly.ConvertToGraphicsPolygon(worldMapOverlay, WorldMapClipArea);
+                Polygon convertedPoly = WorldPointPoly.ConvertToGraphicsPolygon(worldMapOverlay);
                 if (convertedPoly != null)
                 {
                     graphics.fillPolygon(convertedPoly);

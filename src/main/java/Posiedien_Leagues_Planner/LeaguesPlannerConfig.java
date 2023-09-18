@@ -14,9 +14,11 @@ public interface LeaguesPlannerConfig extends Config
 {
     public FullRegionData RegionData = new FullRegionData();
 
+    public FullTaskData TaskData = new FullTaskData();
+
     @ConfigSection(
             position = 3,
-            name = "Editor",
+            name = "Region Editor",
             description = "Editor functions",
             closedByDefault = true
     )
@@ -292,6 +294,58 @@ public interface LeaguesPlannerConfig extends Config
     }
 
     @ConfigSection(
+            position = 4,
+            name = "Leagues Planner Settings",
+            description = "Settings relating to the leagues planner plugin",
+            closedByDefault = true
+    )
+    String leaguesPlannerSection = "leaguesPlannerSection";
+
+    @ConfigItem(
+            keyName = "TaskMapStackingDistance",
+            name = "Task Map Stacking Distance",
+            description = "The maximum distance between tasks to start stacking in the map interface (in pixels)",
+            section = leaguesPlannerSection
+    )
+    default int TaskMapStackingDistance()
+    {
+        return 50;
+    }
+
+    @ConfigItem(
+            keyName = "TaskMapIconSize",
+            name = "Task map icon size",
+            description = "Task map icon size (in pixels)",
+            section = leaguesPlannerSection
+    )
+    default int TaskMapIconSize()
+    {
+        return 30;
+    }
+
+    @ConfigItem(
+            keyName = "ScaleTaskMapIconBasedOnCount",
+            name = "Scale Task Map Icon Based On Count",
+            description = "Whether or not Scale Task Map Icon Based On Count",
+            section = leaguesPlannerSection
+    )
+    default boolean ScaleTaskMapIconBasedOnCount()
+    {
+        return true;
+    }
+
+    @ConfigItem(
+            keyName = "ScaleTaskMapIconBasedOnCountInvRate",
+            name = "Scale Task Map Icon Based On Count, inverse rate",
+            description = "Inverse rate on our scaling map icon based on count",
+            section = leaguesPlannerSection
+    )
+    default int ScaleTaskMapIconBasedOnCountInvRate()
+    {
+        return 10;
+    }
+
+    @ConfigSection(
         name = "Pathfinding Settings",
         description = "Options for the pathfinding",
         position = 5,
@@ -498,7 +552,7 @@ public interface LeaguesPlannerConfig extends Config
         return 1;
     }
 
-    @Units(
+    /*@Units(
         value = Units.TICKS
     )
     @Range(
@@ -516,7 +570,7 @@ public interface LeaguesPlannerConfig extends Config
     default int calculationCutoff()
     {
         return 5;
-    }
+    }*/
 
     @ConfigSection(
         name = "Pathfinding Display",

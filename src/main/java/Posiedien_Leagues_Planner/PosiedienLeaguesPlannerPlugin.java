@@ -126,9 +126,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Override
     protected void startUp() throws Exception
     {
-
         InitializeRegionData();
-        overlayManager.add(regionBoundOverlay);
+        InitializeTaskData();
 
         SplitFlagMap map = SplitFlagMap.fromResources();
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
@@ -149,8 +148,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     protected void shutDown() throws IOException
     {
         SaveRegionBounds();
-        overlayManager.remove(regionBoundOverlay);
-        worldMapPointManager.removeIf(x -> x.getName() != null && x.getName().contains("LP:"));
+        ShutdownRegionData();
+        ShutdownTaskData();
 
         overlayManager.remove(pathOverlay);
         overlayManager.remove(pathMinimapOverlay);
@@ -453,7 +452,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         restartPathfinding(start, pathfinder.getTarget());
     }
 
-    public WorldPoint calculateMapPoint(Point point) {
+    public WorldPoint calculateMapPoint(Point point)
+    {
         WorldMap worldMap = client.getWorldMap();
         float zoom = worldMap.getWorldMapZoom();
         final WorldPoint mapPoint = new WorldPoint(worldMap.getWorldMapPosition().getX(), worldMap.getWorldMapPosition().getY(), 0);
@@ -620,6 +620,9 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Inject
     public RegionBoundOverlay regionBoundOverlay = new RegionBoundOverlay(client, this, config);
 
+    @Inject
+    public TaskOverlay taskOverlay = new TaskOverlay(client, this, config);
+
     public LeagueRegionPoint CurrentFocusedPoint;
 
     void SaveRegionBounds() throws IOException
@@ -632,6 +635,54 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     {
         File targ = new File("RegionBoundData.csv");
         config.RegionData.importFrom(targ);
+    }
+
+    void LoadTaskData() throws IOException
+    {
+        TaskData TestTaskData = new TaskData();
+
+        TestTaskData.GUID = UUID.randomUUID();
+        TestTaskData.Locations.add(new WorldPoint(1754,3789,0));
+        TestTaskData.Difficulty = TaskDifficulty.EASY;
+        config.TaskData.LeaguesTaskList.put(TestTaskData.GUID, TestTaskData);
+
+        TaskData TestTaskData2 = new TaskData();
+
+        TestTaskData2.GUID = UUID.randomUUID();
+        TestTaskData2.Locations.add(new WorldPoint(1754,3769,0));
+        TestTaskData2.Locations.add(new WorldPoint(1754,3759,0));
+        TestTaskData2.Difficulty = TaskDifficulty.MEDIUM;
+        config.TaskData.LeaguesTaskList.put(TestTaskData2.GUID, TestTaskData2);
+
+        TaskData TestTaskData3 = new TaskData();
+
+        TestTaskData3.GUID = UUID.randomUUID();
+        TestTaskData3.Locations.add(new WorldPoint(1754,3809,0));
+        TestTaskData3.Difficulty = TaskDifficulty.HARD;
+        config.TaskData.LeaguesTaskList.put(TestTaskData3.GUID, TestTaskData3);
+
+        TaskData TestTaskData4 = new TaskData();
+
+        TestTaskData4.GUID = UUID.randomUUID();
+        TestTaskData4.Locations.add(new WorldPoint(1774,3789,0));
+        TestTaskData4.Difficulty = TaskDifficulty.ELITE;
+        config.TaskData.LeaguesTaskList.put(TestTaskData4.GUID, TestTaskData4);
+
+        TaskData TestTaskData5 = new TaskData();
+
+        TestTaskData5.GUID = UUID.randomUUID();
+        TestTaskData5.Locations.add(new WorldPoint(1734,3789,0));
+        TestTaskData5.Difficulty = TaskDifficulty.MASTER;
+        config.TaskData.LeaguesTaskList.put(TestTaskData5.GUID, TestTaskData5);
+
+        TaskData TestTaskData6 = new TaskData();
+
+        TestTaskData6.GUID = UUID.randomUUID();
+        TestTaskData6.Locations.add(new WorldPoint(1616,10094,0));
+        TestTaskData6.Difficulty = TaskDifficulty.MASTER;
+        config.TaskData.LeaguesTaskList.put(TestTaskData6.GUID, TestTaskData6);
+
+        config.TaskData.CalculateAndCacheOverworldLocations();
     }
 
     private boolean GatherRegionBounds(WorldPointPolygon poly, ArrayList<RegionLine> regionLines, Set<UUID> VisitedPoints, LeagueRegionPoint nextPoint, LeagueRegionPoint parentPoint)
@@ -722,6 +773,13 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
 
         RefreshRegionBounds();
+        overlayManager.add(regionBoundOverlay);
+    }
+
+    public void ShutdownRegionData()
+    {
+        overlayManager.remove(regionBoundOverlay);
+        worldMapPointManager.removeIf(x -> x.getName() != null && x.getName().contains("LP:"));
     }
 
     public LeagueRegionBounds GetRegionBounds(RegionType Type)
@@ -737,6 +795,19 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         return null;
     }
 
+
+    public void InitializeTaskData() throws Exception
+    {
+        config.TaskData.LeaguesTaskList.clear();
+        LoadTaskData();
+
+        overlayManager.add(taskOverlay);
+    }
+
+    public void ShutdownTaskData()
+    {
+        overlayManager.add(taskOverlay);
+    }
 
     public WorldPoint LastDisplayedWorldPoint;
 

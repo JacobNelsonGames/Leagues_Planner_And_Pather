@@ -32,7 +32,7 @@ public class WorldPointPolygon
         WorldPoints.add(newWorldPoint);
     }
 
-    public Polygon ConvertToGraphicsPolygon(WorldMapOverlay worldMapOverlay, Area worldMapClipArea)
+    public Polygon ConvertToGraphicsPolygon(WorldMapOverlay worldMapOverlay)
     {
         Polygon newPoly = new Polygon();
         boolean shouldDraw = true;

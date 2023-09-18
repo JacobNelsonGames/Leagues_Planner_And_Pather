@@ -112,7 +112,7 @@ public class Pathfinder implements Runnable {
 
         int bestDistance = Integer.MAX_VALUE;
         long bestHeuristic = Integer.MAX_VALUE;
-        long cutoffDurationMillis = config.getCalculationCutoffMillis();
+        long cutoffDurationMillis = 0;//config.getCalculationCutoffMillis();
         long cutoffTimeMillis = System.currentTimeMillis() + cutoffDurationMillis;
 
         while (!cancelled && (!boundary.isEmpty() || !pending.isEmpty())) {

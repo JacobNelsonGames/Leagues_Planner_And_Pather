@@ -44,7 +44,7 @@ public class PathfinderTest {
 
     @Before
     public void before() {
-        when(config.calculationCutoff()).thenReturn(30);
+        when(5/* config.calculationCutoff()*/).thenReturn(30);
     }
 
     @Test
