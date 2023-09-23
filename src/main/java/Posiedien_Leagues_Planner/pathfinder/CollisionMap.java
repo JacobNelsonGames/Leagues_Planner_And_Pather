@@ -12,6 +12,7 @@ import net.runelite.api.coords.WorldPoint;
 public class CollisionMap {
 
     PathfinderConfig CachedConfig = null;
+    public boolean bJustFindingOverworld = false;
 
     // Enum.values() makes copies every time which hurts performance in the hotpath
     private static final OrdinalDirection[] ORDINAL_VALUES = OrdinalDirection.values();
@@ -28,7 +29,7 @@ public class CollisionMap {
 
     private boolean get(int x, int y, int z, int flag)
     {
-        return CachedConfig.config.RegionData.IsTileInUnlockedRegion(CachedConfig.config, new WorldPoint(x, y, z)) &&
+        return (bJustFindingOverworld || CachedConfig.config.RegionData.IsTileInUnlockedRegion(CachedConfig.config, new WorldPoint(x, y, z))) &&
                 collisionData.get(x, y, z, flag);
     }
 

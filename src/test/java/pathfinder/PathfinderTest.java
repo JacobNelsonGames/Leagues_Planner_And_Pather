@@ -156,7 +156,8 @@ public class PathfinderTest {
         Pathfinder pathfinder = new Pathfinder(
             pathfinderConfig,
             new WorldPoint(startX, startY, startZ),
-            new WorldPoint(endX, endY, endZ));
+            new WorldPoint(endX, endY, endZ),
+                false);
 
         pathfinder.run();
         return pathfinder.getPath().size();

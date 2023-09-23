@@ -2,10 +2,7 @@ package Posiedien_Leagues_Planner;
 
 import net.runelite.api.coords.WorldPoint;
 
-import java.util.ArrayList;
-
 import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 public class FullTaskData
@@ -13,7 +10,7 @@ public class FullTaskData
 
     HashMap<UUID, TaskData> LeaguesTaskList = new HashMap<UUID, TaskData>();
 
-    public void CalculateAndCacheOverworldLocations()
+    public void CalculateAndCacheOverworldLocations(PosiedienLeaguesPlannerPlugin posiedienLeaguesPlannerPlugin)
     {
         // Go through all of our points on our tasks
         for (HashMap.Entry<UUID, TaskData> entry : LeaguesTaskList.entrySet())
@@ -22,7 +19,16 @@ public class FullTaskData
             {
                 if (!IsOverworldLocation(NextLocation))
                 {
-
+                    posiedienLeaguesPlannerPlugin.restartPathfinding(NextLocation, new WorldPoint(3000,3000,0), true);
+                    while (posiedienLeaguesPlannerPlugin.getPathfinder() == null || !posiedienLeaguesPlannerPlugin.getPathfinder().isDone())
+                    {
+                        try {
+                            Thread.sleep(500);
+                        }
+                        catch (Exception e) {
+                        }
+                    }
+                    entry.getValue().OverworldLocations.add(posiedienLeaguesPlannerPlugin.getPathfinder().getPath().get(posiedienLeaguesPlannerPlugin.getPathfinder().getPath().size() - 1));
                 }
             }
         }
@@ -35,11 +41,7 @@ public class FullTaskData
         {
             if (testPoint.getX() > 1022 && testPoint.getX() < 3968)
             {
-                if (testPoint.getY() > 2494 && testPoint.getY() < 4160)
-
-                {
-                    return true;
-                }
+                return testPoint.getY() > 2494 && testPoint.getY() < 4160;
             }
         }
 

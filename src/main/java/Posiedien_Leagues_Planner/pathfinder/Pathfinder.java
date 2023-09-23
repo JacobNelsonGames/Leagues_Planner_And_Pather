@@ -37,16 +37,19 @@ public class Pathfinder implements Runnable {
     private List<WorldPoint> path = (List<WorldPoint>)Collections.EMPTY_LIST;
     private boolean pathNeedsUpdate = false;
     private Node bestLastNode;
+    private boolean bJustFindOverworld = false;
 
-    public Pathfinder(PathfinderConfig config, WorldPoint start, WorldPoint target) {
+    public Pathfinder(PathfinderConfig config, WorldPoint start, WorldPoint target, boolean bInJustFindOverworld) {
         stats = new PathfinderStats();
         this.config = config;
         this.map = config.getMap();
+        this.map.bJustFindingOverworld = bInJustFindOverworld;
         this.start = start;
         this.target = target;
         visited = new VisitedTiles(map);
         targetPacked = WorldPointUtil.packWorldPoint(target);
         targetInWilderness = PathfinderConfig.isInWilderness(target);
+        bJustFindOverworld = bInJustFindOverworld;
     }
 
     public boolean isDone() {
@@ -105,6 +108,19 @@ public class Pathfinder implements Runnable {
         return null;
     }
 
+    public boolean IsOverworldLocation(WorldPoint testPoint)
+    {
+        // Just hard code the overworld bounds
+        if (testPoint.getPlane() == 0)
+        {
+            if (testPoint.getX() > 1022 && testPoint.getX() < 3968)
+            {
+                return testPoint.getY() > 2494 && testPoint.getY() < 4160;
+            }
+        }
+
+        return false;
+    }
     @Override
     public void run() {
         stats.start();
@@ -148,8 +164,17 @@ public class Pathfinder implements Runnable {
             }
 
             // Check if target was found without processing the queue to find it
-            if ((p = addNeighbors(node)) != null) {
-                bestLastNode = p;
+            if ((p = addNeighbors(node)) != null
+                || (bJustFindOverworld && IsOverworldLocation(WorldPointUtil.unpackWorldPoint(node.packedPosition))))
+            {
+                if (p != null)
+                {
+                    bestLastNode = p;
+                }
+                else
+                {
+                    bestLastNode = node;
+                }
                 pathNeedsUpdate = true;
                 break;
             }

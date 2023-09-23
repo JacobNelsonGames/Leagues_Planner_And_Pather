@@ -60,8 +60,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private static final String CLEAR = "Clear";
     private static final String PATH = ColorUtil.wrapWithColorTag("Path", JagexColors.MENU_TARGET);
     private static final String SET = "Set";
-    private static final String START = ColorUtil.wrapWithColorTag("Start", JagexColors.MENU_TARGET);
-    private static final String TARGET = ColorUtil.wrapWithColorTag("Target", JagexColors.MENU_TARGET);
+    private static final String START = ColorUtil.wrapWithColorTag("Pathfinding Start", JagexColors.MENU_TARGET);
+    private static final String TARGET = ColorUtil.wrapWithColorTag("Pathfinding Target", JagexColors.MENU_TARGET);
     private static final String TRANSPORT = ColorUtil.wrapWithColorTag("Transport", JagexColors.MENU_TARGET);
     private static final String WALK_HERE = "Walk here";
     private static final BufferedImage MARKER_IMAGE = ImageUtil.loadImageResource(PosiedienLeaguesPlannerPlugin.class, "/marker.png");
@@ -126,9 +126,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Override
     protected void startUp() throws Exception
     {
-        InitializeRegionData();
-        InitializeTaskData();
-
         SplitFlagMap map = SplitFlagMap.fromResources();
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
 
@@ -142,6 +139,10 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         if (config.drawDebugPanel()) {
             overlayManager.add(debugOverlayPanel);
         }
+
+        InitializeRegionData();
+        InitializeTaskData();
+
     }
 
     @Override
@@ -163,7 +164,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
     }
 
-    public void restartPathfinding(WorldPoint start, WorldPoint end) {
+    public void restartPathfinding(WorldPoint start, WorldPoint end, boolean bJustFindOverworld) {
         synchronized (pathfinderMutex) {
             if (pathfinder != null) {
                 pathfinder.cancel();
@@ -179,7 +180,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         getClientThread().invokeLater(() -> {
             pathfinderConfig.refresh();
             synchronized (pathfinderMutex) {
-                pathfinder = new Pathfinder(pathfinderConfig, start, end);
+                pathfinder = new Pathfinder(pathfinderConfig, start, end, bJustFindOverworld);
                 pathfinderFuture = pathfindingExecutor.submit(pathfinder);
             }
         });
@@ -241,7 +242,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         // Transport option changed; rerun pathfinding
         if (TRANSPORT_OPTIONS_REGEX.matcher(event.getKey()).find()) {
             if (pathfinder != null) {
-                restartPathfinding(pathfinder.getStart(), pathfinder.getTarget());
+                restartPathfinding(pathfinder.getStart(), pathfinder.getTarget(), false);
             }
         }
     }
@@ -285,7 +286,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 setTarget(null);
                 return;
             }
-            restartPathfinding(currentLocation, pathfinder.getTarget());
+            restartPathfinding(currentLocation, pathfinder.getTarget(), false);
         }
     }
 
@@ -440,7 +441,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             if (startPointSet && pathfinder != null) {
                 start = pathfinder.getStart();
             }
-            restartPathfinding(start, target);
+            restartPathfinding(start, target, false);
         }
     }
 
@@ -449,7 +450,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             return;
         }
         startPointSet = true;
-        restartPathfinding(start, pathfinder.getTarget());
+        restartPathfinding(start, pathfinder.getTarget(), false);
     }
 
     public WorldPoint calculateMapPoint(Point point)
@@ -644,6 +645,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TestTaskData.GUID = UUID.randomUUID();
         TestTaskData.Locations.add(new WorldPoint(1754,3789,0));
         TestTaskData.Difficulty = TaskDifficulty.EASY;
+        TestTaskData.TaskName = "Test Task 1";
         config.TaskData.LeaguesTaskList.put(TestTaskData.GUID, TestTaskData);
 
         TaskData TestTaskData2 = new TaskData();
@@ -652,6 +654,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TestTaskData2.Locations.add(new WorldPoint(1754,3769,0));
         TestTaskData2.Locations.add(new WorldPoint(1754,3759,0));
         TestTaskData2.Difficulty = TaskDifficulty.MEDIUM;
+        TestTaskData2.TaskName = "Test Task 2";
         config.TaskData.LeaguesTaskList.put(TestTaskData2.GUID, TestTaskData2);
 
         TaskData TestTaskData3 = new TaskData();
@@ -659,6 +662,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TestTaskData3.GUID = UUID.randomUUID();
         TestTaskData3.Locations.add(new WorldPoint(1754,3809,0));
         TestTaskData3.Difficulty = TaskDifficulty.HARD;
+        TestTaskData3.TaskName = "Test Task 3";
         config.TaskData.LeaguesTaskList.put(TestTaskData3.GUID, TestTaskData3);
 
         TaskData TestTaskData4 = new TaskData();
@@ -666,6 +670,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TestTaskData4.GUID = UUID.randomUUID();
         TestTaskData4.Locations.add(new WorldPoint(1774,3789,0));
         TestTaskData4.Difficulty = TaskDifficulty.ELITE;
+        TestTaskData4.TaskName = "Test Task 4";
         config.TaskData.LeaguesTaskList.put(TestTaskData4.GUID, TestTaskData4);
 
         TaskData TestTaskData5 = new TaskData();
@@ -673,16 +678,18 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TestTaskData5.GUID = UUID.randomUUID();
         TestTaskData5.Locations.add(new WorldPoint(1734,3789,0));
         TestTaskData5.Difficulty = TaskDifficulty.MASTER;
+        TestTaskData5.TaskName = "Test Task 5";
         config.TaskData.LeaguesTaskList.put(TestTaskData5.GUID, TestTaskData5);
 
         TaskData TestTaskData6 = new TaskData();
 
         TestTaskData6.GUID = UUID.randomUUID();
-        TestTaskData6.Locations.add(new WorldPoint(1616,10094,0));
+        TestTaskData6.Locations.add(new WorldPoint(2516,10255,0));
         TestTaskData6.Difficulty = TaskDifficulty.MASTER;
+        TestTaskData6.TaskName = "Test Task 6";
         config.TaskData.LeaguesTaskList.put(TestTaskData6.GUID, TestTaskData6);
 
-        config.TaskData.CalculateAndCacheOverworldLocations();
+        config.TaskData.CalculateAndCacheOverworldLocations(this);
     }
 
     private boolean GatherRegionBounds(WorldPointPolygon poly, ArrayList<RegionLine> regionLines, Set<UUID> VisitedPoints, LeagueRegionPoint nextPoint, LeagueRegionPoint parentPoint)
@@ -1117,6 +1124,26 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             CurrentFocusedPoint = null;
         }
 
+        // How many tasks are we colliding with?
+        if (taskOverlay != null)
+        {
+            ArrayList<TaskDisplayPoint> ClickedPoints = taskOverlay.GetClickedDisplayPoint(getSelectedWorldPoint());
+
+            for (TaskDisplayPoint CurrentDisplayPoint : ClickedPoints)
+            {
+                for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
+                {
+                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+
+                    MenuEntry taskMenu = client.createMenuEntry(-1);
+                    taskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, Color.CYAN));
+                    taskMenu.setOption("Active:");
+                    taskMenu.setType(MenuAction.RUNELITE);
+                    entries.add(0, taskMenu);
+                }
+            }
+        }
+
         String nextOption = null;
         if (config.GetEditRegion() != RegionType.NONE)
         {
@@ -1177,16 +1204,20 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             }
         }
 
-        if (config.GetEditRegion() == RegionType.NONE)
+        // Debug helper
+        if (0 == 1)
         {
-            nextOption = "Map Coordinate: " + LastDisplayedWorldPoint;
-            String finalNextOption = nextOption;
-            if (entries.stream().noneMatch(e -> e.getOption().equals(finalNextOption)))
+            if (config.GetEditRegion() == RegionType.NONE)
             {
-                MenuEntry MapCoordEntry = client.createMenuEntry(-1);
-                MapCoordEntry.setOption(nextOption);
-                MapCoordEntry.setType(MenuAction.RUNELITE);
-                entries.add(0, MapCoordEntry);
+                nextOption = "Map Coordinate: " + LastDisplayedWorldPoint;
+                String finalNextOption = nextOption;
+                if (entries.stream().noneMatch(e -> e.getOption().equals(finalNextOption)))
+                {
+                    MenuEntry MapCoordEntry = client.createMenuEntry(-1);
+                    MapCoordEntry.setOption(nextOption);
+                    MapCoordEntry.setType(MenuAction.RUNELITE);
+                    entries.add(0, MapCoordEntry);
+                }
             }
         }
 

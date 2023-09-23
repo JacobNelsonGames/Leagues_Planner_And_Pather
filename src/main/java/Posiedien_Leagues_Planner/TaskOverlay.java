@@ -36,6 +36,34 @@ public class TaskOverlay extends Overlay
 
     float CachedZoomLevel = -100.0f;
 
+    public ArrayList<TaskDisplayPoint> GetClickedDisplayPoint(WorldPoint ClickedPoint)
+    {
+        ArrayList<TaskDisplayPoint> OutDisplayPointsClicked = new ArrayList<>();
+        Point ClickedGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(ClickedPoint);
+        for (TaskDisplayPoint CurrentDisplayPoint : CachedTaskDisplayPoints)
+        {
+            Point DisplayGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(CurrentDisplayPoint.MapDisplayPoint);
+            if (DisplayGraphicsPoint == null)
+            {
+                continue;
+            }
+            int TaskIconSize = config.TaskMapIconSize();
+
+            if (config.ScaleTaskMapIconBasedOnCount())
+            {
+                TaskIconSize += (int) (config.TaskMapIconSize() * CurrentDisplayPoint.Tasks.size() * (1.0f / config.ScaleTaskMapIconBasedOnCountInvRate()));
+            }
+
+            if (ClickedGraphicsPoint.distanceTo(DisplayGraphicsPoint) < TaskIconSize)
+            {
+                OutDisplayPointsClicked.add(CurrentDisplayPoint);
+            }
+
+        }
+
+        return OutDisplayPointsClicked;
+    }
+
     private Area ObtainWorldMapClipArea(Rectangle baseRectangle)
     {
         final Widget overview = client.getWidget(WidgetInfo.WORLD_MAP_OVERVIEW_MAP);
@@ -216,12 +244,6 @@ public class TaskOverlay extends Overlay
             ArrayList<BufferedImage> ImageModifiers = new ArrayList<>();
             HashSet<TaskDifficulty> DisplayPointDifficulties = new HashSet<>();
 
-            // Dungeon icon is always first
-            if (!CurrentDisplayPoint.DungeonTasks.isEmpty())
-            {
-                ImageModifiers.add(BLANK_IMAGE);
-            }
-
             // Fill our image modifiers based on the tasks we represent
             for (UUID CurrentTaskID : CurrentDisplayPoint.Tasks)
             {
@@ -271,34 +293,12 @@ public class TaskOverlay extends Overlay
             // Dungeon icon
             if (!CurrentDisplayPoint.DungeonTasks.isEmpty())
             {
-                String DungeonWorldPointCountSize = String.valueOf(CurrentDisplayPoint.DungeonTasks.size());
-                if (CurrentDisplayPoint.DungeonTasks.size() > 9)
-                {
-                    DungeonWorldPointCountSize = "9+";
-                }
-
-                int DungeonIconCharacterSize = DungeonWorldPointCountSize.length();
-
-                int DungeonIconTextOffsetX = TaskIconModifierSize * 2 - TaskIconModifierSize / 4;
-                int DungeonIconTextOffsetY = TaskIconModifierSize * 2 - TaskIconModifierSize / 3;
-
-                Font dungeonIconFont = new FontUIResource("DungeonTaskCountFont", Font.BOLD, TaskIconModifierSize);
-                graphics.setFont(dungeonIconFont);
-                graphics.setColor(dungeonIconFontColor);
-
                 graphics.drawImage(DUNGEON_IMAGE,
-                        GraphicsPoint.getX() - 2 * TaskIconModifierSize + (int)(TaskIconModifierSize * 0.5f),
-                        GraphicsPoint.getY() - TaskIconSize + TaskIconModifierSize / 2 + (int)(TaskIconModifierSize * 0.5f),
-                        (int)(TaskIconModifierSize * 0.75f),
-                        (int)(TaskIconModifierSize * 0.75f),
+                        GraphicsPoint.getX(),
+                        GraphicsPoint.getY(),
+                        (int)(TaskIconModifierSize * 2.0f),
+                        (int)(TaskIconModifierSize * 2.0f),
                         null);
-
-                graphics.drawChars(DungeonWorldPointCountSize.toCharArray(),
-                        0,
-                        DungeonIconCharacterSize,
-                        GraphicsPoint.getX() - DungeonIconTextOffsetX,
-                        GraphicsPoint.getY() - DungeonIconTextOffsetY);
-
             }
 
             Font taskIconFont = new FontUIResource("TaskCountFont", Font.BOLD, TaskIconSizeHalf);

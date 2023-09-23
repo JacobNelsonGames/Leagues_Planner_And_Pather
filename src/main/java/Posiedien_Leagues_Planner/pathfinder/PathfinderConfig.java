@@ -74,25 +74,50 @@ public class PathfinderConfig {
 
     public void refresh() {
         //calculationCutoffMillis = config.calculationCutoff() * Constants.GAME_TICK_LENGTH;
-        avoidWilderness = config.avoidWilderness();
-        useAgilityShortcuts = config.useAgilityShortcuts();
-        useGrappleShortcuts = config.useGrappleShortcuts();
-        useBoats = config.useBoats();
-        useCanoes = config.useCanoes();
-        useCharterShips = config.useCharterShips();
-        useShips = config.useShips();
-        useFairyRings = config.useFairyRings();
-        useSpiritTrees = config.useSpiritTrees();
-        useGnomeGliders = config.useGnomeGliders();
-        useTeleportationLevers = config.useTeleportationLevers();
-        useTeleportationPortals = config.useTeleportationPortals();
+        if (GameState.LOGGED_IN.equals(client.getGameState()))
+        {
+            avoidWilderness = config.avoidWilderness();
+            useAgilityShortcuts = config.useAgilityShortcuts();
+            useGrappleShortcuts = config.useGrappleShortcuts();
+            useBoats = config.useBoats();
+            useCanoes = config.useCanoes();
+            useCharterShips = config.useCharterShips();
+            useShips = config.useShips();
+            useFairyRings = config.useFairyRings();
+            useSpiritTrees = config.useSpiritTrees();
+            useGnomeGliders = config.useGnomeGliders();
+            useTeleportationLevers = config.useTeleportationLevers();
+            useTeleportationPortals = config.useTeleportationPortals();
 
-        if (GameState.LOGGED_IN.equals(client.getGameState())) {
             agilityLevel = client.getBoostedSkillLevel(Skill.AGILITY);
             rangedLevel = client.getBoostedSkillLevel(Skill.RANGED);
             strengthLevel = client.getBoostedSkillLevel(Skill.STRENGTH);
             prayerLevel = client.getBoostedSkillLevel(Skill.PRAYER);
             woodcuttingLevel = client.getBoostedSkillLevel(Skill.WOODCUTTING);
+
+            refreshTransportData();
+        }
+        // Not logged in
+        else
+        {
+            avoidWilderness = false;
+            useAgilityShortcuts = true;
+            useGrappleShortcuts = true;
+            useBoats = true;
+            useCanoes = true;
+            useCharterShips = true;
+            useShips = true;
+            useFairyRings = false;
+            useSpiritTrees = false;
+            useGnomeGliders = false;
+            useTeleportationLevers = false;
+            useTeleportationPortals = false;
+
+            agilityLevel = 99;
+            rangedLevel = 99;
+            strengthLevel = 99;
+            prayerLevel = 99;
+            woodcuttingLevel = 99;
 
             refreshTransportData();
         }
