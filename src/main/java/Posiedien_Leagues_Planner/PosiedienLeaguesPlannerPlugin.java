@@ -126,6 +126,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Override
     protected void startUp() throws Exception
     {
+        taskOverlay = new TaskOverlay(client, this, config);
+
         SplitFlagMap map = SplitFlagMap.fromResources();
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
 
@@ -148,6 +150,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Override
     protected void shutDown() throws IOException
     {
+        taskOverlay = null;
+
         SaveRegionBounds();
         ShutdownRegionData();
         ShutdownTaskData();
@@ -397,7 +401,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
     }
 
-    private WorldPoint getSelectedWorldPoint() {
+    public WorldPoint getSelectedWorldPoint() {
         if (client.getWidget(WidgetInfo.WORLD_MAP_VIEW) == null) {
             if (client.getSelectedSceneTile() != null) {
                 return client.isInInstancedRegion() ?
@@ -622,7 +626,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     public RegionBoundOverlay regionBoundOverlay = new RegionBoundOverlay(client, this, config);
 
     @Inject
-    public TaskOverlay taskOverlay = new TaskOverlay(client, this, config);
+    public TaskOverlay taskOverlay = null;
 
     public LeagueRegionPoint CurrentFocusedPoint;
 
@@ -813,7 +817,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     public void ShutdownTaskData()
     {
-        overlayManager.add(taskOverlay);
+        overlayManager.remove(taskOverlay);
     }
 
     public WorldPoint LastDisplayedWorldPoint;
@@ -1012,6 +1016,20 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         RefreshRegionBounds();
     };
 
+    HashMap<Integer, UUID> HashCodeToHash = new HashMap<>();
+
+    private final Consumer<MenuEntry> FocusOnTaskLocation = n ->
+    {
+        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+
+        if (!CurrentTask.Locations.isEmpty())
+        {
+            client.getWorldMap().setWorldMapPositionTarget(CurrentTask.Locations.get(0));
+        }
+
+    };
+
     private final Consumer<MenuEntry> SetActiveRegionPointEntryCallback = n ->
     {
         SetMarkerActivation(LastClickedRegionPoint, true);
@@ -1127,6 +1145,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         // How many tasks are we colliding with?
         if (taskOverlay != null)
         {
+            HashCodeToHash.clear();
             ArrayList<TaskDisplayPoint> ClickedPoints = taskOverlay.GetClickedDisplayPoint(getSelectedWorldPoint());
 
             for (TaskDisplayPoint CurrentDisplayPoint : ClickedPoints)
@@ -1136,9 +1155,13 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                     TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
 
                     MenuEntry taskMenu = client.createMenuEntry(-1);
-                    taskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, Color.CYAN));
-                    taskMenu.setOption("Active:");
+                    taskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, Color.YELLOW));
+                    taskMenu.setOption("Focus on");
+                    taskMenu.onClick(this.FocusOnTaskLocation);
                     taskMenu.setType(MenuAction.RUNELITE);
+                    taskMenu.setParam0(TaskGUID.hashCode());
+                    HashCodeToHash.put(TaskGUID.hashCode(), TaskGUID);
+
                     entries.add(0, taskMenu);
                 }
             }
