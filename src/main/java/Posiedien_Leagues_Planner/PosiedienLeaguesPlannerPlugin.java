@@ -68,6 +68,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private static final String WALK_HERE = "Walk here";
     private static final BufferedImage MARKER_IMAGE = ImageUtil.loadImageResource(PosiedienLeaguesPlannerPlugin.class, "/marker.png");
     private static final BufferedImage TASK_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/TaskIcon.png");
+    public boolean enableAutoRecalculate = false;
 
     @Inject
     private Client client;

@@ -14,10 +14,11 @@ public class LeaguesPlannerPanel extends PluginPanel
     private final PosiedienLeaguesPlannerPlugin plugin;
 
     private JPanel TaskList = new JPanel();
+    JButton autostartButton = new JButton();
 
-    private static final BufferedImage START_ICON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/TaskIcon.png");
-    private static final BufferedImage UNCHECKED_ICON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/unchecked.png");
-    private static final BufferedImage CHECKED_ICON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/checked.png");
+    private static final ImageIcon START_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/start.png"));
+    private static final ImageIcon UNCHECKED_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/unchecked.png"));
+    private static final ImageIcon CHECKED_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/checked.png"));
 
     public LeaguesPlannerPanel(PosiedienLeaguesPlannerPlugin plugin)
     {
@@ -71,16 +72,16 @@ public class LeaguesPlannerPanel extends PluginPanel
         reloadbutton.setLayout(new BorderLayout(0, BORDER_OFFSET));
         reloadbutton.addActionListener(e ->
         {
-            questHelperPlugin.CurrentStepSelected = null;
-            if (questHelperPlugin.getSelectedQuest() != null)
+            /*plugin.CurrentStepSelected = null;
+            if (plugin.getSelectedQuest() != null)
             {
-                questHelperPlugin.getSelectedQuest().setCurrentStep(questHelperPlugin.OldStepSelected);
+                plugin.getSelectedQuest().setCurrentStep(questHelperPlugin.OldStepSelected);
             }
 
-            questHelperPlugin.startUpQuest(null);
-            questHelperPlugin.recreateActions();
-            questHelperPlugin.loadQuestList = true;
-            questHelperPlugin.MarkUIAndActionRefresh(true, true);
+            plugin.startUpQuest(null);
+            plugin.recreateActions();
+            plugin.loadQuestList = true;
+            plugin.MarkUIAndActionRefresh(true, true);*/
         });
         reloadActionsPanel.add(reloadbutton, BorderLayout.EAST);
 
@@ -101,9 +102,9 @@ public class LeaguesPlannerPanel extends PluginPanel
         startButton.setLayout(new BorderLayout(0, BORDER_OFFSET));
         startButton.addActionListener(e ->
         {
-            questHelperPlugin.loadQuestList = true;
-            questHelperPlugin.updateShortestPath();
-            questHelperPlugin.MarkUIAndActionRefresh(true, true);
+            /*plugin.loadQuestList = true;
+            plugin.updateShortestPath();
+            plugin.MarkUIAndActionRefresh(true, true);*/
         });
         recalculatePanel.add(startButton, BorderLayout.EAST);
 
@@ -118,7 +119,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         autoRecaculateLabel.setForeground(Color.WHITE);
         autoRecalculatePanel.add(autoRecaculateLabel, BorderLayout.WEST);
 
-        if (questHelperPlugin.enableAutoRecalculate)
+        if (plugin.enableAutoRecalculate)
         {
             autostartButton.setIcon(CHECKED_ICON);
         }
@@ -131,11 +132,13 @@ public class LeaguesPlannerPanel extends PluginPanel
         autostartButton.setLayout(new BorderLayout(0, BORDER_OFFSET));
         autostartButton.addActionListener(e ->
         {
-            questHelperPlugin.enableAutoRecalculate = !questHelperPlugin.enableAutoRecalculate;
-            questHelperPlugin.MarkUIAndActionRefresh(false, true);
-            questHelperPlugin.refreshPanels = true;
+            /*
+            plugin.enableAutoRecalculate = !questHelperPlugin.enableAutoRecalculate;
+            plugin.MarkUIAndActionRefresh(false, true);
+            plugin.refreshPanels = true;
+             */
 
-            if (questHelperPlugin.enableAutoRecalculate)
+            if (plugin.enableAutoRecalculate)
             {
                 autostartButton.setIcon(CHECKED_ICON);
             }
