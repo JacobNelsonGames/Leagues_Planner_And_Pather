@@ -27,8 +27,8 @@ public class TaskOverlay extends Overlay
     private final Client client;
     private final PosiedienLeaguesPlannerPlugin plugin;
     private final LeaguesPlannerConfig config;
-    @Inject
-    private WorldMapOverlay worldMapOverlay;
+
+    public WorldMapOverlay worldMapOverlay;
 
     private Area WorldMapClipArea;
 
@@ -191,6 +191,10 @@ public class TaskOverlay extends Overlay
 
     private static final BufferedImage HIGHLIGHTED_TASK_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HighlightedTaskIcon.png");
 
+    private static final BufferedImage TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/TaskIconDungeon.png");
+
+    private static final BufferedImage HIGHLIGHTED_TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HighlightedTaskIconDungeon.png");
+
     private static final BufferedImage EASY_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Easy.png");
     private static final BufferedImage MEDIUM_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Medium.png");
     private static final BufferedImage HARD_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Hard.png");
@@ -233,7 +237,6 @@ public class TaskOverlay extends Overlay
         // Go through all of our display points and render on our map
         Color taskIconFontColor = new Color(31, 58, 70,255);
 
-        Color highlightnamecolor = new Color(52, 255, 227,255);
         Color highlightnamecolor2 = new Color(0, 0, 0,255);
 
         for (TaskDisplayPoint CurrentDisplayPoint : CachedTaskDisplayPoints)
@@ -279,11 +282,25 @@ public class TaskOverlay extends Overlay
             Point HighlightGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(plugin.getSelectedWorldPoint());
             if (HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize)
             {
-                graphics.drawImage(HIGHLIGHTED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                if (CurrentDisplayPoint.Tasks.size() == CurrentDisplayPoint.DungeonTasks.size())
+                {
+                    graphics.drawImage(HIGHLIGHTED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                }
+                else
+                {
+                    graphics.drawImage(HIGHLIGHTED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                }
             }
             else
             {
-                graphics.drawImage(TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                if (CurrentDisplayPoint.Tasks.size() == CurrentDisplayPoint.DungeonTasks.size())
+                {
+                    graphics.drawImage(TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                }
+                else
+                {
+                    graphics.drawImage(TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                }
             }
 
             int TaskIconModifierSize = TaskIconSize / 3;
@@ -345,12 +362,13 @@ public class TaskOverlay extends Overlay
                 }
                 Font taskhighlightFont = new FontUIResource("taskhighlightFont", Font.BOLD, 15);
                 graphics.setFont(taskhighlightFont);
-                graphics.setColor(highlightnamecolor);
 
                 int TaskNum = 0;
                 for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
                 {
                     TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+
+                    graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
                     graphics.drawChars(CurrentTask.TaskName.toCharArray(),
                             0,
                             CurrentTask.TaskName.length(),

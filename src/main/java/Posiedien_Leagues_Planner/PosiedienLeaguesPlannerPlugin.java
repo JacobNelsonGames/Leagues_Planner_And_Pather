@@ -127,6 +127,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     protected void startUp() throws Exception
     {
         taskOverlay = new TaskOverlay(client, this, config);
+        taskOverlay.worldMapOverlay = worldMapOverlay;
 
         SplitFlagMap map = SplitFlagMap.fromResources();
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
@@ -150,8 +151,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Override
     protected void shutDown() throws IOException
     {
-        taskOverlay = null;
-
         SaveRegionBounds();
         ShutdownRegionData();
         ShutdownTaskData();
@@ -166,6 +165,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             pathfindingExecutor.shutdownNow();
             pathfindingExecutor = null;
         }
+
+        taskOverlay = null;
     }
 
     public void restartPathfinding(WorldPoint start, WorldPoint end, boolean bJustFindOverworld) {
@@ -1155,7 +1156,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                     TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
 
                     MenuEntry taskMenu = client.createMenuEntry(-1);
-                    taskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, Color.YELLOW));
+                    taskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
                     taskMenu.setOption("Focus on");
                     taskMenu.onClick(this.FocusOnTaskLocation);
                     taskMenu.setType(MenuAction.RUNELITE);
