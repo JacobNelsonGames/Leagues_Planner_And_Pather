@@ -15,6 +15,7 @@ public class TaskData
     String TaskName = "";
 
     String TaskDescription = "";
+
     ArrayList<RegionType> Regions = new ArrayList<>();
 
     ArrayList<WorldPoint> Locations = new ArrayList<>();

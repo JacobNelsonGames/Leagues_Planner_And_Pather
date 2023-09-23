@@ -8,6 +8,7 @@ import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 import net.runelite.client.config.Range;
 import net.runelite.client.config.Units;
+import net.runelite.client.ui.PluginPanel;
 
 @ConfigGroup(PosiedienLeaguesPlannerPlugin.CONFIG_GROUP)
 public interface LeaguesPlannerConfig extends Config

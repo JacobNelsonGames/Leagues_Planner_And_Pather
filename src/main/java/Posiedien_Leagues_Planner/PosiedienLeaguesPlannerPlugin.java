@@ -35,7 +35,9 @@ import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.JagexColors;
+import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.worldmap.WorldMapOverlay;
 import net.runelite.client.ui.overlay.worldmap.WorldMapPoint;
@@ -65,6 +67,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private static final String TRANSPORT = ColorUtil.wrapWithColorTag("Transport", JagexColors.MENU_TARGET);
     private static final String WALK_HERE = "Walk here";
     private static final BufferedImage MARKER_IMAGE = ImageUtil.loadImageResource(PosiedienLeaguesPlannerPlugin.class, "/marker.png");
+    private static final BufferedImage TASK_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/TaskIcon.png");
 
     @Inject
     private Client client;
@@ -98,6 +101,9 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private SpriteManager spriteManager;
 
     @Inject
+    private ClientToolbar clientToolbar;
+
+    @Inject
     private WorldMapPointManager worldMapPointManager;
 
     @Inject
@@ -123,6 +129,9 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Getter
     private boolean startPointSet = false;
 
+    public LeaguesPlannerPanel panel;
+    public NavigationButton navButton;
+
     @Override
     protected void startUp() throws Exception
     {
@@ -146,6 +155,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         InitializeRegionData();
         InitializeTaskData();
 
+        panel = new LeaguesPlannerPanel(this);
+        navButton = NavigationButton.builder()
+                .tooltip("Posiedien's Leagues Planner")
+                .icon(TASK_IMAGE)
+                .priority(7)
+                .panel(panel)
+                .build();
+        clientToolbar.addNavigation(navButton);
+
     }
 
     @Override
@@ -165,8 +183,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             pathfindingExecutor.shutdownNow();
             pathfindingExecutor = null;
         }
+        clientToolbar.removeNavigation(navButton);
 
         taskOverlay = null;
+        panel = null;
+        navButton = null;
     }
 
     public void restartPathfinding(WorldPoint start, WorldPoint end, boolean bJustFindOverworld) {
