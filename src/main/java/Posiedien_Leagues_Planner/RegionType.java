@@ -45,7 +45,7 @@ public enum RegionType
         return false;
     }
 
-    static public Color GetRegionColor(LeaguesPlannerConfig config, RegionType Type)
+    static public Color GetRegionColor(LeaguesPlannerConfig config, RegionType Type, boolean bConsiderUnlocked)
     {
         Color OutColor = Color.WHITE;
 
@@ -84,7 +84,7 @@ public enum RegionType
         }
 
         int DebugColorAlpha = 0;
-        if (!GetRegionUnlocked(config, Type))
+        if (bConsiderUnlocked && !GetRegionUnlocked(config, Type))
         {
             OutColor = new Color(42, 42, 42,100);
             DebugColorAlpha = Math.max(0, Math.min(config.DebugColorDisabledAlpha(), 255));

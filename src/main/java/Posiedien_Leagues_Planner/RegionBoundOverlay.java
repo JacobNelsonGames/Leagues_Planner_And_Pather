@@ -72,7 +72,7 @@ public class RegionBoundOverlay extends Overlay
         // Display a line for all of our connections
         for (LeagueRegionBounds regionDatum : config.RegionData.RegionData)
         {
-            Color DrawColor = RegionType.GetRegionColor(config, regionDatum.Type);
+            Color DrawColor = RegionType.GetRegionColor(config, regionDatum.Type, true);
             graphics.setColor(DrawColor);
 
             if (config.GetEditRegion() != RegionType.NONE)

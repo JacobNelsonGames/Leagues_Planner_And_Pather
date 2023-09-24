@@ -1,6 +1,5 @@
 package Posiedien_Leagues_Planner;
 
-import com.google.common.graph.Graph;
 import net.runelite.api.Client;
 import net.runelite.api.Point;
 import net.runelite.api.coords.WorldPoint;
@@ -13,7 +12,6 @@ import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.worldmap.WorldMapOverlay;
 import net.runelite.client.util.ImageUtil;
-import org.apache.commons.lang3.tuple.Pair;
 
 import javax.inject.Inject;
 import javax.swing.plaf.FontUIResource;
@@ -146,29 +144,86 @@ public class TaskOverlay extends Overlay
         CachedTaskDisplayPoints.add(NewDisplayPoint);
     }
 
+    public TaskDifficulty DiffFilter = TaskDifficulty.NONE;
+    public OtherFilter OthFilter = OtherFilter.NONE;
+
+    public HashSet<RegionType> RegionsUnlocked = new HashSet<>();
+
+    public HashSet<RegionType> TempRegionsUnlocked = new HashSet<>();
+
     private void CacheDisplayPointsIfDirty()
     {
         WorldMap worldMap = client.getWorldMap();
         float zoom = worldMap.getWorldMapZoom();
-        if (zoom != CachedZoomLevel)
+
+        TempRegionsUnlocked.clear();
+        for (RegionType CurrentRegion : RegionType.values())
+        {
+            if (RegionType.GetRegionUnlocked(config, CurrentRegion))
+            {
+                TempRegionsUnlocked.add(CurrentRegion);
+            }
+        }
+
+        if (zoom != CachedZoomLevel ||
+                DiffFilter != config.FilteredDifficulty() ||
+                OthFilter != config.FilteredOther() ||
+                !RegionsUnlocked.containsAll(TempRegionsUnlocked) ||
+                !TempRegionsUnlocked.containsAll(RegionsUnlocked) )
         {
             CachedZoomLevel = zoom;
+            DiffFilter = config.FilteredDifficulty();
+            OthFilter = config.FilteredOther();
+            RegionsUnlocked.clear();
+            RegionsUnlocked.addAll(TempRegionsUnlocked);
 
             // Go through all of our tasks and figure out our display points for rendering
             CachedTaskDisplayPoints.clear();
 
             for (Map.Entry<UUID, TaskData> CurrentTaskPair : config.TaskData.LeaguesTaskList.entrySet())
             {
+                // Skip due to some filter
+                if (DiffFilter != TaskDifficulty.NONE && DiffFilter != CurrentTaskPair.getValue().Difficulty)
+                {
+                    continue;
+                }
+
+                // TODO IMPLEMENT OTHER FILTER
+                if (OthFilter != OtherFilter.NONE)
+                {
+                    continue;
+                }
+
+                boolean bSkipTask = false;
+                for (RegionType ReqRegion : CurrentTaskPair.getValue().Regions)
+                {
+                    if (!RegionType.GetRegionUnlocked(config, ReqRegion))
+                    {
+                        bSkipTask = true;
+                        break;
+                    }
+                }
+                if (bSkipTask)
+                {
+                    continue;
+                }
+
                 // Go through all the task locations
                 for (WorldPoint TaskWorldPoint : CurrentTaskPair.getValue().Locations)
                 {
-                    AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), TaskWorldPoint, false);
+                    if (config.RegionData.IsTileInUnlockedRegion(config, TaskWorldPoint))
+                    {
+                        AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), TaskWorldPoint, false);
+                    }
                 }
 
                 // Go through all the task overworld location
                 for (WorldPoint TaskOverworldWorldPoint : CurrentTaskPair.getValue().OverworldLocations)
                 {
-                    AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), TaskOverworldWorldPoint, true);
+                    if (config.RegionData.IsTileInUnlockedRegion(config, TaskOverworldWorldPoint))
+                    {
+                        AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), TaskOverworldWorldPoint, true);
+                    }
                 }
             }
 
@@ -279,7 +334,16 @@ public class TaskOverlay extends Overlay
 
             int TaskCharacterSize = TaskWorldPointCountSize.length();
 
-            Point HighlightGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(plugin.getSelectedWorldPoint());
+            Point HighlightGraphicsPoint = new Point(0,0);
+            if (plugin.getSelectedWorldPoint() != null)
+            {
+                HighlightGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(plugin.getSelectedWorldPoint());
+                if (HighlightGraphicsPoint == null)
+                {
+                    HighlightGraphicsPoint = new Point(0,0);
+                }
+            }
+
             if (HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize)
             {
                 if (CurrentDisplayPoint.Tasks.size() == CurrentDisplayPoint.DungeonTasks.size())

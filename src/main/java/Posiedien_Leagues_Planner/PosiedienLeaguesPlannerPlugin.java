@@ -71,14 +71,19 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     public boolean enableAutoRecalculate = false;
 
     @Inject
-    private Client client;
+    public Client client;
+
+    @Getter
+    @Inject
+    ConfigManager configManager;
+
 
     @Getter
     @Inject
     private ClientThread clientThread;
 
     @Inject
-    private LeaguesPlannerConfig config;
+    public LeaguesPlannerConfig config;
 
     @Inject
     private OverlayManager overlayManager;
@@ -126,7 +131,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private final Object pathfinderMutex = new Object();
     @Getter
     private Pathfinder pathfinder;
-    private PathfinderConfig pathfinderConfig;
+    public PathfinderConfig pathfinderConfig;
     @Getter
     private boolean startPointSet = false;
 
@@ -164,7 +169,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 .panel(panel)
                 .build();
         clientToolbar.addNavigation(navButton);
-
+        panel.refresh();
     }
 
     @Override
@@ -760,7 +765,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         Set<UUID> VisitedPoints = new HashSet<>();
         for (LeagueRegionBounds regionDatum : config.RegionData.RegionData)
         {
-            Color DrawColor = RegionType.GetRegionColor(config, regionDatum.Type);
+            Color DrawColor = RegionType.GetRegionColor(config, regionDatum.Type, true);
             regionDatum.RegionPolygons.clear();
             regionDatum.RegionLines.clear();
 

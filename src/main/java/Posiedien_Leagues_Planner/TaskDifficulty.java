@@ -4,6 +4,7 @@ import java.awt.*;
 
 public enum TaskDifficulty
 {
+    NONE,
     EASY,
     MEDIUM,
     HARD,

@@ -185,6 +185,39 @@ public interface LeaguesPlannerConfig extends Config
     String regionUnlock = "regionUnlock";
 
     @ConfigItem(
+            keyName = "FilteredDifficulty",
+            name = "Filter Difficulty",
+            description = "Task Difficulty Filter",
+            section = regionUnlock
+    )
+    default TaskDifficulty FilteredDifficulty()
+    {
+        return TaskDifficulty.NONE;
+    }
+
+    @ConfigItem(
+            keyName = "FilteredOther",
+            name = "Filter Other",
+            description = "Task Other Filter",
+            section = regionUnlock
+    )
+    default OtherFilter FilteredOther()
+    {
+        return OtherFilter.NONE;
+    }
+
+    @ConfigItem(
+            keyName = "TaskSort",
+            name = "Task Sort",
+            description = "Task Sort",
+            section = regionUnlock
+    )
+    default TaskSortMethod TaskSort()
+    {
+        return TaskSortMethod.NONE;
+    }
+
+    @ConfigItem(
             keyName = "MisthalinUnlocked",
             name = "Misthalin Unlocked",
             description = "Whether or not Misthalin is unlocked",
