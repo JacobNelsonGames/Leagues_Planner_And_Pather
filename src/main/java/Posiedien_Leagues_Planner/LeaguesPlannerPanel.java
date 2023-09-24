@@ -400,6 +400,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         reloadbutton.setLayout(new BorderLayout(0, BORDER_OFFSET));
         reloadbutton.addActionListener(e ->
         {
+            refresh();
             /*plugin.CurrentStepSelected = null;
             if (plugin.getSelectedQuest() != null)
             {
@@ -430,6 +431,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         startButton.setLayout(new BorderLayout(0, BORDER_OFFSET));
         startButton.addActionListener(e ->
         {
+            refresh();
             /*plugin.loadQuestList = true;
             plugin.updateShortestPath();
             plugin.MarkUIAndActionRefresh(true, true);*/
@@ -616,6 +618,7 @@ public class LeaguesPlannerPanel extends PluginPanel
 
     public void ApplyFilteredTaskListToPanel()
     {
+        taskListPanel.removeAll();
         FilteredTaskListPanels.forEach(taskListPanel::add);
     }
 

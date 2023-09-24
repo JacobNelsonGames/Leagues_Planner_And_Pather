@@ -87,7 +87,7 @@ public class TaskSelectPanel extends JPanel
             }
         }
 
-        String LabelString = "Dist: " + DistanceText + " \n" + taskData.TaskName;
+        String LabelString = "Dist: " + DistanceText + ", " + taskData.TaskName;
 
         if (DebugSortEnabled)
         {
