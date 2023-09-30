@@ -498,14 +498,14 @@ public class LeaguesPlannerPanel extends PluginPanel
         JPanel reloadActionsPanel = new JPanel();
         reloadActionsPanel.setBorder(new EmptyBorder(5, 10, 5, 10));
         reloadActionsPanel.setLayout(new BorderLayout());
-
+/*
         JLabel reloadallActions = new JLabel();
         reloadallActions.setText("Reload all Actions -> ");
         reloadallActions.setForeground(Color.WHITE);
         reloadallActions.setBorder(new EmptyBorder(5, 10, 5, 10));
         reloadallActions.setLayout(new BorderLayout(0, BORDER_OFFSET));
         reloadActionsPanel.add(reloadallActions, BorderLayout.WEST);
-
+*/
         JButton reloadbutton = new JButton();
         reloadbutton.setIcon(START_ICON);
         reloadbutton.setBorder(new EmptyBorder(5, 10, 5, 10));
@@ -531,7 +531,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         recalculatePanel.setLayout(new BorderLayout());
 
         JLabel RecaculateLabel = new JLabel();
-        RecaculateLabel.setText("Recalculate Order -> ");
+        RecaculateLabel.setText("Refresh Panel -> ");
         RecaculateLabel.setBorder(new EmptyBorder(5, 10, 5, 10));
         RecaculateLabel.setLayout(new BorderLayout(0, BORDER_OFFSET));
         RecaculateLabel.setForeground(Color.WHITE);
