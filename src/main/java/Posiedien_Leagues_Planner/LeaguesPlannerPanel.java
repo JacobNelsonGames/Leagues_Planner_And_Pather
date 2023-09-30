@@ -734,7 +734,7 @@ public class LeaguesPlannerPanel extends PluginPanel
                     for (WorldPoint NextLocation : entry.getValue().Locations)
                     {
                         float NextDistance = PlayerLocation.distanceTo(NextLocation);
-                        if (ClosestDistance < NextDistance)
+                        if (ClosestDistance > NextDistance)
                         {
                             ClosestDistance = NextDistance;
                         }
@@ -801,7 +801,12 @@ public class LeaguesPlannerPanel extends PluginPanel
             WorldPoint ClosestWorldPoint = null;
             for (WorldPoint TaskPoint : config.TaskData.LeaguesTaskList.get(sortTask.TaskGUID).Locations)
             {
-                float NextDistance = PreviousPointPosition.distanceTo(TaskPoint);
+                float NextDistance = 0.0f;
+                if (PreviousPointPosition != null)
+                {
+                    NextDistance = PreviousPointPosition.distanceTo(TaskPoint);;
+                }
+
                 if ( NextDistance < ClosestDistance)
                 {
                     ClosestDistance = NextDistance;

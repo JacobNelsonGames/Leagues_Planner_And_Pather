@@ -2,7 +2,9 @@
 package Posiedien_Leagues_Planner;
 
 import net.runelite.api.Player;
+import net.runelite.api.Point;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.api.worldmap.WorldMap;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
 import net.runelite.client.util.ImageUtil;
@@ -30,6 +32,10 @@ public class TaskSelectPanel extends JPanel
     private static final ImageIcon HIDDEN_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HIDDEN.png"));
     private static final ImageIcon SHOWN_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/SHOWN.png"));
 
+    private static final ImageIcon LOCATE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarker.png"));
+
+    private static final ImageIcon CLOSE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/close.png"));
+
     public PosiedienLeaguesPlannerPlugin plugin;
     public TaskData taskData;
 
@@ -40,6 +46,7 @@ public class TaskSelectPanel extends JPanel
 
         setLayout(new BorderLayout(3, 0));
         setPreferredSize(new Dimension(PluginPanel.PANEL_WIDTH, 70));
+
 
         double ShortestDistance = 1000000;
         Player player = plugin.client.getLocalPlayer();
@@ -88,9 +95,12 @@ public class TaskSelectPanel extends JPanel
 
         Color color = TaskDifficulty.GetTaskDifficultyColor(taskData.Difficulty);
 
+        JPanel ButtonCombo = new JPanel();
+        ButtonCombo.setBorder(new EmptyBorder(0, 0, 0, 0));
+        ButtonCombo.setLayout(new BorderLayout());
+
         JButton markHiddenButton = new JButton();
         markHiddenButton.setBorder(new EmptyBorder(10, 0, 10, 0));
-        String ActionName = taskData.TaskName;
         boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(taskData.GUID);
         if (bIsHidden)
         {
@@ -104,10 +114,6 @@ public class TaskSelectPanel extends JPanel
 
         nameLabel.setForeground(color);
         add(nameLabel, BorderLayout.CENTER);
-
-        JPanel ButtonCombo = new JPanel();
-        ButtonCombo.setBorder(new EmptyBorder(0, 0, 0, 0));
-        ButtonCombo.setLayout(new BorderLayout());
 
         markHiddenButton.addActionListener(e ->
         {
@@ -125,7 +131,82 @@ public class TaskSelectPanel extends JPanel
         });
         ButtonCombo.add(markHiddenButton, BorderLayout.NORTH);
 
-        if (plugin.config.UserData.PlannedTasks.containsKey(taskData.GUID))
+        JPanel ButtonComboContainer = new JPanel();
+        ButtonComboContainer.setBorder(new EmptyBorder(0, 0, 0, 0));
+        ButtonComboContainer.setLayout(new BorderLayout());
+
+        JPanel ButtonCombo2 = new JPanel();
+        ButtonCombo2.setBorder(new EmptyBorder(0, 0, 0, 0));
+        ButtonCombo2.setLayout(new BorderLayout());
+
+        JButton locateTaskButton = new JButton();
+        locateTaskButton.setBorder(new EmptyBorder(3, 0, 3, 0));
+        locateTaskButton.setIcon(LOCATE_ICON);
+
+        locateTaskButton.addActionListener(e ->
+        {
+            if (plugin.client != null && plugin.client.getWorldMap() != null)
+            {
+                double ShortestMapViewDistance = 1000000;
+                WorldPoint ShortestMapViewWorldPoint = null;
+                WorldMap worldMap = plugin.client.getWorldMap();
+                if (worldMap != null)
+                {
+                    WorldPoint mapPoint = new WorldPoint(worldMap.getWorldMapPosition().getX(), worldMap.getWorldMapPosition().getY(), 0);
+                    for (WorldPoint CurrentLocation : taskData.Locations)
+                    {
+                        double TaskDistance = CurrentLocation.distanceTo(mapPoint);
+                        if (TaskDistance < ShortestMapViewDistance)
+                        {
+                            ShortestMapViewDistance = TaskDistance;
+                            ShortestMapViewWorldPoint = CurrentLocation;
+                        }
+                    }
+
+                    for (WorldPoint CurrentLocation : taskData.OverworldLocations)
+                    {
+                        double TaskDistance = CurrentLocation.distanceTo(mapPoint);
+                        if (TaskDistance < ShortestMapViewDistance)
+                        {
+                            ShortestMapViewDistance = TaskDistance;
+                            ShortestMapViewWorldPoint = CurrentLocation;
+                        }
+                    }
+                }
+
+                WorldPoint FocusLocation = ShortestMapViewWorldPoint;
+
+                if (FocusLocation == null && !taskData.Locations.isEmpty())
+                {
+                    FocusLocation = taskData.Locations.get(0);
+                }
+
+                if (FocusLocation != null)
+                {
+                    plugin.client.getWorldMap().setWorldMapPositionTarget(FocusLocation);
+                }
+            }
+        });
+
+        JButton removeTaskFromPlanButton = new JButton();
+        removeTaskFromPlanButton.setBorder(new EmptyBorder(3, 0, 3, 0));
+        removeTaskFromPlanButton.setIcon(CLOSE_ICON);
+
+        removeTaskFromPlanButton.addActionListener(e ->
+        {
+            plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
+            plugin.QueueRefresh();
+        });
+
+        ButtonCombo2.add(locateTaskButton, BorderLayout.NORTH);
+
+        boolean bIsPlanned = plugin.config.UserData.PlannedTasks.containsKey(taskData.GUID);
+        if (bIsPlanned)
+        {
+            ButtonCombo2.add(removeTaskFromPlanButton, BorderLayout.SOUTH);
+        }
+
+        if (bIsPlanned)
         {
             /* Priority input */
             TextField activeOrder = new TextField();
@@ -185,6 +266,9 @@ public class TaskSelectPanel extends JPanel
             });
             ButtonCombo.add(startButton, BorderLayout.SOUTH);
         }
-        add(ButtonCombo, BorderLayout.LINE_END);
+
+        ButtonComboContainer.add(ButtonCombo, BorderLayout.EAST);
+        ButtonComboContainer.add(ButtonCombo2, BorderLayout.WEST);
+        add(ButtonComboContainer, BorderLayout.LINE_END);
     }
 }
