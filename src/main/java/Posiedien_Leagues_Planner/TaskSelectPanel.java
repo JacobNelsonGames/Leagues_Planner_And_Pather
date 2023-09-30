@@ -150,7 +150,7 @@ public class TaskSelectPanel extends JPanel
 
 
                     plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
-                    plugin.config.UserData.PlannedTasks.put(taskData.GUID, Integer.valueOf(((TextField)(e.getSource())).getText()));
+                    plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(Integer.valueOf(((TextField)(e.getSource())).getText())));
                     plugin.QueueRefresh();
                 }
 
@@ -167,16 +167,16 @@ public class TaskSelectPanel extends JPanel
                 // Find greatest value of planned tasks
                 int CurrentOrder = 0;
 
-                for (HashMap.Entry<UUID, Integer> mapElement : plugin.config.UserData.PlannedTasks.entrySet())
+                for (HashMap.Entry<UUID, TaskSortData> mapElement : plugin.config.UserData.PlannedTasks.entrySet())
                 {
-                    if (mapElement.getValue() > CurrentOrder)
+                    if (mapElement.getValue().SortPriority > CurrentOrder)
                     {
-                        CurrentOrder = mapElement.getValue();
+                        CurrentOrder = mapElement.getValue().SortPriority;
                     }
 
                 }
 
-                plugin.config.UserData.PlannedTasks.put(taskData.GUID, CurrentOrder + 1);
+                plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(CurrentOrder + 1));
                 plugin.bMapDisplayPointsDirty = true;
                 plugin.QueueRefresh();
             });

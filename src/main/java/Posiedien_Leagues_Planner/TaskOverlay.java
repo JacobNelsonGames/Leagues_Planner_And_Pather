@@ -477,12 +477,19 @@ public class TaskOverlay extends Overlay
                 int TaskNum2 = 0;
                 for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
                 {
+                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                    String ModifiedString = CurrentTask.TaskName;
+
+                    if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    {
+                        ModifiedString += " (" + config.UserData.PlannedTasks.get(TaskGUID).LastSortOrder + ")";
+                    }
+
                     if (bIsCloseToMouse)
                     {
-                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
-                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                        graphics.drawChars(ModifiedString.toCharArray(),
                                 0,
-                                CurrentTask.TaskName.length(),
+                                ModifiedString.length(),
                                 HighlightGraphicsPoint.getX() - 1,
                                 HighlightGraphicsPoint.getY() - TaskNum2 * 15 + 1);
 
@@ -491,10 +498,9 @@ public class TaskOverlay extends Overlay
                     // bIsTaskPlanned
                     else if (config.UserData.PlannedTasks.containsKey(TaskGUID))
                     {
-                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
-                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                        graphics.drawChars(ModifiedString.toCharArray(),
                                 0,
-                                CurrentTask.TaskName.length(),
+                                ModifiedString.length(),
                                 GraphicsPoint.getX() - 1,
                                 GraphicsPoint.getY() - TaskNum2 * 15 + 1);
 
@@ -507,14 +513,20 @@ public class TaskOverlay extends Overlay
                 int TaskNum = 0;
                 for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
                 {
+                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                    String ModifiedString = CurrentTask.TaskName;
+
+                    if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    {
+                        ModifiedString += " (" + config.UserData.PlannedTasks.get(TaskGUID).LastSortOrder + ")";
+                    }
+
                     if (bIsCloseToMouse)
                     {
-                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
-
                         graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
-                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                        graphics.drawChars(ModifiedString.toCharArray(),
                                 0,
-                                CurrentTask.TaskName.length(),
+                                ModifiedString.length(),
                                 HighlightGraphicsPoint.getX(),
                                 HighlightGraphicsPoint.getY() - TaskNum * 15);
 
@@ -523,12 +535,10 @@ public class TaskOverlay extends Overlay
                     // bIsTaskPlanned
                     else if (config.UserData.PlannedTasks.containsKey(TaskGUID))
                     {
-                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
-
                         graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
-                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                        graphics.drawChars(ModifiedString.toCharArray(),
                                 0,
-                                CurrentTask.TaskName.length(),
+                                ModifiedString.length(),
                                 GraphicsPoint.getX(),
                                 GraphicsPoint.getY() - TaskNum * 15);
 

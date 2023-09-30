@@ -787,7 +787,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             // Always put things on the plan first
             if (config.UserData.PlannedTasks.containsKey(entry.getKey()))
             {
-                SortValue += config.UserData.PlannedTasks.get(entry.getKey());
+                SortValue += config.UserData.PlannedTasks.get(entry.getKey()).SortPriority;
                 ++NeededPathFinderSize;
             }
             else

@@ -1090,16 +1090,16 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         // Find greatest value of planned tasks
         int CurrentOrder = -1;
 
-        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getValue() > CurrentOrder)
+            if (mapElement.getValue().SortPriority > CurrentOrder)
             {
-                CurrentOrder = mapElement.getValue();
+                CurrentOrder = mapElement.getValue().SortPriority;
             }
 
         }
 
-        config.UserData.PlannedTasks.put(TaskGUID, CurrentOrder + 1);
+        config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentOrder + 1));
         QueueRefresh();
     };
 
@@ -1113,20 +1113,20 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         int CurrentOrder = 9000000;
 
         TempArray.clear();
-        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getValue() < CurrentOrder)
+            if (mapElement.getValue().SortPriority < CurrentOrder)
             {
-                CurrentOrder = mapElement.getValue();
+                CurrentOrder = mapElement.getValue().SortPriority;
             }
             TempArray.add(mapElement.getKey());
         }
 
         for (UUID SearchingTaskGUID : TempArray)
         {
-            int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID);
+            int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID).SortPriority;
             config.UserData.PlannedTasks.remove(SearchingTaskGUID);
-            config.UserData.PlannedTasks.put(SearchingTaskGUID, OldOrder + 1);
+            config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
         }
 
         if (CurrentOrder == 9000000)
@@ -1134,7 +1134,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             CurrentOrder = 0;
         }
 
-        config.UserData.PlannedTasks.put(TaskGUID, CurrentOrder);
+        config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentOrder));
         QueueRefresh();
     };
 
@@ -1152,15 +1152,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         // Find value closest to our order that is smallest
         // Between these two values, closest to current
         int CurrentHighest = -1;
-        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID);
+        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID).SortPriority;
         UUID ClosestTask = null;
 
         TempArray.clear();
-        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getKey() != TaskGUID && mapElement.getValue() <= CurrentOrder && mapElement.getValue() > CurrentHighest)
+            if (mapElement.getKey() != TaskGUID && mapElement.getValue().SortPriority <= CurrentOrder && mapElement.getValue().SortPriority > CurrentHighest)
             {
-                CurrentHighest = mapElement.getValue();
+                CurrentHighest = mapElement.getValue().SortPriority;
                 ClosestTask = mapElement.getKey();
             }
             TempArray.add(mapElement.getKey());
@@ -1171,7 +1171,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         {
             // Replace this spot
             config.UserData.PlannedTasks.remove(TaskGUID);
-            config.UserData.PlannedTasks.put(TaskGUID, CurrentHighest);
+            config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentHighest));
 
             for (UUID SearchingTaskGUID : TempArray)
             {
@@ -1181,11 +1181,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 }
 
                 // Push these all back (insert)
-                int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID);
+                int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID).SortPriority;
                 if (OldOrder >= CurrentHighest)
                 {
                     config.UserData.PlannedTasks.remove(SearchingTaskGUID);
-                    config.UserData.PlannedTasks.put(SearchingTaskGUID, OldOrder + 1);
+                    config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
                 }
             }
 
@@ -1200,15 +1200,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         // Find value closest to our order that is smallest
         // Between these two values, closest to current
         int CurrentLowest = 900000;
-        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID);
+        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID).SortPriority;
         UUID ClosestTask = null;
 
         TempArray.clear();
-        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getKey() != TaskGUID && mapElement.getValue() >= CurrentOrder && mapElement.getValue() < CurrentLowest)
+            if (mapElement.getKey() != TaskGUID && mapElement.getValue().SortPriority >= CurrentOrder && mapElement.getValue().SortPriority < CurrentLowest)
             {
-                CurrentLowest = mapElement.getValue();
+                CurrentLowest = mapElement.getValue().SortPriority;
                 ClosestTask = mapElement.getKey();
             }
             TempArray.add(mapElement.getKey());
@@ -1219,11 +1219,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         {
             // Move up a little
             config.UserData.PlannedTasks.remove(ClosestTask);
-            config.UserData.PlannedTasks.put(ClosestTask, CurrentLowest - 1);
+            config.UserData.PlannedTasks.put(ClosestTask, new TaskSortData(CurrentLowest - 1));
 
             // Replace this spot
             config.UserData.PlannedTasks.remove(TaskGUID);
-            config.UserData.PlannedTasks.put(TaskGUID, CurrentLowest);
+            config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentLowest));
 
             for (UUID SearchingTaskGUID : TempArray)
             {
@@ -1233,11 +1233,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 }
 
                 // Push these all back (insert)
-                int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID);
+                int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID).SortPriority;
                 if (OldOrder >= CurrentLowest)
                 {
                     config.UserData.PlannedTasks.remove(SearchingTaskGUID);
-                    config.UserData.PlannedTasks.put(SearchingTaskGUID, OldOrder + 1);
+                    config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
                 }
             }
 

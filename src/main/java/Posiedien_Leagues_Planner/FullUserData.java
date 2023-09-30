@@ -5,7 +5,7 @@ import java.util.*;
 
 public class FullUserData
 {
-    HashMap<UUID, Integer> PlannedTasks = new HashMap<UUID, Integer>();
+    HashMap<UUID, TaskSortData> PlannedTasks = new HashMap<UUID, TaskSortData>();
 
     ArrayList<SortedTask> SortedPlannedTasks = new ArrayList<>();
 
@@ -13,9 +13,9 @@ public class FullUserData
     {
         SortedPlannedTasks.clear();
 
-        for (HashMap.Entry<UUID, Integer> mapElement : PlannedTasks.entrySet())
+        for (HashMap.Entry<UUID, TaskSortData> mapElement : PlannedTasks.entrySet())
         {
-            SortedPlannedTasks.add(new SortedTask(mapElement.getKey(), mapElement.getValue()));
+            SortedPlannedTasks.add(new SortedTask(mapElement.getKey(), mapElement.getValue().SortPriority));
         }
 
         SortedPlannedTasks.sort(new Comparator<SortedTask>() {
@@ -25,5 +25,12 @@ public class FullUserData
                 return (o1.SortPriority.compareTo(o2.SortPriority));
             }
         });
+
+        for (int i = 0; i < SortedPlannedTasks.size(); ++i)
+        {
+            PlannedTasks.get(SortedPlannedTasks.get(i).TaskGUID).LastSortOrder = i + 1;
+        }
+
+
     }
 }
