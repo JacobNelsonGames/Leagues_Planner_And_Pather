@@ -145,47 +145,7 @@ public class TaskSelectPanel extends JPanel
 
         locateTaskButton.addActionListener(e ->
         {
-            if (plugin.client != null && plugin.client.getWorldMap() != null)
-            {
-                double ShortestMapViewDistance = 1000000;
-                WorldPoint ShortestMapViewWorldPoint = null;
-                WorldMap worldMap = plugin.client.getWorldMap();
-                if (worldMap != null)
-                {
-                    WorldPoint mapPoint = new WorldPoint(worldMap.getWorldMapPosition().getX(), worldMap.getWorldMapPosition().getY(), 0);
-                    for (WorldPoint CurrentLocation : taskData.Locations)
-                    {
-                        double TaskDistance = CurrentLocation.distanceTo(mapPoint);
-                        if (TaskDistance < ShortestMapViewDistance)
-                        {
-                            ShortestMapViewDistance = TaskDistance;
-                            ShortestMapViewWorldPoint = CurrentLocation;
-                        }
-                    }
-
-                    for (WorldPoint CurrentLocation : taskData.OverworldLocations)
-                    {
-                        double TaskDistance = CurrentLocation.distanceTo(mapPoint);
-                        if (TaskDistance < ShortestMapViewDistance)
-                        {
-                            ShortestMapViewDistance = TaskDistance;
-                            ShortestMapViewWorldPoint = CurrentLocation;
-                        }
-                    }
-                }
-
-                WorldPoint FocusLocation = ShortestMapViewWorldPoint;
-
-                if (FocusLocation == null && !taskData.Locations.isEmpty())
-                {
-                    FocusLocation = taskData.Locations.get(0);
-                }
-
-                if (FocusLocation != null)
-                {
-                    plugin.client.getWorldMap().setWorldMapPositionTarget(FocusLocation);
-                }
-            }
+            plugin.FocusOnTaskOnWorldMap(taskData);
         });
 
         JButton removeTaskFromPlanButton = new JButton();

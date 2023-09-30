@@ -1258,16 +1258,55 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
     };
 
+    public void FocusOnTaskOnWorldMap(TaskData CurrentTask)
+    {
+        if (client != null && client.getWorldMap() != null)
+        {
+            double ShortestMapViewDistance = 1000000;
+            WorldPoint ShortestMapViewWorldPoint = null;
+            WorldMap worldMap = client.getWorldMap();
+            if (worldMap != null)
+            {
+                WorldPoint mapPoint = new WorldPoint(worldMap.getWorldMapPosition().getX(), worldMap.getWorldMapPosition().getY(), 0);
+                for (WorldPoint CurrentLocation : CurrentTask.Locations)
+                {
+                    double TaskDistance = CurrentLocation.distanceTo(mapPoint);
+                    if (TaskDistance < ShortestMapViewDistance)
+                    {
+                        ShortestMapViewDistance = TaskDistance;
+                        ShortestMapViewWorldPoint = CurrentLocation;
+                    }
+                }
+
+                for (WorldPoint CurrentLocation : CurrentTask.OverworldLocations)
+                {
+                    double TaskDistance = CurrentLocation.distanceTo(mapPoint);
+                    if (TaskDistance < ShortestMapViewDistance)
+                    {
+                        ShortestMapViewDistance = TaskDistance;
+                        ShortestMapViewWorldPoint = CurrentLocation;
+                    }
+                }
+            }
+
+            WorldPoint FocusLocation = ShortestMapViewWorldPoint;
+
+            if (FocusLocation == null && !CurrentTask.Locations.isEmpty())
+            {
+                FocusLocation = CurrentTask.Locations.get(0);
+            }
+
+            if (FocusLocation != null)
+            {
+                client.getWorldMap().setWorldMapPositionTarget(FocusLocation);
+            }
+        }
+    }
     private final Consumer<MenuEntry> FocusOnTaskLocation = n ->
     {
         UUID TaskGUID = HashCodeToHash.get(n.getParam0());
         TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
-
-        if (!CurrentTask.Locations.isEmpty())
-        {
-            client.getWorldMap().setWorldMapPositionTarget(CurrentTask.Locations.get(0));
-        }
-
+        FocusOnTaskOnWorldMap(CurrentTask);
     };
 
     private final Consumer<MenuEntry> SetActiveRegionPointEntryCallback = n ->
