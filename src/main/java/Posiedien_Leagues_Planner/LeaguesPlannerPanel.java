@@ -599,7 +599,7 @@ public class LeaguesPlannerPanel extends PluginPanel
 
         OptionsPanel.add(introOptionsPanel, BorderLayout.NORTH);
 
-        JPanel autoRecalculatePanel = CreateClickableOption(autostartButton, "Enable Auto Recalculate -> ", plugin.enableAutoRecalculate, Color.WHITE, Color.DARK_GRAY, autoRecalculateCallback);
+        JPanel autoRecalculatePanel = CreateClickableOption(autostartButton, "Enable Auto Refresh -> ", plugin.enableAutoRecalculate, Color.WHITE, Color.DARK_GRAY, autoRecalculateCallback);
         OptionsPanel.add(autoRecalculatePanel, BorderLayout.SOUTH);
 
         regionsUnlockedListPanel.setBorder(new EmptyBorder(8, 10, 0, 10));
