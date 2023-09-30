@@ -495,17 +495,16 @@ public class LeaguesPlannerPanel extends PluginPanel
         NoSearchPanel.add(pleaseLoginLabel);
         NoSearchPanel.setVisible(false);
 
+/*
         JPanel reloadActionsPanel = new JPanel();
         reloadActionsPanel.setBorder(new EmptyBorder(5, 10, 5, 10));
         reloadActionsPanel.setLayout(new BorderLayout());
-/*
         JLabel reloadallActions = new JLabel();
         reloadallActions.setText("Reload all Actions -> ");
         reloadallActions.setForeground(Color.WHITE);
         reloadallActions.setBorder(new EmptyBorder(5, 10, 5, 10));
         reloadallActions.setLayout(new BorderLayout(0, BORDER_OFFSET));
         reloadActionsPanel.add(reloadallActions, BorderLayout.WEST);
-*/
         JButton reloadbutton = new JButton();
         reloadbutton.setIcon(START_ICON);
         reloadbutton.setBorder(new EmptyBorder(5, 10, 5, 10));
@@ -513,7 +512,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         reloadbutton.addActionListener(e ->
         {
             plugin.QueueRefresh();
-            /*plugin.CurrentStepSelected = null;
+            plugin.CurrentStepSelected = null;
             if (plugin.getSelectedQuest() != null)
             {
                 plugin.getSelectedQuest().setCurrentStep(questHelperPlugin.OldStepSelected);
@@ -522,9 +521,10 @@ public class LeaguesPlannerPanel extends PluginPanel
             plugin.startUpQuest(null);
             plugin.recreateActions();
             plugin.loadQuestList = true;
-            plugin.MarkUIAndActionRefresh(true, true);*/
+            plugin.MarkUIAndActionRefresh(true, true);
         });
         reloadActionsPanel.add(reloadbutton, BorderLayout.EAST);
+*/
 
         JPanel recalculatePanel = new JPanel();
         recalculatePanel.setBorder(new EmptyBorder(5, 10, 5, 10));
@@ -594,7 +594,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         JPanel introOptionsPanel = new JPanel();
         introOptionsPanel.setLayout(new BorderLayout());
         introOptionsPanel.add(titlePanel, BorderLayout.NORTH);
-        introOptionsPanel.add(reloadActionsPanel, BorderLayout.CENTER);
+        //introOptionsPanel.add(reloadActionsPanel, BorderLayout.CENTER);
         introOptionsPanel.add(recalculatePanel, BorderLayout.SOUTH);
 
         OptionsPanel.add(introOptionsPanel, BorderLayout.NORTH);
