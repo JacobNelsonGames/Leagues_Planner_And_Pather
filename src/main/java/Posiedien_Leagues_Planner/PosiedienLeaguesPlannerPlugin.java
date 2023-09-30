@@ -1100,6 +1100,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
 
         config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentOrder + 1));
+
+        config.UserData.HiddenTasks.remove(TaskGUID);
         QueueRefresh();
     };
 
@@ -1127,6 +1129,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID).SortPriority;
             config.UserData.PlannedTasks.remove(SearchingTaskGUID);
             config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
+
+            config.UserData.HiddenTasks.remove(SearchingTaskGUID);
         }
 
         if (CurrentOrder == 9000000)
@@ -1135,6 +1139,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
 
         config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentOrder));
+        config.UserData.HiddenTasks.remove(TaskGUID);
         QueueRefresh();
     };
 
@@ -1173,6 +1178,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             config.UserData.PlannedTasks.remove(TaskGUID);
             config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentHighest));
 
+            config.UserData.HiddenTasks.remove(TaskGUID);
             for (UUID SearchingTaskGUID : TempArray)
             {
                 if (SearchingTaskGUID == TaskGUID)
@@ -1186,6 +1192,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 {
                     config.UserData.PlannedTasks.remove(SearchingTaskGUID);
                     config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
+                    config.UserData.HiddenTasks.remove(SearchingTaskGUID);
                 }
             }
 
@@ -1221,9 +1228,13 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             config.UserData.PlannedTasks.remove(ClosestTask);
             config.UserData.PlannedTasks.put(ClosestTask, new TaskSortData(CurrentLowest - 1));
 
+            config.UserData.HiddenTasks.remove(ClosestTask);
+
             // Replace this spot
             config.UserData.PlannedTasks.remove(TaskGUID);
             config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentLowest));
+
+            config.UserData.HiddenTasks.remove(TaskGUID);
 
             for (UUID SearchingTaskGUID : TempArray)
             {
@@ -1238,6 +1249,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 {
                     config.UserData.PlannedTasks.remove(SearchingTaskGUID);
                     config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
+                    config.UserData.HiddenTasks.remove(SearchingTaskGUID);
+
                 }
             }
 

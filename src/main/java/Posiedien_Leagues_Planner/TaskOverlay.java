@@ -198,7 +198,15 @@ public class TaskOverlay extends Overlay
             for (Map.Entry<UUID, TaskData> CurrentTaskPair : config.TaskData.LeaguesTaskList.entrySet())
             {
                 // Skip due to some filter
-                if (DiffFilter != TaskDifficulty.NONE && DiffFilter != CurrentTaskPair.getValue().Difficulty)
+                boolean bIsPartOfPlan = config.UserData.PlannedTasks.containsKey(CurrentTaskPair.getKey());
+                if (!bIsPartOfPlan && DiffFilter != TaskDifficulty.NONE && DiffFilter != CurrentTaskPair.getValue().Difficulty)
+                {
+                    continue;
+                }
+
+                // Don't display hidden on map
+                boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(CurrentTaskPair.getKey());
+                if (bIsHidden)
                 {
                     continue;
                 }
@@ -206,7 +214,7 @@ public class TaskOverlay extends Overlay
                 if (OthFilter == OtherFilter.ONLY_MAP_PLAN ||
                     OthFilter == OtherFilter.ONLY_PLAN)
                 {
-                    if (!config.UserData.PlannedTasks.containsKey(CurrentTaskPair.getKey()))
+                    if (!bIsPartOfPlan)
                     {
                         continue;
                     }

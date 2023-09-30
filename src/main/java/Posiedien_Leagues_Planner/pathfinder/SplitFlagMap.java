@@ -109,15 +109,22 @@ public class SplitFlagMap implements Runnable{
     public void run()
     {
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
-        PathfinderConfig newPathfinderConfig =  new PathfinderConfig(this, transports, plugin.client, config);
+        PathfinderConfig newPathfinderConfig = new PathfinderConfig(this, transports, plugin.client, config);
 
-        EventQueue.invokeLater(() ->
-                {
-                    plugin.pathfinderConfig = newPathfinderConfig;
-                }
-        );
+        if (!bCanceled)
+        {
+            EventQueue.invokeLater(() ->
+                    {
+                        plugin.pathfinderConfig = newPathfinderConfig;
+                    }
+            );
+        }
+    }
 
-
+    boolean bCanceled = false;
+    public void cancel()
+    {
+        bCanceled = true;
     }
 
     @RequiredArgsConstructor

@@ -151,9 +151,10 @@ public class PathTileOverlay extends Overlay {
             }
         }
 
-        if (plugin.panel.getPathfinderArray() != null)
+        ArrayList<Pathfinder> pathfinderArray = plugin.panel.getPathfinderArray() ;
+        if (pathfinderArray != null)
         {
-            for (Pathfinder CurrentPathfinder : plugin.panel.getPathfinderArray())
+            for (Pathfinder CurrentPathfinder : pathfinderArray)
             {
                 if (config.drawTiles() && CurrentPathfinder != null && CurrentPathfinder.getPath() != null)
                 {

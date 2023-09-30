@@ -52,6 +52,8 @@ public class LeaguesPlannerPanel extends PluginPanel
     private final int DROPDOWN_HEIGHT = 20;
 
     public Thread longRunningTask = null;
+    public SplitFlagMap NewMap = null;
+
 
     JButton autostartButton = new JButton();
     public ActionListener autoRecalculateCallback = e->
@@ -87,20 +89,26 @@ public class LeaguesPlannerPanel extends PluginPanel
             misthalinUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
+    public void RecreateBoundData()
+    {
+        if (NewMap != null && longRunningTask != null && longRunningTask.isAlive())
+        {
+            NewMap.cancel();
+            longRunningTask.interrupt();
+        }
+
+        NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+    }
+
     JButton karamjaUnlockedButton = new JButton();
+
     public ActionListener karamjaUnlockedCallback = e->
     {
         plugin.getConfigManager().setConfiguration(
@@ -117,16 +125,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             karamjaUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -147,16 +146,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             kandarinUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -177,16 +167,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             asgarniaUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -207,16 +188,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             fremennikUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -237,16 +209,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             kourendUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -267,16 +230,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             wildernessUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -297,16 +251,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             morytaniaUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -327,16 +272,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             tirannwnUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -357,16 +293,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             desertUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
-
-        if (longRunningTask != null && longRunningTask.isAlive())
-        {
-            longRunningTask.interrupt();
-        }
-
-        longRunningTask = new Thread(NewMap);
-        longRunningTask.start();
-
+        RecreateBoundData();
         plugin.QueueRefresh();
     };
 
@@ -700,14 +627,15 @@ public class LeaguesPlannerPanel extends PluginPanel
             TaskData data = config.TaskData.LeaguesTaskList.get(SortedTaskIter.TaskGUID);
 
             // Skip due to some filter
-            if (DiffFilter != TaskDifficulty.NONE && DiffFilter != data.Difficulty)
+            boolean bIsPartOfPlan = config.UserData.PlannedTasks.containsKey(SortedTaskIter.TaskGUID);
+            if (!bIsPartOfPlan && DiffFilter != TaskDifficulty.NONE && DiffFilter != data.Difficulty)
             {
                 continue;
             }
 
             if (OthFilter == OtherFilter.ONLY_PLAN)
             {
-                if (!config.UserData.PlannedTasks.containsKey(SortedTaskIter.TaskGUID))
+                if (!bIsPartOfPlan)
                 {
                     continue;
                 }
@@ -783,6 +711,13 @@ public class LeaguesPlannerPanel extends PluginPanel
         {
             // Calculate our sort value
             int SortValue = 0;
+
+            // Hidden values bumped to the end
+            boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(entry.getKey());
+            if (bIsHidden)
+            {
+                SortValue += 100000;
+            }
 
             // Always put things on the plan first
             if (config.UserData.PlannedTasks.containsKey(entry.getKey()))

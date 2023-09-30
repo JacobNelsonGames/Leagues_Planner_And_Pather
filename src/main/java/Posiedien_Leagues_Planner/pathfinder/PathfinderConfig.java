@@ -87,6 +87,10 @@ public class PathfinderConfig {
                         int AdjustedY = regionMap.minY + y;
                         for (int z = 0; z < regionMap.getPlaneCount(); ++z)
                         {
+                            if (mapData.bCanceled)
+                            {
+                                return;
+                            }
                             WorldPoint ConvertedPoint = new WorldPoint(AdjustedX, AdjustedY, z);
 
                             // Not in region, mark as blocked

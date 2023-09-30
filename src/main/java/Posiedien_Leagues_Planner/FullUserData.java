@@ -7,6 +7,8 @@ public class FullUserData
 {
     HashMap<UUID, TaskSortData> PlannedTasks = new HashMap<UUID, TaskSortData>();
 
+    HashSet<UUID> HiddenTasks = new HashSet<UUID>();
+
     ArrayList<SortedTask> SortedPlannedTasks = new ArrayList<>();
 
     void CacheSortedPlannedTasks()

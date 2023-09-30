@@ -101,9 +101,10 @@ public class PathMapOverlay extends Overlay {
             }
         }
 
-        if (plugin.panel.getPathfinderArray() != null)
+        ArrayList<Pathfinder> pathfinderArray = plugin.panel.getPathfinderArray();
+        if (pathfinderArray != null)
         {
-            for (Pathfinder CurrentPathfinder : plugin.panel.getPathfinderArray())
+            for (Pathfinder CurrentPathfinder : pathfinderArray)
             {
                 Color colour = CurrentPathfinder.isDone() ? Color.PINK : Color.CYAN;
                 List<WorldPoint> path = CurrentPathfinder.getPath();

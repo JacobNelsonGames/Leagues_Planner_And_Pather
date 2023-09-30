@@ -91,15 +91,16 @@ public class TaskSelectPanel extends JPanel
         JButton markHiddenButton = new JButton();
         markHiddenButton.setBorder(new EmptyBorder(10, 0, 10, 0));
         String ActionName = taskData.TaskName;
-        //if (questHelperPlugin.getConfig().gethiddenTaskSection().contains(ActionName))
+        boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(taskData.GUID);
+        if (bIsHidden)
         {
             markHiddenButton.setIcon(HIDDEN_ICON);
-            //color = Color.BLACK;
+            color = Color.BLACK;
         }
-        //else
-        //{
-        //    markHiddenButton.setIcon(SHOWN_ICON);
-        //}
+        else
+        {
+            markHiddenButton.setIcon(SHOWN_ICON);
+        }
 
         nameLabel.setForeground(color);
         add(nameLabel, BorderLayout.CENTER);
@@ -110,17 +111,17 @@ public class TaskSelectPanel extends JPanel
 
         markHiddenButton.addActionListener(e ->
         {
-            //Set<String> HiddenActions = questHelperPlugin.getConfig().gethiddenTaskSection();
-            //if (HiddenActions.contains(ActionName))
-            //{
-            //    HiddenActions.remove(ActionName);
-            //    questHelperPlugin.getConfigManager().setConfiguration("leaguesOptimizer", "gethiddenTaskSection", HiddenActions);
-            //}
-            //else
-            //{
-            //    HiddenActions.add(ActionName);
-            //    questHelperPlugin.getConfigManager().setConfiguration("leaguesOptimizer", "gethiddenTaskSection", HiddenActions);
-           // }
+            boolean bLocalIsHidden = plugin.config.UserData.HiddenTasks.contains(taskData.GUID);
+            if (bLocalIsHidden)
+            {
+                plugin.config.UserData.HiddenTasks.remove(taskData.GUID);
+            }
+            else
+            {
+                plugin.config.UserData.HiddenTasks.add(taskData.GUID);
+                plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
+            }
+            plugin.QueueRefresh();
         });
         ButtonCombo.add(markHiddenButton, BorderLayout.NORTH);
 
@@ -151,6 +152,7 @@ public class TaskSelectPanel extends JPanel
 
                     plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
                     plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(Integer.valueOf(((TextField)(e.getSource())).getText())));
+                    plugin.config.UserData.HiddenTasks.remove(taskData.GUID);
                     plugin.QueueRefresh();
                 }
 
@@ -177,6 +179,7 @@ public class TaskSelectPanel extends JPanel
                 }
 
                 plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(CurrentOrder + 1));
+                plugin.config.UserData.HiddenTasks.remove(taskData.GUID);
                 plugin.bMapDisplayPointsDirty = true;
                 plugin.QueueRefresh();
             });

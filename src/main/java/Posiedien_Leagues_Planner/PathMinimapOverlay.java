@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
 import java.util.List;
 import net.runelite.api.Client;
 import net.runelite.api.Perspective;
@@ -57,9 +58,10 @@ public class PathMinimapOverlay extends Overlay {
             }
         }
 
-        if (plugin.panel.getPathfinderArray() != null)
+        ArrayList<Pathfinder> pathfinderArray = plugin.panel.getPathfinderArray() ;
+        if (pathfinderArray != null)
         {
-            for (Pathfinder CurrentPathfinder : plugin.panel.getPathfinderArray())
+            for (Pathfinder CurrentPathfinder : pathfinderArray)
             {
                 List<WorldPoint> pathPoints = CurrentPathfinder.getPath();
                 Color pathColor = CurrentPathfinder.isDone() ? Color.PINK : Color.CYAN;
