@@ -18,6 +18,8 @@ import Posiedien_Leagues_Planner.PrimitiveIntHashMap;
 import Posiedien_Leagues_Planner.Transport;
 import Posiedien_Leagues_Planner.WorldPointUtil;
 
+import static net.runelite.api.Constants.REGION_SIZE;
+
 public class PathfinderConfig {
     private static final WorldArea WILDERNESS_ABOVE_GROUND = new WorldArea(2944, 3523, 448, 448, 0);
     private static final WorldArea WILDERNESS_UNDERGROUND = new WorldArea(2944, 9918, 320, 442, 0);
@@ -66,6 +68,38 @@ public class PathfinderConfig {
         this.transportsPacked = new PrimitiveIntHashMap<>(allTransports.size());
         this.client = client;
         this.config = config;
+
+
+        // Go through every flag map
+        if (config != null)
+        {
+            for (FlagMap regionMap : mapData.regionMaps)
+            {
+                if (regionMap == null)
+                {
+                    continue;
+                }
+                for (int x = 0; x < REGION_SIZE; ++x)
+                {
+                    int AdjustedX = regionMap.minX + x;
+                    for (int y = 0; y < REGION_SIZE; ++y)
+                    {
+                        int AdjustedY = regionMap.minY + y;
+                        for (int z = 0; z < regionMap.getPlaneCount(); ++z)
+                        {
+                            WorldPoint ConvertedPoint = new WorldPoint(AdjustedX, AdjustedY, z);
+
+                            // Not in region, mark as blocked
+                            if (!config.RegionData.IsTileInUnlockedRegion(config, ConvertedPoint))
+                            {
+                                regionMap.set(AdjustedX, AdjustedY, z, 0, false);
+                                regionMap.set(AdjustedX, AdjustedY, z, 1, false);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public CollisionMap getMap() {
@@ -167,7 +201,13 @@ public class PathfinderConfig {
         return avoidWilderness && !isInWilderness(packedPosition) && isInWilderness(packedNeightborPosition) && !targetInWilderness;
     }
 
-    public QuestState getQuestState(Quest quest) {
+    public QuestState getQuestState(Quest quest)
+    {
+        if (client == null)
+        {
+            return QuestState.FINISHED;
+        }
+
         return quest.getState(client);
     }
 

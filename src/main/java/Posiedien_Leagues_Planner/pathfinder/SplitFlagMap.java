@@ -1,30 +1,39 @@
 package Posiedien_Leagues_Planner.pathfinder;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import Posiedien_Leagues_Planner.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import Posiedien_Leagues_Planner.PosiedienLeaguesPlannerPlugin;
-import Posiedien_Leagues_Planner.Util;
+import net.runelite.api.coords.WorldPoint;
 
 import static net.runelite.api.Constants.REGION_SIZE;
 
-public class SplitFlagMap {
+public class SplitFlagMap implements Runnable{
     @Getter
     private static RegionExtent regionExtents;
 
     @Getter
     private final byte[] regionMapPlaneCounts;
     // Size is automatically chosen based on the max extents of the collision data
-    private final FlagMap[] regionMaps;
+    final FlagMap[] regionMaps;
     private final int widthInclusive;
+    private final PosiedienLeaguesPlannerPlugin plugin;
 
-    public SplitFlagMap(Map<Integer, byte[]> compressedRegions) {
+    private LeaguesPlannerConfig config;
+
+    public SplitFlagMap(Map<Integer, byte[]> compressedRegions, PosiedienLeaguesPlannerPlugin plugin, LeaguesPlannerConfig config)
+    {
+        this.plugin = plugin;
+        this.config = config;
+
         widthInclusive = regionExtents.getWidth() + 1;
         final int heightInclusive = regionExtents.getHeight() + 1;
         regionMaps = new FlagMap[widthInclusive * heightInclusive];
@@ -66,7 +75,8 @@ public class SplitFlagMap {
         return (x & 0xFFFF) | ((y & 0xFFFF) << 16);
     }
 
-    public static SplitFlagMap fromResources() {
+    public static SplitFlagMap fromResources(PosiedienLeaguesPlannerPlugin plugin, LeaguesPlannerConfig config)
+    {
         Map<Integer, byte[]> compressedRegions = new HashMap<>();
         try (ZipInputStream in = new ZipInputStream(PosiedienLeaguesPlannerPlugin.class.getResourceAsStream("/collision-map.zip"))) {
             int minX = Integer.MAX_VALUE;
@@ -92,7 +102,22 @@ public class SplitFlagMap {
             throw new UncheckedIOException(e);
         }
 
-        return new SplitFlagMap(compressedRegions);
+        return new SplitFlagMap(compressedRegions, plugin, config);
+    }
+
+    @Override
+    public void run()
+    {
+        Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
+        PathfinderConfig newPathfinderConfig =  new PathfinderConfig(this, transports, plugin.client, config);
+
+        EventQueue.invokeLater(() ->
+                {
+                    plugin.pathfinderConfig = newPathfinderConfig;
+                }
+        );
+
+
     }
 
     @RequiredArgsConstructor

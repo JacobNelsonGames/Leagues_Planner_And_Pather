@@ -29,8 +29,7 @@ public class CollisionMap {
 
     private boolean get(int x, int y, int z, int flag)
     {
-        return (bJustFindingOverworld || CachedConfig.config.RegionData.IsTileInUnlockedRegion(CachedConfig.config, new WorldPoint(x, y, z))) &&
-                collisionData.get(x, y, z, flag);
+        return collisionData.get(x, y, z, flag);
     }
 
     public boolean n(int x, int y, int z) {

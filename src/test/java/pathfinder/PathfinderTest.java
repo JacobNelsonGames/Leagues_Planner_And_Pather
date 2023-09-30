@@ -32,7 +32,7 @@ import Posiedien_Leagues_Planner.pathfinder.SplitFlagMap;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PathfinderTest {
-    private static final SplitFlagMap map = SplitFlagMap.fromResources();
+    private static final SplitFlagMap map = SplitFlagMap.fromResources(null,null);
     private static final Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
     private static PathfinderConfig pathfinderConfig;
 

@@ -8,6 +8,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 public class TaskDisplayPoint
 {
+    UUID DisplayPointGUID;
 
     HashSet<UUID> Tasks = new HashSet<>();
     HashSet<UUID> DungeonTasks = new HashSet<>();

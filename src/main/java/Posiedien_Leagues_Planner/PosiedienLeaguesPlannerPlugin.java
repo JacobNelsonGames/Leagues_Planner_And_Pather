@@ -3,17 +3,15 @@ package Posiedien_Leagues_Planner;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.google.inject.Inject;
 import com.google.inject.Provides;
-import java.awt.Color;
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.Shape;
-import java.awt.Toolkit;
+
+import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -23,6 +21,7 @@ import java.util.regex.Pattern;
 
 import lombok.Getter;
 import net.runelite.api.*;
+import net.runelite.api.Point;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.*;
 import net.runelite.api.widgets.Widget;
@@ -72,6 +71,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     @Inject
     public Client client;
+    public boolean bMapDisplayPointsDirty;
 
     @Getter
     @Inject
@@ -144,7 +144,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         taskOverlay = new TaskOverlay(client, this, config);
         taskOverlay.worldMapOverlay = worldMapOverlay;
 
-        SplitFlagMap map = SplitFlagMap.fromResources();
+        SplitFlagMap map = SplitFlagMap.fromResources(null, null);
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
 
         pathfinderConfig = new PathfinderConfig(map, transports, client, config);
@@ -160,6 +160,9 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
         InitializeRegionData();
         InitializeTaskData();
+
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(this, config);
+        pathfinderConfig = new PathfinderConfig(NewMap, transports, client, config);
 
         panel = new LeaguesPlannerPanel(this);
         navButton = NavigationButton.builder()
@@ -189,6 +192,12 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             pathfindingExecutor.shutdownNow();
             pathfindingExecutor = null;
         }
+
+        if (panel.pathfindingExecutor != null) {
+            panel.pathfindingExecutor.shutdownNow();
+            panel.pathfindingExecutor = null;
+        }
+
         clientToolbar.removeNavigation(navButton);
 
         taskOverlay = null;
@@ -211,7 +220,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
         getClientThread().invokeLater(() -> {
             pathfinderConfig.refresh();
-            synchronized (pathfinderMutex) {
+            synchronized (pathfinderMutex)
+            {
                 pathfinder = new Pathfinder(pathfinderConfig, start, end, bJustFindOverworld);
                 pathfinderFuture = pathfindingExecutor.submit(pathfinder);
             }
@@ -299,11 +309,37 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         lastMenuOpenedPoint = client.getMouseCanvasPosition();
     }
 
+    public void QueueRefresh()
+    {
+        EventQueue.invokeLater(() -> {
+            panel.refresh();
+            bMapDisplayPointsDirty = true;
+                }
+        );
+    }
+
+    Player CachedPlayer = null;
+    float Timer = 0.0f;
     @Subscribe
-    public void onGameTick(GameTick tick) {
+    public void onGameTick(GameTick tick)
+    {
         Player localPlayer = client.getLocalPlayer();
-        if (localPlayer == null || pathfinder == null) {
+
+        CachedPlayer = localPlayer;
+        if (localPlayer == null || pathfinder == null)
+        {
             return;
+        }
+
+        if (enableAutoRecalculate)
+        {
+            Timer += 0.01f;
+
+            if (Timer > 2.0f)
+            {
+                Timer = 0.0f;
+                QueueRefresh();
+            }
         }
 
         WorldPoint currentLocation = client.isInInstancedRegion() ?
@@ -1046,6 +1082,169 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     HashMap<Integer, UUID> HashCodeToHash = new HashMap<>();
 
+    private final Consumer<MenuEntry> AddTaskToBackOfPlan = n ->
+    {
+        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+
+        // Find greatest value of planned tasks
+        int CurrentOrder = -1;
+
+        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        {
+            if (mapElement.getValue() > CurrentOrder)
+            {
+                CurrentOrder = mapElement.getValue();
+            }
+
+        }
+
+        config.UserData.PlannedTasks.put(TaskGUID, CurrentOrder + 1);
+        QueueRefresh();
+    };
+
+    ArrayList<UUID> TempArray = new ArrayList<>();
+    private final Consumer<MenuEntry> AddTaskToFrontOfPlan = n ->
+    {
+        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+
+        // Find smallest value of planned tasks
+        int CurrentOrder = 9000000;
+
+        TempArray.clear();
+        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        {
+            if (mapElement.getValue() < CurrentOrder)
+            {
+                CurrentOrder = mapElement.getValue();
+            }
+            TempArray.add(mapElement.getKey());
+        }
+
+        for (UUID SearchingTaskGUID : TempArray)
+        {
+            int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID);
+            config.UserData.PlannedTasks.remove(SearchingTaskGUID);
+            config.UserData.PlannedTasks.put(SearchingTaskGUID, OldOrder + 1);
+        }
+
+        if (CurrentOrder == 9000000)
+        {
+            CurrentOrder = 0;
+        }
+
+        config.UserData.PlannedTasks.put(TaskGUID, CurrentOrder);
+        QueueRefresh();
+    };
+
+    private final Consumer<MenuEntry> RemoveTaskFromPlan = n ->
+    {
+        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+        config.UserData.PlannedTasks.remove(TaskGUID);
+        QueueRefresh();
+    };
+
+    private final Consumer<MenuEntry> MoveForwardOnPlan = n ->
+    {
+        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+
+        // Find value closest to our order that is smallest
+        // Between these two values, closest to current
+        int CurrentHighest = -1;
+        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID);
+        UUID ClosestTask = null;
+
+        TempArray.clear();
+        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        {
+            if (mapElement.getKey() != TaskGUID && mapElement.getValue() <= CurrentOrder && mapElement.getValue() > CurrentHighest)
+            {
+                CurrentHighest = mapElement.getValue();
+                ClosestTask = mapElement.getKey();
+            }
+            TempArray.add(mapElement.getKey());
+        }
+
+        // Replace at closest task (otherwise we are first!)
+        if (ClosestTask != null)
+        {
+            // Replace this spot
+            config.UserData.PlannedTasks.remove(TaskGUID);
+            config.UserData.PlannedTasks.put(TaskGUID, CurrentHighest);
+
+            for (UUID SearchingTaskGUID : TempArray)
+            {
+                if (SearchingTaskGUID == TaskGUID)
+                {
+                    continue;
+                }
+
+                // Push these all back (insert)
+                int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID);
+                if (OldOrder >= CurrentHighest)
+                {
+                    config.UserData.PlannedTasks.remove(SearchingTaskGUID);
+                    config.UserData.PlannedTasks.put(SearchingTaskGUID, OldOrder + 1);
+                }
+            }
+
+            QueueRefresh();
+        }
+    };
+
+    private final Consumer<MenuEntry> MoveBackOnPlan = n ->
+    {
+        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+
+        // Find value closest to our order that is smallest
+        // Between these two values, closest to current
+        int CurrentLowest = 900000;
+        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID);
+        UUID ClosestTask = null;
+
+        TempArray.clear();
+        for (HashMap.Entry<UUID, Integer> mapElement : config.UserData.PlannedTasks.entrySet())
+        {
+            if (mapElement.getKey() != TaskGUID && mapElement.getValue() >= CurrentOrder && mapElement.getValue() < CurrentLowest)
+            {
+                CurrentLowest = mapElement.getValue();
+                ClosestTask = mapElement.getKey();
+            }
+            TempArray.add(mapElement.getKey());
+        }
+
+        // Replace at closest task (otherwise we are first!)
+        if (ClosestTask != null)
+        {
+            // Move up a little
+            config.UserData.PlannedTasks.remove(ClosestTask);
+            config.UserData.PlannedTasks.put(ClosestTask, CurrentLowest - 1);
+
+            // Replace this spot
+            config.UserData.PlannedTasks.remove(TaskGUID);
+            config.UserData.PlannedTasks.put(TaskGUID, CurrentLowest);
+
+            for (UUID SearchingTaskGUID : TempArray)
+            {
+                if (SearchingTaskGUID == TaskGUID)
+                {
+                    continue;
+                }
+
+                // Push these all back (insert)
+                int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID);
+                if (OldOrder >= CurrentLowest)
+                {
+                    config.UserData.PlannedTasks.remove(SearchingTaskGUID);
+                    config.UserData.PlannedTasks.put(SearchingTaskGUID, OldOrder + 1);
+                }
+            }
+
+            QueueRefresh();
+        }
+    };
+
     private final Consumer<MenuEntry> FocusOnTaskLocation = n ->
     {
         UUID TaskGUID = HashCodeToHash.get(n.getParam0());
@@ -1181,6 +1380,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
                 {
                     TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                    HashCodeToHash.put(TaskGUID.hashCode(), TaskGUID);
 
                     MenuEntry taskMenu = client.createMenuEntry(-1);
                     taskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
@@ -1188,9 +1388,55 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                     taskMenu.onClick(this.FocusOnTaskLocation);
                     taskMenu.setType(MenuAction.RUNELITE);
                     taskMenu.setParam0(TaskGUID.hashCode());
-                    HashCodeToHash.put(TaskGUID.hashCode(), TaskGUID);
-
                     entries.add(0, taskMenu);
+
+                    if (!config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    {
+                        MenuEntry plannedTaskMenu = client.createMenuEntry(-1);
+                        plannedTaskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
+                        plannedTaskMenu.setOption("Add to plan (back)");
+                        plannedTaskMenu.onClick(this.AddTaskToBackOfPlan);
+                        plannedTaskMenu.setType(MenuAction.RUNELITE);
+                        plannedTaskMenu.setParam0(TaskGUID.hashCode());
+                        entries.add(0, plannedTaskMenu);
+
+                        MenuEntry plannedTaskMenu2 = client.createMenuEntry(-1);
+                        plannedTaskMenu2.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
+                        plannedTaskMenu2.setOption("Add to plan (front)");
+                        plannedTaskMenu2.onClick(this.AddTaskToFrontOfPlan);
+                        plannedTaskMenu2.setType(MenuAction.RUNELITE);
+                        plannedTaskMenu2.setParam0(TaskGUID.hashCode());
+                        entries.add(0, plannedTaskMenu2);
+
+                    }
+                    else
+                    {
+                        MenuEntry plannedTaskMenu3 = client.createMenuEntry(-1);
+                        plannedTaskMenu3.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
+                        plannedTaskMenu3.setOption("Move back on plan");
+                        plannedTaskMenu3.onClick(this.MoveBackOnPlan);
+                        plannedTaskMenu3.setType(MenuAction.RUNELITE);
+                        plannedTaskMenu3.setParam0(TaskGUID.hashCode());
+                        entries.add(0, plannedTaskMenu3);
+
+                        MenuEntry plannedTaskMenu2 = client.createMenuEntry(-1);
+                        plannedTaskMenu2.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
+                        plannedTaskMenu2.setOption("Move forward on plan");
+                        plannedTaskMenu2.onClick(this.MoveForwardOnPlan);
+                        plannedTaskMenu2.setType(MenuAction.RUNELITE);
+                        plannedTaskMenu2.setParam0(TaskGUID.hashCode());
+                        entries.add(0, plannedTaskMenu2);
+
+                        MenuEntry plannedTaskMenu = client.createMenuEntry(-1);
+                        plannedTaskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
+                        plannedTaskMenu.setOption("Remove from plan");
+                        plannedTaskMenu.onClick(this.RemoveTaskFromPlan);
+                        plannedTaskMenu.setType(MenuAction.RUNELITE);
+                        plannedTaskMenu.setParam0(TaskGUID.hashCode());
+                        entries.add(0, plannedTaskMenu);
+
+                    }
+
                 }
             }
         }

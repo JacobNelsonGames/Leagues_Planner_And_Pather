@@ -3,12 +3,24 @@ package Posiedien_Leagues_Planner;
 
 import net.runelite.api.Player;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
 import net.runelite.client.util.ImageUtil;
+import net.runelite.client.ui.components.IconTextField;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.InputMethodListener;
+import java.awt.event.TextEvent;
+import java.awt.event.TextListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class TaskSelectPanel extends JPanel
 {
@@ -70,29 +82,7 @@ public class TaskSelectPanel extends JPanel
             DistanceText = String.valueOf(DistanceFromPlayer);
         }
 
-        boolean DebugSortEnabled = false;
-
-        double DebugSortValue = 0;
-        if (DebugSortEnabled)
-        {
-            TaskSortMethod SortConfig = plugin.config.TaskSort();
-
-            if (SortConfig == TaskSortMethod.DISTANCE)
-            {
-                DebugSortValue = DistanceFromPlayer;
-            }
-            else if (SortConfig == TaskSortMethod.DIFFICULTY)
-            {
-                DebugSortValue = inTask.Difficulty.hashCode();
-            }
-        }
-
         String LabelString = "Dist: " + DistanceText + ", " + taskData.TaskName;
-
-        if (DebugSortEnabled)
-        {
-            LabelString = LabelString + " DebugSort: " + DebugSortValue;
-        }
 
         JLabel nameLabel = new JLabel("<html>"+ LabelString +"</html>");
 
@@ -134,14 +124,64 @@ public class TaskSelectPanel extends JPanel
         });
         ButtonCombo.add(markHiddenButton, BorderLayout.NORTH);
 
-        JButton startButton = new JButton();
-        startButton.setBorder(new EmptyBorder(10, 0, 10, 0));
-        startButton.setIcon(START_ICON);
-        startButton.addActionListener(e ->
+        if (plugin.config.UserData.PlannedTasks.containsKey(taskData.GUID))
         {
-            //questHelperPlugin.nextSelectedAction = actionHelper;
-        });
-        ButtonCombo.add(startButton, BorderLayout.SOUTH);
+            /* Priority input */
+            TextField activeOrder = new TextField();
+            activeOrder.setPreferredSize(new Dimension(markHiddenButton.getWidth(), 30));
+            activeOrder.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+            activeOrder.setText(String.valueOf(plugin.config.UserData.PlannedTasks.get(taskData.GUID)));
+
+            activeOrder.addTextListener(new TextListener()
+            {
+                @Override
+                public void textValueChanged(TextEvent e)
+                {
+
+                    try
+                    {
+                        int i = Integer.parseInt(((TextField)(e.getSource())).getText());
+                    }
+                    catch (NumberFormatException nfe)
+                    {
+                        plugin.QueueRefresh();
+                        return;
+                    }
+
+
+                    plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
+                    plugin.config.UserData.PlannedTasks.put(taskData.GUID, Integer.valueOf(((TextField)(e.getSource())).getText()));
+                    plugin.QueueRefresh();
+                }
+
+            });
+            ButtonCombo.add(activeOrder, BorderLayout.SOUTH);
+        }
+        else
+        {
+            JButton startButton = new JButton();
+            startButton.setBorder(new EmptyBorder(10, 0, 10, 0));
+            startButton.setIcon(START_ICON);
+            startButton.addActionListener(e ->
+            {
+                // Find greatest value of planned tasks
+                int CurrentOrder = 0;
+
+                for (HashMap.Entry<UUID, Integer> mapElement : plugin.config.UserData.PlannedTasks.entrySet())
+                {
+                    if (mapElement.getValue() > CurrentOrder)
+                    {
+                        CurrentOrder = mapElement.getValue();
+                    }
+
+                }
+
+                plugin.config.UserData.PlannedTasks.put(taskData.GUID, CurrentOrder + 1);
+                plugin.bMapDisplayPointsDirty = true;
+                plugin.QueueRefresh();
+            });
+            ButtonCombo.add(startButton, BorderLayout.SOUTH);
+        }
         add(ButtonCombo, BorderLayout.LINE_END);
     }
 }

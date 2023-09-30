@@ -1,5 +1,6 @@
 package Posiedien_Leagues_Planner;
 
+import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
 import com.google.inject.Inject;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -36,21 +37,42 @@ public class PathMinimapOverlay extends Overlay {
 
     @Override
     public Dimension render(Graphics2D graphics) {
-        if (!config.drawMinimap() || plugin.getPathfinder() == null) {
+        if (!config.drawMinimap() || (plugin.getPathfinder() == null && (plugin.panel.getPathfinderArray() == null || plugin.panel.getPathfinderArray().isEmpty()))) {
             return null;
         }
 
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
         graphics.setClip(plugin.getMinimapClipArea());
 
-        List<WorldPoint> pathPoints = plugin.getPathfinder().getPath();
-        Color pathColor = plugin.getPathfinder().isDone() ? config.colourPath() : config.colourPathCalculating();
-        for (WorldPoint pathPoint : pathPoints) {
-            if (pathPoint.getPlane() != client.getPlane()) {
-                continue;
-            }
+        if (plugin.getPathfinder() != null)
+        {
+            List<WorldPoint> pathPoints = plugin.getPathfinder().getPath();
+            Color pathColor = plugin.getPathfinder().isDone() ? config.colourPath() : config.colourPathCalculating();
+            for (WorldPoint pathPoint : pathPoints) {
+                if (pathPoint.getPlane() != client.getPlane()) {
+                    continue;
+                }
 
-            drawOnMinimap(graphics, pathPoint, pathColor);
+                drawOnMinimap(graphics, pathPoint, pathColor);
+            }
+        }
+
+        if (plugin.panel.getPathfinderArray() != null)
+        {
+            for (Pathfinder CurrentPathfinder : plugin.panel.getPathfinderArray())
+            {
+                List<WorldPoint> pathPoints = CurrentPathfinder.getPath();
+                Color pathColor = CurrentPathfinder.isDone() ? Color.PINK : Color.CYAN;
+                for (WorldPoint pathPoint : pathPoints)
+                {
+                    if (pathPoint.getPlane() != client.getPlane())
+                    {
+                        continue;
+                    }
+
+                    drawOnMinimap(graphics, pathPoint, pathColor);
+                }
+            }
         }
 
         return null;

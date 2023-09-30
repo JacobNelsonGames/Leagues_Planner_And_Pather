@@ -1,6 +1,11 @@
 package Posiedien_Leagues_Planner;
 
 import java.awt.Color;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.UUID;
+
+import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.config.Alpha;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
@@ -16,6 +21,8 @@ public interface LeaguesPlannerConfig extends Config
     public FullRegionData RegionData = new FullRegionData();
 
     public FullTaskData TaskData = new FullTaskData();
+
+    public FullUserData UserData = new FullUserData();
 
     @ConfigSection(
             position = 3,
@@ -214,7 +221,7 @@ public interface LeaguesPlannerConfig extends Config
     )
     default TaskSortMethod TaskSort()
     {
-        return TaskSortMethod.NONE;
+        return TaskSortMethod.DIFFICULTY;
     }
 
     @ConfigItem(

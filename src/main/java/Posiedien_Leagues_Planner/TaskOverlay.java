@@ -1,6 +1,8 @@
 package Posiedien_Leagues_Planner;
 
+import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
 import net.runelite.api.Client;
+import net.runelite.api.Player;
 import net.runelite.api.Point;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.widgets.Widget;
@@ -30,7 +32,8 @@ public class TaskOverlay extends Overlay
 
     private Area WorldMapClipArea;
 
-    ArrayList<TaskDisplayPoint> CachedTaskDisplayPoints = new ArrayList<>();
+    HashMap<UUID, TaskDisplayPoint> CachedTaskDisplayPoints = new HashMap<>();
+    HashMap<UUID, HashSet<UUID> > TaskToDisplayPoints = new HashMap<>();
 
     float CachedZoomLevel = -100.0f;
 
@@ -38,8 +41,9 @@ public class TaskOverlay extends Overlay
     {
         ArrayList<TaskDisplayPoint> OutDisplayPointsClicked = new ArrayList<>();
         Point ClickedGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(ClickedPoint);
-        for (TaskDisplayPoint CurrentDisplayPoint : CachedTaskDisplayPoints)
+        for (Map.Entry<UUID, TaskDisplayPoint> CurrentTaskPair : CachedTaskDisplayPoints.entrySet())
         {
+            TaskDisplayPoint CurrentDisplayPoint = CurrentTaskPair.getValue();
             Point DisplayGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(CurrentDisplayPoint.MapDisplayPoint);
             if (DisplayGraphicsPoint == null)
             {
@@ -112,8 +116,9 @@ public class TaskOverlay extends Overlay
     private void AddTaskWorldPointToDisplayPoints(UUID TaskGUID, WorldPoint InWorldPoint, boolean IsOverworldDungeon)
     {
         // First see if there is an existing display point we can be assigned to, if not create a new one
-        for (TaskDisplayPoint CurrentDisplayPoint : CachedTaskDisplayPoints)
+        for (Map.Entry<UUID, TaskDisplayPoint> CurrentTaskPair : CachedTaskDisplayPoints.entrySet())
         {
+            TaskDisplayPoint CurrentDisplayPoint = CurrentTaskPair.getValue();
             if (ShouldMergeIntoDisplayPoint(CurrentDisplayPoint, InWorldPoint))
             {
                 // Merge
@@ -125,6 +130,8 @@ public class TaskOverlay extends Overlay
                     CurrentDisplayPoint.DungeonTasks.add(TaskGUID);
                 }
                 CurrentDisplayPoint.UpdateMapDisplayPoint();
+                TaskToDisplayPoints.putIfAbsent(TaskGUID, new HashSet<>(Collections.singleton(CurrentDisplayPoint.DisplayPointGUID)));
+                TaskToDisplayPoints.get(TaskGUID).add(CurrentDisplayPoint.DisplayPointGUID);
                 return;
             }
         }
@@ -140,8 +147,12 @@ public class TaskOverlay extends Overlay
             NewDisplayPoint.DungeonTasks.add(TaskGUID);
         }
         NewDisplayPoint.UpdateMapDisplayPoint();
+        NewDisplayPoint.DisplayPointGUID = UUID.randomUUID();
 
-        CachedTaskDisplayPoints.add(NewDisplayPoint);
+        CachedTaskDisplayPoints.put(NewDisplayPoint.DisplayPointGUID, NewDisplayPoint);
+
+        TaskToDisplayPoints.putIfAbsent(TaskGUID, new HashSet<>(Collections.singleton(NewDisplayPoint.DisplayPointGUID)));
+        TaskToDisplayPoints.get(TaskGUID).add(NewDisplayPoint.DisplayPointGUID);
     }
 
     public TaskDifficulty DiffFilter = TaskDifficulty.NONE;
@@ -150,6 +161,7 @@ public class TaskOverlay extends Overlay
     public HashSet<RegionType> RegionsUnlocked = new HashSet<>();
 
     public HashSet<RegionType> TempRegionsUnlocked = new HashSet<>();
+
 
     private void CacheDisplayPointsIfDirty()
     {
@@ -165,12 +177,14 @@ public class TaskOverlay extends Overlay
             }
         }
 
-        if (zoom != CachedZoomLevel ||
+        if (plugin.bMapDisplayPointsDirty ||
+                zoom != CachedZoomLevel ||
                 DiffFilter != config.FilteredDifficulty() ||
                 OthFilter != config.FilteredOther() ||
                 !RegionsUnlocked.containsAll(TempRegionsUnlocked) ||
                 !TempRegionsUnlocked.containsAll(RegionsUnlocked) )
         {
+            plugin.bMapDisplayPointsDirty = false;
             CachedZoomLevel = zoom;
             DiffFilter = config.FilteredDifficulty();
             OthFilter = config.FilteredOther();
@@ -179,6 +193,7 @@ public class TaskOverlay extends Overlay
 
             // Go through all of our tasks and figure out our display points for rendering
             CachedTaskDisplayPoints.clear();
+            TaskToDisplayPoints.clear();
 
             for (Map.Entry<UUID, TaskData> CurrentTaskPair : config.TaskData.LeaguesTaskList.entrySet())
             {
@@ -188,10 +203,13 @@ public class TaskOverlay extends Overlay
                     continue;
                 }
 
-                // TODO IMPLEMENT OTHER FILTER
-                if (OthFilter != OtherFilter.NONE)
+                if (OthFilter == OtherFilter.ONLY_MAP_PLAN ||
+                    OthFilter == OtherFilter.ONLY_PLAN)
                 {
-                    continue;
+                    if (!config.UserData.PlannedTasks.containsKey(CurrentTaskPair.getKey()))
+                    {
+                        continue;
+                    }
                 }
 
                 boolean bSkipTask = false;
@@ -226,8 +244,6 @@ public class TaskOverlay extends Overlay
                     }
                 }
             }
-
-
         }
     }
 
@@ -246,9 +262,16 @@ public class TaskOverlay extends Overlay
 
     private static final BufferedImage HIGHLIGHTED_TASK_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HighlightedTaskIcon.png");
 
+    private static final BufferedImage PLANNED_TASK_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/PlannedTaskIcon.png");
+
+    private static final BufferedImage PLANNED_HIGHLIGHTED_TASK_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HighlightedPlannedTaskIcon.png");
+
     private static final BufferedImage TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/TaskIconDungeon.png");
 
     private static final BufferedImage HIGHLIGHTED_TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HighlightedTaskIconDungeon.png");
+
+    private static final BufferedImage PLANNED_TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/PlannedTaskIconDungeon.png");
+    private static final BufferedImage PLANNED_HIGHLIGHTED_TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HighlightedPlannedTaskIconDungeon.png");
 
     private static final BufferedImage EASY_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Easy.png");
     private static final BufferedImage MEDIUM_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Medium.png");
@@ -294,8 +317,9 @@ public class TaskOverlay extends Overlay
 
         Color highlightnamecolor2 = new Color(0, 0, 0,255);
 
-        for (TaskDisplayPoint CurrentDisplayPoint : CachedTaskDisplayPoints)
+        for (Map.Entry<UUID, TaskDisplayPoint> CurrentTaskPair : CachedTaskDisplayPoints.entrySet())
         {
+            TaskDisplayPoint CurrentDisplayPoint = CurrentTaskPair.getValue();
             Point GraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(CurrentDisplayPoint.MapDisplayPoint);
             if (GraphicsPoint == null || !WorldMapClipArea.contains(GraphicsPoint.getX(), GraphicsPoint.getY()))
             {
@@ -344,26 +368,63 @@ public class TaskOverlay extends Overlay
                 }
             }
 
+            boolean bIsTaskPlanned = false;
+            for (UUID CurrentTaskID : CurrentDisplayPoint.Tasks)
+            {
+                if (config.UserData.PlannedTasks.containsKey(CurrentTaskID))
+                {
+                    bIsTaskPlanned = true;
+                }
+            }
+
             if (HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize)
             {
                 if (CurrentDisplayPoint.Tasks.size() == CurrentDisplayPoint.DungeonTasks.size())
                 {
-                    graphics.drawImage(HIGHLIGHTED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    if (bIsTaskPlanned)
+                    {
+                        graphics.drawImage(PLANNED_HIGHLIGHTED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
+                    else
+                    {
+                        graphics.drawImage(HIGHLIGHTED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
                 }
                 else
                 {
-                    graphics.drawImage(HIGHLIGHTED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    if (bIsTaskPlanned)
+                    {
+                        graphics.drawImage(PLANNED_HIGHLIGHTED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
+                    else
+                    {
+                        graphics.drawImage(HIGHLIGHTED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
                 }
             }
             else
             {
                 if (CurrentDisplayPoint.Tasks.size() == CurrentDisplayPoint.DungeonTasks.size())
                 {
-                    graphics.drawImage(TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    if (bIsTaskPlanned)
+                    {
+                        graphics.drawImage(PLANNED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
+                    else
+                    {
+                        graphics.drawImage(TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
                 }
                 else
                 {
-                    graphics.drawImage(TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    if (bIsTaskPlanned)
+                    {
+                        graphics.drawImage(PLANNED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
+                    else
+                    {
+                        graphics.drawImage(TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                    }
                 }
             }
 
@@ -406,7 +467,8 @@ public class TaskOverlay extends Overlay
                     GraphicsPoint.getX() - TextIconTextOffsetX,
                     GraphicsPoint.getY() - TextIconTextOffsetY);
 
-            if (HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize)
+            boolean bIsCloseToMouse = HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize;
+            if (bIsTaskPlanned || bIsCloseToMouse)
             {
                 Font taskhighlightFont2 = new FontUIResource("taskhighlightFont2", Font.BOLD, 15);
                 graphics.setFont(taskhighlightFont2);
@@ -415,14 +477,29 @@ public class TaskOverlay extends Overlay
                 int TaskNum2 = 0;
                 for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
                 {
-                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
-                    graphics.drawChars(CurrentTask.TaskName.toCharArray(),
-                            0,
-                            CurrentTask.TaskName.length(),
-                            HighlightGraphicsPoint.getX() - 1,
-                            HighlightGraphicsPoint.getY() - TaskNum2 * 15 + 1);
+                    if (bIsCloseToMouse)
+                    {
+                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                                0,
+                                CurrentTask.TaskName.length(),
+                                HighlightGraphicsPoint.getX() - 1,
+                                HighlightGraphicsPoint.getY() - TaskNum2 * 15 + 1);
 
-                    ++TaskNum2;
+                        ++TaskNum2;
+                    }
+                    // bIsTaskPlanned
+                    else if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    {
+                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                                0,
+                                CurrentTask.TaskName.length(),
+                                GraphicsPoint.getX() - 1,
+                                GraphicsPoint.getY() - TaskNum2 * 15 + 1);
+
+                        ++TaskNum2;
+                    }
                 }
                 Font taskhighlightFont = new FontUIResource("taskhighlightFont", Font.BOLD, 15);
                 graphics.setFont(taskhighlightFont);
@@ -430,20 +507,133 @@ public class TaskOverlay extends Overlay
                 int TaskNum = 0;
                 for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
                 {
-                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                    if (bIsCloseToMouse)
+                    {
+                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
 
-                    graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
-                    graphics.drawChars(CurrentTask.TaskName.toCharArray(),
-                            0,
-                            CurrentTask.TaskName.length(),
-                            HighlightGraphicsPoint.getX(),
-                            HighlightGraphicsPoint.getY() - TaskNum * 15);
+                        graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
+                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                                0,
+                                CurrentTask.TaskName.length(),
+                                HighlightGraphicsPoint.getX(),
+                                HighlightGraphicsPoint.getY() - TaskNum * 15);
 
-                    ++TaskNum;
+                        ++TaskNum;
+                    }
+                    // bIsTaskPlanned
+                    else if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    {
+                        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+
+                        graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
+                        graphics.drawChars(CurrentTask.TaskName.toCharArray(),
+                                0,
+                                CurrentTask.TaskName.length(),
+                                GraphicsPoint.getX(),
+                                GraphicsPoint.getY() - TaskNum * 15);
+
+                        ++TaskNum;
+                    }
                 }
             }
         }
 
+        // Go through our plan and draw lines connecting them
+        Player player = plugin.client.getLocalPlayer();
+        if (player != null)
+        {
+            graphics.setColor(new Color(255, 226, 1,255));
+            WorldPoint LastWorldPoint = player.getWorldLocation();
+            WorldPoint LastActualWorldPoint = player.getWorldLocation();
+
+            int SortTaskIter = 0;
+            for (SortedTask SortedTaskIter : config.UserData.SortedPlannedTasks)
+            {
+                TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(SortedTaskIter.TaskGUID);
+
+                // Find our display points with this task
+                float ClosestDistance = 9000000.0f;
+                float ClosestActualDistance = 9000000.0f;
+                WorldPoint ClosestWorldPoint = null;
+                WorldPoint ClosestActualWorldPoint = null;
+                if (!TaskToDisplayPoints.containsKey(CurrentTask.GUID))
+                {
+                    continue;
+                }
+
+                for (UUID DisplayPointGUID : TaskToDisplayPoints.get(CurrentTask.GUID))
+                {
+                    WorldPoint CurrentWorldPoint =  CachedTaskDisplayPoints.get(DisplayPointGUID).MapDisplayPoint;
+                    float NextDistance = LastWorldPoint.distanceTo(CurrentWorldPoint);
+                    if ( NextDistance < ClosestDistance)
+                    {
+                        ClosestDistance = NextDistance;
+                        ClosestWorldPoint = CurrentWorldPoint;
+                    }
+                }
+
+                for (WorldPoint ActualLocation : CurrentTask.Locations)
+                {
+                    float NextDistance = LastActualWorldPoint.distanceTo(ActualLocation);
+                    if ( NextDistance < ClosestActualDistance)
+                    {
+                        ClosestActualDistance = NextDistance;
+                        ClosestActualWorldPoint = ActualLocation;
+                    }
+                }
+
+                if (plugin.panel.CurrentPathfinderIndex == SortTaskIter)
+                {
+                    boolean bIsCurrentPathfindingDone = false;
+                    synchronized (plugin.panel.pathfinderMutex)
+                    {
+                        bIsCurrentPathfindingDone = plugin.panel.pathfinderArray.isEmpty() ||
+                                plugin.panel.pathfinderArray.get(SortTaskIter - 1).isDone();
+                    }
+
+                    // Start next path
+                    if (bIsCurrentPathfindingDone)
+                    {
+                        ++plugin.panel.CurrentPathfinderIndex;
+                        WorldPoint finalLastWorldPoint = LastActualWorldPoint;
+                        WorldPoint finalClosestWorldPoint = ClosestActualWorldPoint;
+                        plugin.getClientThread().invokeLater(() ->
+                        {
+                            plugin.pathfinderConfig.refresh();
+                            synchronized (plugin.panel.pathfinderMutex)
+                            {
+                                Pathfinder NewPathfinder = new Pathfinder(plugin.pathfinderConfig, finalLastWorldPoint, finalClosestWorldPoint, false);
+                                plugin.panel.pathfinderArray.add(NewPathfinder);
+                                plugin.panel.pathfinderFuture = plugin.panel.pathfindingExecutor.submit(NewPathfinder);
+                            }
+                        });
+                    }
+                }
+
+                ++SortTaskIter;
+                LastActualWorldPoint = ClosestActualWorldPoint;
+
+                // Draw arrow from closest distance to next task
+                Point GraphicsStart = worldMapOverlay.mapWorldPointToGraphicsPoint(ClosestWorldPoint);
+                if (GraphicsStart == null)
+                {
+                    LastWorldPoint = ClosestWorldPoint;
+                    continue;
+                }
+
+                Point GraphicsEnd = worldMapOverlay.mapWorldPointToGraphicsPoint(LastWorldPoint);
+                if (GraphicsEnd == null)
+                {
+                    LastWorldPoint = ClosestWorldPoint;
+                    continue;
+                }
+
+                graphics.drawLine(GraphicsStart.getX(), GraphicsStart.getY(), GraphicsEnd.getX(), GraphicsEnd.getY());
+                LastWorldPoint = ClosestWorldPoint;
+            }
+
+
+        }
 
         return null;
     }

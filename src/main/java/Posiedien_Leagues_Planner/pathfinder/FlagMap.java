@@ -10,8 +10,8 @@ public class FlagMap {
     private final BitSet flags;
     @Getter
     private final byte planeCount;
-    private final int minX;
-    private final int minY;
+    public final int minX;
+    public final int minY;
 
     public FlagMap(int minX, int minY, byte planeCount) {
         this.minX = minX;

@@ -1,5 +1,6 @@
 package Posiedien_Leagues_Planner;
 
+import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
 import com.google.inject.Inject;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -117,7 +118,8 @@ public class PathTileOverlay extends Overlay {
             this.renderCollisionMap(graphics);
         }
 
-        if (config.drawTiles() && plugin.getPathfinder() != null && plugin.getPathfinder().getPath() != null) {
+        if (config.drawTiles() && plugin.getPathfinder() != null && plugin.getPathfinder().getPath() != null)
+        {
             Color color;
             if (plugin.getPathfinder().isDone()) {
                 color = new Color(
@@ -145,6 +147,45 @@ public class PathTileOverlay extends Overlay {
                 for (int i = 0; i <  path.size(); i++) {
                     drawTile(graphics, path.get(i), color, counter++, showTiles);
                     drawFairyRingCode(graphics, path.get(i), (i + 1 == path.size()) ? null : path.get(i + 1));
+                }
+            }
+        }
+
+        if (plugin.panel.getPathfinderArray() != null)
+        {
+            for (Pathfinder CurrentPathfinder : plugin.panel.getPathfinderArray())
+            {
+                if (config.drawTiles() && CurrentPathfinder != null && CurrentPathfinder.getPath() != null)
+                {
+                    Color color;
+                    if (CurrentPathfinder.isDone()) {
+                        color = new Color(
+                                Color.PINK.getRed(),
+                                Color.PINK.getGreen(),
+                                Color.PINK.getBlue(),
+                                Color.PINK.getAlpha() / 2);
+                    } else {
+                        color = new Color(
+                                Color.CYAN.getRed(),
+                                Color.CYAN.getGreen(),
+                                Color.CYAN.getBlue(),
+                                Color.CYAN.getAlpha() / 2);
+                    }
+
+                    List<WorldPoint> path = CurrentPathfinder.getPath();
+                    int counter = 0;
+                    if (TileStyle.LINES.equals(config.pathStyle())) {
+                        for (int i = 1; i < path.size(); i++) {
+                            drawLine(graphics, path.get(i - 1), path.get(i), color, 1 + counter++);
+                            drawFairyRingCode(graphics, path.get(i - 1), path.get(i));
+                        }
+                    } else {
+                        boolean showTiles = TileStyle.TILES.equals(config.pathStyle());
+                        for (int i = 0; i <  path.size(); i++) {
+                            drawTile(graphics, path.get(i), color, counter++, showTiles);
+                            drawFairyRingCode(graphics, path.get(i), (i + 1 == path.size()) ? null : path.get(i + 1));
+                        }
+                    }
                 }
             }
         }

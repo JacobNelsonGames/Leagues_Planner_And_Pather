@@ -1,6 +1,12 @@
 package Posiedien_Leagues_Planner;
 
-import net.runelite.client.config.ConfigItem;
+import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
+import Posiedien_Leagues_Planner.pathfinder.PathfinderConfig;
+import Posiedien_Leagues_Planner.pathfinder.SplitFlagMap;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import lombok.Getter;
+import net.runelite.api.Player;
+import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.DynamicGridLayout;
 import net.runelite.client.ui.PluginPanel;
@@ -12,9 +18,12 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.UUID;
+import java.nio.file.Path;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadFactory;
 
 public class LeaguesPlannerPanel extends PluginPanel
 {
@@ -42,6 +51,8 @@ public class LeaguesPlannerPanel extends PluginPanel
     private final JScrollPane regionUnlockedScrollableContainer;
     private final int DROPDOWN_HEIGHT = 20;
 
+    public Thread longRunningTask = null;
+
     JButton autostartButton = new JButton();
     public ActionListener autoRecalculateCallback = e->
             {
@@ -55,8 +66,9 @@ public class LeaguesPlannerPanel extends PluginPanel
                     autostartButton.setIcon(UNCHECKED_ICON);
                 }
 
-                refresh();
+                plugin.QueueRefresh();
             };
+
 
     JButton misthalinUnlockedButton = new JButton();
     public ActionListener misthalinUnlockedCallback = e->
@@ -75,7 +87,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             misthalinUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton karamjaUnlockedButton = new JButton();
@@ -95,7 +117,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             karamjaUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton kandarinUnlockedButton = new JButton();
@@ -115,7 +147,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             kandarinUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton asgarniaUnlockedButton = new JButton();
@@ -135,7 +177,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             asgarniaUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton fremennikUnlockedButton = new JButton();
@@ -155,7 +207,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             fremennikUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton kourendUnlockedButton = new JButton();
@@ -175,7 +237,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             kourendUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton wildernessUnlockedButton = new JButton();
@@ -195,7 +267,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             wildernessUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton morytaniaUnlockedButton = new JButton();
@@ -215,7 +297,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             morytaniaUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton tirannwnUnlockedButton = new JButton();
@@ -235,7 +327,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             tirannwnUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
     JButton desertUnlockedButton = new JButton();
@@ -255,7 +357,17 @@ public class LeaguesPlannerPanel extends PluginPanel
             desertUnlockedButton.setIcon(UNCHECKED_ICON);
         }
 
-        refresh();
+        SplitFlagMap NewMap = SplitFlagMap.fromResources(plugin, config);
+
+        if (longRunningTask != null && longRunningTask.isAlive())
+        {
+            longRunningTask.interrupt();
+        }
+
+        longRunningTask = new Thread(NewMap);
+        longRunningTask.start();
+
+        plugin.QueueRefresh();
     };
 
 
@@ -312,7 +424,7 @@ public class LeaguesPlannerPanel extends PluginPanel
                     "FilteredDifficulty",
                     source);
 
-            refresh();
+            plugin.QueueRefresh();
         }
 
     };
@@ -327,7 +439,7 @@ public class LeaguesPlannerPanel extends PluginPanel
                     "FilteredOther",
                     source);
 
-            refresh();
+            plugin.QueueRefresh();
         }
 
     };
@@ -339,10 +451,10 @@ public class LeaguesPlannerPanel extends PluginPanel
             Enum source = (Enum) e.getItem();
             plugin.getConfigManager().setConfiguration(
                     PosiedienLeaguesPlannerPlugin.CONFIG_GROUP,
-                    "TaskSortMethod",
+                    "TaskSort",
                     source);
 
-            refresh();
+            plugin.QueueRefresh();
         }
 
     };
@@ -400,7 +512,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         reloadbutton.setLayout(new BorderLayout(0, BORDER_OFFSET));
         reloadbutton.addActionListener(e ->
         {
-            refresh();
+            plugin.QueueRefresh();
             /*plugin.CurrentStepSelected = null;
             if (plugin.getSelectedQuest() != null)
             {
@@ -431,7 +543,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         startButton.setLayout(new BorderLayout(0, BORDER_OFFSET));
         startButton.addActionListener(e ->
         {
-            refresh();
+            plugin.QueueRefresh();
             /*plugin.loadQuestList = true;
             plugin.updateShortestPath();
             plugin.MarkUIAndActionRefresh(true, true);*/
@@ -453,7 +565,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         filtersPanel.setPreferredSize(new Dimension(PANEL_WIDTH, DROPDOWN_HEIGHT));
 
         filterDropdown2 = makeNewDropdown(OtherFilter.values(), "filterListBy2", filterCallbackOther);
-        JPanel filtersPanel2 = makeDropdownPanel(filterDropdown2, "Other Filters");
+        JPanel filtersPanel2 = makeDropdownPanel(filterDropdown2, "Planning Filters");
         filtersPanel2.setPreferredSize(new Dimension(PANEL_WIDTH, DROPDOWN_HEIGHT));
 
         filterDropdown3 = makeNewDropdown(TaskSortMethod.values(), "filterListBy3", filterCallbackSort);
@@ -583,22 +695,26 @@ public class LeaguesPlannerPanel extends PluginPanel
         OtherFilter OthFilter = config.FilteredOther();
 
         // Go through all of our tasks and filter out anything that doesn't belong
-        for (Map.Entry<UUID, TaskData> CurrentTaskPair : config.TaskData.LeaguesTaskList.entrySet())
+        for (SortedTask SortedTaskIter : config.TaskData.SortedLeaguesTaskList)
         {
+            TaskData data = config.TaskData.LeaguesTaskList.get(SortedTaskIter.TaskGUID);
+
             // Skip due to some filter
-            if (DiffFilter != TaskDifficulty.NONE && DiffFilter != CurrentTaskPair.getValue().Difficulty)
+            if (DiffFilter != TaskDifficulty.NONE && DiffFilter != data.Difficulty)
             {
                 continue;
             }
 
-            // TODO IMPLEMENT OTHER FILTER
-            if (OthFilter != OtherFilter.NONE)
+            if (OthFilter == OtherFilter.ONLY_PLAN)
             {
-                continue;
+                if (!config.UserData.PlannedTasks.containsKey(SortedTaskIter.TaskGUID))
+                {
+                    continue;
+                }
             }
 
             boolean bSkipTask = false;
-            for (RegionType ReqRegion : CurrentTaskPair.getValue().Regions)
+            for (RegionType ReqRegion : data.Regions)
             {
                 if (!RegionType.GetRegionUnlocked(config, ReqRegion))
                 {
@@ -606,12 +722,37 @@ public class LeaguesPlannerPanel extends PluginPanel
                     break;
                 }
             }
+
+            // Go through all the task locations
+            int PointsInRegions = 0;
+            for (WorldPoint TaskWorldPoint : data.Locations)
+            {
+                if (config.RegionData.IsTileInUnlockedRegion(config, TaskWorldPoint))
+                {
+                    ++PointsInRegions;
+                }
+            }
+
+            // Go through all the task overworld location
+            for (WorldPoint TaskOverworldWorldPoint : data.OverworldLocations)
+            {
+                if (config.RegionData.IsTileInUnlockedRegion(config, TaskOverworldWorldPoint))
+                {
+                    ++PointsInRegions;
+                }
+            }
+
+            if (PointsInRegions == 0)
+            {
+                bSkipTask = true;
+            }
+
             if (bSkipTask)
             {
                 continue;
             }
 
-            FilteredTaskListPanels.add(new TaskSelectPanel(plugin, CurrentTaskPair.getValue()));
+            FilteredTaskListPanels.add(new TaskSelectPanel(plugin, data));
         }
     }
 
@@ -622,8 +763,158 @@ public class LeaguesPlannerPanel extends PluginPanel
         FilteredTaskListPanels.forEach(taskListPanel::add);
     }
 
+    public ExecutorService pathfindingExecutor = Executors.newSingleThreadExecutor();
+    public Future<?> pathfinderFuture;
+    public Object pathfinderMutex = new Object();
+
+    int CurrentPathfinderIndex = 0;
+
+    @Getter
+    public ArrayList<Pathfinder> pathfinderArray = new ArrayList<>();
+
+    void CacheSortedLeaguesTasks(WorldPoint PlayerLocation)
+    {
+        TaskSortMethod SortConfig = config.TaskSort();
+
+        config.TaskData.SortedLeaguesTaskList.clear();
+
+        int NeededPathFinderSize = 0;
+        for (HashMap.Entry<UUID, TaskData> entry : config.TaskData.LeaguesTaskList.entrySet())
+        {
+            // Calculate our sort value
+            int SortValue = 0;
+
+            // Always put things on the plan first
+            if (config.UserData.PlannedTasks.containsKey(entry.getKey()))
+            {
+                SortValue += config.UserData.PlannedTasks.get(entry.getKey());
+                ++NeededPathFinderSize;
+            }
+            else
+            {
+                SortValue += 100000;
+                if (SortConfig == TaskSortMethod.DISTANCE && PlayerLocation != null)
+                {
+                    float ClosestDistance = 90000;
+                    for (WorldPoint NextLocation : entry.getValue().Locations)
+                    {
+                        float NextDistance = PlayerLocation.distanceTo(NextLocation);
+                        if (ClosestDistance < NextDistance)
+                        {
+                            ClosestDistance = NextDistance;
+                        }
+                    }
+                    SortValue += (int) ClosestDistance;
+                }
+                // Fall back if player location doesn't exist
+                else if (SortConfig == TaskSortMethod.DISTANCE || SortConfig == TaskSortMethod.DIFFICULTY)
+                {
+                    if (entry.getValue().Difficulty == TaskDifficulty.EASY)
+                    {
+                        SortValue += 1;
+                    }
+                    else if (entry.getValue().Difficulty == TaskDifficulty.MEDIUM)
+                    {
+                        SortValue += 2;
+                    }
+                    else if (entry.getValue().Difficulty == TaskDifficulty.HARD)
+                    {
+                        SortValue += 3;
+                    }
+                    else if (entry.getValue().Difficulty == TaskDifficulty.ELITE)
+                    {
+                        SortValue += 4;
+                    }
+                    else if (entry.getValue().Difficulty == TaskDifficulty.MASTER)
+                    {
+                        SortValue += 5;
+                    }
+                }
+            }
+
+            config.TaskData.SortedLeaguesTaskList.add(new SortedTask(entry.getKey(), SortValue));
+        }
+
+        config.TaskData.SortedLeaguesTaskList.sort(new Comparator<SortedTask>() {
+            @Override
+            public int compare(SortedTask o1, SortedTask o2)
+            {
+                return (o1.SortPriority.compareTo(o2.SortPriority));
+            }
+        });
+
+        // Restart pathfinding settings
+        ResetPathfindingSettings(NeededPathFinderSize);
+
+        // Start a pathfinding task for each planned task
+        Player player = plugin.client.getLocalPlayer();
+        WorldPoint PreviousPointPosition = null;
+        if (player != null)
+        {
+            PreviousPointPosition = player.getWorldLocation();
+        }
+
+        for (SortedTask sortTask : config.TaskData.SortedLeaguesTaskList)
+        {
+            // We are done with queueing our tasks
+            if (!config.UserData.PlannedTasks.containsKey(sortTask.TaskGUID))
+            {
+                break;
+            }
+
+            float ClosestDistance = 9000000.0f;
+            WorldPoint ClosestWorldPoint = null;
+            for (WorldPoint TaskPoint : config.TaskData.LeaguesTaskList.get(sortTask.TaskGUID).Locations)
+            {
+                float NextDistance = PreviousPointPosition.distanceTo(TaskPoint);
+                if ( NextDistance < ClosestDistance)
+                {
+                    ClosestDistance = NextDistance;
+                    ClosestWorldPoint = TaskPoint;
+                }
+            }
+            PreviousPointPosition = ClosestWorldPoint;
+        }
+    }
+
+    public boolean bPathfindingReset = false;
+    private void ResetPathfindingSettings(int NeededPathFinderSize)
+    {
+        config.UserData.CacheSortedPlannedTasks();
+
+        for (int i = 0; i < pathfinderArray.size(); ++i)
+        {
+            synchronized (pathfinderMutex)
+            {
+                if (pathfinderArray.get(i) != null)
+                {
+                    pathfinderArray.get(i).cancel();
+                    pathfinderFuture.cancel(true);
+                }
+            }
+        }
+        pathfinderArray.clear();
+
+        if (pathfindingExecutor == null)
+        {
+            ThreadFactory shortestPathNaming = new ThreadFactoryBuilder().setNameFormat("shortest-path-%d").build();
+            pathfindingExecutor = Executors.newSingleThreadExecutor(shortestPathNaming);
+        }
+
+        CurrentPathfinderIndex = 0;
+        bPathfindingReset = true;
+    }
+
     public void refresh()
     {
+        Player player = plugin.client.getLocalPlayer();
+        WorldPoint playerLocation = null;
+        if (player != null)
+        {
+            playerLocation = player.getWorldLocation();
+        }
+        CacheSortedLeaguesTasks(playerLocation);
+
         filterDropdown3.setSelectedItem(config.TaskSort());
         filterDropdown2.setSelectedItem(config.FilteredOther());
         filterDropdown.setSelectedItem(config.FilteredDifficulty());

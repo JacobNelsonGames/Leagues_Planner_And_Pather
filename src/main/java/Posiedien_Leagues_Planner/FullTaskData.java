@@ -2,11 +2,15 @@ package Posiedien_Leagues_Planner;
 
 import net.runelite.api.coords.WorldPoint;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.ArrayList;
 
 public class FullTaskData
 {
+
+    ArrayList<SortedTask> SortedLeaguesTaskList = new ArrayList<SortedTask>();
 
     HashMap<UUID, TaskData> LeaguesTaskList = new HashMap<UUID, TaskData>();
 

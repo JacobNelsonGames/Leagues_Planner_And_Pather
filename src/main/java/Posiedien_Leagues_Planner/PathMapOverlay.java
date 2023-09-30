@@ -1,5 +1,6 @@
 package Posiedien_Leagues_Planner;
 
+import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
 import com.google.inject.Inject;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -97,6 +98,24 @@ public class PathMapOverlay extends Overlay {
                     drawOnMap(graphics, last, point, true);
                 }
                 drawOnMap(graphics, point, true);
+            }
+        }
+
+        if (plugin.panel.getPathfinderArray() != null)
+        {
+            for (Pathfinder CurrentPathfinder : plugin.panel.getPathfinderArray())
+            {
+                Color colour = CurrentPathfinder.isDone() ? Color.PINK : Color.CYAN;
+                List<WorldPoint> path = CurrentPathfinder.getPath();
+                for (int i = 0; i < path.size(); i++) {
+                    graphics.setColor(colour);
+                    WorldPoint point = path.get(i);
+                    WorldPoint last = (i > 0) ? path.get(i - 1) : point;
+                    if (point.distanceTo(last) > 1) {
+                        drawOnMap(graphics, last, point, true);
+                    }
+                    drawOnMap(graphics, point, true);
+                }
             }
         }
 
