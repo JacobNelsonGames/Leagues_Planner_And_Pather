@@ -164,13 +164,13 @@ public class PathTileOverlay extends Overlay {
                                 Color.PINK.getRed(),
                                 Color.PINK.getGreen(),
                                 Color.PINK.getBlue(),
-                                Color.PINK.getAlpha() / 2);
+                                Color.PINK.getAlpha() / 4);
                     } else {
                         color = new Color(
                                 Color.CYAN.getRed(),
                                 Color.CYAN.getGreen(),
                                 Color.CYAN.getBlue(),
-                                Color.CYAN.getAlpha() / 2);
+                                Color.CYAN.getAlpha() / 4);
                     }
 
                     List<WorldPoint> path = CurrentPathfinder.getPath();

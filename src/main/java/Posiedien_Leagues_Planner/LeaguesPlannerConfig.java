@@ -773,4 +773,5 @@ public interface LeaguesPlannerConfig extends Config
     default boolean drawDebugPanel() {
         return false;
     }
+
 }

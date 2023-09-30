@@ -15,6 +15,7 @@ public class TaskData
     String TaskName = "";
 
     String TaskDescription = "";
+    Boolean bIsCustomTask = false;
 
     ArrayList<RegionType> Regions = new ArrayList<>();
 

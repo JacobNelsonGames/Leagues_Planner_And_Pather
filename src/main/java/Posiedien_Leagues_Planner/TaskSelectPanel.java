@@ -33,6 +33,17 @@ public class TaskSelectPanel extends JPanel
     private static final ImageIcon SHOWN_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/SHOWN.png"));
 
     private static final ImageIcon LOCATE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarker.png"));
+    private static final ImageIcon LOCATE_EASY_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerEasy.png"));
+
+    private static final ImageIcon LOCATE_MEDIUM_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerMedium.png"));
+
+    private static final ImageIcon LOCATE_HARD_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerHard.png"));
+
+    private static final ImageIcon LOCATE_ELITE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerElite.png"));
+
+    private static final ImageIcon LOCATE_MASTER_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerMaster.png"));
+
+    private static final ImageIcon LOCATE_CUSTOM_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarker.png"));
 
     private static final ImageIcon CLOSE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/close.png"));
 
@@ -82,7 +93,7 @@ public class TaskSelectPanel extends JPanel
 
         if (DistanceFromPlayer == 0)
         {
-            DistanceText = "Unknown";
+            DistanceText = "?";
         }
         else
         {
@@ -93,7 +104,7 @@ public class TaskSelectPanel extends JPanel
 
         JLabel nameLabel = new JLabel("<html>"+ LabelString +"</html>");
 
-        Color color = TaskDifficulty.GetTaskDifficultyColor(taskData.Difficulty);
+        Color color = Color.LIGHT_GRAY;
 
         JPanel ButtonCombo = new JPanel();
         ButtonCombo.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -101,6 +112,13 @@ public class TaskSelectPanel extends JPanel
 
         JButton markHiddenButton = new JButton();
         markHiddenButton.setBorder(new EmptyBorder(10, 0, 10, 0));
+
+        boolean bIsPlanned = plugin.config.UserData.PlannedTasks.containsKey(taskData.GUID);
+        if (bIsPlanned)
+        {
+            color = TaskDifficulty.GetTaskDifficultyColor(taskData.Difficulty);
+        }
+
         boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(taskData.GUID);
         if (bIsHidden)
         {
@@ -141,7 +159,28 @@ public class TaskSelectPanel extends JPanel
 
         JButton locateTaskButton = new JButton();
         locateTaskButton.setBorder(new EmptyBorder(3, 0, 3, 0));
-        locateTaskButton.setIcon(LOCATE_ICON);
+
+        switch (taskData.Difficulty)
+        {
+            case EASY:
+                locateTaskButton.setIcon(LOCATE_EASY_ICON);
+                break;
+            case MEDIUM:
+                locateTaskButton.setIcon(LOCATE_MEDIUM_ICON);
+                break;
+            case HARD:
+                locateTaskButton.setIcon(LOCATE_HARD_ICON);
+                break;
+            case ELITE:
+                locateTaskButton.setIcon(LOCATE_ELITE_ICON);
+                break;
+            case MASTER:
+                locateTaskButton.setIcon(LOCATE_MASTER_ICON);
+                break;
+            case CUSTOM:
+                locateTaskButton.setIcon(LOCATE_ICON);
+                break;
+        }
 
         locateTaskButton.addActionListener(e ->
         {
@@ -154,14 +193,20 @@ public class TaskSelectPanel extends JPanel
 
         removeTaskFromPlanButton.addActionListener(e ->
         {
-            plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
+            boolean bLocalIsPlanned = plugin.config.UserData.PlannedTasks.containsKey(taskData.GUID);
+            if (bLocalIsPlanned)
+            {
+                plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
+            }
+            else if (taskData.bIsCustomTask)
+            {
+                plugin.config.UserData.CustomTasks.remove(taskData.GUID);
+            }
             plugin.QueueRefresh();
         });
 
         ButtonCombo2.add(locateTaskButton, BorderLayout.NORTH);
-
-        boolean bIsPlanned = plugin.config.UserData.PlannedTasks.containsKey(taskData.GUID);
-        if (bIsPlanned)
+        if (bIsPlanned || taskData.bIsCustomTask)
         {
             ButtonCombo2.add(removeTaskFromPlanButton, BorderLayout.SOUTH);
         }
@@ -192,7 +237,7 @@ public class TaskSelectPanel extends JPanel
 
 
                     plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
-                    plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(Integer.valueOf(((TextField)(e.getSource())).getText())));
+                    plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(Integer.valueOf(((TextField)(e.getSource())).getText()), taskData.bIsCustomTask));
                     plugin.config.UserData.HiddenTasks.remove(taskData.GUID);
                     plugin.QueueRefresh();
                 }
@@ -219,7 +264,7 @@ public class TaskSelectPanel extends JPanel
 
                 }
 
-                plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(CurrentOrder + 1));
+                plugin.config.UserData.PlannedTasks.put(taskData.GUID, new TaskSortData(CurrentOrder + 1, taskData.bIsCustomTask));
                 plugin.config.UserData.HiddenTasks.remove(taskData.GUID);
                 plugin.bMapDisplayPointsDirty = true;
                 plugin.QueueRefresh();

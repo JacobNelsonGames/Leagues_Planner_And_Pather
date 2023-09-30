@@ -1,10 +1,13 @@
 package Posiedien_Leagues_Planner;
 
+import ch.qos.logback.core.BasicStatusManager;
+
 import java.lang.reflect.Array;
 import java.util.*;
 
 public class FullUserData
 {
+    HashMap<UUID, TaskData>  CustomTasks = new HashMap<>();
     HashMap<UUID, TaskSortData> PlannedTasks = new HashMap<UUID, TaskSortData>();
 
     HashSet<UUID> HiddenTasks = new HashSet<UUID>();
@@ -17,7 +20,7 @@ public class FullUserData
 
         for (HashMap.Entry<UUID, TaskSortData> mapElement : PlannedTasks.entrySet())
         {
-            SortedPlannedTasks.add(new SortedTask(mapElement.getKey(), mapElement.getValue().SortPriority));
+            SortedPlannedTasks.add(new SortedTask(mapElement.getKey(), mapElement.getValue().SortPriority, mapElement.getValue().bIsCustomTask));
         }
 
         SortedPlannedTasks.sort(new Comparator<SortedTask>() {

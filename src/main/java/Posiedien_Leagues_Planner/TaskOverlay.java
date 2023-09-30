@@ -113,7 +113,7 @@ public class TaskOverlay extends Overlay
         return DistanceBetweenPoints < MaxStackingDistance;
     }
 
-    private void AddTaskWorldPointToDisplayPoints(UUID TaskGUID, WorldPoint InWorldPoint, boolean IsOverworldDungeon)
+    private void AddTaskWorldPointToDisplayPoints(UUID TaskGUID, boolean bIsCustomTask, WorldPoint InWorldPoint, boolean IsOverworldDungeon)
     {
         // First see if there is an existing display point we can be assigned to, if not create a new one
         for (Map.Entry<UUID, TaskDisplayPoint> CurrentTaskPair : CachedTaskDisplayPoints.entrySet())
@@ -123,11 +123,11 @@ public class TaskOverlay extends Overlay
             {
                 // Merge
                 CurrentDisplayPoint.TaskWorldPoints.add(InWorldPoint);
-                CurrentDisplayPoint.Tasks.add(TaskGUID);
+                CurrentDisplayPoint.Tasks.put(TaskGUID, bIsCustomTask);
 
                 if (IsOverworldDungeon)
                 {
-                    CurrentDisplayPoint.DungeonTasks.add(TaskGUID);
+                    CurrentDisplayPoint.DungeonTasks.put(TaskGUID, bIsCustomTask);
                 }
                 CurrentDisplayPoint.UpdateMapDisplayPoint();
                 TaskToDisplayPoints.putIfAbsent(TaskGUID, new HashSet<>(Collections.singleton(CurrentDisplayPoint.DisplayPointGUID)));
@@ -140,11 +140,11 @@ public class TaskOverlay extends Overlay
         TaskDisplayPoint NewDisplayPoint = new TaskDisplayPoint();
 
         NewDisplayPoint.TaskWorldPoints.add(InWorldPoint);
-        NewDisplayPoint.Tasks.add(TaskGUID);
+        NewDisplayPoint.Tasks.put(TaskGUID, bIsCustomTask);
 
         if (IsOverworldDungeon)
         {
-            NewDisplayPoint.DungeonTasks.add(TaskGUID);
+            NewDisplayPoint.DungeonTasks.put(TaskGUID, bIsCustomTask);
         }
         NewDisplayPoint.UpdateMapDisplayPoint();
         NewDisplayPoint.DisplayPointGUID = UUID.randomUUID();
@@ -162,6 +162,66 @@ public class TaskOverlay extends Overlay
 
     public HashSet<RegionType> TempRegionsUnlocked = new HashSet<>();
 
+    private void AddTaskListToDisplayPointCache(HashMap<UUID, TaskData> TaskCache)
+    {
+        for (Map.Entry<UUID, TaskData> CurrentTaskPair : TaskCache.entrySet())
+        {
+            // Skip due to some filter
+            boolean bIsPartOfPlan = config.UserData.PlannedTasks.containsKey(CurrentTaskPair.getKey());
+            if (!bIsPartOfPlan && DiffFilter != TaskDifficulty.NONE && DiffFilter != CurrentTaskPair.getValue().Difficulty)
+            {
+                continue;
+            }
+
+            // Don't display hidden on map
+            boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(CurrentTaskPair.getKey());
+            if (bIsHidden)
+            {
+                continue;
+            }
+
+            if (OthFilter == OtherFilter.ONLY_MAP_PLAN ||
+                    OthFilter == OtherFilter.ONLY_PLAN)
+            {
+                if (!bIsPartOfPlan)
+                {
+                    continue;
+                }
+            }
+
+            boolean bSkipTask = false;
+            for (RegionType ReqRegion : CurrentTaskPair.getValue().Regions)
+            {
+                if (!RegionType.GetRegionUnlocked(config, ReqRegion))
+                {
+                    bSkipTask = true;
+                    break;
+                }
+            }
+            if (bSkipTask)
+            {
+                continue;
+            }
+
+            // Go through all the task locations
+            for (WorldPoint TaskWorldPoint : CurrentTaskPair.getValue().Locations)
+            {
+                if (config.RegionData.IsTileInUnlockedRegion(config, TaskWorldPoint))
+                {
+                    AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), CurrentTaskPair.getValue().bIsCustomTask, TaskWorldPoint, false);
+                }
+            }
+
+            // Go through all the task overworld location
+            for (WorldPoint TaskOverworldWorldPoint : CurrentTaskPair.getValue().OverworldLocations)
+            {
+                if (config.RegionData.IsTileInUnlockedRegion(config, TaskOverworldWorldPoint))
+                {
+                    AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), CurrentTaskPair.getValue().bIsCustomTask, TaskOverworldWorldPoint, true);
+                }
+            }
+        }
+    }
 
     private void CacheDisplayPointsIfDirty()
     {
@@ -195,63 +255,8 @@ public class TaskOverlay extends Overlay
             CachedTaskDisplayPoints.clear();
             TaskToDisplayPoints.clear();
 
-            for (Map.Entry<UUID, TaskData> CurrentTaskPair : config.TaskData.LeaguesTaskList.entrySet())
-            {
-                // Skip due to some filter
-                boolean bIsPartOfPlan = config.UserData.PlannedTasks.containsKey(CurrentTaskPair.getKey());
-                if (!bIsPartOfPlan && DiffFilter != TaskDifficulty.NONE && DiffFilter != CurrentTaskPair.getValue().Difficulty)
-                {
-                    continue;
-                }
-
-                // Don't display hidden on map
-                boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(CurrentTaskPair.getKey());
-                if (bIsHidden)
-                {
-                    continue;
-                }
-
-                if (OthFilter == OtherFilter.ONLY_MAP_PLAN ||
-                    OthFilter == OtherFilter.ONLY_PLAN)
-                {
-                    if (!bIsPartOfPlan)
-                    {
-                        continue;
-                    }
-                }
-
-                boolean bSkipTask = false;
-                for (RegionType ReqRegion : CurrentTaskPair.getValue().Regions)
-                {
-                    if (!RegionType.GetRegionUnlocked(config, ReqRegion))
-                    {
-                        bSkipTask = true;
-                        break;
-                    }
-                }
-                if (bSkipTask)
-                {
-                    continue;
-                }
-
-                // Go through all the task locations
-                for (WorldPoint TaskWorldPoint : CurrentTaskPair.getValue().Locations)
-                {
-                    if (config.RegionData.IsTileInUnlockedRegion(config, TaskWorldPoint))
-                    {
-                        AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), TaskWorldPoint, false);
-                    }
-                }
-
-                // Go through all the task overworld location
-                for (WorldPoint TaskOverworldWorldPoint : CurrentTaskPair.getValue().OverworldLocations)
-                {
-                    if (config.RegionData.IsTileInUnlockedRegion(config, TaskOverworldWorldPoint))
-                    {
-                        AddTaskWorldPointToDisplayPoints(CurrentTaskPair.getKey(), TaskOverworldWorldPoint, true);
-                    }
-                }
-            }
+            AddTaskListToDisplayPointCache(config.TaskData.LeaguesTaskList);
+            AddTaskListToDisplayPointCache(config.UserData.CustomTasks);
         }
     }
 
@@ -286,6 +291,7 @@ public class TaskOverlay extends Overlay
     private static final BufferedImage HARD_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Hard.png");
     private static final BufferedImage ELITE_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Elite.png");
     private static final BufferedImage MASTER_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Master.png");
+    private static final BufferedImage CUSTOM_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Custom.png");
     private static final BufferedImage DUNGEON_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/DungeonIcon.png");
     private static final BufferedImage BLANK_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/BlankIcon.png");
     private BufferedImage GetImageFromDifficulty(TaskDifficulty difficulty)
@@ -302,6 +308,8 @@ public class TaskOverlay extends Overlay
                 return ELITE_IMAGE;
             case MASTER:
                 return MASTER_IMAGE;
+            case CUSTOM:
+                return CUSTOM_IMAGE;
         }
 
         return EASY_IMAGE;
@@ -338,9 +346,9 @@ public class TaskOverlay extends Overlay
             HashSet<TaskDifficulty> DisplayPointDifficulties = new HashSet<>();
 
             // Fill our image modifiers based on the tasks we represent
-            for (UUID CurrentTaskID : CurrentDisplayPoint.Tasks)
+            for (HashMap.Entry<UUID, Boolean > mapElement : CurrentDisplayPoint.Tasks.entrySet())
             {
-                TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(CurrentTaskID);
+                TaskData CurrentTask = plugin.GetTaskData(mapElement.getKey(), mapElement.getValue());
 
                 if (CurrentTask != null && !DisplayPointDifficulties.contains(CurrentTask.Difficulty))
                 {
@@ -377,9 +385,9 @@ public class TaskOverlay extends Overlay
             }
 
             boolean bIsTaskPlanned = false;
-            for (UUID CurrentTaskID : CurrentDisplayPoint.Tasks)
+            for (HashMap.Entry<UUID, Boolean > mapElement : CurrentDisplayPoint.Tasks.entrySet())
             {
-                if (config.UserData.PlannedTasks.containsKey(CurrentTaskID))
+                if (config.UserData.PlannedTasks.containsKey(mapElement.getKey()))
                 {
                     bIsTaskPlanned = true;
                 }
@@ -483,14 +491,14 @@ public class TaskOverlay extends Overlay
                 graphics.setColor(highlightnamecolor2);
 
                 int TaskNum2 = 0;
-                for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
+                for (HashMap.Entry<UUID, Boolean > mapElement : CurrentDisplayPoint.Tasks.entrySet())
                 {
-                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                    TaskData CurrentTask = plugin.GetTaskData(mapElement.getKey(), mapElement.getValue());
                     String ModifiedString = CurrentTask.TaskName;
 
-                    if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
-                        ModifiedString += " (" + config.UserData.PlannedTasks.get(TaskGUID).LastSortOrder + ")";
+                        ModifiedString += " (" + config.UserData.PlannedTasks.get(CurrentTask.GUID).LastSortOrder + ")";
                     }
 
                     if (bIsCloseToMouse)
@@ -504,7 +512,7 @@ public class TaskOverlay extends Overlay
                         ++TaskNum2;
                     }
                     // bIsTaskPlanned
-                    else if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    else if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
                         graphics.drawChars(ModifiedString.toCharArray(),
                                 0,
@@ -519,14 +527,14 @@ public class TaskOverlay extends Overlay
                 graphics.setFont(taskhighlightFont);
 
                 int TaskNum = 0;
-                for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
+                for (HashMap.Entry<UUID, Boolean > mapElement : CurrentDisplayPoint.Tasks.entrySet())
                 {
-                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+                    TaskData CurrentTask = plugin.GetTaskData(mapElement.getKey(), mapElement.getValue());
                     String ModifiedString = CurrentTask.TaskName;
 
-                    if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
-                        ModifiedString += " (" + config.UserData.PlannedTasks.get(TaskGUID).LastSortOrder + ")";
+                        ModifiedString += " (" + config.UserData.PlannedTasks.get(CurrentTask.GUID).LastSortOrder + ")";
                     }
 
                     if (bIsCloseToMouse)
@@ -541,7 +549,7 @@ public class TaskOverlay extends Overlay
                         ++TaskNum;
                     }
                     // bIsTaskPlanned
-                    else if (config.UserData.PlannedTasks.containsKey(TaskGUID))
+                    else if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
                         graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
                         graphics.drawChars(ModifiedString.toCharArray(),
@@ -558,6 +566,7 @@ public class TaskOverlay extends Overlay
 
         // Go through our plan and draw lines connecting them
         Player player = plugin.client.getLocalPlayer();
+        ArrayList<Pathfinder> pathfinderArray = plugin.panel.getPathfinderArray();
         if (player != null)
         {
             graphics.setColor(new Color(255, 226, 1,255));
@@ -567,7 +576,7 @@ public class TaskOverlay extends Overlay
             int SortTaskIter = 0;
             for (SortedTask SortedTaskIter : config.UserData.SortedPlannedTasks)
             {
-                TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(SortedTaskIter.TaskGUID);
+                TaskData CurrentTask = plugin.GetTaskData(SortedTaskIter.TaskGUID, SortedTaskIter.bIsCustomTask);
 
                 // Find our display points with this task
                 float ClosestDistance = 9000000.0f;
@@ -600,13 +609,13 @@ public class TaskOverlay extends Overlay
                     }
                 }
 
-                if (plugin.panel.CurrentPathfinderIndex == SortTaskIter)
+                if (plugin.panel.CurrentPathfinderIndex == SortTaskIter && pathfinderArray != null)
                 {
                     boolean bIsCurrentPathfindingDone = false;
                     synchronized (plugin.panel.pathfinderMutex)
                     {
-                        bIsCurrentPathfindingDone = plugin.panel.pathfinderArray.isEmpty() ||
-                                plugin.panel.pathfinderArray.get(SortTaskIter - 1).isDone();
+                        bIsCurrentPathfindingDone = pathfinderArray.isEmpty() ||
+                                pathfinderArray.get(SortTaskIter - 1).isDone();
                     }
 
                     // Start next path

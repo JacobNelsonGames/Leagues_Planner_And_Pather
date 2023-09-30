@@ -9,7 +9,8 @@ public enum TaskDifficulty
     MEDIUM,
     HARD,
     ELITE,
-    MASTER;
+    MASTER,
+    CUSTOM;
 
     static Color GetTaskDifficultyColor(TaskDifficulty InTaskDiff)
     {
@@ -25,6 +26,8 @@ public enum TaskDifficulty
                 return new Color(6, 193, 255,255);
             case MASTER:
                 return new Color(255, 0, 0, 255);
+            case CUSTOM:
+                return new Color(255, 242, 0, 255);
         }
         return new Color(253, 253, 253, 255);
     }

@@ -624,7 +624,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         // Go through all of our tasks and filter out anything that doesn't belong
         for (SortedTask SortedTaskIter : config.TaskData.SortedLeaguesTaskList)
         {
-            TaskData data = config.TaskData.LeaguesTaskList.get(SortedTaskIter.TaskGUID);
+            TaskData data = plugin.GetTaskData(SortedTaskIter.TaskGUID, SortedTaskIter.bIsCustomTask);
 
             // Skip due to some filter
             boolean bIsPartOfPlan = config.UserData.PlannedTasks.containsKey(SortedTaskIter.TaskGUID);
@@ -700,14 +700,12 @@ public class LeaguesPlannerPanel extends PluginPanel
     @Getter
     public ArrayList<Pathfinder> pathfinderArray = new ArrayList<>();
 
-    void CacheSortedLeaguesTasks(WorldPoint PlayerLocation)
+    private int AddTaskListToSortedLeaguesTasks(WorldPoint PlayerLocation, HashMap<UUID, TaskData> TaskCache)
     {
         TaskSortMethod SortConfig = config.TaskSort();
-
-        config.TaskData.SortedLeaguesTaskList.clear();
-
         int NeededPathFinderSize = 0;
-        for (HashMap.Entry<UUID, TaskData> entry : config.TaskData.LeaguesTaskList.entrySet())
+
+        for (HashMap.Entry<UUID, TaskData> entry : TaskCache.entrySet())
         {
             // Calculate our sort value
             int SortValue = 0;
@@ -764,11 +762,25 @@ public class LeaguesPlannerPanel extends PluginPanel
                     {
                         SortValue += 5;
                     }
+                    else if (entry.getValue().Difficulty == TaskDifficulty.CUSTOM)
+                    {
+                        SortValue += 6;
+                    }
                 }
             }
 
-            config.TaskData.SortedLeaguesTaskList.add(new SortedTask(entry.getKey(), SortValue));
+            config.TaskData.SortedLeaguesTaskList.add(new SortedTask(entry.getKey(), SortValue, entry.getValue().bIsCustomTask));
         }
+        return NeededPathFinderSize;
+    }
+
+    void CacheSortedLeaguesTasks(WorldPoint PlayerLocation)
+    {
+        config.TaskData.SortedLeaguesTaskList.clear();
+
+        int NeededPathFinderSize = 0;
+        NeededPathFinderSize += AddTaskListToSortedLeaguesTasks(PlayerLocation, config.TaskData.LeaguesTaskList);
+        NeededPathFinderSize += AddTaskListToSortedLeaguesTasks(PlayerLocation, config.UserData.CustomTasks);
 
         config.TaskData.SortedLeaguesTaskList.sort(new Comparator<SortedTask>() {
             @Override
@@ -799,7 +811,9 @@ public class LeaguesPlannerPanel extends PluginPanel
 
             float ClosestDistance = 9000000.0f;
             WorldPoint ClosestWorldPoint = null;
-            for (WorldPoint TaskPoint : config.TaskData.LeaguesTaskList.get(sortTask.TaskGUID).Locations)
+            TaskData data = plugin.GetTaskData(sortTask.TaskGUID, sortTask.bIsCustomTask
+            );
+            for (WorldPoint TaskPoint : data.Locations)
             {
                 float NextDistance = 0.0f;
                 if (PreviousPointPosition != null)

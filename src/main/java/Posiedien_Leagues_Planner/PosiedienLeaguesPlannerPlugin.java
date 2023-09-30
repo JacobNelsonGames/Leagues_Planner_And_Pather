@@ -319,6 +319,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     }
 
     Player CachedPlayer = null;
+    float Timer = 0.0f;
     @Subscribe
     public void onGameTick(GameTick tick)
     {
@@ -326,7 +327,13 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
         if (enableAutoRecalculate)
         {
-            QueueRefresh();
+            // Each tick is around 0.6 seconds according to docs
+            Timer += 0.6f;
+            if (Timer > 5.0f)
+            {
+                Timer = 0.0f;
+                QueueRefresh();
+            }
         }
 
         CachedPlayer = localPlayer;
@@ -1073,12 +1080,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         RefreshRegionBounds();
     };
 
-    HashMap<Integer, UUID> HashCodeToHash = new HashMap<>();
+    HashMap<Integer, TaskData> HashCodeToHash = new HashMap<>();
 
     private final Consumer<MenuEntry> AddTaskToBackOfPlan = n ->
     {
-        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
-        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+        TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
 
         // Find greatest value of planned tasks
         int CurrentOrder = -1;
@@ -1092,17 +1098,26 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
         }
 
-        config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentOrder + 1));
+        config.UserData.PlannedTasks.put(CurrentTask.GUID, new TaskSortData(CurrentOrder + 1, CurrentTask.bIsCustomTask));
 
-        config.UserData.HiddenTasks.remove(TaskGUID);
+        config.UserData.HiddenTasks.remove(CurrentTask.GUID);
         QueueRefresh();
     };
+
+    TaskData GetTaskData(UUID TaskID, Boolean bIsCustomTask)
+    {
+        if (bIsCustomTask)
+        {
+            return config.UserData.CustomTasks.get(TaskID);
+        }
+
+        return config.TaskData.LeaguesTaskList.get(TaskID);
+    }
 
     ArrayList<UUID> TempArray = new ArrayList<>();
     private final Consumer<MenuEntry> AddTaskToFrontOfPlan = n ->
     {
-        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
-        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+        TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
 
         // Find smallest value of planned tasks
         int CurrentOrder = 9000000;
@@ -1120,8 +1135,10 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         for (UUID SearchingTaskGUID : TempArray)
         {
             int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID).SortPriority;
+            Boolean bOldIsCustomTask = config.UserData.PlannedTasks.get(SearchingTaskGUID).bIsCustomTask;
+
             config.UserData.PlannedTasks.remove(SearchingTaskGUID);
-            config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
+            config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1, bOldIsCustomTask));
 
             config.UserData.HiddenTasks.remove(SearchingTaskGUID);
         }
@@ -1131,32 +1148,32 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             CurrentOrder = 0;
         }
 
-        config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentOrder));
-        config.UserData.HiddenTasks.remove(TaskGUID);
+        config.UserData.PlannedTasks.put(CurrentTask.GUID, new TaskSortData(CurrentOrder, CurrentTask.bIsCustomTask));
+        config.UserData.HiddenTasks.remove(CurrentTask.GUID);
         QueueRefresh();
     };
 
     private final Consumer<MenuEntry> RemoveTaskFromPlan = n ->
     {
-        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
-        config.UserData.PlannedTasks.remove(TaskGUID);
+        TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
+        config.UserData.PlannedTasks.remove(CurrentTask.GUID);
         QueueRefresh();
     };
 
     private final Consumer<MenuEntry> MoveForwardOnPlan = n ->
     {
-        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+        TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
 
         // Find value closest to our order that is smallest
         // Between these two values, closest to current
         int CurrentHighest = -1;
-        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID).SortPriority;
+        int CurrentOrder = config.UserData.PlannedTasks.get(CurrentTask.GUID).SortPriority;
         UUID ClosestTask = null;
 
         TempArray.clear();
         for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getKey() != TaskGUID && mapElement.getValue().SortPriority <= CurrentOrder && mapElement.getValue().SortPriority > CurrentHighest)
+            if (mapElement.getKey() != CurrentTask.GUID && mapElement.getValue().SortPriority <= CurrentOrder && mapElement.getValue().SortPriority > CurrentHighest)
             {
                 CurrentHighest = mapElement.getValue().SortPriority;
                 ClosestTask = mapElement.getKey();
@@ -1168,23 +1185,24 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         if (ClosestTask != null)
         {
             // Replace this spot
-            config.UserData.PlannedTasks.remove(TaskGUID);
-            config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentHighest));
+            config.UserData.PlannedTasks.remove(CurrentTask.GUID);
+            config.UserData.PlannedTasks.put(CurrentTask.GUID, new TaskSortData(CurrentHighest, CurrentTask.bIsCustomTask));
 
-            config.UserData.HiddenTasks.remove(TaskGUID);
+            config.UserData.HiddenTasks.remove(CurrentTask.GUID);
             for (UUID SearchingTaskGUID : TempArray)
             {
-                if (SearchingTaskGUID == TaskGUID)
+                if (SearchingTaskGUID == CurrentTask.GUID)
                 {
                     continue;
                 }
 
                 // Push these all back (insert)
                 int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID).SortPriority;
+                Boolean bOldCustomTask = config.UserData.PlannedTasks.get(SearchingTaskGUID).bIsCustomTask;
                 if (OldOrder >= CurrentHighest)
                 {
                     config.UserData.PlannedTasks.remove(SearchingTaskGUID);
-                    config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
+                    config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1, bOldCustomTask));
                     config.UserData.HiddenTasks.remove(SearchingTaskGUID);
                 }
             }
@@ -1195,18 +1213,18 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     private final Consumer<MenuEntry> MoveBackOnPlan = n ->
     {
-        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
+        TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
 
         // Find value closest to our order that is smallest
         // Between these two values, closest to current
         int CurrentLowest = 900000;
-        int CurrentOrder = config.UserData.PlannedTasks.get(TaskGUID).SortPriority;
+        int CurrentOrder = config.UserData.PlannedTasks.get(CurrentTask.GUID).SortPriority;
         UUID ClosestTask = null;
 
         TempArray.clear();
         for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getKey() != TaskGUID && mapElement.getValue().SortPriority >= CurrentOrder && mapElement.getValue().SortPriority < CurrentLowest)
+            if (mapElement.getKey() != CurrentTask.GUID && mapElement.getValue().SortPriority >= CurrentOrder && mapElement.getValue().SortPriority < CurrentLowest)
             {
                 CurrentLowest = mapElement.getValue().SortPriority;
                 ClosestTask = mapElement.getKey();
@@ -1218,30 +1236,32 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         if (ClosestTask != null)
         {
             // Move up a little
+            Boolean bOldCustomTaskClosest = config.UserData.PlannedTasks.get(ClosestTask).bIsCustomTask;
             config.UserData.PlannedTasks.remove(ClosestTask);
-            config.UserData.PlannedTasks.put(ClosestTask, new TaskSortData(CurrentLowest - 1));
+            config.UserData.PlannedTasks.put(ClosestTask, new TaskSortData(CurrentLowest - 1, bOldCustomTaskClosest));
 
             config.UserData.HiddenTasks.remove(ClosestTask);
 
             // Replace this spot
-            config.UserData.PlannedTasks.remove(TaskGUID);
-            config.UserData.PlannedTasks.put(TaskGUID, new TaskSortData(CurrentLowest));
+            config.UserData.PlannedTasks.remove(CurrentTask.GUID);
+            config.UserData.PlannedTasks.put(CurrentTask.GUID, new TaskSortData(CurrentLowest, CurrentTask.bIsCustomTask));
 
-            config.UserData.HiddenTasks.remove(TaskGUID);
+            config.UserData.HiddenTasks.remove(CurrentTask.GUID);
 
             for (UUID SearchingTaskGUID : TempArray)
             {
-                if (SearchingTaskGUID == TaskGUID)
+                if (SearchingTaskGUID == CurrentTask.GUID)
                 {
                     continue;
                 }
 
                 // Push these all back (insert)
                 int OldOrder = config.UserData.PlannedTasks.get(SearchingTaskGUID).SortPriority;
+                Boolean bOldCustomTask = config.UserData.PlannedTasks.get(SearchingTaskGUID).bIsCustomTask;
                 if (OldOrder >= CurrentLowest)
                 {
                     config.UserData.PlannedTasks.remove(SearchingTaskGUID);
-                    config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1));
+                    config.UserData.PlannedTasks.put(SearchingTaskGUID, new TaskSortData(OldOrder + 1, bOldCustomTask));
                     config.UserData.HiddenTasks.remove(SearchingTaskGUID);
 
                 }
@@ -1297,10 +1317,36 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     }
     private final Consumer<MenuEntry> FocusOnTaskLocation = n ->
     {
-        UUID TaskGUID = HashCodeToHash.get(n.getParam0());
-        TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
+        TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
         FocusOnTaskOnWorldMap(CurrentTask);
     };
+
+    private final Consumer<MenuEntry> CreateCustomTask = n ->
+    {
+        UUID newCustomTaskGUID = UUID.randomUUID();
+        TaskData newTask = new TaskData();
+
+        newTask.GUID = newCustomTaskGUID;
+        newTask.Locations.add(LastDisplayedWorldPoint);
+        newTask.Difficulty = TaskDifficulty.CUSTOM;
+        newTask.TaskName = "Click me to edit task!";
+        newTask.bIsCustomTask = true;
+
+        config.UserData.CustomTasks.put(newCustomTaskGUID, newTask);
+
+        bMapDisplayPointsDirty = true;
+        QueueRefresh();
+    };
+
+    private final Consumer<MenuEntry> DestroyCustomTask = n ->
+    {
+        TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
+        config.UserData.CustomTasks.remove(CurrentTask.GUID);
+
+        bMapDisplayPointsDirty = true;
+        QueueRefresh();
+    };
+
 
     private final Consumer<MenuEntry> SetActiveRegionPointEntryCallback = n ->
     {
@@ -1417,15 +1463,39 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         // How many tasks are we colliding with?
         if (taskOverlay != null)
         {
+            MenuEntry customtaskMenu = client.createMenuEntry(-1);
+            customtaskMenu.setTarget(ColorUtil.wrapWithColorTag("Custom Task", Color.YELLOW));
+            customtaskMenu.setOption("Create");
+            customtaskMenu.onClick(this.CreateCustomTask);
+            customtaskMenu.setType(MenuAction.RUNELITE);
+            entries.add(0, customtaskMenu);
+
             HashCodeToHash.clear();
             ArrayList<TaskDisplayPoint> ClickedPoints = taskOverlay.GetClickedDisplayPoint(getSelectedWorldPoint());
 
             for (TaskDisplayPoint CurrentDisplayPoint : ClickedPoints)
             {
-                for (UUID TaskGUID : CurrentDisplayPoint.Tasks)
+                for (HashMap.Entry<UUID, Boolean> mapElement : CurrentDisplayPoint.Tasks.entrySet())
                 {
-                    TaskData CurrentTask = config.TaskData.LeaguesTaskList.get(TaskGUID);
-                    HashCodeToHash.put(TaskGUID.hashCode(), TaskGUID);
+                    UUID TaskGUID = mapElement.getKey();
+                    boolean bIsCustomTask = mapElement.getValue();
+                    TaskData CurrentTask = GetTaskData(TaskGUID, bIsCustomTask);
+
+                    HashCodeToHash.put(TaskGUID.hashCode(), CurrentTask);
+
+                    if (bIsCustomTask)
+                    {
+                        MenuEntry customtaskMenu2 = client.createMenuEntry(-1);
+                        customtaskMenu2.setTarget(ColorUtil.wrapWithColorTag("Custom Task", Color.YELLOW));
+                        customtaskMenu2.setOption("Destroy");
+                        customtaskMenu2.onClick(this.DestroyCustomTask);
+                        customtaskMenu2.setType(MenuAction.RUNELITE);
+                        customtaskMenu2.setParam0(TaskGUID.hashCode());
+                        entries.add(0, customtaskMenu2);
+                    }
+
+                    /*
+                    We don't need this option, but good to have in case we want to debug
 
                     MenuEntry taskMenu = client.createMenuEntry(-1);
                     taskMenu.setTarget(ColorUtil.wrapWithColorTag(CurrentTask.TaskName, TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
@@ -1434,6 +1504,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                     taskMenu.setType(MenuAction.RUNELITE);
                     taskMenu.setParam0(TaskGUID.hashCode());
                     entries.add(0, taskMenu);
+                    */
 
                     if (!config.UserData.PlannedTasks.containsKey(TaskGUID))
                     {

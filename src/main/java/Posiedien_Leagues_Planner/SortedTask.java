@@ -7,9 +7,12 @@ public class SortedTask
     UUID TaskGUID;
     Integer SortPriority;
 
-    public SortedTask(UUID key, Integer value)
+    Boolean bIsCustomTask;
+
+    public SortedTask(UUID key, Integer value, Boolean bCustomTask)
     {
         TaskGUID = key;
         SortPriority = value;
+        bIsCustomTask = bCustomTask;
     }
 }

@@ -1,6 +1,7 @@
 package Posiedien_Leagues_Planner;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.UUID;
 import net.runelite.api.coords.WorldPoint;
@@ -10,8 +11,9 @@ public class TaskDisplayPoint
 {
     UUID DisplayPointGUID;
 
-    HashSet<UUID> Tasks = new HashSet<>();
-    HashSet<UUID> DungeonTasks = new HashSet<>();
+    // Boolean whether or not the task is a custom task
+    HashMap<UUID, Boolean> Tasks = new HashMap<>();
+    HashMap<UUID, Boolean> DungeonTasks = new HashMap<>();
 
     ArrayList<WorldPoint> TaskWorldPoints = new ArrayList<>();
 
