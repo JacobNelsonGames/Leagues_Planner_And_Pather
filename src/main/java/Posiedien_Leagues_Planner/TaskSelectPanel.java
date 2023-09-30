@@ -130,7 +130,7 @@ public class TaskSelectPanel extends JPanel
             TextField activeOrder = new TextField();
             activeOrder.setPreferredSize(new Dimension(markHiddenButton.getWidth(), 30));
             activeOrder.setBackground(ColorScheme.DARKER_GRAY_COLOR);
-            activeOrder.setText(String.valueOf(plugin.config.UserData.PlannedTasks.get(taskData.GUID)));
+            activeOrder.setText(String.valueOf(plugin.config.UserData.PlannedTasks.get(taskData.GUID).SortPriority));
 
             activeOrder.addTextListener(new TextListener()
             {
