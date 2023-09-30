@@ -8,10 +8,7 @@ import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.worldmap.WorldMap;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayLayer;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
+import net.runelite.client.ui.overlay.*;
 import net.runelite.client.ui.overlay.worldmap.WorldMapOverlay;
 import net.runelite.client.util.ImageUtil;
 
@@ -19,6 +16,7 @@ import javax.inject.Inject;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.geom.Area;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.*;
 
@@ -64,26 +62,6 @@ public class TaskOverlay extends Overlay
         }
 
         return OutDisplayPointsClicked;
-    }
-
-    private Area ObtainWorldMapClipArea(Rectangle baseRectangle)
-    {
-        final Widget overview = client.getWidget(WidgetInfo.WORLD_MAP_OVERVIEW_MAP);
-        final Widget surfaceSelector = client.getWidget(WidgetInfo.WORLD_MAP_SURFACE_SELECTOR);
-
-        Area clipArea = new Area(baseRectangle);
-
-        if (overview != null && !overview.isHidden())
-        {
-            clipArea.subtract(new Area(overview.getBounds()));
-        }
-
-        if (surfaceSelector != null && !surfaceSelector.isHidden())
-        {
-            clipArea.subtract(new Area(surfaceSelector.getBounds()));
-        }
-
-        return clipArea;
     }
 
     private boolean ShouldMergeIntoDisplayPoint(TaskDisplayPoint DisplayPoint, WorldPoint InWorldPoint)
@@ -183,7 +161,7 @@ public class TaskOverlay extends Overlay
             if (OthFilter == OtherFilter.ONLY_MAP_PLAN ||
                     OthFilter == OtherFilter.ONLY_PLAN)
             {
-                if (!bIsPartOfPlan)
+                if (!bIsPartOfPlan && !CurrentTaskPair.getValue().bIsCustomTask)
                 {
                     continue;
                 }
@@ -257,6 +235,8 @@ public class TaskOverlay extends Overlay
 
             AddTaskListToDisplayPointCache(config.TaskData.LeaguesTaskList);
             AddTaskListToDisplayPointCache(config.UserData.CustomTasks);
+
+            config.UserData.CacheSortedPlannedTasks();
         }
     }
 
@@ -318,6 +298,50 @@ public class TaskOverlay extends Overlay
         return BEGINNER_IMAGE;
     }
 
+
+    public void RenderingChangingIconUI(Graphics2D graphics)
+    {
+        Point HighlightGraphicsPoint = new Point(0,0);
+        if (plugin.getSelectedWorldPoint() != null)
+        {
+            HighlightGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(plugin.getSelectedWorldPoint());
+            if (HighlightGraphicsPoint == null)
+            {
+                HighlightGraphicsPoint = new Point(0,0);
+            }
+        }
+
+        // Render all of our options centered around the center of the screen
+        int TotalIconCount = plugin.CustomIconsMap.size();
+        int IconSize = 30;
+        int IconSizeHalf = IconSize / 2;
+
+        Rectangle2D Bounds = WorldMapClipArea.getBounds2D();
+
+        int RowAndHeightSize = (int) Math.sqrt(TotalIconCount);
+        int i = 0;
+        for (Map.Entry<String, BufferedImage> CustomIcon : plugin.CustomIconsMap.entrySet())
+        {
+            int OffsetX = (int) (Bounds.getCenterX() - (RowAndHeightSize / 2) * IconSize);
+            int OffsetY = (int) (Bounds.getCenterY() - (RowAndHeightSize / 2) * IconSize);
+
+            OffsetX += ((i % RowAndHeightSize) * IconSize);
+            OffsetY += ((i / RowAndHeightSize) * IconSize);
+
+            Point IconPoint = new Point(OffsetX, OffsetY);
+            if (HighlightGraphicsPoint.distanceTo(IconPoint) < IconSizeHalf)
+            {
+                int HighlightedSize = (int) (IconSize * 1.5f);
+                int HighlightedHalf = HighlightedSize / 2;
+                graphics.drawImage(PosiedienLeaguesPlannerPlugin.BOUNDS_SELECTED, (int) OffsetX - HighlightedHalf, (int) OffsetY - HighlightedHalf, HighlightedSize, HighlightedSize, null);
+            }
+            graphics.drawImage(CustomIcon.getValue(), (int) OffsetX - IconSizeHalf, (int) OffsetY - IconSizeHalf, IconSize, IconSize, null);
+
+            ++i;
+        }
+
+    }
+
     @Override
     public Dimension render(Graphics2D graphics)
     {
@@ -326,10 +350,17 @@ public class TaskOverlay extends Overlay
             return null;
         }
 
-        CacheDisplayPointsIfDirty();
-
-        WorldMapClipArea = ObtainWorldMapClipArea(Objects.requireNonNull(client.getWidget(WidgetInfo.WORLD_MAP_VIEW)).getBounds());
+        WorldMapClipArea = plugin.ObtainWorldMapClipArea(Objects.requireNonNull(client.getWidget(WidgetInfo.WORLD_MAP_VIEW)).getBounds());
         graphics.setClip(WorldMapClipArea);
+
+        // We are selecting a custom icon, do not render anything else
+        if (plugin.CustomTask_ChangingIcon != null)
+        {
+            RenderingChangingIconUI(graphics);
+            return null;
+        }
+
+        CacheDisplayPointsIfDirty();
 
         // Go through all of our display points and render on our map
         Color taskIconFontColor = new Color(31, 58, 70,255);
@@ -586,7 +617,7 @@ public class TaskOverlay extends Overlay
                 float ClosestActualDistance = 9000000.0f;
                 WorldPoint ClosestWorldPoint = null;
                 WorldPoint ClosestActualWorldPoint = null;
-                if (!TaskToDisplayPoints.containsKey(CurrentTask.GUID))
+                if (CurrentTask == null || !TaskToDisplayPoints.containsKey(CurrentTask.GUID))
                 {
                     continue;
                 }

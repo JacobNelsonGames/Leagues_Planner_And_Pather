@@ -39,9 +39,11 @@ public class LeaguesPlannerPanel extends PluginPanel
     private static final ImageIcon CHECKED_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/checked.png"));
 
     private final JPanel allDropdownSections = new JPanel();
+    private final JPanel allDropdownSections2 = new JPanel();
     private final JComboBox<Enum> filterDropdown;
     private final JComboBox<Enum> filterDropdown2;
     private final JComboBox<Enum> filterDropdown3;
+    private final JComboBox<Enum> filterDropdown4;
     private JPanel searchTasksPanel;
 
 
@@ -371,6 +373,21 @@ public class LeaguesPlannerPanel extends PluginPanel
 
     };
 
+    public ItemListener filterCallbackRequirements = e->
+    {
+        if (e.getStateChange() == ItemEvent.SELECTED)
+        {
+            Enum source = (Enum) e.getItem();
+            plugin.getConfigManager().setConfiguration(
+                    PosiedienLeaguesPlannerPlugin.CONFIG_GROUP,
+                    "FilteredRequirements",
+                    source);
+
+            plugin.QueueRefresh();
+        }
+
+    };
+
     public ItemListener filterCallbackSort = e->
     {
         if (e.getStateChange() == ItemEvent.SELECTED)
@@ -488,12 +505,16 @@ public class LeaguesPlannerPanel extends PluginPanel
 
         // Filters
         filterDropdown = makeNewDropdown(TaskDifficulty.values(), "filterListBy", filterCallbackDifficulty);
-        JPanel filtersPanel = makeDropdownPanel(filterDropdown, "Difficulty Filters");
+        JPanel filtersPanel = makeDropdownPanel(filterDropdown, "Difficulty Filter");
         filtersPanel.setPreferredSize(new Dimension(PANEL_WIDTH, DROPDOWN_HEIGHT));
 
         filterDropdown2 = makeNewDropdown(OtherFilter.values(), "filterListBy2", filterCallbackOther);
-        JPanel filtersPanel2 = makeDropdownPanel(filterDropdown2, "Planning Filters");
+        JPanel filtersPanel2 = makeDropdownPanel(filterDropdown2, "Planning Filter");
         filtersPanel2.setPreferredSize(new Dimension(PANEL_WIDTH, DROPDOWN_HEIGHT));
+
+        filterDropdown4 = makeNewDropdown(FilterRequirements.values(), "filterListBy4", filterCallbackRequirements);
+        JPanel filtersPanel4 = makeDropdownPanel(filterDropdown4, "Skill Req Filter");
+        filtersPanel4.setPreferredSize(new Dimension(PANEL_WIDTH, DROPDOWN_HEIGHT));
 
         filterDropdown3 = makeNewDropdown(TaskSortMethod.values(), "filterListBy3", filterCallbackSort);
         JPanel filtersPanel3 = makeDropdownPanel(filterDropdown3, "Task Sort Method");
@@ -501,11 +522,17 @@ public class LeaguesPlannerPanel extends PluginPanel
 
         allDropdownSections.setBorder(new EmptyBorder(0, 0, 10, 0));
         allDropdownSections.setLayout(new BorderLayout(0, 0));
+
+        allDropdownSections2.setBorder(new EmptyBorder(0, 0, 10, 0));
+        allDropdownSections2.setLayout(new BorderLayout(0, 0));
+
         allDropdownSections.add(filtersPanel, BorderLayout.NORTH);
-        allDropdownSections.add(filtersPanel2, BorderLayout.CENTER);
-        allDropdownSections.add(filtersPanel3, BorderLayout.SOUTH);
+        allDropdownSections.add(filtersPanel2, BorderLayout.SOUTH);
+        allDropdownSections2.add(filtersPanel4, BorderLayout.NORTH);
+        allDropdownSections2.add(filtersPanel3, BorderLayout.SOUTH);
 
         searchTasksPanel.add(allDropdownSections, BorderLayout.NORTH);
+        searchTasksPanel.add(allDropdownSections2, BorderLayout.CENTER);
 
         // Wrapper
         taskListWrapper.setLayout(new BorderLayout());
@@ -869,6 +896,7 @@ public class LeaguesPlannerPanel extends PluginPanel
         }
         CacheSortedLeaguesTasks(playerLocation);
 
+        filterDropdown4.setSelectedItem(config.FilteredRequirements());
         filterDropdown3.setSelectedItem(config.TaskSort());
         filterDropdown2.setSelectedItem(config.FilteredOther());
         filterDropdown.setSelectedItem(config.FilteredDifficulty());

@@ -203,6 +203,17 @@ public interface LeaguesPlannerConfig extends Config
     }
 
     @ConfigItem(
+            keyName = "FilteredRequirements",
+            name = "Filter Requirements",
+            description = "Task Requirements Filter",
+            section = regionUnlock
+    )
+    default FilterRequirements FilteredRequirements()
+    {
+        return FilterRequirements.NONE;
+    }
+
+    @ConfigItem(
             keyName = "FilteredOther",
             name = "Filter Other",
             description = "Task Other Filter",

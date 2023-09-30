@@ -14,8 +14,9 @@ public class TaskData
 
     String TaskName = "";
 
-    String TaskDescription = "";
     Boolean bIsCustomTask = false;
+
+    String CustomIcon = null;
 
     ArrayList<RegionType> Regions = new ArrayList<>();
 

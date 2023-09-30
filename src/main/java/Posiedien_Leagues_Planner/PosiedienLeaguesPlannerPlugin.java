@@ -6,7 +6,10 @@ import com.google.inject.Provides;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +51,8 @@ import Posiedien_Leagues_Planner.pathfinder.CollisionMap;
 import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
 import Posiedien_Leagues_Planner.pathfinder.PathfinderConfig;
 import Posiedien_Leagues_Planner.pathfinder.SplitFlagMap;
+
+import javax.swing.event.MouseInputListener;
 
 @PluginDescriptor(
         name = "Posiedien Leagues Planner",
@@ -160,6 +165,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
         InitializeRegionData();
         InitializeTaskData();
+        InitializeCustomIconsMap();
 
         SplitFlagMap NewMap = SplitFlagMap.fromResources(this, config);
         pathfinderConfig = new PathfinderConfig(NewMap, transports, client, config);
@@ -417,6 +423,107 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     public CollisionMap getMap() {
         return pathfinderConfig.getMap();
     }
+
+    public Area ObtainWorldMapClipArea(Rectangle baseRectangle)
+    {
+        final Widget overview = client.getWidget(WidgetInfo.WORLD_MAP_OVERVIEW_MAP);
+        final Widget surfaceSelector = client.getWidget(WidgetInfo.WORLD_MAP_SURFACE_SELECTOR);
+
+        Area clipArea = new Area(baseRectangle);
+
+        if (overview != null && !overview.isHidden())
+        {
+            clipArea.subtract(new Area(overview.getBounds()));
+        }
+
+        if (surfaceSelector != null && !surfaceSelector.isHidden())
+        {
+            clipArea.subtract(new Area(surfaceSelector.getBounds()));
+        }
+
+        return clipArea;
+    }
+
+    MouseInputListener MouseListener = new MouseInputListener()
+    {
+        @Override
+        public void mouseClicked(MouseEvent e)
+        {
+            if (CustomTask_ChangingIcon == null)
+            {
+                return;
+            }
+            Area WorldMapClipArea = ObtainWorldMapClipArea(Objects.requireNonNull(client.getWidget(WidgetInfo.WORLD_MAP_VIEW)).getBounds());
+            Point HighlightGraphicsPoint = new Point(0,0);
+            if (getSelectedWorldPoint() != null)
+            {
+                HighlightGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(getSelectedWorldPoint());
+                if (HighlightGraphicsPoint == null)
+                {
+                    HighlightGraphicsPoint = new Point(0,0);
+                }
+            }
+
+            // Render all of our options centered around the center of the screen
+            int TotalIconCount = CustomIconsMap.size();
+            int IconSize = 30;
+            int IconSizeHalf = IconSize / 2;
+
+            Rectangle2D Bounds = WorldMapClipArea.getBounds2D();
+
+            int RowAndHeightSize = (int) Math.sqrt(TotalIconCount);
+            int i = 0;
+            for (Map.Entry<String, BufferedImage> CustomIcon : CustomIconsMap.entrySet())
+            {
+                int OffsetX = (int) (Bounds.getCenterX() - (RowAndHeightSize / 2) * IconSize);
+                int OffsetY = (int) (Bounds.getCenterY() - (RowAndHeightSize / 2) * IconSize);
+
+                OffsetX += ((i % RowAndHeightSize) * IconSize);
+                OffsetY += ((i / RowAndHeightSize) * IconSize);
+
+                Point IconPoint = new Point(OffsetX, OffsetY);
+                if (HighlightGraphicsPoint.distanceTo(IconPoint) < IconSizeHalf)
+                {
+                }
+
+                ++i;
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e)
+        {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e)
+        {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e)
+        {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseDragged(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+
+        }
+    };
 
     private void onMenuOptionClicked(MenuEntry entry) {
         Player localPlayer = client.getLocalPlayer();
@@ -888,7 +995,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     private static final BufferedImage ACTIVE_MARKER_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/activemarker.png");
 
-    private static final BufferedImage BOUNDS_SELECTED = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/BoundPoint_Selected.png");
+    public static final BufferedImage BOUNDS_SELECTED = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/BoundPoint_Selected.png");
     private static final BufferedImage BOUNDS_MISTHALIN = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/BoundPoint_Misthalin.png");
     private static final BufferedImage BOUNDS_KARAMJA = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/BoundPoint_Karamja.png");
     private static final BufferedImage BOUNDS_KANDARIN = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/BoundPoint_Kandarin.png");
@@ -1329,7 +1436,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         newTask.GUID = newCustomTaskGUID;
         newTask.Locations.add(LastDisplayedWorldPoint);
         newTask.Difficulty = TaskDifficulty.CUSTOM;
-        newTask.TaskName = "Click me to edit task!";
+        newTask.TaskName = "Edit task in Panel";
         newTask.bIsCustomTask = true;
 
         config.UserData.CustomTasks.put(newCustomTaskGUID, newTask);
@@ -1342,9 +1449,60 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     {
         TaskData CurrentTask = HashCodeToHash.get(n.getParam0());
         config.UserData.CustomTasks.remove(CurrentTask.GUID);
+        config.UserData.PlannedTasks.remove(CurrentTask.GUID);
 
         bMapDisplayPointsDirty = true;
         QueueRefresh();
+    };
+
+
+    HashMap<String, BufferedImage> CustomIconsMap = new HashMap<>();
+
+    public void RegisterCustomIcon(String CustomIconName)
+    {
+        CustomIconsMap.put(CustomIconName, ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, CustomIconName));
+    }
+    public void InitializeCustomIconsMap()
+    {
+        RegisterCustomIcon("/AGILITY.png");
+        RegisterCustomIcon("/ATTACK.png");
+        RegisterCustomIcon("/CONSTRUCTION.png");
+        RegisterCustomIcon("/COOKING.png");
+        RegisterCustomIcon("/CRAFTING.png");
+        RegisterCustomIcon("/DEFENCE.png");
+        RegisterCustomIcon("/FARMING.png");
+        RegisterCustomIcon("/FIREMAKING.png");
+        RegisterCustomIcon("/FISHING.png");
+        RegisterCustomIcon("/FLETCHING.png");
+        RegisterCustomIcon("/HERBLORE.png");
+        RegisterCustomIcon("/HITPOINTS.png");
+        RegisterCustomIcon("/HUNTER.png");
+        RegisterCustomIcon("/MAGIC.png");
+        RegisterCustomIcon("/MINING.png");
+        RegisterCustomIcon("/PRAYER.png");
+        RegisterCustomIcon("/RANGED.png");
+        RegisterCustomIcon("/RUNECRAFT.png");
+        RegisterCustomIcon("/SMITHING.png");
+        RegisterCustomIcon("/STRENGTH.png");
+        RegisterCustomIcon("/THIEVING.png");
+        RegisterCustomIcon("/taskMarkerPurp.png");
+        RegisterCustomIcon("/taskMarkerRed.png");
+        RegisterCustomIcon("/taskMarker.png");
+        RegisterCustomIcon("/taskMarkerGreen.png");
+        RegisterCustomIcon("/taskMarkerGreenEasy.png");
+        RegisterCustomIcon("/taskMarkerGreenElite.png");
+        RegisterCustomIcon("/taskMarkerGreenHard.png");
+        RegisterCustomIcon("/taskMarkerGreenMedium.png");
+        RegisterCustomIcon("/STRENGTH.png");
+        RegisterCustomIcon("/icon_background.png");
+        RegisterCustomIcon("/BlankIcon.png");
+    }
+
+    TaskData CustomTask_ChangingIcon = null;
+
+    private final Consumer<MenuEntry> ChangeIconCustomTask = n ->
+    {
+        CustomTask_ChangingIcon = HashCodeToHash.get(n.getParam0());
     };
 
 
@@ -1492,6 +1650,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                         customtaskMenu2.setType(MenuAction.RUNELITE);
                         customtaskMenu2.setParam0(TaskGUID.hashCode());
                         entries.add(0, customtaskMenu2);
+
+
+                        MenuEntry customtaskMenu3 = client.createMenuEntry(-1);
+                        customtaskMenu3.setTarget(ColorUtil.wrapWithColorTag("Custom Task", Color.YELLOW));
+                        customtaskMenu3.setOption("Change Icon");
+                        customtaskMenu3.onClick(this.ChangeIconCustomTask);
+                        customtaskMenu3.setType(MenuAction.RUNELITE);
+                        customtaskMenu3.setParam0(TaskGUID.hashCode());
+                        entries.add(0, customtaskMenu3);
                     }
 
                     /*

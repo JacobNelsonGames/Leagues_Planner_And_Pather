@@ -14,11 +14,9 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.plaf.FontUIResource;
 import java.awt.*;
-import java.awt.event.InputMethodEvent;
-import java.awt.event.InputMethodListener;
-import java.awt.event.TextEvent;
-import java.awt.event.TextListener;
+import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
@@ -128,11 +126,39 @@ public class TaskSelectPanel extends JPanel
             markHiddenButton.setIcon(SHOWN_ICON);
         }
 
-        String LabelString = "Dist: " + DistanceText + ", " + taskData.TaskName;
+        if (taskData.bIsCustomTask)
+        {
+            TextField editableText = new TextField();
+            editableText.setText(String.valueOf(taskData.TaskName));
+            editableText.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+            Font EditTestFont = new FontUIResource("EditTestFont", Font.TRUETYPE_FONT, 10);
+            editableText.setFont(EditTestFont);
 
-        JLabel nameLabel = new JLabel("<html>"+ LabelString +"</html>");
-        nameLabel.setForeground(color);
-        add(nameLabel, BorderLayout.CENTER);
+            editableText.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    plugin.QueueRefresh();
+                }
+            });
+            editableText.addTextListener(new TextListener()
+            {
+                @Override
+                public void textValueChanged(TextEvent e)
+                {
+                    taskData.TaskName = ((TextField)(e.getSource())).getText();
+                }
+
+            });
+            add(editableText, BorderLayout.CENTER);
+        }
+        else
+        {
+            String LabelString = "Dist: " + DistanceText + ", " + taskData.TaskName;
+            JLabel nameLabel = new JLabel("<html>"+ LabelString +"</html>");
+            nameLabel.setForeground(color);
+            add(nameLabel, BorderLayout.CENTER);
+        }
 
         markHiddenButton.addActionListener(e ->
         {
@@ -205,6 +231,7 @@ public class TaskSelectPanel extends JPanel
             else if (taskData.bIsCustomTask)
             {
                 plugin.config.UserData.CustomTasks.remove(taskData.GUID);
+                plugin.config.UserData.PlannedTasks.remove(taskData.GUID);
                 plugin.bMapDisplayPointsDirty = true;
             }
             plugin.QueueRefresh();
