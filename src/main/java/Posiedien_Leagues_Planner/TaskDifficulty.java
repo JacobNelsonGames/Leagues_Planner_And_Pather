@@ -22,11 +22,11 @@ public enum TaskDifficulty
             case EASY:
                 return new Color(190, 190, 190,255);
             case MEDIUM:
-                return new Color(25, 61, 13,255);
+                return new Color(161, 255, 132,255);
             case HARD:
-                return new Color(11, 250, 107,255);
+                return new Color(70, 255, 207,255);
             case ELITE:
-                return new Color(6, 193, 255,255);
+                return new Color(6, 160, 255,255);
             case MASTER:
                 return new Color(255, 0, 0, 255);
             case CUSTOM:

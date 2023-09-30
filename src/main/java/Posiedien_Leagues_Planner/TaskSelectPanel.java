@@ -102,10 +102,6 @@ public class TaskSelectPanel extends JPanel
             DistanceText = String.valueOf(DistanceFromPlayer);
         }
 
-        String LabelString = "Dist: " + DistanceText + ", " + taskData.TaskName;
-
-        JLabel nameLabel = new JLabel("<html>"+ LabelString +"</html>");
-
         Color color = Color.LIGHT_GRAY;
 
         JPanel ButtonCombo = new JPanel();
@@ -132,6 +128,9 @@ public class TaskSelectPanel extends JPanel
             markHiddenButton.setIcon(SHOWN_ICON);
         }
 
+        String LabelString = "Dist: " + DistanceText + ", " + taskData.TaskName;
+
+        JLabel nameLabel = new JLabel("<html>"+ LabelString +"</html>");
         nameLabel.setForeground(color);
         add(nameLabel, BorderLayout.CENTER);
 
