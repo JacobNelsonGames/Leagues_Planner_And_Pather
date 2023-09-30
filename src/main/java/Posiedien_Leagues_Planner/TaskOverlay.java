@@ -286,6 +286,7 @@ public class TaskOverlay extends Overlay
     private static final BufferedImage PLANNED_TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/PlannedTaskIconDungeon.png");
     private static final BufferedImage PLANNED_HIGHLIGHTED_TASK_IMAGE_DUNGEON = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/HighlightedPlannedTaskIconDungeon.png");
 
+    private static final BufferedImage BEGINNER_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Beginner.png");
     private static final BufferedImage EASY_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Easy.png");
     private static final BufferedImage MEDIUM_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Medium.png");
     private static final BufferedImage HARD_IMAGE = ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/Hard.png");
@@ -298,6 +299,8 @@ public class TaskOverlay extends Overlay
     {
         switch (difficulty)
         {
+            case BEGINNER:
+                return BEGINNER_IMAGE;
             case EASY:
                 return EASY_IMAGE;
             case MEDIUM:
@@ -312,7 +315,7 @@ public class TaskOverlay extends Overlay
                 return CUSTOM_IMAGE;
         }
 
-        return EASY_IMAGE;
+        return BEGINNER_IMAGE;
     }
 
     @Override

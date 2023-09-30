@@ -5,6 +5,7 @@ import java.awt.*;
 public enum TaskDifficulty
 {
     NONE,
+    BEGINNER,
     EASY,
     MEDIUM,
     HARD,
@@ -16,6 +17,8 @@ public enum TaskDifficulty
     {
         switch (InTaskDiff)
         {
+            case BEGINNER:
+                return new Color(121, 67, 3,255);
             case EASY:
                 return new Color(255, 142, 9,255);
             case MEDIUM:

@@ -33,6 +33,8 @@ public class TaskSelectPanel extends JPanel
     private static final ImageIcon SHOWN_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/SHOWN.png"));
 
     private static final ImageIcon LOCATE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarker.png"));
+    private static final ImageIcon LOCATE_BEGINNER_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerBeginner.png"));
+
     private static final ImageIcon LOCATE_EASY_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerEasy.png"));
 
     private static final ImageIcon LOCATE_MEDIUM_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, "/taskMarkerMedium.png"));
@@ -162,6 +164,9 @@ public class TaskSelectPanel extends JPanel
 
         switch (taskData.Difficulty)
         {
+            case BEGINNER:
+                locateTaskButton.setIcon(LOCATE_BEGINNER_ICON);
+                break;
             case EASY:
                 locateTaskButton.setIcon(LOCATE_EASY_ICON);
                 break;
@@ -201,6 +206,7 @@ public class TaskSelectPanel extends JPanel
             else if (taskData.bIsCustomTask)
             {
                 plugin.config.UserData.CustomTasks.remove(taskData.GUID);
+                plugin.bMapDisplayPointsDirty = true;
             }
             plugin.QueueRefresh();
         });
