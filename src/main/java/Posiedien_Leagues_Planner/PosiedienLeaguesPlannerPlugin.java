@@ -319,27 +319,20 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     }
 
     Player CachedPlayer = null;
-    float Timer = 0.0f;
     @Subscribe
     public void onGameTick(GameTick tick)
     {
         Player localPlayer = client.getLocalPlayer();
 
+        if (enableAutoRecalculate)
+        {
+            QueueRefresh();
+        }
+
         CachedPlayer = localPlayer;
         if (localPlayer == null || pathfinder == null)
         {
             return;
-        }
-
-        if (enableAutoRecalculate)
-        {
-            Timer += 0.01f;
-
-            if (Timer > 2.0f)
-            {
-                Timer = 0.0f;
-                QueueRefresh();
-            }
         }
 
         WorldPoint currentLocation = client.isInInstancedRegion() ?
