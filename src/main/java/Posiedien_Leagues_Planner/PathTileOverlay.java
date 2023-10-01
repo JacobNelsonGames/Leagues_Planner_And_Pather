@@ -161,10 +161,10 @@ public class PathTileOverlay extends Overlay {
                     Color color;
                     if (CurrentPathfinder.isDone()) {
                         color = new Color(
-                                Color.PINK.getRed(),
-                                Color.PINK.getGreen(),
-                                Color.PINK.getBlue(),
-                                Color.PINK.getAlpha() / 4);
+                                Color.RED.getRed(),
+                                Color.RED.getGreen(),
+                                Color.RED.getBlue(),
+                                Color.RED.getAlpha() / 4);
                     } else {
                         color = new Color(
                                 Color.CYAN.getRed(),

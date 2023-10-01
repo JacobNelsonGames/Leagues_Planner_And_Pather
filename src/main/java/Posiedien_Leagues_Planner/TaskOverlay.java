@@ -8,7 +8,10 @@ import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.worldmap.WorldMap;
-import net.runelite.client.ui.overlay.*;
+import net.runelite.client.ui.overlay.Overlay;
+import net.runelite.client.ui.overlay.OverlayLayer;
+import net.runelite.client.ui.overlay.OverlayPosition;
+import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.worldmap.WorldMapOverlay;
 import net.runelite.client.util.ImageUtil;
 
@@ -135,6 +138,7 @@ public class TaskOverlay extends Overlay
 
     public TaskDifficulty DiffFilter = TaskDifficulty.NONE;
     public OtherFilter OthFilter = OtherFilter.NONE;
+    public FilterRequirements ReqFilter = FilterRequirements.NONE;
 
     public HashSet<RegionType> RegionsUnlocked = new HashSet<>();
 
@@ -156,6 +160,23 @@ public class TaskOverlay extends Overlay
             if (bIsHidden)
             {
                 continue;
+            }
+
+            int ReqDifferent = CurrentTaskPair.getValue().CalculateNeededRequirementsForTask(plugin.client);
+            if (ReqFilter == FilterRequirements.MEETS_REQ)
+            {
+                if (ReqDifferent != 0)
+                {
+                    continue;
+                }
+            }
+            else if (ReqFilter == FilterRequirements.NEAR_REQ)
+            {
+                // 10 levels away
+                if (ReqDifferent < 10)
+                {
+                    continue;
+                }
             }
 
             if (OthFilter == OtherFilter.ONLY_MAP_PLAN ||
@@ -380,6 +401,7 @@ public class TaskOverlay extends Overlay
             HashSet<TaskDifficulty> DisplayPointDifficulties = new HashSet<>();
 
             // Fill our image modifiers based on the tasks we represent
+            BufferedImage OverrideImage = null;
             for (HashMap.Entry<UUID, Boolean > mapElement : CurrentDisplayPoint.Tasks.entrySet())
             {
                 TaskData CurrentTask = plugin.GetTaskData(mapElement.getKey(), mapElement.getValue());
@@ -388,6 +410,11 @@ public class TaskOverlay extends Overlay
                 {
                     ImageModifiers.add(GetImageFromDifficulty(CurrentTask.Difficulty));
                     DisplayPointDifficulties.add(CurrentTask.Difficulty);
+                }
+
+                if (CurrentTask != null && CurrentTask.CustomIcon != null)
+                {
+                    OverrideImage = plugin.CustomIconsMap.get(CurrentTask.CustomIcon);
                 }
             }
 
@@ -427,29 +454,38 @@ public class TaskOverlay extends Overlay
                 }
             }
 
+            BufferedImage DrawImage = null;
+            int HighlightedSize = (int) (TaskIconSize * 1.5f);
+            int HighlightedHalf = HighlightedSize / 2;
+
             if (HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize)
             {
                 if (CurrentDisplayPoint.Tasks.size() == CurrentDisplayPoint.DungeonTasks.size())
                 {
                     if (bIsTaskPlanned)
                     {
-                        graphics.drawImage(PLANNED_HIGHLIGHTED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = PLANNED_HIGHLIGHTED_TASK_IMAGE_DUNGEON;
                     }
                     else
                     {
-                        graphics.drawImage(HIGHLIGHTED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = HIGHLIGHTED_TASK_IMAGE_DUNGEON;
                     }
                 }
                 else
                 {
                     if (bIsTaskPlanned)
                     {
-                        graphics.drawImage(PLANNED_HIGHLIGHTED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = PLANNED_HIGHLIGHTED_TASK_IMAGE;
                     }
                     else
                     {
-                        graphics.drawImage(HIGHLIGHTED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = HIGHLIGHTED_TASK_IMAGE;
                     }
+                }
+
+                if (OverrideImage != null)
+                {
+                    graphics.drawImage(PosiedienLeaguesPlannerPlugin.BOUNDS_SELECTED, (int) GraphicsPoint.getX() - HighlightedHalf, (int) GraphicsPoint.getY()  - HighlightedHalf, HighlightedSize, HighlightedSize, null);
                 }
             }
             else
@@ -458,25 +494,40 @@ public class TaskOverlay extends Overlay
                 {
                     if (bIsTaskPlanned)
                     {
-                        graphics.drawImage(PLANNED_TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = PLANNED_TASK_IMAGE_DUNGEON;
+                        if (OverrideImage != null)
+                        {
+                            graphics.drawImage(PosiedienLeaguesPlannerPlugin.BOUNDS_SELECTED, (int) GraphicsPoint.getX() - HighlightedHalf, (int) GraphicsPoint.getY()  - HighlightedHalf, HighlightedSize, HighlightedSize, null);
+                        }
                     }
                     else
                     {
-                        graphics.drawImage(TASK_IMAGE_DUNGEON, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = TASK_IMAGE_DUNGEON;
                     }
                 }
                 else
                 {
                     if (bIsTaskPlanned)
                     {
-                        graphics.drawImage(PLANNED_TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = PLANNED_TASK_IMAGE;
+                        if (OverrideImage != null)
+                        {
+                            graphics.drawImage(PosiedienLeaguesPlannerPlugin.BOUNDS_SELECTED, (int) GraphicsPoint.getX() - HighlightedHalf, (int) GraphicsPoint.getY()  - HighlightedHalf, HighlightedSize, HighlightedSize, null);
+                        }
                     }
                     else
                     {
-                        graphics.drawImage(TASK_IMAGE, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
+                        DrawImage = TASK_IMAGE;
                     }
                 }
             }
+
+            if (OverrideImage != null)
+            {
+                DrawImage = OverrideImage;
+            }
+
+            graphics.drawImage(DrawImage, GraphicsPoint.getX() - TaskIconSizeHalf, GraphicsPoint.getY() - TaskIconSizeHalf, TaskIconSize, TaskIconSize, null);
 
             int TaskIconModifierSize = TaskIconSize / 3;
 

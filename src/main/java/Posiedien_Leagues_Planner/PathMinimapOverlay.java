@@ -64,7 +64,7 @@ public class PathMinimapOverlay extends Overlay {
             for (Pathfinder CurrentPathfinder : pathfinderArray)
             {
                 List<WorldPoint> pathPoints = CurrentPathfinder.getPath();
-                Color pathColor = CurrentPathfinder.isDone() ? Color.PINK : Color.CYAN;
+                Color pathColor = CurrentPathfinder.isDone() ? Color.RED : Color.CYAN;
                 for (WorldPoint pathPoint : pathPoints)
                 {
                     if (pathPoint.getPlane() != client.getPlane())

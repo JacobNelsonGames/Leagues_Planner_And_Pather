@@ -106,7 +106,7 @@ public class PathMapOverlay extends Overlay {
         {
             for (Pathfinder CurrentPathfinder : pathfinderArray)
             {
-                Color colour = CurrentPathfinder.isDone() ? Color.PINK : Color.CYAN;
+                Color colour = CurrentPathfinder.isDone() ? Color.RED : Color.CYAN;
                 List<WorldPoint> path = CurrentPathfinder.getPath();
                 for (int i = 0; i < path.size(); i++) {
                     graphics.setColor(colour);

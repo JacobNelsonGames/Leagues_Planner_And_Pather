@@ -647,6 +647,7 @@ public class LeaguesPlannerPanel extends PluginPanel
 
         TaskDifficulty DiffFilter = config.FilteredDifficulty();
         OtherFilter OthFilter = config.FilteredOther();
+        FilterRequirements ReqFilter = config.FilteredRequirements();
 
         // Go through all of our tasks and filter out anything that doesn't belong
         for (SortedTask SortedTaskIter : config.TaskData.SortedLeaguesTaskList)
@@ -659,6 +660,24 @@ public class LeaguesPlannerPanel extends PluginPanel
             {
                 continue;
             }
+
+            int ReqDifferent = data.CalculateNeededRequirementsForTask(plugin.client);
+            if (ReqFilter == FilterRequirements.MEETS_REQ)
+            {
+                if (ReqDifferent != 0)
+                {
+                    continue;
+                }
+            }
+            else if (ReqFilter == FilterRequirements.NEAR_REQ)
+            {
+                // 10 levels away
+                if (ReqDifferent < 10)
+                {
+                    continue;
+                }
+            }
+
 
             if (OthFilter == OtherFilter.ONLY_PLAN)
             {

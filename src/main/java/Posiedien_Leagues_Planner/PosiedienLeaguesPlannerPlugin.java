@@ -22,6 +22,9 @@ import java.util.concurrent.ThreadFactory;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
+import net.runelite.client.input.MouseListener;
+import net.runelite.client.input.MouseManager;
+
 import lombok.Getter;
 import net.runelite.api.*;
 import net.runelite.api.Point;
@@ -82,6 +85,9 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Inject
     ConfigManager configManager;
 
+
+    @Inject
+    private MouseManager mouseManager;
 
     @Getter
     @Inject
@@ -167,6 +173,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         InitializeTaskData();
         InitializeCustomIconsMap();
 
+        mouseManager.registerMouseListener(MouseListenerObject);
+
         SplitFlagMap NewMap = SplitFlagMap.fromResources(this, config);
         pathfinderConfig = new PathfinderConfig(NewMap, transports, client, config);
 
@@ -194,6 +202,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         overlayManager.remove(pathMapTooltipOverlay);
         overlayManager.remove(debugOverlayPanel);
 
+        mouseManager.unregisterMouseListener(MouseListenerObject);
         if (pathfindingExecutor != null) {
             pathfindingExecutor.shutdownNow();
             pathfindingExecutor = null;
@@ -326,11 +335,14 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     Player CachedPlayer = null;
     float Timer = 0.0f;
+    double SinceLastInputTimer = 0.0f;
+
     @Subscribe
     public void onGameTick(GameTick tick)
     {
         Player localPlayer = client.getLocalPlayer();
 
+        SinceLastInputTimer += 0.6f;
         if (enableAutoRecalculate)
         {
             // Each tick is around 0.6 seconds according to docs
@@ -444,84 +456,94 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         return clipArea;
     }
 
-    MouseInputListener MouseListener = new MouseInputListener()
+    MouseListener MouseListenerObject = new MouseListener()
     {
         @Override
-        public void mouseClicked(MouseEvent e)
+        public MouseEvent mouseClicked(MouseEvent e)
         {
             if (CustomTask_ChangingIcon == null)
             {
-                return;
-            }
-            Area WorldMapClipArea = ObtainWorldMapClipArea(Objects.requireNonNull(client.getWidget(WidgetInfo.WORLD_MAP_VIEW)).getBounds());
-            Point HighlightGraphicsPoint = new Point(0,0);
-            if (getSelectedWorldPoint() != null)
-            {
-                HighlightGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(getSelectedWorldPoint());
-                if (HighlightGraphicsPoint == null)
-                {
-                    HighlightGraphicsPoint = new Point(0,0);
-                }
+                return e;
             }
 
-            // Render all of our options centered around the center of the screen
-            int TotalIconCount = CustomIconsMap.size();
-            int IconSize = 30;
-            int IconSizeHalf = IconSize / 2;
-
-            Rectangle2D Bounds = WorldMapClipArea.getBounds2D();
-
-            int RowAndHeightSize = (int) Math.sqrt(TotalIconCount);
-            int i = 0;
-            for (Map.Entry<String, BufferedImage> CustomIcon : CustomIconsMap.entrySet())
+            if (SinceLastInputTimer < 0.7f)
             {
-                int OffsetX = (int) (Bounds.getCenterX() - (RowAndHeightSize / 2) * IconSize);
-                int OffsetY = (int) (Bounds.getCenterY() - (RowAndHeightSize / 2) * IconSize);
+                return e;
+            }
 
-                OffsetX += ((i % RowAndHeightSize) * IconSize);
-                OffsetY += ((i / RowAndHeightSize) * IconSize);
-
-                Point IconPoint = new Point(OffsetX, OffsetY);
-                if (HighlightGraphicsPoint.distanceTo(IconPoint) < IconSizeHalf)
+            getClientThread().invokeLater(() ->
+            {
+                Area WorldMapClipArea = ObtainWorldMapClipArea(Objects.requireNonNull(client.getWidget(WidgetInfo.WORLD_MAP_VIEW)).getBounds());
+                Point HighlightGraphicsPoint = new Point(0,0);
+                if (getSelectedWorldPoint() != null)
                 {
+                    HighlightGraphicsPoint = worldMapOverlay.mapWorldPointToGraphicsPoint(getSelectedWorldPoint());
+                    if (HighlightGraphicsPoint == null)
+                    {
+                        HighlightGraphicsPoint = new Point(0,0);
+                    }
                 }
 
-                ++i;
-            }
+                // Render all of our options centered around the center of the screen
+                int TotalIconCount = CustomIconsMap.size();
+                int IconSize = 30;
+                int IconSizeHalf = IconSize / 2;
 
+                Rectangle2D Bounds = WorldMapClipArea.getBounds2D();
+
+                int RowAndHeightSize = (int) Math.sqrt(TotalIconCount);
+                int i = 0;
+                for (Map.Entry<String, BufferedImage> CustomIcon : CustomIconsMap.entrySet())
+                {
+                    int OffsetX = (int) (Bounds.getCenterX() - (RowAndHeightSize / 2) * IconSize);
+                    int OffsetY = (int) (Bounds.getCenterY() - (RowAndHeightSize / 2) * IconSize);
+
+                    OffsetX += ((i % RowAndHeightSize) * IconSize);
+                    OffsetY += ((i / RowAndHeightSize) * IconSize);
+
+                    Point IconPoint = new Point(OffsetX, OffsetY);
+                    if (HighlightGraphicsPoint.distanceTo(IconPoint) < IconSizeHalf)
+                    {
+                        CustomTask_ChangingIcon.CustomIcon = CustomIcon.getKey();
+                        break;
+                    }
+
+                    ++i;
+                }
+
+                CustomTask_ChangingIcon = null;
+            });
+            return e;
         }
 
         @Override
-        public void mousePressed(MouseEvent e)
-        {
-
+        public MouseEvent mousePressed(MouseEvent mouseEvent) {
+            return mouseEvent;
         }
 
         @Override
-        public void mouseReleased(MouseEvent e)
-        {
-
+        public MouseEvent mouseReleased(MouseEvent mouseEvent) {
+            return mouseEvent;
         }
 
         @Override
-        public void mouseEntered(MouseEvent e)
-        {
-
+        public MouseEvent mouseEntered(MouseEvent mouseEvent) {
+            return mouseEvent;
         }
 
         @Override
-        public void mouseExited(MouseEvent e) {
-
+        public MouseEvent mouseExited(MouseEvent mouseEvent) {
+            return mouseEvent;
         }
 
         @Override
-        public void mouseDragged(MouseEvent e) {
-
+        public MouseEvent mouseDragged(MouseEvent mouseEvent) {
+            return mouseEvent;
         }
 
         @Override
-        public void mouseMoved(MouseEvent e) {
-
+        public MouseEvent mouseMoved(MouseEvent mouseEvent) {
+            return mouseEvent;
         }
     };
 
@@ -1460,7 +1482,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     public void RegisterCustomIcon(String CustomIconName)
     {
-        CustomIconsMap.put(CustomIconName, ImageUtil.getResourceStreamFromClass(PosiedienLeaguesPlannerPlugin.class, CustomIconName));
+        CustomIconsMap.put(CustomIconName, ImageUtil.loadImageResource(PosiedienLeaguesPlannerPlugin.class, CustomIconName));
     }
     public void InitializeCustomIconsMap()
     {
@@ -1500,9 +1522,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     TaskData CustomTask_ChangingIcon = null;
 
+
     private final Consumer<MenuEntry> ChangeIconCustomTask = n ->
     {
         CustomTask_ChangingIcon = HashCodeToHash.get(n.getParam0());
+        SinceLastInputTimer = 0.0f;
     };
 
 
