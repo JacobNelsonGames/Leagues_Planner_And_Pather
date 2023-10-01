@@ -55,8 +55,6 @@ import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
 import Posiedien_Leagues_Planner.pathfinder.PathfinderConfig;
 import Posiedien_Leagues_Planner.pathfinder.SplitFlagMap;
 
-import javax.swing.event.MouseInputListener;
-
 @PluginDescriptor(
         name = "Posiedien Leagues Planner",
     description = "Helper planner plugin for leagues",
@@ -837,6 +835,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     void LoadTaskData() throws IOException
     {
+        /*
         TaskData TestTaskData = new TaskData();
 
         TestTaskData.GUID = UUID.randomUUID();
@@ -885,8 +884,26 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TestTaskData6.Difficulty = TaskDifficulty.MASTER;
         TestTaskData6.TaskName = "Test Task 6";
         config.TaskData.LeaguesTaskList.put(TestTaskData6.GUID, TestTaskData6);
+*/
 
-        config.TaskData.CalculateAndCacheOverworldLocations(this);
+        {
+            config.TaskData.importFromRaw();
+            config.TaskData.CalculateAndCacheOverworldLocations(this);
+        }
+
+        {
+            // Task info
+            File targ = new File("TaskData.csv");
+            config.TaskData.importFromConverted(targ);
+            config.TaskData.CalculateAndCacheOverworldLocations(this);
+        }
+
+        {
+            // Custom Task/Plan info
+            File targ = new File("UserData.csv");
+            config.UserData.importFrom(targ);
+        }
+
     }
 
     private boolean GatherRegionBounds(WorldPointPolygon poly, ArrayList<RegionLine> regionLines, Set<UUID> VisitedPoints, LeagueRegionPoint nextPoint, LeagueRegionPoint parentPoint)

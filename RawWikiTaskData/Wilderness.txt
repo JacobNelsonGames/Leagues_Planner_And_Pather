@@ -1,0 +1,123 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Wil1Count}} tasks available, there are a total of {{#var_final:Wil1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Sacrifice Some Bones at the Chaos Temple|Sacrifice some Bones at the [[Chaos Temple (hut)|Western Chaos Temple]] altar.|s=|other=}}
+{{LeagueTaskRow|Use the Abyss|Use the [[Abyss]] to access a Runecrafting Altar.|s=|other={{SCP|Quest}} [[Enter the Abyss]] (automatically completed {{TBIcon|Wilderness}})}}
+{{LeagueTaskRow|Defeat a Lava Dragon in the Wilderness|Defeat a [[Lava dragon]] in the Wilderness.|s=|other=Optionally a [[knife]] or a [[slash weapon]] to slash webs or {{SCP|Agility|52|link=yes}} and {{SCP|Diary}} [[Wilderness Diary#Hard|Wilderness hard diary]] if [[melee]]ing, alternatively [[ranged]] or [[magic]] equipment}}
+{{LeagueTaskRow|Defeat a Fire Giant in the Wilderness|Defeat a [[Fire Giant]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat a Chaos Dwarf in the Wilderness|Defeat a [[Chaos Dwarf]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat a Green Dragon in the Wilderness|Defeat a [[Green Dragon]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Wilderness Diary|Complete all of the easy tasks in the [[Easy Wilderness Diary|Wilderness Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Order a Drink at the Old Nite|Order a drink at [[The Old Nite]].|s=|other={{Coins|2}} Coins}}
+{{LeagueTaskRow|Use a Lever to Teleport to Edgeville|Use the lever near the Mage Arena to teleport to Edgeville.|s=|other=}}
+{{LeagueTaskRow|Pray at the Southern Chaos Temple|Pray at the altar in the [[Chaos Temple (Wilderness)|Southern Chaos Temple]].|s=|other=}}
+{{LeagueTaskRow|Pray at the Western Chaos Temple|Pray at the altar in the [[Chaos Temple (hut)|Western Chaos Temple]].|s=|other=}}
+{{LeagueTaskRow|Enter the Wilderness Resource Area|Enter the Wilderness [[Resource Area]].|s=|other=Up to {{Coins|7500}} coins, less with {{SCP|Diary}} [[Wilderness Diary]]}}
+{{LeagueTaskRow|Enter the Wilderness God Wars Dungeon|Enter the [[Wilderness God Wars Dungeon]].|s=|other=}}
+{{LeagueTaskRow|Use the Bank at the Mage Arena|Use the bank at the [[Mage Arena]].|s=|other=Possibly a [[knife]] or a [[slash weapon]] to slash webs}}
+{{LeagueTaskRow|Visit Ferox Enclave|Visit [[Ferox Enclave]].|s=|other=}}
+{{LeagueTaskBottom|varname=Wil1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Wil2Count}} tasks available, there are a total of {{#var_final:Wil2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Sacrifice Some Dragon Bones at the Chaos Temple|Sacrifice some [[Dragon bones]] at the [[Chaos Temple (hut)|Western Chaos Temple]] altar.|s=|other=}}
+{{LeagueTaskRow|Bury Some Lava Dragon Bones|Bury some [[Lava dragon bones]].|s=|other=}}
+{{LeagueTaskRow|Complete the Wilderness Agility Course|Complete a lap of the [[Wilderness Agility Course]].|s={{SCP|Agility|52|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Catch a Black Salamander|Catch a [[Black salamander (Hunter)|Black Salamander]] in the Wilderness.|s={{SCP|Hunter|67|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Crazy Archaeologist|Defeat the [[Crazy Archaeologist]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat Scorpia|Defeat [[Scorpia]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat the Chaos Fanatic|Defeat the [[Chaos Fanatic]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat the Chaos Elemental|Defeat the [[Chaos Elemental]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Equip a Fedora|Equip a [[Fedora]].|s=|other=}}
+{{LeagueTaskRow|Obtain an Ecumenical Key|Obtain an [[Ecumenical key]] as a drop in the Wilderness God Wars Dungeon.|s={{SCP|Strength|60|link=yes|sort=yes}} or {{SCP|Agility|60|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Bracelet of Ethereum|Equip a [[Bracelet of ethereum]].|s=|other=}}
+{{LeagueTaskRow|Equip a God Cape|Equip either a [[Saradomin cape]], a [[Guthix cape]] or [[Zamorak cape]].|s=|other=}}
+{{LeagueTaskRow|Cast Saradomin Strike|Cast the [[Saradomin Strike]] spell outside of the Mage Arena.|s={{SCP|Magic|60|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[Mage Arena I]] miniquest}}
+{{LeagueTaskRow|Cast Claws of Guthix|Cast the [[Claws of Guthix]] spell outside of the Mage Arena.|s={{SCP|Magic|60|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[Mage Arena I]] miniquest}}
+{{LeagueTaskRow|Cast Flames of Zamorak|Cast the [[Flames of Zamorak]] spell outside of the Mage Arena.|s={{SCP|Magic|60|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[Mage Arena I]] miniquest}}
+{{LeagueTaskRow|Complete the Medium Wilderness Diary|Complete all of the medium tasks in the [[Medium Wilderness Diary|Wilderness Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Open a Looting Bag|Open a [[looting bag]].|s=|other=}}
+{{LeagueTaskRow|Enter the Deep Wilderness Dungeon|Enter the [[Deep Wilderness Dungeon]].|s=|other=}}
+{{LeagueTaskRow|Open One of Larran's Chests|Open either [[Larran's small chest]] or [[Larran's big chest]].|s=|other=}}
+{{LeagueTaskBottom|varname=Wil2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Wil3Count}} tasks available, there are a total of {{#var_final:Wil3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Catch 100 Dark Crabs|Catch 100 [[Dark Crab]]s in the Wilderness.|s={{SCP|Fishing|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Catch a Black Chinchompa|Catch a [[Black chinchompa (Hunter)|Black Chinchompa]] in the Wilderness.|s={{SCP|Hunter|73|link=yes|sort=yes}}|other=Need the Kandarin, Desert or Fremennik area unlocked}}
+{{LeagueTaskRow|Craft an Air Battlestaff in the Wilderness|Craft an [[air battlestaff]] in the Wilderness.|s={{SCP|Crafting|66|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat Venenatis|Defeat [[Venenatis]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat Callisto|Defeat [[Callisto]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat Vet'ion|Defeat [[Vet'ion]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat the King Black Dragon|Defeat the [[King Black Dragon]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Equip a Dragon Pickaxe|Equip a [[dragon pickaxe]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Dragon 2H Sword in the Wilderness|Equip a [[dragon 2h sword]] in the Wilderness.|s={{SCP|Attack|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip an Enchanted Slayer Staff|Equip an [[Slayer's staff (e)|Enchanted Slayer Staff]].|s={{SCP|Magic|75|link=yes|sort=yes}}, {{SCP|Slayer|55|link=yes}}|other=}}
+{{LeagueTaskRow|Trade With the Emblem Trader|Trade an [[ancient medallion]], an [[ancient effigy]] or an [[ancient relic]] with the [[Emblem Trader]] in the [[Forinthry Dungeon]].|s=|other=}}
+{{LeagueTaskRow|Imbue a God Cape|Imbue either a [[Saradomin cape]], a [[Guthix cape]] or [[Zamorak cape]].|s=|other=Completion of {{SCP|Quest}} [[Mage Arena II]] miniquest}}
+{{LeagueTaskRow|Complete the Hard Wilderness Diary|Complete all of the hard tasks in the [[Hard Wilderness Diary|Wilderness Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip a Piece of the Dagon'Hai Set|Equip any piece of the [[Dagon'hai robes]] set.|s={{SCP|Magic|70|link=yes|sort=yes}}, {{SCP|Defence|40|link=yes}}|other=}}
+{{LeagueTaskBottom|varname=Wil3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Wil4Count}} tasks available, there are a total of {{#var_final:Wil4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Cook a Dark Crab|Cook a Dark Crab.|s={{SCP|Cooking|90|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Make an Extended Antifire Potion|Make an [[extended antifire]] potion.|s={{SCP|Herblore|84|link=yes|sort=yes}}|other={{TB|Wilderness}}<ref group="note">Although players may be able to create extended antifire potions without unlocking the Wilderness region, doing so does not complete this task.</ref>}}
+{{LeagueTaskRow|Equip 250 Black Chinchompas|Equip a stack of at least 250 Black Chinchompas.|s={{SCP|Hunter|73|link=yes|sort=yes}}, {{SCP|Ranged|65|link=yes}}|other=Need the Kandarin, Desert or Fremennik area unlocked}}
+{{LeagueTaskRow|Equip 500 Black Chinchompas|Equip a stack of at least 500 Black Chinchompas.|s={{SCP|Hunter|73|link=yes|sort=yes}}, {{SCP|Ranged|65|link=yes}}|other=Need the Kandarin, Desert or Fremennik area unlocked}}
+{{LeagueTaskRow|Equip 1000 Black Chinchompas|Equip a stack of at least 1000 Black Chinchompas.|s={{SCP|Hunter|73|link=yes|sort=yes}}, {{SCP|Ranged|65|link=yes}}|other=Need the Kandarin, Desert or Fremennik area unlocked}}
+{{LeagueTaskRow|Mine Some Runite Ore in the Wilderness|Mine some Runite Ore in the Wilderness.|s={{SCP|Mining|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Treasonous Ring|Equip a [[Treasonous ring]].|s=|other=}}
+{{LeagueTaskRow|Equip a Tyrannical Ring|Equip a [[Tyrannical ring]].|s=|other=}}
+{{LeagueTaskRow|Equip a Ring of the Gods|Equip a [[Ring of the gods]].|s=|other=}}
+{{LeagueTaskRow|Equip a Craw's Bow|Equip a [[Craw's Bow]].|s={{SCP|Ranged|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Viggora's Chainmace|Equip a [[Viggora's Chainmace]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Thammaron's Sceptre|Equip a [[Thammaron's Sceptre]].|s={{SCP|Magic|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Corporeal Beast|Defeat the [[Corporeal Beast]] in the Wilderness.|s=|other=}}
+{{LeagueTaskRow|Defeat the Corporeal Beast 100 Times|Defeat the Corporeal Beast in the Wilderness 100 times.|s=|other=}}
+{{LeagueTaskRow|Defeat the Corporeal Beast 250 Times|Defeat the Corporeal Beast in the Wilderness 250 times.|s=|other=}}
+{{LeagueTaskRow|Defeat the Corporeal Beast 500 Times|Defeat the Corporeal Beast in the Wilderness 500 times.|s=|other=}}
+{{LeagueTaskRow|Equip a Blessed Spirit Shield|Equip a [[Blessed Spirit Shield]].|s={{SCP|Defence|70|link=yes|sort=yes}}, {{SCP|Prayer|60|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Malediction Ward|Equip a [[Malediction Ward]].|s={{SCP|Defence|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip an Odium Ward|Equip an [[Odium Ward]].|s={{SCP|Defence|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Build an Obelisk|Build an [[Obelisk (Construction)|obelisk]] in your Player Owned House.|s={{SCP|Construction|80|link=yes|sort=yes}}|other=Need the Fremennik area unlocked.}}
+{{LeagueTaskRow|Complete the Elite Wilderness Diary|Complete all of the elite tasks in the [[Elite Wilderness Diary|Wilderness Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip a Full Dagon'Hai Set|Equip a full set of [[Dagon'hai robes]].|s={{SCP|Magic|70|link=yes|sort=yes}}, {{SCP|Defence|40|link=yes}}|other=}}
+{{LeagueTaskBottom|varname=Wil4|ppt=250}}
+{{Reflist|group=note}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Wil5Count}} tasks available, there are a total of {{#var_final:Wil5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip a Spectral or Arcane Spirit Shield|Equip either a [[Spectral Spirit Shield]] or an [[Arcane Spirit Shield]].|s={{SCP|Defence|75|link=yes|sort=yes}}, {{SCP|Prayer|70|link=yes}}, {{SCP|Magic|65|link=yes}}|other=}}
+{{LeagueTaskRow|Equip an Elysian Spirit Shield|Equip an [[Elysian Spirit Shield]].|s={{SCP|Defence|75|link=yes|sort=yes}}, {{SCP|Prayer|75|link=yes}}|other=}}
+{{LeagueTaskRow|Obtain Every Revenant Weapon|Obtain [[Craw's Bow]], [[Viggora's Chainmace]] and [[Thammaron's Sceptre]] as drops from [[Revenants]].|s=|other=}}
+{{LeagueTaskRow|Equip an Amulet of Eternal Glory|Equip an [[amulet of eternal glory]].|s=|other=Completion of {{SCP|Quest}} [[Heroes' Quest]] {{TBIcon|Asgarnia}} (auto-completed for {{TBIcon|Fremennik}}).
+''Note'': Players with [[Eternal Jeweller]] Relic have no way to uncharge a charged amulet of glory.}}
+{{LeagueTaskBottom|varname=Wil5|ppt=500}}<!--
+-->{{#vardefine:WilTotalCount|{{Formatexpr|{{#var:Wil1Count}}+{{#var:Wil2Count}}+{{#var:Wil3Count}}+{{#var:Wil4Count}}+{{#var:Wil5Count}}}}}}<!--
+-->{{#vardefine:WilTotalValue|{{Formatexpr|{{#var:Wil1Value}}+{{#var:Wil2Value}}+{{#var:Wil3Value}}+{{#var:Wil4Value}}+{{#var:Wil5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>

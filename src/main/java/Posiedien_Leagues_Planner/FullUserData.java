@@ -2,6 +2,7 @@ package Posiedien_Leagues_Planner;
 
 import ch.qos.logback.core.BasicStatusManager;
 
+import java.io.File;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -37,5 +38,9 @@ public class FullUserData
         }
 
 
+    }
+
+    public void importFrom(File targ)
+    {
     }
 }

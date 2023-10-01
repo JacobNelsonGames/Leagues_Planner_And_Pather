@@ -2,7 +2,7 @@ package Posiedien_Leagues_Planner;
 
 import net.runelite.api.coords.WorldPoint;
 
-import java.util.Comparator;
+import java.io.File;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.ArrayList;
@@ -50,5 +50,14 @@ public class FullTaskData
         }
 
         return false;
+    }
+
+    public void importFromConverted(File targ)
+    {
+    }
+
+    public void importFromRaw()
+    {
+        File targ = new File("TaskData.csv");
     }
 }

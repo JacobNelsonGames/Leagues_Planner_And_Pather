@@ -1,0 +1,121 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Kha1Count}} tasks available, there are a total of {{#var_final:Kha1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete Room 1 of Pyramid Plunder|Search the Golden Chest in Room 1 of Pyramid Plunder in Sophanem.|s={{SCP|Thieving|21|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} [[Icthlarin's Little Helper]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Room 2 of Pyramid Plunder|Search the Golden Chest in Room 2 of Pyramid Plunder in Sophanem.|s={{SCP|Thieving|31|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Pick a Winter Sq'irk|Pick a [[Winter Sq'irk]] in the Sorceress's Garden.|s=|other=Completion of {{SCP|Quest}} [[Prince Ali Rescue]]}}
+{{LeagueTaskRow|Turn in a Winter Sq'irkjuice to Osman|Turn in a [[Winter Sq'irkjuice]] to Osman in Al Kharid.|s=|other=Completion of {{SCP|Quest}} Prince Ali Rescue}}
+{{LeagueTaskRow|Complete the Al Kharid Agility Course|Complete a lap of the [[Al Kharid Rooftop Course|Al Kharid Rooftop Agility Course]].|s={{SCP|Agility|20|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft a Fire Rune|Craft a [[Fire Rune]] at the [[Fire Altar]].|s={{SCP|Runecraft|14|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat an Al Kharid Warrior{{sic}}|Defeat an [[Al-Kharid warrior|Al Kharid Warrior]]{{sic}}.|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Desert Diary|Complete all of the easy tasks in the [[Easy Desert Diary|Desert Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Go Through the Al Kharid Gate|Go through the [[Al Kharid]] gate.|s=|other={{Coins|10}} Coins or completion of {{SCP|Quest}} Prince Ali Rescue}}
+{{LeagueTaskRow|Tan a Cow Hide in the Kharidian Desert|Tan a [[cow hide]] in the Kharidian Desert.|s=|other={{Coins|1}} Coin}}
+{{LeagueTaskRow|Use the Bank in Nardah|Use the bank in [[Nardah]].|s=|other=}}
+{{LeagueTaskRow|Cut a Cactus in the Kharidian Desert|Cut a [[Kharidian cactus|Cactus]] in the Kharidian Desert.|s=|other=A [[knife]] or a [[slash weapon]]}}
+{{LeagueTaskRow|Take a Carpet Ride from Pollnivneach to Sophanem|Take a [[carpet ride]] from [[Pollnivneach]] to [[Sophanem]].|s=|other=Up to {{Coins|400}} Coins from [[Shantay Pass]] / {{Coins|200}} Coins from [[Pollnivneach]] in carpet ride costs, or none with {{SCP|Diary}} [[Desert Diary#Hard|Desert hard diary]]}}
+{{LeagueTaskRow|Enter the Kalphite Lair|Enter the [[Kalphite Lair]].|s=|other=[[Rope]] or {{SCP|Diary}} [[Desert Diary#Hard|Desert hard diary]] completion}}
+{{LeagueTaskRow|Complete The Golem|Complete [[The Golem]] quest.|s={{SCP|Crafting|20|link=yes|sort=yes}}, {{SCP|Thieving|25|link=yes}}|other=}}
+{{LeagueTaskBottom|varname=Kha1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Kha2Count}} tasks available, there are a total of {{#var_final:Kha2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete Room 3 of Pyramid Plunder|Search the [[Grand Gold Chest|Golden Chest]] in Room 3 of [[Pyramid Plunder]] in Sophanem.|s={{SCP|Thieving|41|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} [[Icthlarin's Little Helper]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Room 4 of Pyramid Plunder|Search the Golden Chest in Room 4 of Pyramid Plunder in Sophanem.|s={{SCP|Thieving|51|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Room 5 of Pyramid Plunder|Search the Golden Chest in Room 5 of Pyramid Plunder in Sophanem.|s={{SCP|Thieving|61|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Pick a Spring Sq'irk|Pick a [[Spring Sq'irk]] in the Sorceress's Garden.|s=|other=Completion of {{SCP|Quest}} [[Prince Ali Rescue]] ({{SCP|Thieving|25|link=yes}} to enter [[Sorceress's Garden/Spring|Spring Garden]])}}
+{{LeagueTaskRow|Pick a{{sic}} Autumn Sq'irk|Pick a{{sic}} [[Autumn Sq'irk]] in the Sorceress's Garden.|s=|other=Completion of {{SCP|Quest}} Prince Ali Rescue ({{SCP|Thieving|45|link=yes}} to enter [[Sorceress's Garden/Autumn|Autumn Garden]])}}
+{{LeagueTaskRow|Turn in 10 Spring Sq'irkjuices to Osman|Turn in 10 [[Spring sq'irkjuice]]s to Osman in Al Kharid in one go.|s=|other=Completion of {{SCP|Quest}} Prince Ali Rescue ({{SCP|Thieving|25|link=yes}} to enter [[Sorceress's Garden/Spring|Spring Garden]])}}
+{{LeagueTaskRow|Pickpocket a Bandit in the Bandit Camp|Pickpocket a [[Bandit (Bandit Camp)|Bandit]] in the Kharidian Desert's [[Bandit Camp]].|s={{SCP|Thieving|53|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Smith 1000 Mithril Dart Tips|Use an Anvil to smith 1000 [[Mithril Dart Tip]]s.|s={{SCP|Smithing|54|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[The Tourist Trap]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Make a Combat Potion|Make a [[Combat Potion]].|s={{SCP|Herblore|36|link=yes|sort=yes}}|other=A [[pestle and mortar]] or {{Coins|50}} Coins for [[Wesley]]}}
+{{LeagueTaskRow|Defeat a Crocodile|Defeat a [[Crocodile]] in the Kharidian Desert.|s=|other=}}
+{{LeagueTaskRow|Turn in a Pyramid Top to Simon Templeton|Turn in a [[Pyramid top]] to [[Simon Templeton]] at the [[Agility Pyramid]].|s={{SCP|Agility|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft a Lava Rune at the Fire Altar|Craft a [[Lava Rune]] at the [[Fire Altar]].|s={{SCP|Runecraft|23|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Catch 30 Orange Salamanders|Catch 30 [[Orange salamander (Hunter)|Orange Salamanders]] at Uzer.|s={{SCP|Hunter|47|link=yes|sort=yes}}|other=A [[rope]] and [[small fishing net]]}}
+{{LeagueTaskRow|Mine 30 Chunks of Granite|Mine 30 chunks of [[Granite]] at the [[Bandit Camp Quarry|Kharidian Desert Quarry]].|s={{SCP|Mining|45|link=yes|sort=yes}}|other=A [[pickaxe]]}}
+{{LeagueTaskRow|Defeat a Scarab Mage|Defeat a [[Scarab Mage]] in the [[Sophanem Dungeon]].|s=|other=Partial completion of {{SCP|Quest}} [[Contact!]], a [[light source]]}}
+{{LeagueTaskRow|Defeat a Kalphite Guardian|Defeat a [[Kalphite Guardian]] in the Kharidian Desert.|s=|other=}}
+{{LeagueTaskRow|Move Your House to Pollnivneach|Move your [[Player Owned House]] to Pollnivneach.|s={{SCP|Construction|20|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Cast Ice Rush|Cast the [[Ice Rush]] spell.|s={{SCP|Magic|58|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[Desert Treasure I]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete the Medium Desert Diary|Complete all of the medium tasks in the [[Medium Desert Diary|Desert Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Cast Bones to Peaches|Cast the [[Bones to Peaches]] spell.|s={{SCP|Magic|60|link=yes|sort=yes}}|other=Participation in [[Mage Training Arena]] to purchase. [[Bones]] ([[animals' bones]] will not complete the task).}}
+{{LeagueTaskRow|Complete Spirits of the Elid|Complete the [[Spirits of the Elid]] quest.|s={{SCP|Magic|33}}, {{SCP|Ranged|37}}, {{SCP|Mining|37}}, {{SCP|Thieving|37}}|other=}}
+{{LeagueTaskRow|Pray at the Elidinis Statuette|Pray at the [[Elidinis Statuette]] in Nardah.|s=|other=Completion of {{SCP|Quest}} [[Spirits of the Elid]]}}
+{{LeagueTaskRow|Enter Sophanem|Enter [[Sophanem]].|s=|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Shadow of the Storm|Complete the [[Shadow of the Storm]] quest.|s={{SCP|Crafting|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskBottom|varname=Kha2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Kha3Count}} tasks available, there are a total of {{#var_final:Kha3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete Room 6 of Pyramid Plunder|Search the [[Grand Gold Chest|Golden Chest]] in Room 6 of [[Pyramid Plunder]] in Sophanem.|s={{SCP|Thieving|71|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} [[Icthlarin's Little Helper]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Room 7 of Pyramid Plunder|Search the Golden Chest in Room 7 of Pyramid Plunder in Sophanem.|s={{SCP|Thieving|81|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Pick a Summer Sq'irk|Pick a [[Summer Sq'irk]] in the Sorceress's Garden.|s=|other=Completion of {{SCP|Quest}} [[Prince Ali Rescue]] ({{SCP|Thieving|65|link=yes}} to enter [[Sorceress's Garden/Summer|Summer Garden]])}}
+{{LeagueTaskRow|Turn in 25 Autumn Sq'irkjuices to Osman|Turn in 25 [[Autumn sq'irkjuice]]s to Osman in Al Kharid in one go.|s=|other=Completion of {{SCP|Quest}} Prince Ali Rescue ({{SCP|Thieving|45|link=yes}} to enter [[Sorceress's Garden/Autumn|Autumn Garden]])}}
+{{LeagueTaskRow|Pickpocket a Menaphite Thug 50 Times|Knock out and then pickpocket a [[Menaphite Thug]] 50 times.|s={{SCP|Thieving|65|link=yes|sort=yes}}|other={{SCP|Quest}} [[The Feud]] {{TBIcon|Desert}} or {{SCP|Minigame}} [[Rogue Trader]] to acquire a [[blackjack]]}}
+{{LeagueTaskRow|Make 20 Magic Potions|Make 20 [[Magic Potion]]s.|s={{SCP|Herblore|76|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Smith 1000 Adamant Dart Tips|Use an Anvil to smith 1000 [[Adamant Dart Tip]]s.|s={{SCP|Smithing|74|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[The Tourist Trap]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Check a grown Cactus|Check the health of a [[cactus seed|Cactus]] you've grown in Al Kharid.|s={{SCP|Farming|55|link=yes|sort=yes}}|other=[[Cactus seed]] or [[Potato cactus seed]]}}
+{{LeagueTaskRow|Check a grown Potato Cactus|Check the health of a [[potato cactus seed|Potato Cactus]] you've grown in Al Kharid.|s={{SCP|Farming|64|link=yes|sort=yes}}|other=[[Potato cactus seed]]}}
+{{LeagueTaskRow|Defeat a Dust Devil in the Kharidian Desert|Defeat a [[Dust Devil]] in the Kharidian Desert.|s={{SCP|Slayer|65|link=yes|sort=yes}}|other=[[Face mask]] or [[Slayer helmet]], partial completion of {{SCP|Quest}} [[Desert Treasure I]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Cast Ice Burst|Cast the [[Ice Burst]] spell.|s={{SCP|Magic|70|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} Desert Treasure I {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Cast Ice Blitz|Cast the [[Ice Blitz]] spell.|s={{SCP|Magic|82|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} Desert Treasure I {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Cast Smoke Barrage|Cast the [[Smoke Barrage]] spell.|s={{SCP|Magic|86|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} Desert Treasure I {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Cast Shadow Barrage|Cast the [[Shadow Barrage]] spell.|s={{SCP|Magic|88|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} Desert Treasure I {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Equip a Dragon 2H Sword|Equip a [[Dragon 2h sword]] in the Kharidian Desert.|s={{SCP|Attack|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hard Desert Diary|Complete all of the hard tasks in the [[Hard Desert Diary|Desert Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip a Piece of the Infinity Robe Set|Equip any piece of the [[Infinity robe]] set.|s={{SCP|Magic|50|link=yes|sort=yes}}, {{SCP|Defence|25|link=yes}}|other=}}
+{{LeagueTaskRow|Complete Enakhra's Lament|Complete the [[Enakhra's Lament]] quest.|s={{SCP|Crafting|50}}, {{SCP|Firemaking|45}}, {{SCP|Prayer|43}}, {{SCP|Magic|39}}|other=}}
+{{LeagueTaskRow|Cast Paddewwa Teleport|Cast the [[Paddewwa Teleport]] spell.|s={{SCP|Magic|54|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} Desert Treasure I {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Have Zahur Make 1,000 Unfinished Potions At Once|Have [[Zahur]] make 1,000 Unfinished Potions in one go.|s=|other={{SCP|Diary}} [[Desert Diary#Hard|Desert hard diary]] or [[Herblore cape]], {{Coins|200000}} Coins}}
+{{LeagueTaskBottom|varname=Kha3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Kha4Count}} tasks available, there are a total of {{#var_final:Kha4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete Room 8 of Pyramid Plunder|Search the [[Grand Gold Chest|Golden Chest]] in Room 8 of [[Pyramid Plunder]] in Sophanem.|s={{SCP|Thieving|91|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} [[Icthlarin's Little Helper]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Room 8 of Pyramid Plunder 50 Times|Search the Golden Chest in Room 8 of Pyramid Plunder in Sophanem 50 times.|s={{SCP|Thieving|91|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Room 8 of Pyramid Plunder 100 Times|Search the Golden Chest in Room 8 of Pyramid Plunder in Sophanem 100 times.|s={{SCP|Thieving|91|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Complete Room 8 of Pyramid Plunder 250 Times|Search the Golden Chest in Room 8 of Pyramid Plunder in Sophanem 250 times.|s={{SCP|Thieving|91|link=yes|sort=yes}} {{Boostable|no}}|other=Partial completion of {{SCP|Quest}} Icthlarin's Little Helper {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Turn in 100 Summer Sq'irkjuices to Osman|Turn in 100 [[Summer sq'irkjuice]]s to Osman in Al Kharid.|s=|other=Completion of {{SCP|Quest}} [[Prince Ali Rescue]] ({{SCP|Thieving|65|link=yes}} to enter [[Sorceress's Garden/Summer|Summer Garden]])}}
+{{LeagueTaskRow|Smith 1000 Rune Dart Tips|Use an Anvil to smith 1000 [[Rune Dart Tip]]s.|s={{SCP|Smithing|89|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[The Tourist Trap]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Defeat the Kalphite Queen|Defeat the [[Kalphite Queen]] in the Kalphite Lair.|s=|other=Two [[rope]]s}}
+{{LeagueTaskRow|Equip a Dragon Chainbody in the Kharidian Desert|Equip a [[Dragon chainbody]] in the Kharidian Desert.|s={{SCP|Defence|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Cast Blood Barrage|Cast the [[Blood Barrage]] spell.|s={{SCP|Magic|92|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} [[Desert Treasure I]] {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Cast Ice Barrage|Cast the [[Ice Barrage]] spell.|s={{SCP|Magic|94|link=yes|sort=yes}}|other=Completion of {{SCP|Quest}} Desert Treasure I {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Defeat the Kalphite Queen 100 Times|Defeat the Kalphite Queen in the Kalphite Lair 100 times.|s=|other=Two [[rope]]s or {{SCP|Diary}} [[Desert Diary#Hard|Desert hard diary]]}}
+{{LeagueTaskRow|Defeat the Kalphite Queen 250 Times|Defeat the Kalphite Queen in the Kalphite Lair 250 times.|s=|other=Two ropes or {{SCP|Diary}} Desert hard diary}}
+{{LeagueTaskRow|Defeat the Kalphite Queen 500 Times|Defeat the Kalphite Queen in the Kalphite Lair 500 times.|s=|other=Two ropes or {{SCP|Diary}} Desert hard diary}}
+{{LeagueTaskRow|Complete the Elite Desert Diary|Complete all of the elite tasks in the [[Elite Desert Diary|Desert Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip a Full Infinity Robe Set|Equip a full set of [[Infinity robes]].|s={{SCP|Magic|50|link=yes|sort=yes}}, {{SCP|Defence|25|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Master Wand|Equip a [[Master Wand]].|s={{SCP|Magic|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft a Ghorrock Teleport Tablet|Craft a [[Ghorrock teleport (tablet)|Ghorrock Teleport Tablet]].|s={{SCP|Magic|96|sort=yes}}|other=Completion of {{SCP|Quest}} Desert Treasure I {{TBIcon|Desert}} (automatically completed)}}
+{{LeagueTaskRow|Equip a Mage's Book|Equip a [[Mage's Book]].|s={{SCP|Magic|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskBottom|varname=Kha4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+{{#vardefine:Kha5Count|0}}{{#vardefine:Kha5Value|0}}
+However, there are no master tasks for the Kharidian Desert.<!--
+-->{{#vardefine:KhaTotalCount|{{Formatexpr|{{#var:Kha1Count}}+{{#var:Kha2Count}}+{{#var:Kha3Count}}+{{#var:Kha4Count}}+{{#var:Kha5Count}}}}}}<!--
+-->{{#vardefine:KhaTotalValue|{{Formatexpr|{{#var:Kha1Value}}+{{#var:Kha2Value}}+{{#var:Kha3Value}}+{{#var:Kha4Value}}+{{#var:Kha5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>

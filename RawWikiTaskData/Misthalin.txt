@@ -1,0 +1,127 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Mis1Count}} tasks available, there are a total of {{#var_final:Mis1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Use the Range in Lumbridge Castle|Use the Range in Lumbridge Castle to cook some food.|other={{SCP|Quest}}[[Cook's assistant]]}}
+{{LeagueTaskRow|Pickpocket a H.A.M. Member|Pickpocket any [[H.A.M. member]] at their hideout.|s={{SCP|Thieving|15|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Steal From the Varrock Tea Stall|Steal from the [[Tea Stall]] in Varrock.|s={{SCP|Thieving|5|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Draynor Agility Course|Complete a lap of the [[Draynor Village Rooftop Course|Draynor Rooftop Agility Course]].|s={{SCP|Agility|10|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft 50 Water Runes|Craft 50 [[Water Rune]]s at the [[Water Altar]].|s={{SCP|Runecraft|5|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Easy Varrock Diary|Complete all of the easy tasks in the [[Easy Varrock Diary|Varrock Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Defeat the Lesser Demon in the Wizards' Tower|Defeat the [[Lesser Demon]] at the top of the [[Wizards' Tower]].|s=|other=}}
+{{LeagueTaskRow|Receive a Slayer Task From Vannaka|Receive a [[Slayer task]] from [[Vannaka]] in [[Edgeville Dungeon]].|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Lumbridge & Draynor Diary|Complete all of the easy tasks in the [[Easy Lumbridge & Draynor Diary|Lumbridge & Draynor Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Complete Rune Mysteries|Complete the [[Rune Mysteries]] quest.|s=|other=}}
+{{LeagueTaskRow|Enter Zanaris|Enter the lost city of [[Zanaris]].|s=|other=}}
+{{LeagueTaskRow|Travel to Fossil Island|Take the Museum Barge to [[Fossil Island]].|s=|other=}}
+{{LeagueTaskRow|Pet a Stray Dog in Varrock|Pet a [[Stray Dog]] in Varrock.|s=|other=}}
+{{LeagueTaskRow|Complete Sheep Shearer|Complete the [[Sheep Shearer]] quest.|s=|other=}}
+{{LeagueTaskRow|Complete Gertrude's Cat|Complete the [[Gertrude's Cat]] quest.|s=|other=}}
+{{LeagueTaskRow|Complete Romeo & Juliet|Complete the [[Romeo & Juliet]] quest|s=|other=}}
+{{LeagueTaskRow|Drink From the Tears of Guthix|Drink from the [[Tears of Guthix (minigame)|Tears of Guthix]] in the [[Lumbridge Swamp Caves]].|s=|other={{SCP|Quest|43|link=yes|sort=yes}}}}
+{{LeagueTaskRow|Complete Vampyre Slayer|Complete the [[Vampyre Slayer]] quest.|s=|other=}}
+{{LeagueTaskRow|Fully Unlock the Mycelium Transportation System|Unlock every destination of the [[Mycelium Transportation System]] on Fossil Island.|s=|other=}}
+{{LeagueTaskRow|Build a Bank on Fossil Island|Build a Bank at the [[Museum Camp]] on Fossil Island.|s={{SCP|Construction|21|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Use a Fairy Ring|Use any [[Fairy Ring]].|s=|other=}}
+{{LeagueTaskRow|Complete the Natural History Quiz|Complete the [[Natural History Quiz]] in the [[Varrock Museum]].|s=|other=}}
+{{LeagueTaskRow|Enter Draynor Manor|Enter [[Draynor Manor]].|s=|other=}}
+{{LeagueTaskRow|Equip Some Fancy Boots or Fighting Boots|Equip either a pair of [[Fancy Boots]] or a pair of [[Fighting Boots]].|s=|other=}}
+{{LeagueTaskBottom|varname=Mis1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Mis2Count}} tasks available, there are a total of {{#var_final:Mis2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Dismantle 20 Filled Bird Houses|Dismantle 20 filled [[bird houses]] on Fossil Island.|s={{SCP|Hunter|5|link=yes|sort=yes}}, {{SCP|Crafting|5|link=yes}}|other=}}
+{{LeagueTaskRow|Setup a Yew Bird House|Setup a [[yew bird house]] on Fossil Island.|s={{SCP|Hunter|59|link=yes|sort=yes}}, {{SCP|Crafting|60|link=yes}}|other=}}
+{{LeagueTaskRow|Catch 50 Implings in Puro-Puro|Catch 50 [[Implings]] in [[Puro-Puro]].|s={{SCP|Hunter|17|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete a Volcanic Mine Game|Complete a [[Volcanic Mine]] game on Fossil Island.|s={{SCP|Mining|50|link=yes|sort=yes}}|other=150 Kudos}}
+{{LeagueTaskRow|Enter the Cooks' Guild|Enter the [[Cooks' Guild]] west of Varrock.|s={{SCP|Cooking|32|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Pickpocket a Varrock Guard|Pickpocket any [[Guard (Varrock)|Varrock Guard]].|s={{SCP|Thieving|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Pickpocket a Bullseye Lantern From a Cave Goblin|Pickpocket a [[Bullseye Lantern]] from a [[Cave goblin (Dorgesh-Kaan)|Cave Goblin]].|s={{SCP|Thieving|36|link=yes|sort=yes}}|other={{SCP|Quest}}[[Death to the Dorgeshuun]] (Requires [[Trailblazer League/Areas/Asgarnia|Asgarnia region]])}}
+{{LeagueTaskRow|Complete 30 Laps of the Draynor Agility Course|Complete 30 laps of the Draynor Rooftop Agility Course.|s={{SCP|Agility|10|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft 50 Cosmic Runes|Craft 50 [[Cosmic Rune]]s at the [[Cosmic Altar]].|s={{SCP|Runecraft|27|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Use Enriched Bones on the Strange Machine|Use [[Enriched bone]]s on the Strange Machine on Fossil Island.|s=|other=}}
+{{LeagueTaskRow|Chop a Sulliuscep Cap|Chop a [[Sulliuscep Cap]] on Fossil Island.|s={{SCP|Woodcutting|65|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Medium Varrock Diary|Complete all of the medium tasks in the [[Medium Varrock Diary|Varrock Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Defeat a Fossil Island Wyvern|Defeat any type of [[Fossil Island Wyvern|Wyvern]] on Fossil Island.|s={{SCP|Slayer|66|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat Obor|Defeat [[Obor]] in Edgeville Dungeon.|s=|other=Requires a [[giant key]].}}
+{{LeagueTaskRow|Defeat a Wall Beast|Defeat a [[Wall Beast]] in the [[Lumbridge Swamp Caves]].|s={{SCP|Slayer|35|link=yes|sort=yes}}|other={{SCP|Defence|5|link=yes|sort=yes}} to equip a 
+[[Spiny helmet]]}}
+{{LeagueTaskRow|Defeat Bryophyta|Defeat [[Bryophyta]] in Edgeville Dungeon.|s=|other=Requires a [[mossy key]].}}
+{{LeagueTaskRow|Equip a Dorgeshuun Crossbow|Equip a [[Dorgeshuun Crossbow]].|s={{SCP|Ranged|28|link=yes|sort=yes}}|other={{SCP|Quest|[[The Lost Tribe]]}}}}
+{{LeagueTaskRow|Complete the Medium Lumbridge & Draynor Diary|Complete all of the medium tasks in the [[Medium Lumbridge & Draynor Diary|Lumbridge & Draynor Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip Some Mithril Gloves|Equip a pair of [[Mithril Gloves]].|s=|other=[[Trailblazer_League/Areas/Kandarin|Kandarin region]] and 5 subquests of [[Recipe for Disaster]]}}
+{{LeagueTaskRow|Complete The Lost Tribe|Complete [[The Lost Tribe]] quest.|s='''See quest page'''|other=[[Trailblazer League/Areas/Asgarnia|Asgarnia region]]}}
+{{LeagueTaskRow|Complete Death to the Dorgeshuun|Complete the [[Death to the Dorgeshuun]] quest.|s={{SCP|Agility|23|link=yes|sort=yes}}, {{SCP|Thieving|23|link=yes}}|other=[[Trailblazer League/Areas/Asgarnia|Asgarnia region]]}}
+{{LeagueTaskRow|Complete Demon Slayer|Complete the [[Demon Slayer]] quest.|s=|other=}}
+{{LeagueTaskRow|Use a Digsite Pendant to Teleport to Fossil Island|Use a [[Digsite Pendant]] to teleport to Fossil Island.|s={{SCP|Crafting|40|link=yes|sort=yes}}, {{SCP|Magic|49}}|other=}}
+{{LeagueTaskRow|Complete a Soul's Bane|Complete the [[A Soul's Bane]] quest.|s=|other=}}
+{{LeagueTaskBottom|varname=Mis2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Mis3Count}} tasks available, there are a total of {{#var_final:Mis3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Setup a Magic Bird House|Setup a Magic Bird House on Fossil Island.|s={{SCP|Hunter|74|link=yes|sort=yes}}, {{SCP|Crafting|75|link=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hard Varrock Diary|Complete all of the hard tasks in the [[Hard Varrock Diary|Varrock Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Catch 200 Implings in Puro-Puro|Catch 200 [[Implings]] in [[Puro-Puro]].|s={{SCP|Hunter|17|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Buy an Ash Covered Tome|Buy an [[ash covered tome]] from [[Petrified Pete's Ore Shop]] on Fossil Island.|s={{SCP|Mining|50|link=yes|sort=yes}}|other=150 kudos to access [[Volcanic Mine]]}}
+{{LeagueTaskRow|Check a grown Magic Tree in Lumbridge|Check the health of a [[Magic Tree]] you've grown in Lumbridge.|s={{SCP|Farming|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Check a grown Mahogany Tree|Check the health of a [[Mahogany Tree]] you've grown on Fossil Island.|s={{SCP|Farming|55|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Steal a Diamond in Dorgesh-Kaan|Steal a Diamond from a [[Chest (Dorgesh-Kaan Rich)|chest]] in Dorgesh-Kaan.|s={{SCP|Thieving|78|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Take the Advanced Shortcut to the Cosmic Altar|Use the Advanced Narrow Walkway Agility Shortcut near the [[Cosmic Altar]].|s={{SCP|Agility|66|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Rune Dragon|Defeat a [[Rune Dragon]] in the [[Lithkren Vault]].|s=|other=[[Trailblazer League/Areas/Fremennik|The Fremennik Provinces]]}}
+{{LeagueTaskRow|Equip a Hill Giant Club|Equip a [[Hill Giant Club]].|s={{SCP|Attack|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip Bryophyta's Staff|Equip [[Bryophyta's staff]].|s={{SCP|Attack|30|link=yes|sort=yes}}, {{SCP|Magic|30|link=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Abyssal Sire|Defeat the [[Abyssal Sire]] in the [[Abyssal Nexus]].|s={{SCP|Slayer|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat an Ancient Wyvern|Defeat an [[Ancient Wyvern]] on Fossil Island.|s={{SCP|Slayer|82|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hard Lumbridge & Draynor Diary|Complete all of the hard tasks in the [[Hard Lumbridge & Draynor Diary|Lumbridge & Draynor Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskBottom|varname=Mis3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Mis4Count}} tasks available, there are a total of {{#var_final:Mis4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Catch a Herbiboar 100 Times|Catch a [[Herbiboar]] on Fossil Island 100 times.|s={{SCP|Hunter|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Catch a Herbiboar 250 Times|Catch a [[Herbiboar]] on Fossil Island 250 times.|s={{SCP|Hunter|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Catch a Herbiboar 500 Times|Catch a [[Herbiboar]] on Fossil Island 500 times.|s={{SCP|Hunter|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Receive a Torstol From a Herbiboar|Receive a [[Torstol]] From a [[Herbiboar]] on Fossil Island.|s={{SCP|Hunter|80|link=yes|sort=yes}}, {{SCP|Herblore|77|link=yes}}|other=}}
+{{LeagueTaskRow|Complete the Elite Varrock Diary|Complete all of the elite tasks in the [[Elite Varrock Diary|Varrock Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Mine a Runite Ore Fragment|Mine a [[runite ore fragment]] in the [[Volcanic Mine]] on Fossil Island.|s={{SCP|Mining|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Dragon Crossbow|Equip a [[Dragon Crossbow]].|s={{SCP|Fletching|78|link=yes|sort=yes}}|other=[[Trailblazer League/Areas/The Fremennik Provinces|The Fremennik Provinces]]}}
+{{LeagueTaskRow|Equip a Dragonfire Shield|Equip a [[Dragonfire Shield]].|s={{SCP|Smithing|90|link=yes|sort=yes}}, {{SCP|Defence|75|link=yes}}|other=}}
+{{LeagueTaskRow|Equip an Ancient Wyvern Shield|Equip an Ancient Wyvern Shield.|s={{SCP|Smithing|66|link=yes|sort=yes}}, {{SCP|Defence|75|link=yes}}, {{SCP|Magic|70|link=yes}}|other=}}
+{{LeagueTaskRow|Equip an Abyssal Bludgeon|Equip an [[Abyssal Bludgeon]].|s={{SCP|Slayer|85|link=yes|sort=yes}}, {{SCP|Attack|70|link=yes}}, {{SCP|Strength|70|link=yes}}|other=}}
+{{LeagueTaskRow|Equip an Abyssal Dagger|Equip an [[Abyssal Dagger]].|s={{SCP|Slayer|85|link=yes|sort=yes}}, {{SCP|Attack|70|link=yes}}|other=}}
+{{LeagueTaskRow|Offer an Unsired to the Font of Consumption|Offer an [[Unsired]] to the [[Font of Consumption]] in the [[Abyssal Nexus]].|s={{SCP|Slayer|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Abyssal Sire 100 Times|Defeat the [[Abyssal Sire]] in the [[Abyssal Nexus]] 100 times.|s={{SCP|Slayer|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Abyssal Sire 250 Times|Defeat the [[Abyssal Sire]] in the [[Abyssal Nexus]] 250 times.|s={{SCP|Slayer|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Abyssal Sire 500 Times|Defeat the [[Abyssal Sire]] in the [[Abyssal Nexus]] 500 times.|s={{SCP|Slayer|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Elite Lumbridge & Draynor Diary|Complete all of the elite tasks in the [[Elite Lumbridge & Draynor Diary|Lumbridge & Draynor Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskBottom|varname=Mis4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Mis5Count}} task available, there are a total of {{#var_final:Mis5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip a Dragon Platebody or Dragon Kiteshield|Equip either a [[Dragon platebody]] or a [[Dragon kiteshield]].|s={{SCP|Smithing|75|link=yes|sort=yes}}, {{SCP|Defence|60|link=yes}}|other=[[Trailblazer League/Areas/The Fremennik Provinces|Fremennik Provinces]] for [[Dragon Slayer II]] '''AND''' [[Trailblazer League/Areas/Kandarin|Kandarin]] for [[Dragon metal shard]]}}
+{{LeagueTaskBottom|varname=Mis5|ppt=500}}<!--
+-->{{#vardefine:MisTotalCount|{{Formatexpr|{{#var:Mis1Count}}+{{#var:Mis2Count}}+{{#var:Mis3Count}}+{{#var:Mis4Count}}+{{#var:Mis5Count}}}}}}<!--
+-->{{#vardefine:MisTotalValue|{{Formatexpr|{{#var:Mis1Value}}+{{#var:Mis2Value}}+{{#var:Mis3Value}}+{{#var:Mis4Value}}+{{#var:Mis5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>

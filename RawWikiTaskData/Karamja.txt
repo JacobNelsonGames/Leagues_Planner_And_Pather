@@ -1,0 +1,96 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Kar1Count}} tasks available, there are a total of {{#var_final:Kar1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Receive an Agility Arena Ticket|Receive an [[Agility Arena Ticket]] from the [[Brimhaven Agility Arena]].|s=|other=}}
+{{LeagueTaskRow|Catch a Karambwanji|Catch a [[Karambwanji]] on Karamja.|s={{SCP|Fishing|5|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a TzHaar|Defeat any TzHaar in Mor Ul Rek.|s=|other=}}
+{{LeagueTaskRow|Receive a Slayer Task From Duradel|Receive a Slayer Task From Duradel in Shilo Village.|s={{SCP|Combat|5|link=yes|sort=yes}}, {{SCP|Slayer|1|link=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Greater Demon on Karamja|Defeat a [[Greater Demon]] on Karamja.|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Karamja Diary|Complete all of the easy tasks in the [[Easy Karamja Diary|Karamja Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Fill a Crate With Bananas|Fill a crate with Bananas for [[Luthas]] at [[Musa Point]].|s=|other=}}
+{{LeagueTaskRow|Pick a Pineapple on Karamja|Pick a [[Pineapple]] on Karamja.|s=|other=}}
+{{LeagueTaskRow|Enter the Brimhaven Dungeon|Enter the [[Brimhaven Dungeon]].|s=|other=}}
+{{LeagueTaskBottom|varname=Kar1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Kar2Count}} tasks available, there are a total of {{#var_final:Kar2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Buy a Snapdragon From Pirate Jackie the Fruit|Buy a [[Snapdragon]] From [[Pirate Jackie the Fruit]] in [[Brimhaven]].|s=|other=10 [[Agility arena ticket|Agility arena tickets]]}}
+{{LeagueTaskRow|Catch a Salmon on Karamja|Catch a [[Salmon]] on Karamja.|s={{SCP|Fishing|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft 50 Nature Runes|Craft 50 [[Nature Rune]]s at the [[Nature Altar]].|s={{SCP|Runecraft|44|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Steel Dragon on Karamja|Defeat a [[Steel Dragon]] on Karamja.|s=|other=}}
+{{LeagueTaskRow|Complete the Medium Karamja Diary|Complete all of the medium tasks in the [[Medium Karamja Diary|Karamja Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Enter the Tai Bwo Wannai Hardwood Grove|Enter the [[Hardwood Grove]] in [[Tai Bwo Wannai]].|s=|other=100 [[Trading sticks]]}}
+{{LeagueTaskRow|Equip a Matching Tribal Mask and Broodoo Shield|Equip a matching [[Tribal Mask]] and [[Broodoo Shield]].|s=|other=}}
+{{LeagueTaskRow|Equip a Full Tai Bwo Wannai Villager Set|Equip a full set of Tai Bwo Wannai [[villager clothing]].|s=|other=}}
+{{LeagueTaskBottom|varname=Kar2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Kar3Count}} tasks available, there are a total of {{#var_final:Kar3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Cook 100 Karambwans|Cook 100 [[Karambwans]].|s={{SCP|Cooking|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Take a Shortcut Across the Shilo Village River|Use the Stepping Stones Agility Shortcut in [[Shilo Village (location)|Shilo Village]].|s={{SCP|Agility|77|link=yes|sort=yes}}|other=Requires [[Medium Karamja Diary|Medium Karamja Diary]]}}
+{{LeagueTaskRow|Catch 100 Karambwans|Catch 100 Karambwans on Karamja.|s={{SCP|Fishing|65|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Check a grown Calquat Tree|Check the health of a [[Calquat Tree]] you've grown on Karamja.|s={{SCP|Farming|72|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Obsidian Armour Set|Equip a full set of  [[Obsidian armour]].|s={{SCP|Defence|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Survive a Hit From TzTok-Jad Without Prayer|Survive a Magic or Ranged hit from [[TzTok-Jad]] in the [[Tzhaar Fight Caves]] without using a protection prayer.|s=|other=}}
+{{LeagueTaskRow|Equip Some Dragon Platelegs or a Dragon Plateskirt|Equip either some [[Dragon Platelegs]] or a [[Dragon Plateskirt]].|s={{SCP|Defence|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip an Obsidian Cape|Equip an [[Obsidian Cape]].|s=|other=}}
+{{LeagueTaskRow|Equip a Toktz-Ket-Xil|Equip a [[Toktz-Ket-Xil]].|s={{SCP|Defence|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Tzhaar-Ket-Om|Equip a [[Tzhaar-Ket-Om]].|s={{SCP|Strength|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Toktz-Xil-Ak|Equip a [[Toktz-Xil-Ak]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Toktz-Xil-Ek|Equip a [[Toktz-Xil-Ek]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hard Karamja Diary|Complete all of the hard tasks in the [[Hard Karamja Diary|Karamja Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip a Red Topaz Machete|Equip a [[Red Topaz Machete]].|s=|other=}}
+{{LeagueTaskRow|Find a Gout Tuber|Find a [[Gout Tuber]] in Tai Bwo Wannai.|s=|other=}}
+{{LeagueTaskBottom|varname=Kar3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Kar4Count}} tasks available, there are a total of {{#var_final:Kar4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Receive 60 Agility Arena Tickets With No Mistakes|Receive 60 Agility Arena Tickets without missing any pillars.|s={{SCP|Agility|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Pickpocket a Diamond From a TzHaar|Pickpocket a Diamond from a [[TzHaar-Hur]].|s={{SCP|Thieving|90|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Fire Cape|Equip a [[Fire Cape]].|s=|other=}}
+{{LeagueTaskRow|Complete the Fight Caves in 35:00|Complete the [[Tzhaar Fight Cave]] in [[Mor Ul Rek]] in 35:00 or less.|s=|other=}}
+{{LeagueTaskRow|Sacrifice a Fire Cape to Access the Inferno|Sacrifice a Fire Cape to access the [[Inferno]] in Mor Ul Rek.|s=|other=}}
+{{LeagueTaskRow|Complete the Fight Caves 5 Times|Complete the Tzhaar Fight Cave in Mor Ul Rek 5 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Fight Caves 15 Times|Complete the Tzhaar Fight Cave in Mor Ul Rek 15 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Fight Caves 30 Times|Complete the Tzhaar Fight Cave in Mor Ul Rek 30 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Inferno 5 Times|Complete the [[Inferno]] in Mor Ul Rek 5 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Inferno 10 Times|Complete the Inferno in Mor Ul Rek 10 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Inferno 20 Times|Complete the Inferno in Mor Ul Rek 20 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Elite Karamja Diary|Complete all of the elite tasks in the [[Elite Karamja Diary|Karamja Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Purchase an Onyx in Mor Ul Rek|Purchase an [[Onyx]] from an Ore and Gem Store in Mor Ul Rek.|s=|other=}}
+{{LeagueTaskBottom|varname=Kar4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Kar5Count}} tasks available, there are a total of {{#var_final:Kar5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Trade 1,000 Agility Arena Tickets for XP|Trade in 1,000 or more Agility Arena Tickets for XP in one go.|s=|other=}}
+{{LeagueTaskRow|Equip an Infernal Cape|Equip an [[Infernal Cape]].|s=|other=}}
+{{LeagueTaskRow|Complete the Fight Caves in 25:00|Complete the Tzhaar Fight Cave in Mor Ul Rek in 25:00 or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Inferno in 75:00|Complete the Inferno in Mor Ul Rek in 75:00 or less.|s=|other=}}
+{{LeagueTaskBottom|varname=Kar5|ppt=500}}<!--
+-->{{#vardefine:KarTotalCount|{{Formatexpr|{{#var:Kar1Count}}+{{#var:Kar2Count}}+{{#var:Kar3Count}}+{{#var:Kar4Count}}+{{#var:Kar5Count}}}}}}<!--
+-->{{#vardefine:KarTotalValue|{{Formatexpr|{{#var:Kar1Value}}+{{#var:Kar2Value}}+{{#var:Kar3Value}}+{{#var:Kar4Value}}+{{#var:Kar5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>
