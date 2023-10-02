@@ -146,6 +146,7 @@ public class TaskOverlay extends Overlay
 
     private void AddTaskListToDisplayPointCache(HashMap<UUID, TaskData> TaskCache)
     {
+
         for (Map.Entry<UUID, TaskData> CurrentTaskPair : TaskCache.entrySet())
         {
             // Skip due to some filter
@@ -173,7 +174,7 @@ public class TaskOverlay extends Overlay
             else if (ReqFilter == FilterRequirements.NEAR_REQ)
             {
                 // 10 levels away
-                if (ReqDifferent < 10)
+                if (ReqDifferent > 10)
                 {
                     continue;
                 }
@@ -240,6 +241,7 @@ public class TaskOverlay extends Overlay
                 zoom != CachedZoomLevel ||
                 DiffFilter != config.FilteredDifficulty() ||
                 OthFilter != config.FilteredOther() ||
+                ReqFilter != config.FilteredRequirements() ||
                 !RegionsUnlocked.containsAll(TempRegionsUnlocked) ||
                 !TempRegionsUnlocked.containsAll(RegionsUnlocked) )
         {
@@ -247,6 +249,7 @@ public class TaskOverlay extends Overlay
             CachedZoomLevel = zoom;
             DiffFilter = config.FilteredDifficulty();
             OthFilter = config.FilteredOther();
+            ReqFilter = config.FilteredRequirements();
             RegionsUnlocked.clear();
             RegionsUnlocked.addAll(TempRegionsUnlocked);
 

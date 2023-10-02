@@ -5,6 +5,7 @@ import java.awt.*;
 public enum RegionType
 {
     NONE,
+    GENERAL,
     MISTHALIN,
     KARAMJA,
     KANDARIN,
@@ -42,7 +43,7 @@ public enum RegionType
                 return config.DesertUnlocked();
         }
 
-        return false;
+        return true;
     }
 
     static public Color GetRegionColor(LeaguesPlannerConfig config, RegionType Type, boolean bConsiderUnlocked)

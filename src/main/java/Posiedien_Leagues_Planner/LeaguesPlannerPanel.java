@@ -672,7 +672,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             else if (ReqFilter == FilterRequirements.NEAR_REQ)
             {
                 // 10 levels away
-                if (ReqDifferent < 10)
+                if (ReqDifferent > 10)
                 {
                     continue;
                 }
@@ -716,7 +716,7 @@ public class LeaguesPlannerPanel extends PluginPanel
                 }
             }
 
-            if (PointsInRegions == 0)
+            if (!data.Locations.isEmpty() && PointsInRegions == 0)
             {
                 bSkipTask = true;
             }
@@ -785,8 +785,8 @@ public class LeaguesPlannerPanel extends PluginPanel
                     }
                     SortValue += (int) ClosestDistance;
                 }
-                // Fall back if player location doesn't exist
-                else if (SortConfig == TaskSortMethod.DISTANCE || SortConfig == TaskSortMethod.DIFFICULTY)
+
+                // Fallback with difficulty
                 {
                     if (entry.getValue().Difficulty == TaskDifficulty.EASY)
                     {

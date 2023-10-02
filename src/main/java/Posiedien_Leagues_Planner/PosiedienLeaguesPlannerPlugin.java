@@ -191,6 +191,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     protected void shutDown() throws IOException
     {
         SaveRegionBounds();
+        SaveTaskData();
+
         ShutdownRegionData();
         ShutdownTaskData();
 
@@ -216,6 +218,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         taskOverlay = null;
         panel = null;
         navButton = null;
+    }
+
+    private void SaveTaskData() throws IOException
+    {
+        {
+            // Task info
+            File targ = new File("TaskData.csv");
+            config.TaskData.exportToConverted(targ);
+        }
     }
 
     public void restartPathfinding(WorldPoint start, WorldPoint end, boolean bJustFindOverworld) {
@@ -325,7 +336,10 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     public void QueueRefresh()
     {
         EventQueue.invokeLater(() -> {
-            panel.refresh();
+            if (panel != null)
+            {
+                panel.refresh();
+            }
             bMapDisplayPointsDirty = true;
                 }
         );
@@ -887,14 +901,14 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 */
 
         {
-            config.TaskData.importFromRaw();
+            // Task info
+            File targ = new File("TaskData.csv");
+            config.TaskData.importFromConverted(targ);
             config.TaskData.CalculateAndCacheOverworldLocations(this);
         }
 
         {
-            // Task info
-            File targ = new File("TaskData.csv");
-            config.TaskData.importFromConverted(targ);
+            config.TaskData.importFromRaw();
             config.TaskData.CalculateAndCacheOverworldLocations(this);
         }
 
@@ -1826,7 +1840,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
 
         // Debug helper
-        if (0 == 1)
+        //if (0 == 1)
         {
             if (config.GetEditRegion() == RegionType.NONE)
             {
