@@ -46,6 +46,33 @@ public enum RegionType
         return true;
     }
 
+    static public int GetRegionValue(RegionType Type) {
+        switch (Type)
+        {
+            case MISTHALIN:
+                return 1;
+            case KARAMJA:
+                return 2;
+            case KANDARIN:
+                return 3;
+            case ASGARNIA:
+                return 4;
+            case FREMENNIK:
+                return 5;
+            case KOUREND:
+                return 6;
+            case WILDERNESS:
+                return 7;
+            case MORYTANIA:
+                return 8;
+            case TIRANNWN:
+                return 9;
+            case DESERT:
+                return 10;
+        }
+        return 0;
+    }
+
     static public Color GetRegionColor(LeaguesPlannerConfig config, RegionType Type, boolean bConsiderUnlocked)
     {
         Color OutColor = Color.WHITE;

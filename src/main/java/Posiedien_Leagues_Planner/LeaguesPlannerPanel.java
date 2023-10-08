@@ -746,7 +746,7 @@ public class LeaguesPlannerPanel extends PluginPanel
     @Getter
     public ArrayList<Pathfinder> pathfinderArray = new ArrayList<>();
 
-    private int AddTaskListToSortedLeaguesTasks(WorldPoint PlayerLocation, HashMap<UUID, TaskData> TaskCache)
+    public int AddTaskListToSortedLeaguesTasks(WorldPoint PlayerLocation, HashMap<UUID, TaskData> TaskCache)
     {
         TaskSortMethod SortConfig = config.TaskSort();
         int NeededPathFinderSize = 0;
@@ -790,27 +790,36 @@ public class LeaguesPlannerPanel extends PluginPanel
                 {
                     if (entry.getValue().Difficulty == TaskDifficulty.EASY)
                     {
-                        SortValue += 1;
+                        SortValue += 100;
                     }
                     else if (entry.getValue().Difficulty == TaskDifficulty.MEDIUM)
                     {
-                        SortValue += 2;
+                        SortValue += 200;
                     }
                     else if (entry.getValue().Difficulty == TaskDifficulty.HARD)
                     {
-                        SortValue += 3;
+                        SortValue += 300;
                     }
                     else if (entry.getValue().Difficulty == TaskDifficulty.ELITE)
                     {
-                        SortValue += 4;
+                        SortValue += 400;
                     }
                     else if (entry.getValue().Difficulty == TaskDifficulty.MASTER)
                     {
-                        SortValue += 5;
+                        SortValue += 500;
                     }
                     else if (entry.getValue().Difficulty == TaskDifficulty.CUSTOM)
                     {
-                        SortValue += 6;
+                        SortValue += 600;
+                    }
+                }
+
+                // Region tie breakers
+                {
+                    if (!entry.getValue().Regions.isEmpty())
+                    {
+                        RegionType FirstRegion = entry.getValue().Regions.get(0);
+                        SortValue += RegionType.GetRegionValue(FirstRegion);
                     }
                 }
             }

@@ -225,13 +225,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         {
             // Task info
             File targ = new File("TaskData.csv");
-            config.TaskData.exportToConverted(targ);
+            config.TaskData.exportToConverted(targ, this);
         }
     }
 
+    public boolean bQueuedPathfinderTask = false;
     public void restartPathfinding(WorldPoint start, WorldPoint end, boolean bJustFindOverworld) {
         synchronized (pathfinderMutex) {
             if (pathfinder != null) {
+                bQueuedPathfinderTask = true;
                 pathfinder.cancel();
                 pathfinderFuture.cancel(true);
             }
@@ -243,6 +245,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         }
 
         getClientThread().invokeLater(() -> {
+            bQueuedPathfinderTask = false;
             pathfinderConfig.refresh();
             synchronized (pathfinderMutex)
             {
@@ -900,17 +903,19 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         config.TaskData.LeaguesTaskList.put(TestTaskData6.GUID, TestTaskData6);
 */
 
+        config.TaskData.LeaguesTaskList.clear();
+
         {
             // Task info
-            File targ = new File("TaskData.csv");
+            File targ = new File("ConvertedTaskData/TrailblazerTaskData.csv");
             config.TaskData.importFromConverted(targ);
-            config.TaskData.CalculateAndCacheOverworldLocations(this);
         }
 
         {
             config.TaskData.importFromRaw();
-            config.TaskData.CalculateAndCacheOverworldLocations(this);
         }
+
+        config.TaskData.CalculateAndCacheOverworldLocations(this);
 
         {
             // Custom Task/Plan info

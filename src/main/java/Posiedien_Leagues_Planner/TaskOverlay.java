@@ -52,9 +52,11 @@ public class TaskOverlay extends Overlay
             }
             int TaskIconSize = config.TaskMapIconSize();
 
+            int TaskCount = Math.min(CurrentDisplayPoint.Tasks.size(), 5);
+
             if (config.ScaleTaskMapIconBasedOnCount())
             {
-                TaskIconSize += (int) (config.TaskMapIconSize() * CurrentDisplayPoint.Tasks.size() * (1.0f / config.ScaleTaskMapIconBasedOnCountInvRate()));
+                TaskIconSize += (int) (config.TaskMapIconSize() * TaskCount * (1.0f / config.ScaleTaskMapIconBasedOnCountInvRate()));
             }
 
             if (ClickedGraphicsPoint.distanceTo(DisplayGraphicsPoint) < TaskIconSize)
@@ -203,6 +205,12 @@ public class TaskOverlay extends Overlay
                 continue;
             }
 
+            // Full cancel
+            if (bCancelDisplayPointTaskInProgress)
+            {
+                return;
+            }
+
             // Go through all the task locations
             for (WorldPoint TaskWorldPoint : CurrentTaskPair.getValue().Locations)
             {
@@ -222,6 +230,9 @@ public class TaskOverlay extends Overlay
             }
         }
     }
+
+    boolean bDisplayPointTaskInProgress = false;
+    boolean bCancelDisplayPointTaskInProgress = false;
 
     private void CacheDisplayPointsIfDirty()
     {
@@ -245,22 +256,37 @@ public class TaskOverlay extends Overlay
                 !RegionsUnlocked.containsAll(TempRegionsUnlocked) ||
                 !TempRegionsUnlocked.containsAll(RegionsUnlocked) )
         {
-            plugin.bMapDisplayPointsDirty = false;
-            CachedZoomLevel = zoom;
-            DiffFilter = config.FilteredDifficulty();
-            OthFilter = config.FilteredOther();
-            ReqFilter = config.FilteredRequirements();
-            RegionsUnlocked.clear();
-            RegionsUnlocked.addAll(TempRegionsUnlocked);
 
-            // Go through all of our tasks and figure out our display points for rendering
-            CachedTaskDisplayPoints.clear();
-            TaskToDisplayPoints.clear();
+            if (!bDisplayPointTaskInProgress)
+            {
+                plugin.bMapDisplayPointsDirty = false;
+                CachedZoomLevel = zoom;
+                DiffFilter = config.FilteredDifficulty();
+                OthFilter = config.FilteredOther();
+                ReqFilter = config.FilteredRequirements();
+                RegionsUnlocked.clear();
+                RegionsUnlocked.addAll(TempRegionsUnlocked);
 
-            AddTaskListToDisplayPointCache(config.TaskData.LeaguesTaskList);
-            AddTaskListToDisplayPointCache(config.UserData.CustomTasks);
+                bDisplayPointTaskInProgress = true;
+                plugin.getClientThread().invokeLater(() ->
+                {
+                    // Go through all of our tasks and figure out our display points for rendering
+                    CachedTaskDisplayPoints.clear();
+                    TaskToDisplayPoints.clear();
 
-            config.UserData.CacheSortedPlannedTasks();
+                    AddTaskListToDisplayPointCache(config.TaskData.LeaguesTaskList);
+                    AddTaskListToDisplayPointCache(config.UserData.CustomTasks);
+
+                    config.UserData.CacheSortedPlannedTasks();
+
+                    bCancelDisplayPointTaskInProgress = false;
+                    bDisplayPointTaskInProgress = false;
+                });
+            }
+            else
+            {
+                bCancelDisplayPointTaskInProgress = true;
+            }
         }
     }
 
@@ -366,6 +392,31 @@ public class TaskOverlay extends Overlay
 
     }
 
+    static class OverlayQueuedText
+    {
+        String TextValue;
+        Font FontValue;
+        Color ColorValue;
+        int Offset;
+        int X;
+        int Y;
+
+        public OverlayQueuedText(String taskWorldPointCountSize,
+                                 int InOffset,
+                                 int InX,
+                                 int InY,
+                                 Font taskIconFont,
+                                 Color taskIconFontColor)
+        {
+            TextValue = taskWorldPointCountSize;
+            FontValue = taskIconFont;
+            ColorValue = taskIconFontColor;
+            Offset = InOffset;
+            X = InX;
+            Y = InY;
+        }
+    };
+
     @Override
     public Dimension render(Graphics2D graphics)
     {
@@ -385,6 +436,12 @@ public class TaskOverlay extends Overlay
         }
 
         CacheDisplayPointsIfDirty();
+
+        if (bDisplayPointTaskInProgress)
+        {
+            return null;
+        }
+        ArrayList<OverlayQueuedText> QueuedTextCommands = new ArrayList<>();
 
         // Go through all of our display points and render on our map
         Color taskIconFontColor = new Color(31, 58, 70,255);
@@ -421,16 +478,18 @@ public class TaskOverlay extends Overlay
                 }
             }
 
+            int TaskCount = Math.min(CurrentDisplayPoint.Tasks.size(), 5);
+
             int TaskIconSize = config.TaskMapIconSize();
 
             if (config.ScaleTaskMapIconBasedOnCount())
             {
-                TaskIconSize += (int) (config.TaskMapIconSize() * CurrentDisplayPoint.Tasks.size() * (1.0f / config.ScaleTaskMapIconBasedOnCountInvRate()));
+                TaskIconSize += (int) (config.TaskMapIconSize() * TaskCount * (1.0f / config.ScaleTaskMapIconBasedOnCountInvRate()));
             }
 
             int TaskIconSizeHalf = TaskIconSize / 2;
 
-            String TaskWorldPointCountSize = String.valueOf(CurrentDisplayPoint.Tasks.size());
+            String TaskWorldPointCountSize = String.valueOf(TaskCount);
             if (CurrentDisplayPoint.Tasks.size() > 9)
             {
                 TaskWorldPointCountSize = "9+";
@@ -559,24 +618,20 @@ public class TaskOverlay extends Overlay
             }
 
             Font taskIconFont = new FontUIResource("TaskCountFont", Font.BOLD, TaskIconSizeHalf);
-            graphics.setFont(taskIconFont);
-            graphics.setColor(taskIconFontColor);
-
             int TextIconTextOffsetY = -TaskIconSizeHalf / 2;
             int TextIconTextOffsetX = (TaskIconSizeHalf / 4);
 
-            graphics.drawChars(TaskWorldPointCountSize.toCharArray(),
+            QueuedTextCommands.add(new OverlayQueuedText(TaskWorldPointCountSize,
                     0,
-                    TaskCharacterSize,
                     GraphicsPoint.getX() - TextIconTextOffsetX,
-                    GraphicsPoint.getY() - TextIconTextOffsetY);
+                    GraphicsPoint.getY() - TextIconTextOffsetY,
+                    taskIconFont,
+                    taskIconFontColor));
 
             boolean bIsCloseToMouse = HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize;
             if (bIsTaskPlanned || bIsCloseToMouse)
             {
                 Font taskhighlightFont2 = new FontUIResource("taskhighlightFont2", Font.BOLD, 15);
-                graphics.setFont(taskhighlightFont2);
-                graphics.setColor(highlightnamecolor2);
 
                 int TaskNum2 = 0;
                 for (HashMap.Entry<UUID, Boolean > mapElement : CurrentDisplayPoint.Tasks.entrySet())
@@ -591,28 +646,29 @@ public class TaskOverlay extends Overlay
 
                     if (bIsCloseToMouse)
                     {
-                        graphics.drawChars(ModifiedString.toCharArray(),
+                        QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
                                 0,
-                                ModifiedString.length(),
                                 HighlightGraphicsPoint.getX() - 1,
-                                HighlightGraphicsPoint.getY() - TaskNum2 * 15 + 1);
+                                HighlightGraphicsPoint.getY() - TaskNum2 * 15 + 1,
+                                taskhighlightFont2,
+                                highlightnamecolor2));
 
                         ++TaskNum2;
                     }
                     // bIsTaskPlanned
                     else if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
-                        graphics.drawChars(ModifiedString.toCharArray(),
+                        QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
                                 0,
-                                ModifiedString.length(),
                                 GraphicsPoint.getX() - 1,
-                                GraphicsPoint.getY() - TaskNum2 * 15 + 1);
+                                GraphicsPoint.getY() - TaskNum2 * 15 + 1,
+                                taskhighlightFont2,
+                                highlightnamecolor2));
 
                         ++TaskNum2;
                     }
                 }
                 Font taskhighlightFont = new FontUIResource("taskhighlightFont", Font.BOLD, 15);
-                graphics.setFont(taskhighlightFont);
 
                 int TaskNum = 0;
                 for (HashMap.Entry<UUID, Boolean > mapElement : CurrentDisplayPoint.Tasks.entrySet())
@@ -627,24 +683,24 @@ public class TaskOverlay extends Overlay
 
                     if (bIsCloseToMouse)
                     {
-                        graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
-                        graphics.drawChars(ModifiedString.toCharArray(),
+                        QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
                                 0,
-                                ModifiedString.length(),
                                 HighlightGraphicsPoint.getX(),
-                                HighlightGraphicsPoint.getY() - TaskNum * 15);
+                                HighlightGraphicsPoint.getY() - TaskNum * 15,
+                                taskhighlightFont,
+                                TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
 
                         ++TaskNum;
                     }
                     // bIsTaskPlanned
                     else if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
-                        graphics.setColor(TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty));
-                        graphics.drawChars(ModifiedString.toCharArray(),
+                        QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
                                 0,
-                                ModifiedString.length(),
                                 GraphicsPoint.getX(),
-                                GraphicsPoint.getY() - TaskNum * 15);
+                                GraphicsPoint.getY() - TaskNum * 15,
+                                taskhighlightFont,
+                                TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
 
                         ++TaskNum;
                     }
@@ -748,6 +804,17 @@ public class TaskOverlay extends Overlay
             }
 
 
+        }
+
+        for (OverlayQueuedText CurrentTextCommand :QueuedTextCommands)
+        {
+            graphics.setFont(CurrentTextCommand.FontValue);
+            graphics.setColor(CurrentTextCommand.ColorValue);
+            graphics.drawChars(CurrentTextCommand.TextValue.toCharArray(),
+                    CurrentTextCommand.Offset,
+                    CurrentTextCommand.TextValue.length(),
+                    CurrentTextCommand.X,
+                    CurrentTextCommand.Y);
         }
 
         return null;

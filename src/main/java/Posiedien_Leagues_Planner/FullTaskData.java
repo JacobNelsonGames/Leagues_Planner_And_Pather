@@ -1,6 +1,7 @@
 package Posiedien_Leagues_Planner;
 
 import net.runelite.api.Skill;
+import net.runelite.api.World;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.plugins.achievementdiary.CombatLevelRequirement;
 import net.runelite.client.plugins.achievementdiary.SkillRequirement;
@@ -8,10 +9,7 @@ import net.runelite.client.plugins.achievementdiary.SkillRequirement;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.UUID;
-import java.util.ArrayList;
+import java.util.*;
 
 public class FullTaskData
 {
@@ -23,7 +21,10 @@ public class FullTaskData
 
     void AddNewTaskToDataBase(TaskData newTask)
     {
-        newTask.GUID = UUID.randomUUID();
+        if (newTask.GUID == null)
+        {
+            newTask.GUID = UUID.randomUUID();
+        }
         LeaguesTaskList.put(newTask.GUID, newTask);
         StringToTask.put(newTask.TaskName, newTask.GUID);
     }
@@ -38,7 +39,9 @@ public class FullTaskData
                 if (!IsOverworldLocation(NextLocation))
                 {
                     posiedienLeaguesPlannerPlugin.restartPathfinding(NextLocation, new WorldPoint(3000,3000,0), true);
-                    while (posiedienLeaguesPlannerPlugin.getPathfinder() == null || !posiedienLeaguesPlannerPlugin.getPathfinder().isDone())
+                    while (posiedienLeaguesPlannerPlugin.getPathfinder() == null ||
+                            !posiedienLeaguesPlannerPlugin.getPathfinder().isDone() ||
+                            posiedienLeaguesPlannerPlugin.bQueuedPathfinderTask)
                     {
                         try {
                             Thread.sleep(500);
@@ -46,7 +49,12 @@ public class FullTaskData
                         catch (Exception e) {
                         }
                     }
-                    entry.getValue().OverworldLocations.add(posiedienLeaguesPlannerPlugin.getPathfinder().getPath().get(posiedienLeaguesPlannerPlugin.getPathfinder().getPath().size() - 1));
+                    WorldPoint LastLocation = posiedienLeaguesPlannerPlugin.getPathfinder().getPath().get(posiedienLeaguesPlannerPlugin.getPathfinder().getPath().size() - 1);
+
+                    if (IsOverworldLocation(LastLocation) && !entry.getValue().OverworldLocations.contains(LastLocation))
+                    {
+                        entry.getValue().OverworldLocations.add(LastLocation);
+                    }
                 }
             }
         }
@@ -65,10 +73,205 @@ public class FullTaskData
 
         return false;
     }
+    public String GetNextIgnoreBlank(Scanner sc)
+    {
+        while (true)
+        {
+            if (!sc.hasNext())
+            {
+                return null;
+            }
+
+            String NextString = sc.next();
+            if (!Objects.equals(NextString, "")
+                    && !Objects.equals(NextString, "\r\n"))
+            {
+                NextString = NextString.replace("\r\n", "");
+                return NextString;
+            }
+        }
+
+    }
 
     public void importFromConverted(File file)
     {
-        LeaguesTaskList.clear();
+        if (file.exists())
+        {
+            try (Scanner sc = new Scanner(file))
+            {
+                // CSV file, so comma delimiter
+                sc.useDelimiter(",");
+
+                GetNextIgnoreBlank(sc); // "Task Count:"
+                GetNextIgnoreBlank(sc); // #
+
+                // Go through every task in the csv
+                while(sc.hasNext())
+                {
+                    String TaskName = GetNextIgnoreBlank(sc);
+                    if (TaskName == null)
+                    {
+                        break;
+                    }
+
+                    // Task already exists, so lets work off that one
+                    TaskData newTask = null;
+                    boolean bIsNewTask = false;
+                    if (StringToTask.containsKey(TaskName))
+                    {
+                        newTask = LeaguesTaskList.get(StringToTask.get(TaskName));
+                    }
+                    else
+                    {
+                        bIsNewTask = true;
+                        newTask = new TaskData();
+                    }
+
+                    String DifficultyName = GetNextIgnoreBlank(sc);
+                    newTask.TaskName = TaskName;
+                    newTask.Difficulty = TaskDifficulty.valueOf(DifficultyName);
+
+                    newTask.TaskDescription = GetNextIgnoreBlank(sc);
+
+                    if (!bIsNewTask)
+                    {
+                        GetNextIgnoreBlank(sc); // Throw out guid
+                    }
+                    else
+                    {
+                        newTask.GUID = UUID.fromString(GetNextIgnoreBlank(sc));
+                    }
+
+                    newTask.bIsCustomTask = Boolean.valueOf(GetNextIgnoreBlank(sc));
+                    newTask.CustomIcon = GetNextIgnoreBlank(sc);
+                    if (newTask.CustomIcon.contains("null"))
+                    {
+                        newTask.CustomIcon = null;
+                    }
+
+                    GetNextIgnoreBlank(sc); // "Regions Count: "
+
+                    int RegionCount = Integer.parseInt(GetNextIgnoreBlank(sc));
+                    for (int i = 0; i < RegionCount; ++i)
+                    {
+                        newTask.Regions.add(RegionType.valueOf(GetNextIgnoreBlank(sc)));
+                    }
+
+                    GetNextIgnoreBlank(sc); // "Overworld Location Count (Auto-generated): ,"
+                    int OverworldPointCount = Integer.parseInt(GetNextIgnoreBlank(sc));
+                    for (int i = 0; i < OverworldPointCount; ++i)
+                    {
+                        WorldPoint newWorldPoint = new WorldPoint(
+                                Integer.parseInt(GetNextIgnoreBlank(sc)),
+                                Integer.parseInt(GetNextIgnoreBlank(sc)),
+                                Integer.parseInt(GetNextIgnoreBlank(sc)));
+
+                        if (!newTask.OverworldLocations.contains(newWorldPoint))
+                        {
+                            newTask.OverworldLocations.add(newWorldPoint);
+                        }
+                    }
+
+                    GetNextIgnoreBlank(sc); // "POSITIONS_START"
+                    GetNextIgnoreBlank(sc); // "NO_POSITIONS"
+                    GetNextIgnoreBlank(sc); // "X"
+                    GetNextIgnoreBlank(sc); // "Y"
+                    GetNextIgnoreBlank(sc); // "Z"
+
+                    int IterationNum = 0;
+                    int CurrentX = 0;
+                    int CurrentY = 0;
+                    int CurrentZ = 0;
+
+                    String NextString = GetNextIgnoreBlank(sc);
+                    while (!NextString.contains("POSITIONS_END"))
+                    {
+                        switch (IterationNum)
+                        {
+                            case 0: // X
+                                CurrentX = Integer.parseInt(NextString);
+                                break;
+                            case 1: // Y
+                                CurrentY = Integer.parseInt(NextString);
+                                break;
+                            case 2: // Z
+                                CurrentZ = Integer.parseInt(NextString);
+                                break;
+                        }
+
+                        NextString = GetNextIgnoreBlank(sc);
+
+                        ++IterationNum;
+                        // Add a new coord
+                        if (IterationNum > 2)
+                        {
+                            IterationNum = 0;
+
+                            WorldPoint newWorldPoint = new WorldPoint(
+                                    CurrentX,
+                                    CurrentY,
+                                    CurrentZ
+                            );
+
+                            if (!newTask.Locations.contains(newWorldPoint))
+                            {
+                                newTask.Locations.add(newWorldPoint);
+                            }
+                        }
+                    }
+
+                    GetNextIgnoreBlank(sc); // REQUIREMENTS_START
+                    GetNextIgnoreBlank(sc); // SKILL NAME
+                    GetNextIgnoreBlank(sc); // LEVEL REQ
+                    NextString = GetNextIgnoreBlank(sc);
+                    IterationNum = 0;
+                    String CurrentSkill = null;
+                    int SkillReqLevel = 0;
+
+                    while (!NextString.contains("REQUIREMENTS_END"))
+                    {
+                        switch (IterationNum)
+                        {
+                            case 0:
+                                CurrentSkill = NextString;
+                                break;
+                            case 1:
+                                SkillReqLevel = Integer.parseInt(NextString);
+                                break;
+                        }
+
+                        NextString = GetNextIgnoreBlank(sc);
+
+                        ++IterationNum;
+
+                        // Add a new requirement
+                        if (IterationNum > 1)
+                        {
+                            IterationNum = 0;
+
+                            if (CurrentSkill.contains("COMBAT"))
+                            {
+                                newTask.Requirements.add(new CombatLevelRequirement(SkillReqLevel));
+                            }
+                            else
+                            {
+                                Skill AddedSkill = Skill.valueOf(CurrentSkill);
+                                newTask.Requirements.add(new SkillRequirement(AddedSkill, SkillReqLevel));
+                            }
+                        }
+                    }
+
+                    if (bIsNewTask)
+                    {
+                        AddNewTaskToDataBase(newTask);
+                    }
+                }
+
+            }
+            catch (IOException ignored)
+            {
+            }
+        }
 
         // Construct String to UUID lookup
         StringToTask.clear();
@@ -78,7 +281,7 @@ public class FullTaskData
         }
     }
 
-    public String ExportData()
+    public String ExportData(PosiedienLeaguesPlannerPlugin plugin)
     {
         StringBuilder Converted = new StringBuilder();
 
@@ -87,20 +290,34 @@ public class FullTaskData
         Converted.append(",");
         Converted.append("\n");
 
-        for (HashMap.Entry<UUID, TaskData> entry : LeaguesTaskList.entrySet())
+        SortedLeaguesTaskList.clear();
+        plugin.panel.AddTaskListToSortedLeaguesTasks(null, LeaguesTaskList);
+
+        SortedLeaguesTaskList.sort(new Comparator<SortedTask>() {
+            @Override
+            public int compare(SortedTask o1, SortedTask o2)
+            {
+                return (o1.SortPriority.compareTo(o2.SortPriority));
+            }
+        });
+
+
+        for (SortedTask SortedTaskIter : SortedLeaguesTaskList)
         {
-            Converted.append(entry.getValue().ExportData());
+            TaskData data = plugin.GetTaskData(SortedTaskIter.TaskGUID, SortedTaskIter.bIsCustomTask);
+
+            Converted.append(data.ExportData());
             Converted.append("\n");
         }
 
         return Converted.toString();
     }
 
-    public void exportToConverted(File file) throws IOException
+    public void exportToConverted(File file, PosiedienLeaguesPlannerPlugin plugin) throws IOException
     {
         try (FileWriter fw = new FileWriter(file))
         {
-            fw.write(ExportData());
+            fw.write(ExportData(plugin));
         }
     }
 
@@ -154,6 +371,7 @@ public class FullTaskData
                             {
                                 // Remove the league task row start string
                                 NextString = NextString.replaceAll("\\{\\{LeagueTaskRow\\|", "");
+                                NextString = NextString.replaceAll("\\{\\{sic}}", "");
 
                                 // Remove wiki links
                                 while (NextString.contains("[["))
@@ -180,17 +398,29 @@ public class FullTaskData
                                 String TaskName = NextString.substring(0, NextString.indexOf("|"));
                                 NextString = NextString.substring(NextString.indexOf("|") + 1);
 
+                                // No commas aloud
+                                TaskName = TaskName.replace(",", "");
+
                                 // Task already exists, keep the cached one instead and skip
+                                boolean bIsNewTask = false;
                                 if (StringToTask.containsKey(TaskName))
                                 {
-                                    continue;
+                                    newTask = LeaguesTaskList.get(StringToTask.get(TaskName));
+                                }
+                                else
+                                {
+                                    bIsNewTask = true;
+                                    newTask = new TaskData();
                                 }
 
-                                newTask = new TaskData();
                                 newTask.Difficulty = CurrentDifficulty;
-                                newTask.TaskName = TaskName;
+                                if (bIsNewTask)
+                                {
+                                    newTask.TaskName = TaskName;
 
-                                newTask.TaskDescription = NextString.substring(0, NextString.indexOf("|"));
+                                    newTask.TaskDescription = NextString.substring(0, NextString.indexOf("|"));
+                                    newTask.TaskDescription = newTask.TaskDescription.replace(",", "");
+                                }
                                 NextString = NextString.substring(NextString.indexOf("|") + 1);
 
                                 // Skill requirements are next
@@ -220,7 +450,7 @@ public class FullTaskData
                                     // Isn't a skill
                                     try
                                     {
-                                        Skill TestIsSkill = Skill.valueOf(SkillName);
+                                        Skill.valueOf(SkillName);
                                     } catch (IllegalArgumentException ignored)
                                     {
                                         break;
@@ -277,11 +507,16 @@ public class FullTaskData
 
                                 // Other requirements are next, but just don't bother with other reqs right now
 
+                                newTask.Regions.clear();
                                 if (CurrentRegion != RegionType.GENERAL)
                                 {
                                     newTask.Regions.add(CurrentRegion);
                                 }
-                                AddNewTaskToDataBase(newTask);
+
+                                if (bIsNewTask)
+                                {
+                                    AddNewTaskToDataBase(newTask);
+                                }
                             }
                             // Finished all the tasks of this difficulty
                             else if (NextString.contains("LeagueTaskBottom"))

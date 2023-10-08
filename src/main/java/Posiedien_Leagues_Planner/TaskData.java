@@ -14,7 +14,7 @@ import java.util.UUID;
 
 public class TaskData
 {
-    UUID GUID;
+    UUID GUID = null;
 
     TaskDifficulty Difficulty;
 
@@ -103,7 +103,9 @@ public class TaskData
         Converted.append(",");
         for (WorldPoint CurrentPoint : OverworldLocations)
         {
-            Converted.append(CurrentPoint);
+            Converted.append(CurrentPoint.getX());
+            Converted.append(CurrentPoint.getY());
+            Converted.append(CurrentPoint.getPlane());
             Converted.append(",");
         }
 
