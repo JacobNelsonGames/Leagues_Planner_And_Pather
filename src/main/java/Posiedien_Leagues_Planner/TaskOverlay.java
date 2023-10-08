@@ -448,6 +448,7 @@ public class TaskOverlay extends Overlay
 
         Color highlightnamecolor2 = new Color(0, 0, 0,255);
 
+        boolean bSetHighlighted = false;
         for (Map.Entry<UUID, TaskDisplayPoint> CurrentTaskPair : CachedTaskDisplayPoints.entrySet())
         {
             TaskDisplayPoint CurrentDisplayPoint = CurrentTaskPair.getValue();
@@ -520,8 +521,11 @@ public class TaskOverlay extends Overlay
             int HighlightedSize = (int) (TaskIconSize * 1.5f);
             int HighlightedHalf = HighlightedSize / 2;
 
-            if (HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize)
+            boolean bIsHighlighted = false;
+            if (!bSetHighlighted && HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize)
             {
+                bIsHighlighted = true;
+                bSetHighlighted = true;
                 if (CurrentDisplayPoint.Tasks.size() == CurrentDisplayPoint.DungeonTasks.size())
                 {
                     if (bIsTaskPlanned)
@@ -628,7 +632,7 @@ public class TaskOverlay extends Overlay
                     taskIconFont,
                     taskIconFontColor));
 
-            boolean bIsCloseToMouse = HighlightGraphicsPoint.distanceTo(GraphicsPoint) < TaskIconSize;
+            boolean bIsCloseToMouse = bIsHighlighted;
             if (bIsTaskPlanned || bIsCloseToMouse)
             {
                 Font taskhighlightFont2 = new FontUIResource("taskhighlightFont2", Font.BOLD, 15);
