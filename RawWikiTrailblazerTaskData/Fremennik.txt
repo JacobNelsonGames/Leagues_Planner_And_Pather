@@ -1,0 +1,120 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Fre1Count}} tasks available, there are a total of {{#var_final:Fre1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Switch to the Lunar Spellbook|Switch to the Lunar Spellbook.|s=|other=}}
+{{LeagueTaskRow|Defeat a Rock Crab in the Fremennik Province|Defeat a [[rock crab]] in the Fremennik Province.|s=|other=}}
+{{LeagueTaskRow|Defeat a Cockatrice in the Fremennik Province|Defeat a [[cockatrice]] in the Fremennik Province.|s={{SCP|Slayer|25|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Pyrefiend in the Fremennik Province|Defeat a [[pyrefiend]] in the Fremennik Province.|s={{SCP|Slayer|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Troll in the Fremennik Province|Defeat a [[troll]] in the Fremennik Province.|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Fremennik Diary|Complete all of the easy tasks in the [[Easy Fremennik Diary|Fremennik Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Deposit an Item Using Peer the Seer|Deposit an item into your bank using [[Peer the Seer]].|s=|other=}}
+{{LeagueTaskRow|Use the Bank on Jatizso|Use the bank on [[Jatizso]].|s=|other=}}
+{{LeagueTaskRow|Use the Bank on Neitiznot|Use the bank on [[Neitiznot]].|s=|other=}}
+{{LeagueTaskRow|Use the Bank on Lunar Isle|Use the bank on [[Lunar Isle]].|s=|other=}}
+{{LeagueTaskBottom|varname=Fre1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Fre2Count}} tasks available, there are a total of {{#var_final:Fre2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Cast Moonclan Teleport|Cast the [[Moonclan Teleport]] spell.|s={{SCP|Magic|69|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Move Your House to Rellekka|Move your Player Owned House to Rellekka.|s={{SCP|Construction|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft 50 Astral Runes|Craft 50 [[astral rune]]s at the [[Astral Altar]].|s={{SCP|Runecraft|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Penguin Agility Course|Complete a lap of the [[Penguin Agility Course]].|s={{SCP|Agility|30|link=yes|sort=yes}}|other=Requires completion of {{SCP|Quest}} [[Cold War]]}}
+{{LeagueTaskRow|Catch a Snowy Knight|Catch a [[snowy knight]].|s={{SCP|Hunter|35|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Unlock Free Use of the Blast Furnace|Unlock free use of the Keldagrim [[Blast Furnace]] by speaking with the Foreman.|s={{SCP|Smithing|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Use Some Icy Basalt to Teleport to Weiss|Use some [[icy basalt]] to teleport to [[Weiss]].|s=|other=Requires {{SCP|Quest}} [[Making Friends with My Arm]] completed.}}
+{{LeagueTaskRow|Defeat a Basilisk Knight|Defeat a [[basilisk knight]] in the [[Jormungand's Prison]].|s={{SCP|Slayer|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Kurask in the Fremennik Province|Defeat a [[kurask]] in the Fremennik Province.|s={{SCP|Slayer|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Brine Sabre|Equip a [[brine sabre]].|s={{SCP|Attack|40|link=yes|sort=yes}}|other=Requires {{SCP|Slayer|47|link=yes}} to kill [[brine rat]]s and {{SCP|Quest}} [[Olaf's Quest]]}}
+{{LeagueTaskRow|Defeat a Dagannoth in the Fremennik Province|Defeat a Dagannoth in the Fremennik Province.|s=|other=}}
+{{LeagueTaskRow|Equip a Helm of Neitiznot|Equip a [[helm of neitiznot]].|s=|other=}}
+{{LeagueTaskRow|Defeat a Turoth in the Fremennik Province|Defeat a [[turoth]] in the Fremennik Province.|s={{SCP|Slayer|55|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Jelly in the Fremennik Province|Defeat a [[jelly]] in the Fremennik Province.|s={{SCP|Slayer|52|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Medium Fremennik Diary|Complete all of the medium tasks in the [[Medium Fremennik Diary|Fremennik Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Complete Throne of Miscellania|Complete the [[Throne of Miscellania]] quest.|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Complete Royal Trouble|Complete the [[Royal Trouble]] quest.|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Complete Olaf's Quest|Complete [[Olaf's Quest]].|s='''See quest page'''|other=}}
+{{LeagueTaskBottom|varname=Fre2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Fre3Count}} tasks available, there are a total of {{#var_final:Fre3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Cast Fertile Soil|Cast the [[Fertile Soil]] spell.|s={{SCP|Magic|83|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Build a Gilded Altar|Build a [[gilded altar]] in a [[Chapel]] in your [[player-owned house]].|s={{SCP|Construction|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Rellekka Agility Course|Complete a lap of the [[Rellekka Rooftop Course]].|s={{SCP|Agility|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Harvest a Snapdragon in Weiss|Harvest a [[snapdragon]] you've grown in [[Weiss]].|s={{SCP|Farming|62|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Trap a Sabre-Toothed Kyatt|Trap a [[sabre-toothed kyatt]].|s={{SCP|Hunter|55|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Use Your Portal Nexus to Teleport to Weiss|Use a [[portal nexus]] in your [[player-owned house]] to teleport to [[Weiss]].|s={{SCP|Construction|72|link=yes|sort=yes}}|other=Requires {{SCP|Quest}} [[Making Friends with My Arm]] completed.}}
+{{LeagueTaskRow|Defeat Vorkath|Defeat [[Vorkath]] on Ungael.|s=|other=}}
+{{LeagueTaskRow|Equip an Ava's Assembler|Equip an [[ava's assembler]].|s={{SCP|Ranged|70|link=yes}}|other=}}
+{{LeagueTaskRow|Defeat Vorkath in 2:00|Defeat [[Vorkath]] on Ungael in 2:00 or less.|s=|other=}}
+{{LeagueTaskRow|Defeat the Dagannoth Kings Without Leaving|Defeat all three of the [[Dagannoth Kings]] in the [[Waterbirth Island Dungeon]] without leaving their area.|s=|other=}}
+{{LeagueTaskRow|Equip a Berserker Ring|Equip a [[berserker ring]].|s=|other=}}
+{{LeagueTaskRow|Equip a Warrior Ring|Equip a [[warrior ring]].|s=|other=}}
+{{LeagueTaskRow|Equip a Seers Ring|Equip a [[seers ring]].|s=|other=}}
+{{LeagueTaskRow|Equip an Archers Ring|Equip an [[archers ring]].|s=|other=}}
+{{LeagueTaskRow|Use the Special Attack of a Dragon Axe|Use the special attack of a [[dragon axe]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Mud Battlestaff|Equip a [[mud battlestaff]].|s={{SCP|Magic|30|link=yes|sort=yes}}, {{SCP|Attack|30|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Seercull|Equip a [[seercull]].|s={{SCP|Ranged|50|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Leaf-Bladed Battleaxe|Equip a [[leaf-bladed battleaxe]] in The Fremennik Provinces.|s={{SCP|Attack|65|link=yes|sort=yes}}, {{SCP|Slayer|55|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Skeletal Armour Set|Equip a full set of [[skeletal armour]].|s={{SCP|Magic|40|link=yes|sort=yes}}, {{SCP|Defence|40|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Spined Armour Set|Equip a full set of [[spined armour]].|s={{SCP|Ranged|40|link=yes|sort=yes}}, {{SCP|Defence|40|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Rockshell Armour Set|Equip a full set of [[rock-shell armour]].|s={{SCP|Defence|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hard Fremennik Diary|Complete all of the hard tasks in the [[Hard Fremennik Diary|Fremennik Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Collect Miscellania Resources at Full Approval|Collect some resources on Miscellania with an approval rating of 100%.|s=|other=Requires {{SCP|Quest}} [[Throne of Miscellania]] completed.}}
+{{LeagueTaskBottom|varname=Fre3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Fre4Count}} tasks available, there are a total of {{#var_final:Fre4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Cast Spellbook Swap|Cast the [[Spellbook Swap]] spell.|s={{SCP|Magic|96|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Build a Gilded Portal Nexus|Build a [[gilded portal nexus]] in a [[Portal Nexus]] in your [[player-owned house]].|s={{SCP|Construction|82|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Dragonfire Ward|Equip a [[dragonfire ward]].|s={{SCP|Ranged|75|link=yes|sort=yes}}, {{SCP|Defence|70|link=yes}}|other=}}
+{{LeagueTaskRow|Create a Catherby Teleport Tablet|Create a Catherby Teleport Tablet.|s={{SCP|Magic|87|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Dragonbone Necklace|Equip a [[dragonbone necklace]].|s={{SCP|Prayer|80|link=yes}}|other=}}
+{{LeagueTaskRow|Defeat Vorkath in 1:00|Defeat [[Vorkath]] on Ungael in 1:00 or less.|s=|other=}}
+{{LeagueTaskRow|Equip Every Dagannoth King Ring|Equip an [[archers ring]], a [[berserker ring]], a [[seers ring]] and a [[warrior ring]].|s=|other=}}
+{{LeagueTaskRow|Equip a Neitiznot Faceguard|Equip a [[neitiznot faceguard]].|s={{SCP|Defence|70|link=yes|sort=yes}}|other=Requires {{SCP|Slayer|60|link=yes}} to kill the [[basilisk knight]]s to obtain the [[basilisk jaw]].}}
+{{LeagueTaskRow|Defeat Vorkath 5 Times Without Special Damage|Defeat [[Vorkath]] on Ungael 5 times without taking any damage from his special attacks and without leaving his area.|s=|other=}}
+{{LeagueTaskRow|Defeat Vorkath 15 Times Without Leaving|Defeat [[Vorkath]] on Ungael 15 times without leaving his area.|s=|other=}}
+{{LeagueTaskRow|Defeat Vorkath 250 Times|Defeat [[Vorkath]] on Ungael 250 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Vorkath 500 Times|Defeat [[Vorkath]] on Ungael 500 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Vorkath 750 Times|Defeat [[Vorkath]] on Ungael 750 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Each Dagannoth King 300 Times|Defeat all three of the [[Dagannoth Kings]] in the Waterbirth Island Dungeon 300 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Each Dagannoth King 650 Times|Defeat all three of the [[Dagannoth Kings]] in the Waterbirth Island Dungeon 650 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Each Dagannoth King 1000 Times|Defeat all three of the [[Dagannoth Kings]] in the Waterbirth Island Dungeon 1000 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Elite Fremennik Diary|Complete all of the elite tasks in the [[Elite Fremennik Diary|Fremennik Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip a Completed God Book|Equip a completed [[god book]].|s=|other=}}
+{{LeagueTaskBottom|varname=Fre4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Fre5Count}} tasks available, there are a total of {{#var_final:Fre5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Build a Demonic Throne|Build a [[demonic throne]] in a [[Throne Room]] in your [[player-owned house]].|s={{SCP|Construction|99|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip Every Draconic Shield|Equip a [[dragonfire ward]], a [[dragonfire shield]] and an [[ancient wyvern shield]].|s=|other=}}
+{{LeagueTaskRow|Defeat Vorkath in 0:45|Defeat [[Vorkath]] on Ungael in 0:45 or less.|s=|other=}}
+{{LeagueTaskRow|Equip Every Completed God Book|Equip every completed [[god book]].|s=|other=}}
+{{LeagueTaskBottom|varname=Fre5|ppt=500}}<!--
+-->{{#vardefine:FreTotalCount|{{Formatexpr|{{#var:Fre1Count}}+{{#var:Fre2Count}}+{{#var:Fre3Count}}+{{#var:Fre4Count}}+{{#var:Fre5Count}}}}}}<!--
+-->{{#vardefine:FreTotalValue|{{Formatexpr|{{#var:Fre1Value}}+{{#var:Fre2Value}}+{{#var:Fre3Value}}+{{#var:Fre4Value}}+{{#var:Fre5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>

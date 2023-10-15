@@ -936,8 +936,14 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         config.TaskData.LeaguesTaskList.clear();
 
         {
-            // Task info
+            // Task info, Trailblazer
             File targ = new File("ConvertedTaskData/TrailblazerTaskData.csv");
+            config.TaskData.importFromConverted(targ);
+        }
+
+        {
+            // Task info, Shattered
+            File targ = new File("ConvertedTaskData/ShatteredTaskData.csv");
             config.TaskData.importFromConverted(targ);
         }
 

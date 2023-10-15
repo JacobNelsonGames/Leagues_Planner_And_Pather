@@ -1,0 +1,120 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Mor1Count}} tasks available, there are a total of {{#var_final:Mor1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Craft a Snelm|Craft any [[Snelm]].|s={{SCP|Crafting|15|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Receive a Slayer Task From Mazchna|Receive a [[Slayer task]] from [[Mazchna]] in [[Canifis]].|s=|other=}}
+{{LeagueTaskRow|Defeat a Werewolf in Morytania|Defeat a [[Werewolf]] in Morytania.|s=|other=}}
+{{LeagueTaskRow|Defeat One of Fenkenstrain's Experiments|Defeat one of Fenkenstrain's [[Experiment]]s in the [[Experiment Cave]].|s=|other=}}
+{{LeagueTaskRow|Defeat a Ghast|Defeat a [[Ghast]] in Mort Myre.|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Morytania Diary|Complete all of the easy tasks in the [[Easy Morytania Diary|Morytania Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Complete an Easy Temple Trek|Complete an easy [[Temple Trek]]|s=|other=}}
+{{LeagueTaskRow|Visit Port Phasmatys|Visit [[Port Phasmatys]].|s=|other=}}
+{{LeagueTaskRow|Pet Frank|Pet Darkmeyer's [[Frank (Bloodveld)|goodest boy]].|s=|other=Started [[Sins of the Father]]}}
+{{LeagueTaskRow|Obtain a Rune Crossbow From a Lucky Impling|Obtain a [[rune crossbow]] from a [[Lucky Impling]] in Morytania.|s={{SCP|Hunter|89|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Visit Harmony Island|Visit [[Harmony Island]].|s=|other=}}
+{{LeagueTaskRow|Visit Mos Le'Harmless|Visit [[Mos Le'Harmless]].|s=|other=}}
+{{LeagueTaskBottom|varname=Mor1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Mor2Count}} tasks available, there are a total of {{#var_final:Mor2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete Floor 1 of the Hallowed Sepulchre|Complete floor 1 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|52|link=yes|sort=yes}}|other=Completed [[Sins of the Father]]}}
+{{LeagueTaskRow|Complete Floor 2 of the Hallowed Sepulchre|Complete floor 2 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|62|link=yes|sort=yes}}|other=Completed [[Sins of the Father]]}}
+{{LeagueTaskRow|Complete the Canifis Agility Course|Complete a lap of the [[Canifis Rooftop Course|Canifis Rooftop Agility Course]].|s={{SCP|Agility|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Werewolf Agility Course|Complete a lap of the [[Werewolf Agility Course]].|s={{SCP|Agility|60|link=yes|sort=yes}}|other=[[Ring of Charos]] (can be pickpocketed from [[Dr Fenkenstrain]] in the [[Harmony Island]] windmill basement)}}
+{{LeagueTaskRow|Catch a Swamp Lizard in Morytania|Catch a [[Swamp lizard (Hunter)|Swamp Lizard]] in Morytania.|s={{SCP|Hunter|29|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Convert 2,000 Daeyalt Shards Into Essence|Convert 2,000 [[Daeyalt Shard]]s into [[Daeyalt Essence]] in Darkmeyer in one go.|s={{SCP|Mining|60|link=yes|sort=yes}}|other=Completed [[Sins of the Father]]}}
+{{LeagueTaskRow|Craft a Rune Using Daeyalt Essence|Craft any rune using [[Daeyalt Essence]].|s={{SCP|Mining|60|link=yes|sort=yes}}|other=Completed [[Sins of the Father]]}}
+{{LeagueTaskRow|Assemble a Slayer Helm|Assemble a Slayer Helm.|s={{SCP|Crafting|55|link=yes|sort=yes}}|other=400 [[Slayer reward point|Slayer points]]}}
+{{LeagueTaskRow|Loot a Barrows Chest|Loot a [[Chest (Barrows)|Barrows Chest]] once.|s=|other=}}
+{{LeagueTaskRow|Defeat a Fiyr Shade|Defeat a [[Fiyr Shade]].|s={{SCP|Firemaking|65|link=yes|sort=yes}} (killing the shade in [[Temple Trekking]] doesn't count)|other=}}
+{{LeagueTaskRow|Defeat a Vyrewatch Sentinel|Defeat a [[Vyrewatch Sentinel]] in Darkmeyer.|s=|other=Completed [[Sins of the Father]]}}
+{{LeagueTaskRow|Equip a Piece of any Barrows Armour Set|Equip any piece of any [[Barrows armour]] set.|s=|other=}}
+{{LeagueTaskRow|Complete the Medium Morytania Diary|Complete all of the medium tasks in the [[Medium Morytania Diary|Morytania Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Complete a Medium Temple Trek|Complete a medium [[Temple Trek]]|s=|other=}}
+{{LeagueTaskRow|Complete Haunted Mine|Complete the [[Haunted Mine]] quest.|s=|other=}}
+{{LeagueTaskRow|Complete A Taste of Hope|Complete the [[A Taste of Hope]] quest.|s=|other=}}
+{{LeagueTaskRow|Achieve 100% Shades of Mort'Ton Sanctity|Achieve 100% Sanctity during the [[Shades of Mort'ton (minigame)|Shades of Mort'ton]] minigame.|s=|other=}}
+{{LeagueTaskRow|Equip a Salve Amulet (e)|Equip a [[Salve amulet (e)]].|s=|other=[[Lair of Tarn Razorlor|Tarn's Lair miniquest]]}}
+{{LeagueTaskBottom|varname=Mor2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Mor3Count}} tasks available, there are a total of {{#var_final:Mor3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete Floor 3 of the Hallowed Sepulchre|Complete floor 3 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|72|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete Floor 4 of the Hallowed Sepulchre|Complete floor 4 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|82|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hallowed Sepulchre in 8:00|Complete the Hallowed Sepulchre in Darkmeyer in 8:00 or less.|s={{SCP|Agility|92|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Purchase a Reward From the Hallowed Sepulchre|Purchase a reward from the Hallowed Sepulchre.|s={{SCP|Agility|52|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Obtain Every Hallowed Tool|Obtain all four Hallowed Tools from the Hallowed Sepulchre.|s={{SCP|Agility|52|link=yes|sort=yes}}|other=Requires [[hallowed grapple]], [[hallowed focus|focus]], [[hallowed symbol|symbol]] and [[hallowed hammer|hammer]]}}
+{{LeagueTaskRow|Pickpocket a Vyre 50 Times|Pickpocket a [[Vyre]] 50 times.|s={{SCP|Thieving|82|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Gargoyle in Morytania|Defeat a [[Gargoyle]] in Morytania.|s={{SCP|Slayer|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat an Abyssal Demon in Morytania|Defeat an [[Abyssal Demon]] in Morytania.|s={{SCP|Slayer|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Grotesque Guardians 100 Times|Defeat the [[Grotesque Guardian]]s at the Slayer Tower 100 times.|s={{SCP|Slayer|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip any Full Barrows Armour Set|Equip a full set of any [[Barrows armour]].|s=|other=}}
+{{LeagueTaskRow|Equip a Granite Hammer or Granite Ring|Equip either a [[granite hammer]] or a [[granite ring]].|s={{SCP|Slayer|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Grotesque Guardians|Defeat the [[Grotesque Guardians]] at the Slayer Tower.|s={{SCP|Slayer|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hard Morytania Diary|Complete all of the hard tasks in the [[Hard Morytania Diary|Morytania Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Complete a Hard Temple Trek|Complete a hard [[Temple Trek]]|s=|other=}}
+{{LeagueTaskRow|Complete Sins of the Father|Complete the [[Sins of the Father]] quest.|s=|other=}}
+{{LeagueTaskBottom|varname=Mor3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Mor4Count}} tasks available, there are a total of {{#var_final:Mor4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete Floor 5 of the Hallowed Sepulchre|Complete floor 5 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|92|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hallowed Sepulchre in 6:30|Complete the Hallowed Sepulchre in Darkmeyer in 6:30 or less.|s={{SCP|Agility|92|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Ring of Endurance|Equip a Ring of Endurance.|s={{SCP|Agility|92|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat The Nightmare|Defeat [[The Nightmare]] in the [[Sisterhood Sanctuary]].|s=|other=}}
+{{LeagueTaskRow|Complete the Theatre of Blood With No Deaths|Complete the [[Theatre of Blood]] without any party member dying.|s=|other=}}
+{{LeagueTaskRow|Equip Some Guardian Boots|Equip a pair of [[Guardian Boots]].|s={{SCP|Defence|75|link=yes|sort=yes}}|other=Requires {{TB|Asgarnia}} unless [[Bandos Boots]] are obtained from an Elite Clue Scroll coordinate clue guard (1/1000000).}}
+{{LeagueTaskRow|Equip Every Barrows Armour Set|Equip all six sets of Barrows armour.|s={{SCP|Defence|70|link=yes|sort=yes}}, {{SCP|Magic|70|link=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Attack|70|link=yes}}, {{SCP|Strength|70|link=yes}}|other=}}
+{{LeagueTaskRow|Equip an Inquisitor's Mace|Equip an [[Inquisitor's mace]].|s={{SCP|Attack|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Piece of the Inquisitor's Set|Equip any piece of the [[Inquisitor's armour]] set.|s={{SCP|Defence|30|link=yes|sort=yes}}, {{SCP|Strength|70|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Nightmare Staff|Equip a normal [[Nightmare staff]].|s={{SCP|Magic|65|link=yes|sort=yes}}, {{SCP|Hitpoints|50|link=yes}}|other=}}
+{{LeagueTaskRow|Create an Amulet of Blood Fury|Create an [[amulet of blood fury]].|s={{SCP|Crafting|90|link=yes|sort=yes}}, {{SCP|Magic|87|link=yes}}|other=}}
+{{LeagueTaskRow|Equip an Avernic Defender|Equip an [[Avernic defender]].|s={{SCP|Defence|70|link=yes|sort=yes}}, {{SCP|Attack|70|link=yes}}|other=Requires {{TB|Asgarnia}} for [[Dragon Defender]].}}
+{{LeagueTaskRow|Equip a Sanguinesti Staff|Equip a [[Sanguinesti staff]].|s={{SCP|Magic|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Scythe of Vitur|Equip a [[Scythe of Vitur]].|s={{SCP|Attack|75|link=yes|sort=yes}}, {{SCP|Strength|75|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Piece of the Justiciar Set|Equip any piece of the [[Justiciar armour]] set.|s={{SCP|Defence|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Ghrazi Rapier|Equip a [[Ghrazi rapier]].|s={{SCP|Attack|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Theatre of Blood in 20:00|Complete the Theatre of Blood in 20:00 or less challenge time with 3 players or less.|s=|other=}}
+{{LeagueTaskRow|Defeat The Nightmare in 3:00|Defeat [[The Nightmare]] in the Sisterhood Sanctuary in 3:00 or less with 5 players or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Theatre of Blood 100 Times|Complete the Theatre of Blood 100 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Theatre of Blood 200 Times|Complete the Theatre of Blood 200 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Theatre of Blood 350 Times|Complete the Theatre of Blood 350 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Theatre of Blood 500 Times|Complete the Theatre of Blood 500 times.|s=|other=}}
+{{LeagueTaskRow|Defeat the Grotesque Guardians 250 Times|Defeat the [[Grotesque Guardians]] at the Slayer Tower 250 times.|s={{SCP|Slayer|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Elite Morytania Diary|Complete all of the elite tasks in the [[Elite Morytania Diary|Morytania Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskBottom|varname=Mor4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Mor5Count}} tasks available, there are a total of {{#var_final:Mor5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip a Full Inquisitor's Set|Equip a full set of [[Inquisitor's armour]].|s={{SCP|Defence|30|link=yes|sort=yes}}, {{SCP|Strength|70|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Nightmare Staff With an Orb|Equip either an Eldritch Nightmare Staff, a Harmonised Nightmare Staff or a Volatile Nightmare Staff.|s={{SCP|Magic|75|link=yes|sort=yes}}, {{SCP|Hitpoints|50}}|other=}}
+{{LeagueTaskRow|Equip a Full Justiciar Set|Equip a full set of Justiciar armour.|s={{SCP|Defence|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Theatre of Blood in 16:00|Complete the Theatre of Blood in 16:00 or less challenge time with 3 players or less.|s=|other=}}
+{{LeagueTaskBottom|varname=Mor5|ppt=500}}<!--
+-->{{#vardefine:MorTotalCount|{{Formatexpr|{{#var:Mor1Count}}+{{#var:Mor2Count}}+{{#var:Mor3Count}}+{{#var:Mor4Count}}+{{#var:Mor5Count}}}}}}<!--
+-->{{#vardefine:MorTotalValue|{{Formatexpr|{{#var:Mor1Value}}+{{#var:Mor2Value}}+{{#var:Mor3Value}}+{{#var:Mor4Value}}+{{#var:Mor5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>

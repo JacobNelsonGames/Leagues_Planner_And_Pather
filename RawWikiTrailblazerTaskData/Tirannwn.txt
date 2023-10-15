@@ -1,0 +1,106 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Tir1Count}} tasks available, there are a total of {{#var_final:Tir1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Cook a Rabbit in Tirannwn|Cook a [[raw rabbit]] anywhere within Tirannwn.|other=}}
+{{LeagueTaskRow|Harvest Some Sweetcorn in Prifddinas|Harvest some [[sweetcorn]] from the Prifddinas Allotment Patch.|s={{SCP|Farming|20|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Cross a Trap in Isafdar|Successfully cross any kind of trap in Isafdar.|other=}}
+{{LeagueTaskRow|Defeat a Waterfiend in Tirannwn|Defeat a [[Waterfiend]] in Tirannwn.|s=|other=}}
+{{LeagueTaskRow|Defeat a Moss Giant in Tirannwn|Defeat a [[Moss Giant]] in Tirannwn.|s=|other=}}
+{{LeagueTaskRow|Use the Bank in Lletya|Use the bank in Lletya.|s=|other=}}
+{{LeagueTaskRow|Find Every Memoriam Crystal|Find every [[memoriam crystal]] in [[Prifddinas]] and add them to the [[Memoriam Device]].|s={{SCP|Agility|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Charter a Ship From Prifddinas to Port Tyras|Take a Charter Ship from Prifddinas to [[Port Tyras]].|s=|other=3,200gp}}
+{{LeagueTaskRow|Talk to Ilfeen in Tirannwn|Talk to [[Ilfeen]] in Tirannwn.|s=|other=}}
+{{LeagueTaskBottom|varname=Tir1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Tir2Count}} tasks available, there are a total of {{#var_final:Tir2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Check a grown Papaya Tree in Lletya|Check the health of a [[papaya tree]] you've grown in Lletya.|s={{SCP|Farming|57|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft 50 Death Runes|Craft 50 [[death rune]]s at the [[Death Altar]].|s={{SCP|Runecraft|65|link=yes|sort=yes}}|other={{SCP|Slayer|90|link=yes|sort=yes}} or unlocked [[Trailblazer League/Areas/Wilderness|Wilderness]] {{TBIcon|Wilderness}}
+{{LeagueTaskRow|Move Your House to Prifddinas|Move your [[player-owned house]] to Prifddinas.|s={{SCP|Construction|70|link=yes|sort=yes}}|other={{Coins|50000}}}}
+{{LeagueTaskRow|Defeat an Elf in Tirannwn|Defeat an [[Elf (disambiguation)|Elf]] in Tirannwn.|s=|other=}}
+{{LeagueTaskRow|Defeat a Bloodveld in Tirannwn|Defeat a [[Bloodveld]] in Tirannwn.|s={{SCP|Slayer|50|link=yes|sort=yes}}|other=}}}}
+{{LeagueTaskRow|Defeat a Kurask in Tirannwn|Defeat a [[Kurask]] in Tirannwn.|s={{SCP|Slayer|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Use an Elven Teleport Crystal|Use a [[Teleport crystal]].|s=|other=}}
+{{LeagueTaskBottom|varname=Tir2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Tir3Count}} tasks available, there are a total of {{#var_final:Tir3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Check a grown Crystal Tree|Check the health of a [[Crystal tree]] you've grown in Prifddinas.|s={{SCP|Farming|74|link=yes|sort=yes}} and '''either''' {{SCP|Hunter|80|link=yes}} '''OR''' {{SCP|Smithing|80|link=yes}} and {{SCP|Crafting|80|link=yes}} for the [[crystal acorn|acorn]].|other=}}
+{{LeagueTaskRow|Catch a Crystal Impling|Catch a [[Crystal impling]] in Prifddinas.|s={{SCP|Hunter|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Prifddinas Agility Course|Complete a lap of the [[Prifddinas Agility Course]].|s={{SCP|Agility|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Prifddinas Agility Course in 1:10|Complete a lap of the Prifddinas Agility Course in 1:10 or less.|s={{SCP|Agility|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Pickpocket an Elf 50 Times|Pickpocket an [[Elf (Thieving)|elf]] 50 times.|s={{SCP|Thieving|85|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft a Piece of Crystal Armour|Use a [[singing bowl]] to craft any piece of [[crystal armour]].|s={{SCP|Smithing|70|link=yes|sort=yes}}, {{SCP|Crafting|50|link=yes}}|other=}}
+{{LeagueTaskRow|Complete the Gauntlet|Complete [[the Gauntlet]] in Prifddinas.|s=|other=}}
+{{LeagueTaskRow|Defeat Zalcano|Defeat [[Zalcano]] in Prifddinas.|s=|other=}}
+{{LeagueTaskRow|Defeat Zulrah|Defeat [[Zulrah]] at the [[Poison Waste]].|s=|other=}}
+{{LeagueTaskRow|Defeat a Dark Beast in Tirannwn|Defeat a [[Dark Beast]] in Tirannwn.|s={{SCP|Slayer|90|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Dark Bow|Equip a [[dark bow]].|s={{SCP|Ranged|60|link=yes|sort=yes}}, {{SCP|Slayer|90|link=yes}}|other=}}
+{{LeagueTaskRow|Defeat Zulrah in 1:30|Defeat Zulrah at the Poison Waste in 1:30 or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Gauntlet in 8:00|Complete the Gauntlet in Prifddinas in 8:00 or less.|s=|other=}}
+{{LeagueTaskRow|Equip a Crystal Bow|Equip a [[crystal bow]].|s={{SCP|Ranged|70|link=yes|sort=yes}}, {{SCP|Agility|50|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Crystal Shield|Equip a [[crystal shield]].|s={{SCP|Defence|70|link=yes|sort=yes}}, {{SCP|Agility|50|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Crystal Halberd|Equip a [[crystal halberd]].|s={{SCP|Attack|70|link=yes|sort=yes}}, {{SCP|Agility|50|link=yes}}, {{SCP|Strength|35|link=yes}}|other=Completion of the hard tier of [[Western Provinces Diary]] which requires unlocked the Kandarin region.}}
+{{LeagueTaskRow|Defeat a Nechryael in Tirannwn|Defeat a [[Nechryael]] in Tirannwn.|s={{SCP|Slayer|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft an Eternal Teleport Crystal|Use a Singing Bowl to craft an [[eternal teleport crystal]].|s={{SCP|Smithing|80|link=yes|sort=yes}}, {{SCP|Crafting|80|link=yes}}|other=}}
+{{LeagueTaskRow|Open the Enhanced Crystal Chest|Open the [[Elven Crystal Chest]] in Prifddinas.|s={{SCP|Smithing|80|link=yes|sort=yes}}, {{SCP|Crafting|80|link=yes}}|other=}}
+{{LeagueTaskBottom|varname=Tir3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Tir4Count}} tasks available, there are a total of {{#var_final:Tir4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Dissect 50 Sacred Eels|Dissect 50 [[Sacred eel]]s.|s={{SCP|Fishing|87|link=yes|sort=yes}}, {{SCP|Cooking|72|link=yes}}|other=}}
+{{LeagueTaskRow|Equip an Elven Signet|Equip an [[Elven signet]].|s={{SCP|Hunter|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Obtain a Zalcano Shard|Obtain a [[Zalcano shard]] as a drop from Zalcano in Prifddinas.|s=|other=}}
+{{LeagueTaskRow|Equip a Full Crystal Armour Set|Equip a full set of [[Crystal armour]].|s={{SCP|Smithing|74|link=yes|sort=yes}}, {{SCP|Crafting|74|link=yes}}|other=}}
+{{LeagueTaskRow|Complete the Corrupted Gauntlet|Complete the Corrupted Gauntlet in Prifddinas.|s=|other=}}
+{{LeagueTaskRow|Obtain a Crystal Tool Seed|Obtain a [[Crystal tool seed]] as a drop from Zalcano.|s=|other=}}
+{{LeagueTaskRow|Equip a Serpentine Helm|Equip a [[Serpentine helm]].|s={{SCP|Defence|75|link=yes|sort=yes}}, {{SCP|Crafting|52|link=yes}}|other=}}
+{{LeagueTaskRow|Craft a Toxic Blowpipe|Craft a [[Toxic blowpipe]].|s={{SCP|Fletching|53|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft a Toxic Trident|Craft a [[Toxic trident]].|s={{SCP|Crafting|59|link=yes|sort=yes}}, {{SCP|Slayer|87|link=yes}}|other=Unlocked [[Trailblazer League/Areas/Kandarin|Kandarin]] Area}}
+{{LeagueTaskRow|Defeat Zulrah in 0:54|Defeat Zulrah at the Poison Waste in 0:54 or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Gauntlet in 5:00|Complete the [[Gauntlet]] in Prifddinas in 5:00 or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Corrupted Gauntlet in 8:30|Complete the [[Corrupted Gauntlet]] in Prifddinas in 8:30 or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Corrupted Gauntlet in 7:00|Complete the [[Corrupted Gauntlet]] in Prifddinas in 7:00 or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Corrupted Gauntlet 100 Times|Complete the [[Corrupted Gauntlet]] in Prifddinas 100 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Corrupted Gauntlet 250 Times|Complete the [[Corrupted Gauntlet]] in Prifddinas 250 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Zalcano 250 Times|Defeat [[Zalcano]] in Prifddinas 250 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Zalcano 500 Times|Defeat [[Zalcano]] in Prifddinas 500 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Zulrah 250 Times|Defeat [[Zulrah]] at the Poison Waste 250 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Zulrah 500 Times|Defeat [[Zulrah]] at the Poison Waste 500 times.|s=|other=}}
+{{LeagueTaskRow|Equip a Piece of the Dragonstone Armour Set|Equip any piece of the [[Dragonstone armour]] set.|s={{SCP|Defence|40|link=yes|sort=yes}},{{SCP|Crafting|80|link=yes}},{{SCP|Smithing|80|link=yes}}|other=}}
+{{LeagueTaskBottom|varname=Tir4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Tir5Count}} tasks available, there are a total of {{#var_final:Tir5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip a Corrupted Blade of Saeldor|Equip a [[Blade of saeldor (c)|Corrupted Blade of Saeldor]].|s=|other=}}
+{{LeagueTaskRow|Defeat Zulrah in 0:42|Defeat Zulrah at the Poison Waste in 0:42 or less.|s=|other=}}
+{{LeagueTaskRow|Complete the Corrupted Gauntlet in 5:00|Complete the Corrupted Gauntlet in Prifddinas in 5:00 or less.|s=|other=}}
+{{LeagueTaskRow|Equip a Crystal Crown|Equip a [[Crystal crown]].|s=|other=250,000,000 GP}}
+{{LeagueTaskBottom|varname=Tir5|ppt=500}}<!--
+-->{{#vardefine:TirTotalCount|{{Formatexpr|{{#var:Tir1Count}}+{{#var:Tir2Count}}+{{#var:Tir3Count}}+{{#var:Tir4Count}}+{{#var:Tir5Count}}}}}}<!--
+-->{{#vardefine:TirTotalValue|{{Formatexpr|{{#var:Tir1Value}}+{{#var:Tir2Value}}+{{#var:Tir3Value}}+{{#var:Tir4Value}}+{{#var:Tir5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>

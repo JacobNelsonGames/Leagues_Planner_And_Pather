@@ -1,0 +1,129 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Kan1Count}} tasks available, there are a total of {{#var_final:Kan1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete the Gnome Stronghold Agility Course|Complete a lap of the [[Gnome Stronghold Agility Course]].|s={{SCP|Agility|1|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Catch a Crimson Swift in the Feldip Hills|Catch a [[crimson swift]] in the [[Feldip Hills]].|s={{SCP|Hunter|1|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete a Fishing Trawler Game|Complete a [[Fishing Trawler]] game at Port Khazard.|s=|other=}}
+{{LeagueTaskRow|Receive a Slayer Task From Steve|Receive a [[slayer task]] from [[Steve]] in the [[Tree Gnome Stronghold]].|s={{SCP|Combat|5|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Tortoise With Riders in Kandarin|Defeat a [[tortoise]] with riders in Kandarin.|s=|other=}}
+{{LeagueTaskRow|Visit the Tree Gnome Village|Visit the [[Tree Gnome Village]].|s=|other=}}
+{{LeagueTaskRow|Visit the Tree Gnome Stronghold|Visit the [[Tree Gnome Stronghold]].|s=|other=}}
+{{LeagueTaskRow|Complete Monk's Friend|Complete the [[Monk's Friend]] quest.|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Complete Tower of Life|Complete the [[Tower of Life]] quest.|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Complete Sea Slug|Complete the [[Sea Slug]] quest.|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Brimstail Rune Essence Mine teleport|Have [[Brimstail]] teleport you to the Rune Essence Mine.|s=|other=}}
+{{LeagueTaskRow|Equip a Marksman Chompy Hat|Equip a [[chompy bird hat]].|s=|other=Requires {{SCP|Quest}} [[Big Chompy Bird Hunting]] completed}}
+{{LeagueTaskRow|Equip a Monkey Backpack|Equip a [[monkey backpack]].|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Ardougne Diary|Complete all of the easy tasks in the [[Easy Ardougne Diary|Ardougne Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Complete the Easy Kandarin Diary|Complete all of the easy tasks in the [[Easy Kandarin Diary|Kandarin Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskBottom|varname=Kan1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Kan2Count}} tasks available, there are a total of {{#var_final:Kan2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Fletch 50 Maple Longbow (u) in Kandarin|Fletch 50 [[maple longbow (u)]] in Kandarin.|s={{SCP|Fletching|55|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Pickpocket a Knight of Ardougne 50 Times|Pickpocket a [[Knight of Ardougne]] 50 times.|s={{SCP|Thieving|55|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Barbarian Outpost Agility Course|Complete a lap of the [[Barbarian Outpost Agility Course]].|s={{SCP|Agility|35|link=yes|sort=yes}}|other=Requires {{SCP|Quest}} [[Alfred Grimhand's Barcrawl]] completed.}}
+{{LeagueTaskRow|Trap a Spined Larupia in the Feldip Hills|Trap a [[spined larupia]] in the Feldip Hills.|s={{SCP|Hunter|31|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Spottier Cape|Equip a [[spottier cape]].|s={{SCP|Hunter|66|link=yes|sort=yes}}|other={{SCP|Hunter|69|link=yes|sort=yes}} for catching the [[dashing kebbits]].}}
+{{LeagueTaskRow|Catch a Red Salamander|Catch a [[Red salamander (Hunter)|red salamander]] outside the [[Ourania Altar]].|s={{SCP|Hunter|59|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Enter the Fishing Guild|Enter the [[Fishing Guild]].|s={{SCP|Fishing|68|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Move Your House to Yanille|Move your [[player-owned house]] to Yanille.|s={{SCP|Construction|50|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Check a grown Papaya Tree in the Gnome Stronghold|Check the health of a [[papaya tree]] you've grown in the Tree Gnome Stronghold.|s={{SCP|Farming|57|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Mithril Dragon|Defeat a [[mithril dragon]] in the [[Ancient Cavern]].|s=|other=}}
+{{LeagueTaskRow|Equip a Dragon Scimitar|Equip a [[dragon scimitar]].|s={{SCP|Attack|60|link=yes}}|other=Requires {{SCP|Quest}} [[Monkey Madness I]] completed.}}
+{{LeagueTaskRow|Set Up a Dwarf Cannon|Set up a [[dwarf multicannon]].|s=|other=Requires {{SCP|Quest}} [[Dwarf Cannon]] completed.}}
+{{LeagueTaskRow|Enter the Ranging Guild|Enter the [[Ranging Guild]].|s={{SCP|Ranged|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Enter the Wizards' Guild|Enter the [[Wizards' Guild]] in Yanille.|s={{SCP|Magic|66|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Bloodveld in Kandarin|Defeat a [[bloodveld]] in Kandarin.|s={{SCP|Slayer|50|link=yes|sort=yes}}|other={{TBIcon|Morytania}}<ref group="note">[[Stronghold Slayer Cave]] requires a bloodveld [[slayer task]], which is available only by unlocking Morytania.</ref> or one of {{TBIcon|Asgarnia}}{{TBIcon|Tirannwn}}{{TBIcon|Wilderness}}<ref group="note">The task's description may not be accurate and may be exploited. The bloodveld doesn't need to be located or defeated in Kandarin; defeating a bloodveld anywhere while the player is in Kandarin will count for the task.</ref>}}
+{{LeagueTaskRow|Defeat a Fire Giant in Kandarin|Defeat a [[fire giant]] in Kandarin.|s=|other=}}
+{{LeagueTaskRow|Use the Chivalry Prayer|Use the [[Chivalry]] prayer.|s={{SCP|Prayer|60|link=yes|sort=yes}}, {{SCP|Defence|65|link=yes}}|other=Requires completion of the [[Camelot training room]].}}
+{{LeagueTaskRow|Equip an Iban's Staff (u)|Equip an [[iban's staff (u)]].|s={{SCP|Magic|50|link=yes|sort=yes}}, {{SCP|Attack|50|link=yes}}|other={{Coins|400000}} to both repair and upgrade the broken [[Iban's staff]].<br/>Requires either Fremennik or Tirannwn area}}
+{{LeagueTaskRow|Win a Game of Castle Wars|Win a game of [[Castle Wars]].|s=|other=}}
+{{LeagueTaskRow|Complete Elemental Workshop II|Complete the [[Elemental Workshop II]] quest.|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Complete the Observatory Quest|Complete the [[Observatory Quest]].|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Defeat the Penance Queen|Defeat the Penance Queen in [[Barbarian Assault]].|s=|other=}}
+{{LeagueTaskRow|Complete the Medium Ardougne Diary|Complete all of the medium tasks in the [[Medium Ardougne Diary|Ardougne Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip an Ogre Forester Chompy Hat|Equip an [[Chompy bird hat (ogre forester)|ogre forester chompy hat]].|s={{SCP|Ranged|30|link=yes|sort=yes}}, {{SCP|Fletching|5|link=yes}}|other=300 [[chompy bird]] kills.}}
+{{LeagueTaskRow|Equip a Karamja Monkey Backpack|Equip a [[Karamjan monkey (item)|Karamja monkey backpack]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=100 laps around the [[Ape Atoll Agility Course]].}}
+{{LeagueTaskRow|Complete the Medium Kandarin Diary|Complete all of the medium tasks in the [[Medium Kandarin Diary|Kandarin Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskBottom|varname=Kan2|ppt=50}}
+{{Reflist|group=note}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Kan3Count}} tasks available, there are a total of {{#var_final:Kan3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Pickpocket a Hero|Pickpocket any [[Hero]].|s={{SCP|Thieving|80|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Seers' Village Agility Course|Complete a lap of the [[Seers' Village Rooftop Course]].|s={{SCP|Agility|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Catch 50 Red Chinchompas in Kandarin|Catch 50 [[Red chinchompa (Hunter)|red chinchompas]] in Kandarin|s={{SCP|Hunter|63|link=yes|sort=yes}}|other=Requires {{SCP|Quest}} [[Eagles' Peak]] completed}}
+{{LeagueTaskRow|Catch a Monkfish|Catch a [[raw monkfish|monkfish]] at the [[Piscatoris Fishing Colony]].|s={{SCP|Fishing|62|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Angler's Outfit|Equip a full set of [[angler gear]].|s={{SCP|Fishing|34|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Demonic Gorilla|Defeat a [[demonic gorilla]] in the Crash Site Cavern.|s=|other=}}
+{{LeagueTaskRow|Equip a Fighter Torso|Equip a [[fighter torso]].|s={{SCP|Defence|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Cave Kraken|Defeat a [[cave kraken]] in Kraken Cove.|s={{SCP|Slayer|87|link=yes|sort=yes}}, {{SCP|Magic|50|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Trident of the Seas|Equip a [[trident of the seas]].|s={{SCP|Magic|75|link=yes|sort=yes}}|other=Requires {{SCP|Slayer|87|link=yes|sort=yes}}, {{SCP|Magic|50|link=yes}}, and a [[slayer task]] to kill the [[cave kraken]]s/[[kraken]]s.}}
+{{LeagueTaskRow|Use the Piety Prayer|Use the [[Piety]] prayer.|s={{SCP|Prayer|70|link=yes|sort=yes}}, {{SCP|Defence|70|link=yes}}|other=Requires completion of the [[Camelot training room]].}}
+{{LeagueTaskRow|Enter the Myths' Guild|Enter the [[Myths' Guild]].|s=|other=Requires [[Trailblazer League/Areas/The Fremennik Provinces|The Fremennik Provinces]] to enter.}}
+{{LeagueTaskRow|Complete the Hard Ardougne Diary|Complete all of the hard tasks in the [[Hard Ardougne Diary|Ardougne Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Reach Level 5 in Any Barbarian Assault Role|Reach level 5 in any [[Barbarian Assault]] Role.|s=|other=}}
+{{LeagueTaskRow|Equip an Ogre Expert Chompy Hat|Equip an [[Chompy bird hat (ogre expert)|ogre expert chompy hat]].|s={{SCP|Ranged|30|link=yes|sort=yes}}, {{SCP|Fletching|5|link=yes}}|other=1,000 [[chompy bird]] kills.}}
+{{LeagueTaskRow|Equip a Maniacal Monkey Backpack|Equip a [[maniacal monkey (item)|maniacal monkey backpack]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=500 laps around the [[Ape Atoll Agility Course]].}}
+{{LeagueTaskRow|Complete the Hard Kandarin Diary|Complete all of the hard tasks in the [[Hard Kandarin Diary|Kandarin Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskBottom|varname=Kan3|ppt=100}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Kan4Count}} tasks available, there are a total of {{#var_final:Kan4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete the Ardougne Agility Course|Complete a lap of the [[Ardougne Rooftop Course]].|s={{SCP|Agility|90|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Check a grown Dragonfruit Tree in Catherby|Check the health of a [[dragonfruit tree]] you've grown in [[Catherby]].|s={{SCP|Farming|81|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Smoke Devil|Defeat a [[smoke devil]] in the [[Smoke Devil Dungeon]].|s={{SCP|Slayer|93|link=yes|sort=yes}}|other=Requires a [[slayer task]] to attack.}}
+{{LeagueTaskRow|Equip Some Zenyte Jewelry|Equip any piece of [[zenyte jewellery]].|s=|other=}}
+{{LeagueTaskRow|Equip a Heavy Ballista|Equip a [[heavy ballista]].|s={{SCP|Ranged|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip an Abyssal Tentacle|Equip an [[abyssal tentacle]].|s={{SCP|Attack|75|link=yes|sort=yes}}|other=Requires {{SCP|Slayer|87|link=yes}} and {{SCP|Magic|50|link=yes}} to get a [[whip]] and [[kraken tentacle]] to create this.}}
+{{LeagueTaskRow|Defeat the Thermonuclear Smoke Devil|Defeat the [[thermonuclear smoke devil]] in the Smoke Devil Dungeon.|s={{SCP|Slayer|93|link=yes|sort=yes}}|other=Can be killed once without a slayer task.}}
+{{LeagueTaskRow|Equip an Occult Necklace|Equip an [[occult necklace]].|s={{SCP|Magic|70|link=yes|sort=yes}}|other=Requires {{SCP|Slayer|93|link=yes}} to kill [[smoke devil]]s.}}
+{{LeagueTaskRow|Equip a Dragon Full Helm|Equip a [[dragon full helm]].|s={{SCP|Defence|60|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Kraken Boss 250 Times|Defeat the [[Kraken]] boss in Kraken Cove 250 times.|s={{SCP|Slayer|87|link=yes}}|other=Requires a slayer task to attack.}}
+{{LeagueTaskRow|Defeat the Kraken Boss 500 Times|Defeat the Kraken boss in Kraken Cove 500 times.|s={{SCP|Slayer|87|link=yes}}|other=Requires a slayer task to attack.}}
+{{LeagueTaskRow|Defeat the Kraken Boss 750 Times|Defeat the Kraken boss in Kraken Cove 750 times.|s={{SCP|Slayer|87|link=yes}}|other=Requires a slayer task to attack.}}
+{{LeagueTaskRow|Defeat 300 Demonic Gorillas|Defeat 300 [[demonic gorilla]]s in the Crash Site Cavern.|s=|other=}}
+{{LeagueTaskRow|Defeat 750 Demonic Gorillas|Defeat 750 [[demonic gorilla]]s in the Crash Site Cavern.|s=|other=}}
+{{LeagueTaskRow|Defeat 1500 Demonic Gorillas|Defeat 1500 [[demonic gorilla]]s in the Crash Site Cavern.|s=|other=}}
+{{LeagueTaskRow|Reach Level 5 in Every Barbarian Assault Role|Reach level 5 in all four [[Barbarian Assault]] Roles.|s=|other=}}
+{{LeagueTaskRow|Equip a Dragon Archer Chompy Hat|Equip a [[Chompy bird hat (dragon archer)|dragon archer chompy hat]].|s={{SCP|Ranged|30|link=yes|sort=yes}}, {{SCP|Fletching|5|link=yes}}|other=2,250 [[chompy bird]] kills.}}
+{{LeagueTaskRow|Equip a Kruk Jr. Monkey Backpack|Equip a [[Kruk jr|kruk jr. monkey backpack]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=1,500 laps around the [[Ape Atoll Agility Course]].}}
+{{LeagueTaskRow|Complete the Elite Kandarin Diary|Complete all of the elite tasks in the [[Elite Kandarin Diary|Kandarin Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Complete the Elite Ardougne Diary|Complete all of the elite tasks in the [[Elite Ardougne Diary|Ardougne Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskBottom|varname=Kan4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Kan5Count}} tasks available, there are a total of {{#var_final:Kan5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip All Zenyte Jewelry|Equip every piece of [[zenyte jewellery]].|s=|other=}}
+{{LeagueTaskRow|Enhance a Trident of the Seas|Enhance a [[Trident of the seas#Upgrading|trident of the seas]] or [[Trident of the swamp]].|s=|other=Requires {{SCP|Slayer|87|link=yes}}}}
+{{LeagueTaskRow|Equip an Expert Dragon Archer Chompy Hat|Equip an [[Chompy bird hat (expert dragon archer)|expert dragon archer chompy hat]].|s=|other=4,000 [[chompy bird]] kills.}}
+{{LeagueTaskRow|Equip a Prince Awowogei Monkey Back|Equip a [[Princely monkey|Prince Awowogei Monkey Back]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=2,000 laps around the [[Ape Atoll Agility Course]].}}
+{{LeagueTaskBottom|varname=Kan5|ppt=500}}<!--
+-->{{#vardefine:KanTotalCount|{{Formatexpr|{{#var:Kan1Count}}+{{#var:Kan2Count}}+{{#var:Kan3Count}}+{{#var:Kan4Count}}+{{#var:Kan5Count}}}}}}<!--
+-->{{#vardefine:KanTotalValue|{{Formatexpr|{{#var:Kan1Value}}+{{#var:Kan2Value}}+{{#var:Kan3Value}}+{{#var:Kan4Value}}+{{#var:Kan5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>

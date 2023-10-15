@@ -1,0 +1,115 @@
+===Easy===
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Asg1Count}} tasks available, there are a total of {{#var_final:Asg1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Craft an Air Rune|Craft an [[air rune]] at the [[Air Altar]].|s={{SCP|Runecraft|1|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Move Your House to Taverley|Move your [[player-owned house]] to [[Taverley]].|s={{SCP|Construction|10|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Receive a Slayer Task From Turael or Spria|Receive a [[Slayer task]] From [[Turael]] in [[Burthorpe]] or [[Spria]] in [[Draynor Village]].|s={{SCP|Slayer|1|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat a Troll in Asgarnia|Defeat a [[Troll]] in [[Asgarnia]].|s=|other=}}
+{{LeagueTaskRow|Defeat a Blue Dragon in Asgarnia|Defeat a [[blue dragon]] in Asgarnia.|s=|other=}}
+{{LeagueTaskRow|Defeat a Black Demon in Asgarnia|Defeat a [[black demon]] in Asgarnia.|s=|other=}}
+{{LeagueTaskRow|Complete the Easy Falador Diary|Complete all of the easy tasks in the [[Easy Falador Diary|Falador Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Unlock a Gate in Taverley Dungeon|Unlock a gate in [[Taverley Dungeon]] using the [[dusty key]].|s=|other=}}
+{{LeagueTaskRow|Enter the Taverly{{sic}} Dungeon|Enter the Taverly{{sic}} Dungeon.|s=|other=}}
+{{LeagueTaskRow|Complete a Game of Novice Pest Control|Complete a game of novice [[Pest Control]].|s={{SCP|Combat|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskBottom|varname=Asg1|ppt=10}}
+
+===Medium===
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''50''' league points upon completion.
+
+With {{#var_final:Asg2Count}} tasks available, there are a total of {{#var_final:Asg2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Complete the Falador Agility Course|Complete a lap of the [[Falador Rooftop Course]].|s={{SCP|Agility|50|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Obtain 20 Golden Nuggets|Obtain 20 [[golden nugget]]s from the [[Motherlode Mine]] beneath [[Falador]].|s={{SCP|Mining|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Enter the Crafting Guild|Enter the [[Crafting Guild]].|s={{SCP|Crafting|40|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft a Body Rune|Craft a [[body rune]] at the [[Body Altar]].|s={{SCP|Runecraft|20|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Harvest Any Herb at the Troll Stronghold|Harvest any herb you've grown at the [[Troll Stronghold (location)|Troll Stronghold]].|s={{SCP|Farming|9|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat the Giant Mole|Defeat the [[Giant Mole]] beneath Falador.|s=|other=Bring a [[light source]] in the cave.}}
+{{LeagueTaskRow|Defeat a Skeletal Wyvern|Defeat a [[Skeletal Wyvern]] in the [[Asgarnian Ice Dungeon]].|s={{SCP|Slayer|72|link=yes|sort=yes}}|other=Must use an [[elemental shield]], [[mind shield]], [[dragonfire shield]], [[dragonfire ward]], [[ancient wyvern shield]] to kill.}}
+{{LeagueTaskRow|Equip Some Granite Legs|Equip some [[granite legs]].|s={{SCP|Slayer|72|link=yes|sort=yes}}, {{SCP|Defence|50|link=yes}}, {{SCP|Strength|50|link=yes}}|other=Must kill a [[Skeletal Wyvern]]}}.
+{{LeagueTaskRow|Charge an Amulet of Glory in the Heroes' Guild|Charge an [[amulet of glory]] at the [[Fountain of Heroes]] in the [[Heroes' Guild]].|s='''See quest page'''|other=Requires {{SCP|Quest}} [[Heroes' Quest]]}}
+{{LeagueTaskRow|Defeat 30 Black Dragons in Asgarnia|Defeat 30 [[black dragon]]s in Asgarnia.|s=|other=}}
+{{LeagueTaskRow|Complete the Medium Falador Diary|Complete all of the medium tasks in the [[Medium Falador Diary|Falador Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Enter the Warriors' Guild|Enter the [[Warriors' Guild]].|s=Combination of [[Attack]] and [[Strength]] that equals 130|other=}}
+{{LeagueTaskRow|Complete A Porcine of Interest|Complete the [[A Porcine of Interest]] quest.|s='''See quest page'''|other=}}
+{{LeagueTaskRow|Defeat Some Animated Rune Armour|Defeat some [[Animated Rune Armour]] in the Warriors' Guild.|s=|other=Requires access to the [[Warriors' Guild]].}}
+{{LeagueTaskRow|Open the Crystal Chest|Open the [[crystal chest]] in [[Taverley]].|s=|other=Requires a [[crystal key]] to open}}
+{{LeagueTaskRow|Complete a Game of Intermediate Pest Control|Complete a game of intermediate [[Pest Control]].|s={{SCP|Combat|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskBottom|varname=Asg2|ppt=50}}
+
+===Hard===
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''100''' league points upon completion.
+
+With {{#var_final:Asg3Count}} tasks available, there are a total of {{#var_final:Asg3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip a Full Graceful Outfit|Equip a full set of [[graceful outfit]].|s={{SCP|Agility|10|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Rogue Outfit|Equip a full set of [[rogue gear]].|s={{SCP|Thieving|50|link=yes|sort=yes}}, {{SCP|Agility|50|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Prospector Outfit|Equip a full set of [[prospector gear]].|s={{SCP|Mining|30|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Craft 50 Law Runes|Craft 50 [[law rune]]s at the [[Law Altar]].|s={{SCP|Runecraft|54|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Make 20 Ranging Potions|Make 20 [[ranging potion]]s.|s={{SCP|Herblore|72|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Make 20 Stamina Potions|Make 20 [[stamina potion]]s.|s={{SCP|Herblore|77|link=yes|sort=yes}}|other=Must be 3-dose or 4-dose potions.{{CiteTwitter|author=JagexAsh|url=https://twitter.com/JagexAsh/status/1339286683993436176|date=16 December 2020|archiveurl=https://archive.is/pFM7I|archivedate=17 December 2020|quote=It's checking for 4-dose or 3-dose, as you guessed.}}}}
+{{LeagueTaskRow|Steal a Diamond in Dorgesh-Kaan|Steal a [[Diamond]] from a chest in Dorgesh-Kaan.|s={{SCP|Thieving|78|link=yes|sort=yes}}|other=A lockpick}}
+{{LeagueTaskRow|Equip a Dragon Defender|Equip a [[dragon defender]].|s={{SCP|Defence|60|link=yes|sort=yes}}|other=Requires access to the [[Warriors' Guild]] basement.}}
+{{LeagueTaskRow|Defeat K'ril Tsutsaroth|Defeat [[K'ril Tsutsaroth]] in the [[God Wars Dungeon]].|s={{SCP|Hitpoints|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat General Graardor|Defeat [[General Graardor]] in the [[God Wars Dungeon]].|s={{SCP|Strength|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat Kree'arra|Defeat [[Kree'arra]] in the [[God Wars Dungeon]].|s={{SCP|Ranged|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat Commander Zilyana|Defeat [[Commander Zilyana]] in the [[God Wars Dungeon]].|s={{SCP|Agility|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Pair of Dragon Boots|Equip a pair of [[dragon boot]]s.|s={{SCP|Slayer|83|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete the Hard Falador Diary|Complete all of the hard tasks in the [[Hard Falador Diary|Falador Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Equip a Full Void Knight Set|Equip a full set of [[Void Knight equipment]].|s={{SCP|Attack|42|sort=yes}},{{SCP|Strength|42}},{{SCP|Defence|42}},{{SCP|Hitpoints|42}},{{SCP|Ranged|42}},{{SCP|Magic|42}},{{SCP|Prayer|22}}|other=}}
+{{LeagueTaskRow|Turn in 100 Mole Claws to Wyson the Gardener|Turn in 100 [[mole claw]]s to [[Wyson the Gardener]] in Falador.|s=|other=}}
+{{LeagueTaskRow|Keep the Veteran Void Knight Above 150 Hitpoints|Complete a game of veteran [[Pest Control]] without letting the Void Knight fall below 150 Hitpoints.|s={{SCP|Combat|100|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Complete a Game of Veteran Pest Control|Complete a game of veteran [[Pest Control]].|s={{SCP|Combat|100|link=yes|sort=yes}}|other=}}
+{{LeagueTaskBottom|varname=Asg3|ppt=100}}
+{{Reflist}}
+
+===Elite===
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''250''' league points upon completion.
+
+With {{#var_final:Asg4Count}} tasks available, there are a total of {{#var_final:Asg4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip an Infernal Tool|Equip either an [[infernal axe]], an [[infernal pickaxe]] or an [[infernal harpoon]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=Access to either [[Trailblazer League/Areas/Wilderness|Wilderness]] for [[Dragon pickaxe]] or [[Trailblazer League/Areas/The Fremennik Provinces|the Fremennik Provinces]] for [[Dragon axe]]. [[Dragon Harpoon]] is unavailable within the league's restrictions.}}
+{{LeagueTaskRow|Equip a Staff of the Dead|Equip a [[staff of the dead]].|s={{SCP|Attack|75|link=yes|sort=yes}}, {{SCP|Magic|75|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Zamorakian Spear|Equip a [[zamorakian spear]].|s={{SCP|Attack|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Piece of the Armadyl Armour Set|Equip any piece of the [[Armadyl armour]] set.|s={{SCP|Ranged|70|link=yes|sort=yes}}, {{SCP|Defence|70|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Saradomin Sword|Equip a [[saradomin sword]].|s={{SCP|Attack|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Piece of the Bandos Armour Set|Equip any piece of the [[Bandos armour]] set.|s={{SCP|Defence|65|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip an Armadyl Crossbow|Equip an [[armadyl crossbow]].|s={{SCP|Ranged|70|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip Some Primordial, Pegasian or Eternal Boots|Equip either some [[primordial boots]], some [[pegasian boots]] or some [[eternal boots]].|s={{SCP|Defence|75|link=yes|sort=yes}}|other=Requires {{SCP|Magic|75|link=yes}}, {{SCP|Ranged|75|link=yes}}, or {{SCP|Strength|75|link=yes}} depending on the boots to wear and requires {{SCP|Runecraft|60|link=yes}} and {{SCP|Magic|60|link=yes}} to create.}}
+{{LeagueTaskRow|Equip a Godsword|Equip any [[godsword]].|s={{SCP|Attack|75|link=yes|sort=yes}}|other={{SCP|Smithing|80|link=yes}} to make the godsword blade}}
+{{LeagueTaskRow|Defeat Cerberus|Defeat [[Cerberus]] in the [[Taverley Dungeon]].|s={{SCP|Slayer|91|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Defeat Any God Wars Dungeon Boss 100 Times|Defeat any God Wars Dungeon boss 100 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Any God Wars Dungeon Boss 250 Times|Defeat any God Wars Dungeon boss 250 times.|s=|other=}}
+{{LeagueTaskRow|Defeat Any God Wars Dungeon Boss 500 Times|Defeat any God Wars Dungeon boss 500 times.|s=|other=}}
+{{LeagueTaskRow|Defeat the Giant Mole 250 Times|Defeat the Giant Mole beneath Falador 250 times.|s=|other=}}
+{{LeagueTaskRow|Defeat the Giant Mole 500 Times|Defeat the Giant Mole beneath Falador 500 times.|s=|other=}}
+{{LeagueTaskRow|Defeat the Giant Mole 750 Times|Defeat the Giant Mole beneath Falador 750 times.|s=|other=}}
+{{LeagueTaskRow|Complete the Elite Falador Diary|Complete all of the elite tasks in the [[Elite Falador Diary|Falador Achievement Diary]].|s='''See diary page'''|other=}}
+{{LeagueTaskRow|Defeat Cerberus Before She Summons Souls|Defeat [[Cerberus]] before she summons souls.|s={{SCP|Slayer|91|link=yes|sort=yes}}|other=}}
+{{LeagueTaskBottom|varname=Asg4|ppt=250}}
+
+===Master===
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''500''' league points upon completion.
+
+With {{#var_final:Asg5Count}} tasks available, there are a total of {{#var_final:Asg5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip Every Godsword|Equip all four [[godsword]]s.|s={{SCP|Attack|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Armadyl Armour Set|Equip a full set of [[Armadyl armour]].|s={{SCP|Ranged|70|link=yes|sort=yes}}, {{SCP|Defence|70|link=yes}}|other=}}
+{{LeagueTaskRow|Equip a Full Bandos Armour Set|Equip a full set of [[Bandos armour]].|s={{SCP|Defence|65|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Equip Some Primordial, Pegasian and Eternal Boots|Equip some [[primordial boots]], some [[pegasian boots]] and some [[eternal boots]].|s={{SCP|Defence|75|link=yes|sort=yes}}, {{SCP|Strength|75|link=yes}}, {{SCP|Magic|75|link=yes}}, {{SCP|Ranged|75|link=yes}}|other=Cerberus requires {{SCP|Slayer|91|link=yes}}. Requires {{SCP|Runecraft|60|link=yes}} and {{SCP|Magic|60|link=yes}} to create.
+Unlocked the [[Desert]] region to buy [[infinity boots]] to upgrade.}}
+{{LeagueTaskBottom|varname=Asg5|ppt=500}}<!--
+-->{{#vardefine:AsgTotalCount|{{Formatexpr|{{#var:Asg1Count}}+{{#var:Asg2Count}}+{{#var:Asg3Count}}+{{#var:Asg4Count}}+{{#var:Asg5Count}}}}}}<!--
+-->{{#vardefine:AsgTotalValue|{{Formatexpr|{{#var:Asg1Value}}+{{#var:Asg2Value}}+{{#var:Asg3Value}}+{{#var:Asg4Value}}+{{#var:Asg5Value}}}}}}
+<noinclude>{{Trailblazer League}}</noinclude>
