@@ -165,6 +165,13 @@ public class TaskOverlay extends Overlay
                 continue;
             }
 
+            // Don't display completed on map
+            boolean bIsCompleted = plugin.config.UserData.CompletedTasks.contains(CurrentTaskPair.getKey());
+            if (bIsCompleted)
+            {
+                continue;
+            }
+
             int ReqDifferent = CurrentTaskPair.getValue().CalculateNeededRequirementsForTask(plugin.client);
             if (ReqFilter == FilterRequirements.MEETS_REQ)
             {

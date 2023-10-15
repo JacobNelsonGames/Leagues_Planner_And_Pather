@@ -73,6 +73,76 @@ public class TaskData
         return OutReqDiff;
     }
 
+    public String ExportUserDataFormat()
+    {
+        StringBuilder Converted = new StringBuilder();
+
+        Converted.append(TaskName);
+        Converted.append(",");
+        Converted.append(Difficulty);
+        Converted.append(",");
+        Converted.append(TaskDescription);
+        Converted.append(",");
+        Converted.append(GUID);
+        Converted.append(",");
+        Converted.append(bIsCustomTask);
+        Converted.append(",");
+        Converted.append(CustomIcon);
+        Converted.append(",");
+        Converted.append(Regions.size());
+        Converted.append(",");
+        for (RegionType CurrentRegion : Regions)
+        {
+            Converted.append(CurrentRegion);
+            Converted.append(",");
+        }
+
+        Converted.append(OverworldLocations.size());
+        Converted.append(",");
+        for (WorldPoint CurrentPoint : OverworldLocations)
+        {
+            Converted.append(CurrentPoint.getX());
+            Converted.append(CurrentPoint.getY());
+            Converted.append(CurrentPoint.getPlane());
+            Converted.append(",");
+        }
+
+        Converted.append(Locations.size());
+        Converted.append(",");
+        for (WorldPoint CurrentPosition : Locations)
+        {
+            Converted.append(CurrentPosition.getX());
+            Converted.append(",");
+            Converted.append(CurrentPosition.getY());
+            Converted.append(",");
+            Converted.append(CurrentPosition.getPlane());
+            Converted.append(",");
+        }
+
+        Converted.append(Requirements.size());
+        Converted.append(",");
+        for (Requirement CurrentRequirement : Requirements)
+        {
+            if (CurrentRequirement.getClass() == SkillRequirement.class)
+            {
+                SkillRequirement SkillReq = (SkillRequirement)CurrentRequirement;
+                Converted.append(SkillReq.getSkill());
+                Converted.append(",");
+                Converted.append(SkillReq.getLevel());
+            }
+            else if (CurrentRequirement.getClass() == CombatLevelRequirement.class)
+            {
+                CombatLevelRequirement CombatReq = (CombatLevelRequirement)CurrentRequirement;
+                Converted.append("COMBAT");
+                Converted.append(",");
+                Converted.append(CombatReq.getLevel());
+            }
+            Converted.append("\n");
+        }
+
+        return Converted.toString();
+    }
+
     public String ExportData()
     {
         StringBuilder Converted = new StringBuilder();

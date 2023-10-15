@@ -763,6 +763,13 @@ public class LeaguesPlannerPanel extends PluginPanel
                 SortValue += 100000;
             }
 
+            // completed go to the end
+            boolean bIsCompleted = plugin.config.UserData.CompletedTasks.contains(entry.getKey());
+            if (bIsCompleted)
+            {
+                SortValue += 100000;
+            }
+
             // Always put things on the plan first
             if (config.UserData.PlannedTasks.containsKey(entry.getKey()))
             {

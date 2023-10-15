@@ -115,6 +115,13 @@ public class TaskSelectPanel extends JPanel
             color = TaskDifficulty.GetTaskDifficultyColor(taskData.Difficulty);
         }
 
+        // completed go to the end
+        boolean bIsCompleted = plugin.config.UserData.CompletedTasks.contains(taskData.GUID);
+        if (bIsCompleted)
+        {
+            color = Color.GREEN;
+        }
+
         boolean bIsHidden = plugin.config.UserData.HiddenTasks.contains(taskData.GUID);
         if (bIsHidden)
         {

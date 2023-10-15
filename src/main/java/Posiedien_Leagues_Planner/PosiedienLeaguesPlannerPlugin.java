@@ -147,6 +147,12 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     public LeaguesPlannerPanel panel;
     public NavigationButton navButton;
 
+    private boolean isTaskWindowOpen()
+    {
+        Widget widget = client.getWidget(657, 10);
+        return widget != null && !widget.isHidden();
+    }
+
     @Override
     protected void startUp() throws Exception
     {
@@ -226,6 +232,12 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             // Task info
             File targ = new File("TaskData.csv");
             config.TaskData.exportToConverted(targ, this);
+        }
+
+        {
+            // Task info
+            File targ = new File("UserData.csv");
+            config.UserData.exportTo(targ);
         }
     }
 
@@ -352,6 +364,51 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     float Timer = 0.0f;
     double SinceLastInputTimer = 0.0f;
 
+    // Taken from osleague-runelite-plugin
+    private boolean isTaskCompleted(Widget taskLabel)
+    {
+        return taskLabel.getTextColor() != 0x9f9f9f;
+    }
+
+    // Taken from osleague-runelite-plugin
+    private void MarkCompletedTasksFromList()
+    {
+        Widget taskLabelsWidget = client.getWidget(657, 10);
+        Widget taskPointsWidget = client.getWidget(657, 11);
+        Widget taskDifficultiesWidget = client.getWidget(657, 16);
+        if (taskLabelsWidget == null || taskPointsWidget == null || taskDifficultiesWidget == null)
+        {
+            return;
+        }
+
+        Widget[] taskLabels = taskLabelsWidget.getDynamicChildren();
+        Widget[] taskPoints = taskPointsWidget.getDynamicChildren();
+        Widget[] taskDifficulties = taskDifficultiesWidget.getDynamicChildren();
+        if (taskLabels.length != taskPoints.length || taskPoints.length != taskDifficulties.length)
+        {
+            return;
+        }
+
+        for (Widget taskLabel : taskLabels)
+        {
+            String name = taskLabel.getText();
+
+            // Find our task from the name
+            for (Map.Entry<UUID, TaskData> SearchingTask : config.TaskData.LeaguesTaskList.entrySet())
+            {
+                if (SearchingTask.getValue().TaskName.contains(name))
+                {
+                    if (isTaskCompleted(taskLabel))
+                    {
+                        config.UserData.CompletedTasks.add(SearchingTask.getKey());
+                    }
+                }
+            }
+        }
+    }
+
+    boolean bWasTaskWindowOpen = false;
+
     @Subscribe
     public void onGameTick(GameTick tick)
     {
@@ -367,6 +424,19 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
                 Timer = 0.0f;
                 QueueRefresh();
             }
+        }
+
+        if (isTaskWindowOpen())
+        {
+            if (!bWasTaskWindowOpen)
+            {
+                MarkCompletedTasksFromList();
+            }
+            bWasTaskWindowOpen = true;
+        }
+        else
+        {
+            bWasTaskWindowOpen = false;
         }
 
         CachedPlayer = localPlayer;
