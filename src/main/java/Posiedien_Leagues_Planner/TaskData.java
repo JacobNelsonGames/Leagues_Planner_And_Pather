@@ -18,9 +18,9 @@ public class TaskData
 
     TaskDifficulty Difficulty;
 
-    String TaskName = "";
+    String TaskName = "Blank";
 
-    String TaskDescription = "";
+    String TaskDescription = "Blank";
 
     Boolean bIsCustomTask = false;
 
@@ -102,7 +102,9 @@ public class TaskData
         for (WorldPoint CurrentPoint : OverworldLocations)
         {
             Converted.append(CurrentPoint.getX());
+            Converted.append(",");
             Converted.append(CurrentPoint.getY());
+            Converted.append(",");
             Converted.append(CurrentPoint.getPlane());
             Converted.append(",");
         }
@@ -137,7 +139,8 @@ public class TaskData
                 Converted.append(",");
                 Converted.append(CombatReq.getLevel());
             }
-            Converted.append("\n");
+            Converted.append(",");
+            Converted.append("\r\n");
         }
 
         return Converted.toString();
@@ -174,12 +177,15 @@ public class TaskData
         for (WorldPoint CurrentPoint : OverworldLocations)
         {
             Converted.append(CurrentPoint.getX());
+            Converted.append(",");
             Converted.append(CurrentPoint.getY());
+            Converted.append(",");
             Converted.append(CurrentPoint.getPlane());
             Converted.append(",");
         }
 
-        Converted.append("\n");
+        Converted.append(",");
+        Converted.append("\r\n");
         Converted.append("POSITIONS_START,");
         if (Locations.size() == 0)
         {
@@ -189,18 +195,21 @@ public class TaskData
         {
             Converted.append("HAS_POSITIONS");
         }
-        Converted.append("\n");
+        Converted.append(",");
+        Converted.append("\r\n");
         Converted.append("X");
         Converted.append(",");
         Converted.append("Y");
         Converted.append(",");
         Converted.append("Z");
-        Converted.append("\n");
+        Converted.append("\r\n");
+        Converted.append(",");
 
         // Set up for manually adding things
         if (Locations.isEmpty())
         {
-            Converted.append("\n");
+            Converted.append("\r\n");
+            Converted.append(",");
         }
 
         for (WorldPoint CurrentPosition : Locations)
@@ -210,19 +219,24 @@ public class TaskData
             Converted.append(CurrentPosition.getY());
             Converted.append(",");
             Converted.append(CurrentPosition.getPlane());
-            Converted.append("\n");
+            Converted.append(",");
+            Converted.append("\r\n");
         }
 
         Converted.append("POSITIONS_END");
-        Converted.append("\n");
+        Converted.append(",");
+        Converted.append("\r\n");
 
-        Converted.append("\n");
+        Converted.append(",");
+        Converted.append("\r\n");
         Converted.append("REQUIREMENTS_START");
-        Converted.append("\n");
+        Converted.append(",");
+        Converted.append("\r\n");
         Converted.append("SKILL NAME");
         Converted.append(",");
         Converted.append("LEVEL REQUIREMENT");
-        Converted.append("\n");
+        Converted.append(",");
+        Converted.append("\r\n");
 
         for (Requirement CurrentRequirement : Requirements)
         {
@@ -240,12 +254,15 @@ public class TaskData
                 Converted.append(",");
                 Converted.append(CombatReq.getLevel());
             }
-            Converted.append("\n");
+            Converted.append(",");
+            Converted.append("\r\n");
         }
 
         Converted.append("REQUIREMENTS_END");
-        Converted.append("\n");
-        Converted.append("\n");
+        Converted.append(",");
+        Converted.append("\r\n");
+        Converted.append(",");
+        Converted.append("\r\n");
 
         return Converted.toString();
     }

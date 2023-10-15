@@ -23,7 +23,7 @@ public class TaskSortData
         Converted.append(",");
 
         Converted.append(bIsCustomTask);
-        Converted.append("\n");
+        Converted.append(",");
 
         return Converted.toString();
     }

@@ -288,7 +288,7 @@ public class FullTaskData
         Converted.append("Task Count: ,");
         Converted.append(LeaguesTaskList.size());
         Converted.append(",");
-        Converted.append("\n");
+        Converted.append("\r\n");
 
         SortedLeaguesTaskList.clear();
         plugin.panel.AddTaskListToSortedLeaguesTasks(null, LeaguesTaskList);
@@ -307,7 +307,8 @@ public class FullTaskData
             TaskData data = plugin.GetTaskData(SortedTaskIter.TaskGUID, SortedTaskIter.bIsCustomTask);
 
             Converted.append(data.ExportData());
-            Converted.append("\n");
+            Converted.append(",");
+            Converted.append("\r\n");
         }
 
         return Converted.toString();
