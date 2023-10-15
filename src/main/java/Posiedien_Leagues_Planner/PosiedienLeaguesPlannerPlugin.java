@@ -228,6 +228,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     private void SaveTaskData() throws IOException
     {
+        if (bSaveTaskData)
         {
             // Task info
             File targ = new File("TaskData.csv");
@@ -908,10 +909,20 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     public LeagueRegionPoint CurrentFocusedPoint;
 
+
+    // Debug flags for saving/loading new data
+    private boolean bLoadRawWikiData = false;
+    private boolean bCalculateOverworldPositions = false;
+    private boolean bSaveTaskData = false;
+    private boolean bSaveRegionData = false;
+
     void SaveRegionBounds() throws IOException
     {
-        File targ = new File("RegionBoundData.csv");
-        config.RegionData.exportTo(targ);
+        if (bSaveRegionData)
+        {
+            File targ = new File("RegionBoundData.csv");
+            config.RegionData.exportTo(targ);
+        }
     }
 
     void LoadRegionBounds() throws IOException
@@ -922,57 +933,6 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     void LoadTaskData() throws IOException
     {
-        /*
-        TaskData TestTaskData = new TaskData();
-
-        TestTaskData.GUID = UUID.randomUUID();
-        TestTaskData.Locations.add(new WorldPoint(1754,3789,0));
-        TestTaskData.Difficulty = TaskDifficulty.EASY;
-        TestTaskData.TaskName = "Test Task 1";
-        config.TaskData.LeaguesTaskList.put(TestTaskData.GUID, TestTaskData);
-
-        TaskData TestTaskData2 = new TaskData();
-
-        TestTaskData2.GUID = UUID.randomUUID();
-        TestTaskData2.Locations.add(new WorldPoint(1754,3769,0));
-        TestTaskData2.Locations.add(new WorldPoint(1754,3759,0));
-        TestTaskData2.Difficulty = TaskDifficulty.MEDIUM;
-        TestTaskData2.TaskName = "Test Task 2";
-        config.TaskData.LeaguesTaskList.put(TestTaskData2.GUID, TestTaskData2);
-
-        TaskData TestTaskData3 = new TaskData();
-
-        TestTaskData3.GUID = UUID.randomUUID();
-        TestTaskData3.Locations.add(new WorldPoint(1754,3809,0));
-        TestTaskData3.Difficulty = TaskDifficulty.HARD;
-        TestTaskData3.TaskName = "Test Task 3";
-        config.TaskData.LeaguesTaskList.put(TestTaskData3.GUID, TestTaskData3);
-
-        TaskData TestTaskData4 = new TaskData();
-
-        TestTaskData4.GUID = UUID.randomUUID();
-        TestTaskData4.Locations.add(new WorldPoint(1774,3789,0));
-        TestTaskData4.Difficulty = TaskDifficulty.ELITE;
-        TestTaskData4.TaskName = "Test Task 4";
-        config.TaskData.LeaguesTaskList.put(TestTaskData4.GUID, TestTaskData4);
-
-        TaskData TestTaskData5 = new TaskData();
-
-        TestTaskData5.GUID = UUID.randomUUID();
-        TestTaskData5.Locations.add(new WorldPoint(1734,3789,0));
-        TestTaskData5.Difficulty = TaskDifficulty.MASTER;
-        TestTaskData5.TaskName = "Test Task 5";
-        config.TaskData.LeaguesTaskList.put(TestTaskData5.GUID, TestTaskData5);
-
-        TaskData TestTaskData6 = new TaskData();
-
-        TestTaskData6.GUID = UUID.randomUUID();
-        TestTaskData6.Locations.add(new WorldPoint(2516,10255,0));
-        TestTaskData6.Difficulty = TaskDifficulty.MASTER;
-        TestTaskData6.TaskName = "Test Task 6";
-        config.TaskData.LeaguesTaskList.put(TestTaskData6.GUID, TestTaskData6);
-*/
-
         config.TaskData.LeaguesTaskList.clear();
 
         {
@@ -981,11 +941,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             config.TaskData.importFromConverted(targ);
         }
 
+        if (bLoadRawWikiData)
         {
             config.TaskData.importFromRaw();
         }
 
-        config.TaskData.CalculateAndCacheOverworldLocations(this);
+        if (bCalculateOverworldPositions)
+        {
+            config.TaskData.CalculateAndCacheOverworldLocations(this);
+        }
 
         {
             // Custom Task/Plan info
