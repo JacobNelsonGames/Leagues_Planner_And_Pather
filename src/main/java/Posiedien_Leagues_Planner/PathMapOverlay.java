@@ -42,7 +42,14 @@ public class PathMapOverlay extends Overlay {
     }
 
     @Override
-    public Dimension render(Graphics2D graphics) {
+    public Dimension render(Graphics2D graphics)
+    {
+
+        if (plugin.bIsInitializing)
+        {
+            return null;
+        }
+
         if (!config.drawMap()) {
             return null;
         }

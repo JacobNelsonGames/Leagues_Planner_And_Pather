@@ -55,11 +55,14 @@ import Posiedien_Leagues_Planner.pathfinder.Pathfinder;
 import Posiedien_Leagues_Planner.pathfinder.PathfinderConfig;
 import Posiedien_Leagues_Planner.pathfinder.SplitFlagMap;
 
+import net.runelite.client.plugins.PluginDescriptor;
+
 @PluginDescriptor(
         name = "Posiedien Leagues Planner",
-    description = "Helper planner plugin for leagues",
-    tags = {"pathfinder", "map", "waypoint", "navigation", "leagues"}
+        description = "Helper planner plugin for leagues",
+        tags = {"pathfinder", "map", "waypoint", "navigation", "leagues"}
 )
+
 public class PosiedienLeaguesPlannerPlugin extends Plugin {
     protected static final String CONFIG_GROUP = "Posiedien_Leagues_Planner";
     private static final String ADD_START = "Add start";
@@ -136,6 +139,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     private Rectangle minimapRectangle = new Rectangle();
 
     private ExecutorService pathfindingExecutor = Executors.newSingleThreadExecutor();
+    private ExecutorService initExecutor = Executors.newSingleThreadExecutor();
     private Future<?> pathfinderFuture;
     private final Object pathfinderMutex = new Object();
     @Getter
@@ -147,22 +151,26 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     public LeaguesPlannerPanel panel;
     public NavigationButton navButton;
 
+    public volatile boolean bIsInitializing = false;
+
+
     private boolean isTaskWindowOpen()
     {
         Widget widget = client.getWidget(657, 10);
         return widget != null && !widget.isHidden();
     }
 
-    @Override
-    protected void startUp() throws Exception
+    public void InitializeFromOtherThread()
     {
         taskOverlay = new TaskOverlay(client, this, config);
         taskOverlay.worldMapOverlay = worldMapOverlay;
 
-        SplitFlagMap map = SplitFlagMap.fromResources(null, null);
         Map<WorldPoint, List<Transport>> transports = Transport.loadAllFromResources();
-
-        pathfinderConfig = new PathfinderConfig(map, transports, client, config);
+        if (bCalculateOverworldPositions)
+        {
+            SplitFlagMap map = SplitFlagMap.fromResources(null, null);
+            pathfinderConfig = new PathfinderConfig(map, transports, client, config);
+        }
 
         overlayManager.add(pathOverlay);
         overlayManager.add(pathMinimapOverlay);
@@ -173,8 +181,16 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             overlayManager.add(debugOverlayPanel);
         }
 
-        InitializeRegionData();
-        InitializeTaskData();
+        try {
+            InitializeRegionData();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            InitializeTaskData();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         InitializeCustomIconsMap();
 
         mouseManager.registerMouseListener(MouseListenerObject);
@@ -182,15 +198,34 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         SplitFlagMap NewMap = SplitFlagMap.fromResources(this, config);
         pathfinderConfig = new PathfinderConfig(NewMap, transports, client, config);
 
-        panel = new LeaguesPlannerPanel(this);
-        navButton = NavigationButton.builder()
-                .tooltip("Posiedien's Leagues Planner")
-                .icon(TASK_IMAGE)
-                .priority(7)
-                .panel(panel)
-                .build();
-        clientToolbar.addNavigation(navButton);
-        panel.refresh();
+        EventQueue.invokeLater(() ->
+        {
+            panel = new LeaguesPlannerPanel(this);
+            navButton = NavigationButton.builder()
+                    .tooltip("Posiedien's Leagues Planner")
+                    .icon(TASK_IMAGE)
+                    .priority(7)
+                    .panel(panel)
+                    .build();
+            clientToolbar.addNavigation(navButton);
+            panel.refresh();
+
+            bIsInitializing = false;
+        });
+    }
+
+    @Override
+    protected void startUp() throws Exception
+    {
+        bIsInitializing = true;
+
+        PluginInitializer newPluginInitializer = new PluginInitializer(this);
+
+        if (initExecutor == null)
+        {
+            initExecutor = Executors.newSingleThreadExecutor();
+        }
+        initExecutor.submit(newPluginInitializer);
     }
 
     @Override
@@ -209,6 +244,13 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         overlayManager.remove(debugOverlayPanel);
 
         mouseManager.unregisterMouseListener(MouseListenerObject);
+
+        if (initExecutor != null) {
+            initExecutor.shutdownNow();
+            initExecutor = null;
+        }
+
+
         if (pathfindingExecutor != null) {
             pathfindingExecutor.shutdownNow();
             pathfindingExecutor = null;
@@ -243,7 +285,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     }
 
     public boolean bQueuedPathfinderTask = false;
-    public void restartPathfinding(WorldPoint start, WorldPoint end, boolean bJustFindOverworld) {
+    public void restartPathfinding(WorldPoint start, WorldPoint end, boolean bJustFindOverworld)
+    {
         synchronized (pathfinderMutex) {
             if (pathfinder != null) {
                 bQueuedPathfinderTask = true;
@@ -288,6 +331,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Subscribe
     public void onConfigChanged(ConfigChanged event)
     {
+        if (bIsInitializing)
+        {
+            return;
+        }
+
         CurrentRegion = GetRegionBounds(config.GetEditRegion());
         if (event.getKey().equals("GetEditRegion"))
         {
@@ -332,6 +380,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Subscribe
     public void onMenuOpened(MenuOpened event)
     {
+        if (bIsInitializing)
+        {
+            return;
+        }
+
         final Widget map = client.getWidget(WidgetInfo.WORLD_MAP_VIEW);
         if (map == null)
         {
@@ -351,6 +404,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     public void QueueRefresh()
     {
+        if (bIsInitializing)
+        {
+            return;
+        }
+
         EventQueue.invokeLater(() -> {
             if (panel != null)
             {
@@ -413,6 +471,10 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Subscribe
     public void onGameTick(GameTick tick)
     {
+        if (bIsInitializing)
+        {
+            return;
+        }
         Player localPlayer = client.getLocalPlayer();
 
         SinceLastInputTimer += 0.6f;
@@ -463,7 +525,13 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     }
 
     @Subscribe
-    public void onMenuEntryAdded(MenuEntryAdded event) {
+    public void onMenuEntryAdded(MenuEntryAdded event)
+    {
+        if (bIsInitializing)
+        {
+            return;
+        }
+
         if (client.isKeyPressed(KeyCode.KC_SHIFT) && event.getOption().equals(WALK_HERE) && event.getTarget().isEmpty()) {
             if (config.drawTransports()) {
                 addMenuEntry(event, ADD_START, TRANSPORT, 1);
@@ -934,6 +1002,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     void LoadTaskData() throws IOException
     {
         config.TaskData.LeaguesTaskList.clear();
+        config.TaskData.StringToTask.clear();
 
         {
             // Task info, Trailblazer
@@ -1145,6 +1214,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
     @Subscribe
     public void onMenuOptionClicked(MenuOptionClicked event)
     {
+        if (bIsInitializing)
+        {
+            return;
+        }
+
         final Widget map = client.getWidget(WidgetInfo.WORLD_MAP_VIEW);
         if (map == null)
         {
@@ -1378,7 +1452,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TempArray.clear();
         for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getKey() != CurrentTask.GUID && mapElement.getValue().SortPriority <= CurrentOrder && mapElement.getValue().SortPriority > CurrentHighest)
+            if (!mapElement.getKey().equals(CurrentTask.GUID) && mapElement.getValue().SortPriority <= CurrentOrder && mapElement.getValue().SortPriority > CurrentHighest)
             {
                 CurrentHighest = mapElement.getValue().SortPriority;
                 ClosestTask = mapElement.getKey();
@@ -1396,7 +1470,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
             config.UserData.HiddenTasks.remove(CurrentTask.GUID);
             for (UUID SearchingTaskGUID : TempArray)
             {
-                if (SearchingTaskGUID == CurrentTask.GUID)
+                if (SearchingTaskGUID.equals(CurrentTask.GUID))
                 {
                     continue;
                 }
@@ -1429,7 +1503,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         TempArray.clear();
         for (HashMap.Entry<UUID, TaskSortData> mapElement : config.UserData.PlannedTasks.entrySet())
         {
-            if (mapElement.getKey() != CurrentTask.GUID && mapElement.getValue().SortPriority >= CurrentOrder && mapElement.getValue().SortPriority < CurrentLowest)
+            if (!mapElement.getKey().equals(CurrentTask.GUID) && mapElement.getValue().SortPriority >= CurrentOrder && mapElement.getValue().SortPriority < CurrentLowest)
             {
                 CurrentLowest = mapElement.getValue().SortPriority;
                 ClosestTask = mapElement.getKey();
@@ -1455,7 +1529,7 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
             for (UUID SearchingTaskGUID : TempArray)
             {
-                if (SearchingTaskGUID == CurrentTask.GUID)
+                if (SearchingTaskGUID.equals(CurrentTask.GUID))
                 {
                     continue;
                 }
@@ -1478,6 +1552,11 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     public void FocusOnTaskOnWorldMap(TaskData CurrentTask)
     {
+        if (bIsInitializing)
+        {
+            return;
+        }
+
         if (client != null && client.getWorldMap() != null)
         {
             double ShortestMapViewDistance = 1000000;

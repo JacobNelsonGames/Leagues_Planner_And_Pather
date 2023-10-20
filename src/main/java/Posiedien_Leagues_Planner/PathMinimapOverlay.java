@@ -37,7 +37,13 @@ public class PathMinimapOverlay extends Overlay {
     }
 
     @Override
-    public Dimension render(Graphics2D graphics) {
+    public Dimension render(Graphics2D graphics)
+    {
+        if (plugin.bIsInitializing)
+        {
+            return null;
+        }
+
         if (!config.drawMinimap() || (plugin.getPathfinder() == null && (plugin.panel.getPathfinderArray() == null || plugin.panel.getPathfinderArray().isEmpty()))) {
             return null;
         }

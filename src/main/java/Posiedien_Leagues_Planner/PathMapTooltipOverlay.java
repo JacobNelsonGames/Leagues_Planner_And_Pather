@@ -42,7 +42,13 @@ public class PathMapTooltipOverlay extends Overlay {
     }
 
     @Override
-    public Dimension render(Graphics2D graphics) {
+    public Dimension render(Graphics2D graphics)
+    {
+        if (plugin.bIsInitializing)
+        {
+            return null;
+        }
+
         if (!config.drawMap() || client.getWidget(WidgetInfo.WORLD_MAP_VIEW) == null) {
             return null;
         }

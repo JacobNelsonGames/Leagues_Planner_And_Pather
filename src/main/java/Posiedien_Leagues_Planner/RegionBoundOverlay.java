@@ -62,6 +62,11 @@ public class RegionBoundOverlay extends Overlay
     @Override
     public Dimension render(Graphics2D graphics)
     {
+        if (plugin.bIsInitializing)
+        {
+            return null;
+        }
+
         if (client.getWidget(WidgetInfo.WORLD_MAP_VIEW) == null)
         {
             return null;

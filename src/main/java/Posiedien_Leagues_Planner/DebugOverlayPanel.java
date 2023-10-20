@@ -41,7 +41,13 @@ public class DebugOverlayPanel extends OverlayPanel {
     }
 
     @Override
-    public Dimension render(Graphics2D graphics) {
+    public Dimension render(Graphics2D graphics)
+    {
+        if (plugin.bIsInitializing)
+        {
+            return null;
+        }
+
         Pathfinder pathfinder = plugin.getPathfinder();
         Pathfinder.PathfinderStats stats;
         if (pathfinder == null || (stats = pathfinder.getStats()) == null) {
@@ -92,7 +98,8 @@ public class DebugOverlayPanel extends OverlayPanel {
         private final Rectangle bounds = new Rectangle();
 
         @Override
-        public Dimension render(Graphics2D graphics) {
+        public Dimension render(Graphics2D graphics)
+        {
             final int separatorX = preferredLocation.x;
             final int separatorY = preferredLocation.y + 4;
             final int width = preferredSize.width;
