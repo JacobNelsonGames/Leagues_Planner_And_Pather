@@ -59,8 +59,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @PluginDescriptor(
         name = "Posiedien Leagues Planner",
-        description = "Helper planner plugin for leagues",
-        tags = {"pathfinder", "map", "waypoint", "navigation", "leagues"}
+        description = "The plugin allows people to put in their own custom tasks or hook into tasks I've manually added into the planning.",
+        tags = {"leagues", "trailblazer", "posiedien", "planning", "pathfinder", "map", "waypoint", "navigation"}
 )
 
 public class PosiedienLeaguesPlannerPlugin extends Plugin {
