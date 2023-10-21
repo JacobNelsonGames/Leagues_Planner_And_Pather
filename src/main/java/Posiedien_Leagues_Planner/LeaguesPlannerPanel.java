@@ -649,6 +649,8 @@ public class LeaguesPlannerPanel extends PluginPanel
         OtherFilter OthFilter = config.FilteredOther();
         FilterRequirements ReqFilter = config.FilteredRequirements();
 
+        Integer MaxSortPriority = config.UserData.FindSortPriorityMaxOfIndices(5);
+
         // Go through all of our tasks and filter out anything that doesn't belong
         for (SortedTask SortedTaskIter : config.TaskData.SortedLeaguesTaskList)
         {
@@ -678,6 +680,25 @@ public class LeaguesPlannerPanel extends PluginPanel
                 }
             }
 
+
+            if (OthFilter == OtherFilter.NO_PLAN)
+            {
+                if (bIsPartOfPlan)
+                {
+                    continue;
+                }
+            }
+
+            if (OthFilter == OtherFilter.NEXT_5_TASKS)
+            {
+                if (bIsPartOfPlan)
+                {
+                    if (config.UserData.PlannedTasks.get(SortedTaskIter.TaskGUID).SortPriority >= MaxSortPriority)
+                    {
+                        continue;
+                    }
+                }
+            }
 
             if (OthFilter == OtherFilter.ONLY_PLAN)
             {

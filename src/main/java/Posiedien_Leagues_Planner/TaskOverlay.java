@@ -149,6 +149,8 @@ public class TaskOverlay extends Overlay
     private void AddTaskListToDisplayPointCache(HashMap<UUID, TaskData> TaskCache)
     {
 
+        Integer MaxSortPriority = config.UserData.FindSortPriorityMaxOfIndices(5);
+
         for (Map.Entry<UUID, TaskData> CurrentTaskPair : TaskCache.entrySet())
         {
             // Skip due to some filter
@@ -186,6 +188,25 @@ public class TaskOverlay extends Overlay
                 if (ReqDifferent > 10)
                 {
                     continue;
+                }
+            }
+
+            if (OthFilter == OtherFilter.NO_PLAN)
+            {
+                if (bIsPartOfPlan)
+                {
+                    continue;
+                }
+            }
+
+            if (OthFilter == OtherFilter.NEXT_5_TASKS)
+            {
+                if (bIsPartOfPlan)
+                {
+                    if (config.UserData.PlannedTasks.get(CurrentTaskPair.getKey()).SortPriority >= MaxSortPriority)
+                    {
+                        continue;
+                    }
                 }
             }
 
@@ -736,6 +757,14 @@ public class TaskOverlay extends Overlay
             int SortTaskIter = 0;
             for (SortedTask SortedTaskIter : config.UserData.SortedPlannedTasks)
             {
+                if (OthFilter == OtherFilter.NEXT_5_TASKS)
+                {
+                    if (SortTaskIter > 4)
+                    {
+                        break;
+                    }
+                }
+
                 TaskData CurrentTask = plugin.GetTaskData(SortedTaskIter.TaskGUID, SortedTaskIter.bIsCustomTask);
 
                 // Find our display points with this task

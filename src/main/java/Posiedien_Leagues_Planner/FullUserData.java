@@ -222,4 +222,22 @@ public class FullUserData
         {
         }
     }
+
+    Integer FindSortPriorityMaxOfIndices(Integer OrderNum)
+    {
+        CacheSortedPlannedTasks();
+
+        Integer iter = 0;
+        for (SortedTask SortedTaskIter : SortedPlannedTasks)
+        {
+            ++iter;
+            if (iter > OrderNum)
+            {
+                return SortedTaskIter.SortPriority;
+            }
+        }
+
+        // Big number
+        return 50000;
+    }
 }
