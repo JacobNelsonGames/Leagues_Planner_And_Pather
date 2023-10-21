@@ -1,0 +1,25 @@
+<noinclude>__NOTOC__
+{{LeagueSync}}</noinclude>
+
+{{SRLTaskHeader|unsortable=yes|collapsible=yes}}
+{{SRLTaskSubheader|Easy}}
+{{SRLTaskRow|Equip a Mithril Weapon|Equip any [[Mithril weapon]].|s={{SCP|Attack|20|link=yes|sort=yes}}|other='''Or''' {{SCP|Ranged|20|link=yes}} for [[mithril dart]]s or [[mithril knife|knives]]|id=720|difficulty=Easy|rate=77%|color=blue}}
+{{SRLTaskSubheader|Medium}}
+{{SRLTaskRow|Equip an Adamant Weapon|Equip any [[Adamant weapon]].|s={{SCP|Attack|30|link=yes|sort=yes}}|other='''Or''' {{SCP|Ranged|30|link=yes}} for [[adamant dart]]s or [[adamant knife|knives]]|id=721|difficulty=Medium|rate=76%|color=blue}}
+{{SRLTaskRow|Equip a Rune Weapon|Equip any [[Rune weapon]].|s={{SCP|Attack|40|link=yes|sort=yes}}|other='''Or''' {{SCP|Ranged|40|link=yes}} for [[rune dart]]s or [[rune knife|knives]]|id=722|difficulty=Medium|rate=76%|color=blue}}
+{{SRLTaskRow|Equip a Brine Sabre|Equip a [[brine sabre]].|s={{SCP|Attack|40|link=yes|sort=yes}}|other=Requires {{SCP|Slayer|47|link=yes}} to kill [[brine rat]]s and {{SCP|Quest}} [[Olaf's Quest]]|id=915|difficulty=Medium|rate=4.3%|color=yellow}}
+{{SRLTaskSubheader|Hard}}
+{{SRLTaskRow|Equip a Dragon Weapon|Equip any [[Dragon weapon]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other='''Or''' {{SCP|Ranged|60|link=yes}} for [[dragon dart]]s or [[dragon knife|knives]]|id=723|difficulty=Hard|rate=69%|color=blue}}
+{{SRLTaskRow|Equip a Hill Giant Club|Equip a [[Hill Giant Club]].|s={{SCP|Attack|40|link=yes|sort=yes}}|other=|id=782|difficulty=Hard|rate=3.3%|color=yellow}}
+{{SRLTaskRow|Equip a Toktz-Xil-Ak|Equip a [[Toktz-Xil-Ak]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=|id=985|difficulty=Hard|rate=16%|color=green}}
+{{SRLTaskRow|Equip a Toktz-Xil-Ek|Equip a [[Toktz-Xil-Ek]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=|id=986|difficulty=Hard|rate=16%|color=green}}
+{{SRLTaskRow|Equip a Dragon 2H Sword|Equip a [[Dragon 2h sword|Dragon 2-Handed Sword]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=|id=1200|difficulty=Hard|rate=8.5%|color=yellow}}
+{{SRLTaskRow|Equip a Dragon 2H Sword in the Wilderness|Equip a [[dragon 2h sword|Dragon 2-Handed Sword]] in the Wilderness.|s={{SCP|Attack|60|link=yes|sort=yes}}|other=|id=1332|difficulty=Hard|rate=8.1%|color=yellow}}
+{{SRLTaskRow|Equip a Sarachnis Cudgel|Equip a [[Sarachnis cudgel|Sarachnis Cudgel]].|s={{SCP|Attack|65|link=yes|sort=yes}}|other=Dropped by [[Sarachnis]]|id=1398|difficulty=Hard|rate=2.9%|color=yellow}}
+{{SRLTaskSubheader|Elite}}
+{{SRLTaskRow|Reach Level 99 Attack|Reach level 99 in your Attack skill.|s={{SCP|Attack|99|link=yes|sort=yes}}|other=|id=532|difficulty=Elite|rate=24%|color=green}}
+{{SRLTaskRow|Obtain 25 Million Attack XP|Obtain 25 million experience in your Attack skill.|s={{SCP|Attack|99|link=yes|sort=yes}}|other=|id=533|difficulty=Elite|rate=12%|color=green}}
+{{SRLTaskRow|Equip an Abyssal Whip|Equip an [[Abyssal Whip]].|s={{SCP|Attack|70|link=yes|sort=yes}}, {{SCP|Slayer|85|link=yes}}|other=|id=724|difficulty=Elite|rate=41%|color=green}}
+{{SRLTaskRow|Equip a Viggora's Chainmace|Equip a [[Viggora's Chainmace]].|s={{SCP|Attack|60|link=yes|sort=yes}}|other=|id=1234|difficulty=Elite|rate=1.1%|color=yellow}}
+{{SRLTaskRow|Equip a Ghrazi Rapier|Equip a [[Ghrazi rapier]].|s={{SCP|Attack|75|link=yes|sort=yes}}|other=|id=1269|difficulty=Elite|rate=2.9%|color=yellow}}
+{{LeagueTaskBottom}}<noinclude>{{Shattered Relics League}}</noinclude>

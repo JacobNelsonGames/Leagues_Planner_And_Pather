@@ -324,6 +324,9 @@ public class FullTaskData
 
     public void importFromRaw()
     {
+        // All the tasks found in our raw
+        HashSet<UUID> TaskGUIDSet = new HashSet<>();
+
         // Go through each region
         for (RegionType CurrentRegion : RegionType.values())
         {
@@ -518,6 +521,7 @@ public class FullTaskData
                                 {
                                     AddNewTaskToDataBase(newTask);
                                 }
+                                TaskGUIDSet.add(newTask.GUID);
                             }
                             // Finished all the tasks of this difficulty
                             else if (NextString.contains("LeagueTaskBottom"))
@@ -534,5 +538,26 @@ public class FullTaskData
             }
         }
 
+        // Figure out what tasks to remove (wasn't present in the raw data)
+        HashSet<UUID> TasksToRemove = new HashSet<>();
+        for (Map.Entry<UUID, TaskData> SearchingTask : LeaguesTaskList.entrySet())
+        {
+            if (!TaskGUIDSet.contains(SearchingTask.getKey()))
+            {
+                TasksToRemove.add(SearchingTask.getKey());
+            }
+        }
+
+        for (UUID SearchingTask : TasksToRemove)
+        {
+            LeaguesTaskList.remove(SearchingTask);
+        }
+
+        // Re-construct String to UUID lookup
+        StringToTask.clear();
+        for (HashMap.Entry<UUID, TaskData> entry : LeaguesTaskList.entrySet())
+        {
+            StringToTask.put(entry.getValue().TaskName, entry.getKey());
+        }
     }
 }

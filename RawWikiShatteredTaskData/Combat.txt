@@ -1,0 +1,211 @@
+<noinclude>__NOTOC__
+{{LeagueSync}}</noinclude>
+{{SRLTaskHeader|unsortable=yes|collapsible=yes}}
+
+{{SRLTaskSubheader|Beginner}}
+{{SRLTaskRow|Defeat a Goblin|Defeat a [[Goblin]]. After all, this is not the Goblin League.|s=|other=|id=219|difficulty=Beginner|rate=94%|color=blue}}
+
+{{SRLTaskSubheader|Easy}}
+{{SRLTaskRow|Defeat a Moss Giant|Defeat a [[Moss Giant]].|s=|other=|id=210|difficulty=Easy|rate=81%|color=blue}}
+{{SRLTaskRow|Defeat a Guard|Defeat a [[Guard]].|s=|other=|id=220|difficulty=Easy|rate=88%|color=blue}}
+{{SRLTaskRow|Defeat the Lesser Demon in the Wizards' Tower|Defeat the [[Lesser Demon]] at the top of the [[Wizards' Tower]].|s=|other=|id=775|difficulty=Easy|rate=79%|color=blue}}
+{{SRLTaskRow|Defeat a Rock Crab in the Fremennik Province|Defeat a [[rock crab]] in the Fremennik Province.|s=|other=|id=900|difficulty=Easy|rate=70%|color=blue}}
+{{SRLTaskRow|Defeat a Troll in the Fremennik Province|Defeat a [[troll]] in the Fremennik Province.|s=|other=|id=914|difficulty=Easy|rate=42%|color=green}}
+{{SRLTaskRow|Defeat a TzHaar|Defeat any TzHaar in Mor Ul Rek.|s=|other=|id=970|difficulty=Easy|rate=57%|color=blue}}
+{{SRLTaskRow|Defeat a Greater Demon on Karamja|Defeat a [[Greater Demon]] on Karamja.|s=|other=|id=980|difficulty=Easy|rate=39%|color=green}}
+{{SRLTaskRow|Defeat a Tortoise With Riders in Kandarin|Defeat a [[tortoise]] with riders in Kandarin.|s=|other=|id=1031|difficulty=Easy|rate=44%|color=green}}
+{{SRLTaskRow|Defeat a Troll in Asgarnia|Defeat a [[Troll]] in [[Asgarnia]].|s=|other=|id=1109|difficulty=Easy|rate=37%|color=green}}
+{{SRLTaskRow|Defeat a Blue Dragon in Asgarnia|Defeat a [[blue dragon]] in Asgarnia.|s=|other=|id=1126|difficulty=Easy|rate=58%|color=blue}}
+{{SRLTaskRow|Defeat a Black Demon in Asgarnia|Defeat a [[black demon]] in Asgarnia.|s=|other=|id=1128|difficulty=Easy|rate=42%|color=green}}
+{{SRLTaskRow|Defeat an Al Kharid Warrior|Defeat an Al Kharid Warrior.|s=|other=|id=1184|difficulty=Easy|rate=71%|color=blue}}
+{{SRLTaskRow|Defeat a Werewolf in Morytania|Defeat a [[Werewolf]] in Morytania.|s=|other=|id=1244|difficulty=Easy|rate=63%|color=blue}}
+{{SRLTaskRow|Defeat One of Fenkenstrain's Experiments|Defeat one of Fenkenstrain's [[Experiment]]s in the [[Experiment Cave]].|s=|other=Requires partial completion of {{SCP|Quest}} [[Creature of Fenkenstrain]]|id=1248|difficulty=Easy|rate=25%|color=green}}
+{{SRLTaskRow|Defeat a Ghast|Defeat a [[Ghast]] in Mort Myre.|s=|other=Requires completion of {{SCP|Quest}} [[Nature Spirit]]|id=1252|difficulty=Easy|rate=22%|color=green}}
+{{SRLTaskRow|Defeat a Lava Dragon in the Wilderness|Defeat a [[Lava dragon]] in the Wilderness.|s=|other=Optionally a [[knife]] or a [[slash weapon]] to slash webs or {{SCP|Agility|52|link=yes}} and {{SCP|Diary}} [[Wilderness Diary#Hard|Wilderness hard diary]] if [[melee]]ing, alternatively [[ranged]] or [[magic]] equipment|id=1315|difficulty=Easy|rate=65%|color=blue}}
+{{SRLTaskRow|Defeat a Fire Giant in the Wilderness|Defeat a [[Fire Giant]] in the Wilderness.|s=|other=|id=1319|difficulty=Easy|rate=49%|color=green}}
+{{SRLTaskRow|Defeat a Chaos Dwarf in the Wilderness|Defeat a [[Chaos Dwarf]] in the Wilderness.|s=|other=|id=1323|difficulty=Easy|rate=59%|color=blue}}
+{{SRLTaskRow|Defeat a Green Dragon in the Wilderness|Defeat a [[Green Dragon]] in the Wilderness.|s=|other=|id=1327|difficulty=Easy|rate=67%|color=blue}}
+
+{{SRLTaskSubheader|Medium}}
+{{SRLTaskRow|Defeat an Adult Chromatic Dragon|Defeat either an adult [[Green Dragon]], [[Blue Dragon]], [[Red Dragon]] or [[Black Dragon]].|s=|other=|id=201|difficulty=Medium|rate=74%|color=blue}}
+{{SRLTaskRow|Defeat a Lesser Demon|Defeat a [[Lesser Demon]].|s=|other=|id=211|difficulty=Medium|rate=82%|color=blue}}
+{{SRLTaskRow|100 Lizardmen Shaman Kills|Help the [[Shayzien]] house by killing 100 [[Lizardmen shaman]]s.|s=|other=100% Shayzien favour|id=322|difficulty=Medium|rate=7.5%|color=yellow}}
+{{SRLTaskRow|500 Lizardmen Shaman Kills|Help the [[Shayzien]] house by killing 500 [[Lizardmen shaman]]s.|s=|other=100% Shayzien favour|id=323|difficulty=Medium|rate=3.3%|color=yellow}}
+{{SRLTaskRow|1000 Lizardmen Shaman Kills|Help the [[Shayzien]] house by killing 1000 [[Lizardmen shaman]]s.|s=|other=100% Shayzien favour|id=324|difficulty=Medium|rate=2.1%|color=yellow}}
+{{SRLTaskRow|Defeat Obor|Defeat [[Obor]] in Edgeville Dungeon.|s=|other=Requires a [[giant key]].|id=781|difficulty=Medium|rate=27%|color=green}}
+{{SRLTaskRow|Defeat Bryophyta|Defeat [[Bryophyta]] in Edgeville Dungeon.|s=|other=Requires a [[mossy key]].|id=785|difficulty=Medium|rate=24%|color=green}}
+{{SRLTaskRow|Defeat an Elf in Tirannwn|Defeat an [[Elf (disambiguation)|Elf]] in Tirannwn.|s=|other=|id=838|difficulty=Medium|rate=47%|color=green}}
+{{SRLTaskRow|Defeat a Dagannoth in the Fremennik Province|Defeat a Dagannoth in the Fremennik Province.|s=|other=|id=918|difficulty=Medium|rate=39%|color=green}}
+{{SRLTaskRow|Defeat a Steel Dragon on Karamja|Defeat a [[Steel Dragon]] on Karamja.|s=|other=|id=993|difficulty=Medium|rate=22%|color=green}}
+{{SRLTaskRow|Defeat a Mithril Dragon|Defeat a [[mithril dragon]] in the [[Ancient Cavern]].|s=|other=|id=1028|difficulty=Medium|rate=13%|color=green}}
+{{SRLTaskRow|Defeat the Penance Queen|Defeat the Penance Queen in [[Barbarian Assault]].|s=|other=|id=1071|difficulty=Medium|rate=8.8%|color=yellow}}
+{{SRLTaskRow|Defeat the Giant Mole|Defeat the [[Giant Mole]] beneath Falador.|s=|other=Bring a [[light source]] in the cave.|id=1105|difficulty=Medium|rate=17%|color=green}}
+{{SRLTaskRow|Defeat 30 Black Dragons in Asgarnia|Defeat 30 [[black dragon]]s in Asgarnia.|s=|other=|id=1129|difficulty=Medium|rate=9.1%|color=yellow}}
+{{SRLTaskRow|Defeat Some Animated Rune Armour|Defeat some [[Animated Rune Armour]] in the Warriors' Guild.|s=|other=Requires access to the [[Warriors' Guild]].|id=1148|difficulty=Medium|rate=33%|color=green}}
+{{SRLTaskRow|Defeat a Scarab Mage|Defeat a [[Scarab Mage]] in the [[Sophanem Dungeon]].|s=|other=Partial completion of {{SCP|Quest}} [[Contact!]], a [[light source]]|id=1185|difficulty=Medium|rate=16%|color=green}}
+{{SRLTaskRow|Defeat a Kalphite Guardian|Defeat a [[Kalphite Guardian]] in the Kharidian Desert.|s=|other=|id=1188|difficulty=Medium|rate=30%|color=green}}
+{{SRLTaskRow|Defeat a Fiyr Shade|Defeat a [[Fiyr Shade]].|s={{SCP|Firemaking|65|link=yes|sort=yes}} (killing the shade in [[Temple Trekking]] doesn't count)|other=|id=1245|difficulty=Medium|rate=4.5%|color=yellow}}
+{{SRLTaskRow|Defeat a Vyrewatch Sentinel|Defeat a [[Vyrewatch Sentinel]] in Darkmeyer.|s=|other=Completed [[Sins of the Father]]|id=1249|difficulty=Medium|rate=30%|color=green}}
+{{SRLTaskRow|Defeat the Crazy Archaeologist|Defeat the [[Crazy Archaeologist]] in the Wilderness.|s=|other=|id=1316|difficulty=Medium|rate=38%|color=green}}
+{{SRLTaskRow|Defeat Scorpia|Defeat [[Scorpia]] in the Wilderness.|s=|other=|id=1320|difficulty=Medium|rate=20%|color=green}}
+{{SRLTaskRow|Defeat the Chaos Fanatic|Defeat the [[Chaos Fanatic]] in the Wilderness.|s=|other=|id=1324|difficulty=Medium|rate=21%|color=green}}
+{{SRLTaskRow|Defeat the Chaos Elemental|Defeat the [[Chaos Elemental]] in the Wilderness.|s=|other=|id=1328|difficulty=Medium|rate=20%|color=green}}
+{{SRLTaskRow|Defeat a Crocodile|Defeat a [[Crocodile]] in the Kharidian Desert.|s=|other=|id=1374|difficulty=Medium|rate=48%|color=green}}
+
+{{SRLTaskSubheader|Hard}}
+{{SRLTaskRow|1250 Lizardmen Shaman Kills|Help the [[Shayzien]] house by killing 1250 [[Lizardmen shaman]]s.|s=|other=100% Shayzien favour|id=325|difficulty=Hard|rate=1.8%|color=yellow}}
+{{SRLTaskRow|1500 Lizardmen Shaman Kills|Help the [[Shayzien]] house by killing 1500 [[Lizardmen shaman]]s.|s=|other=100% Shayzien favour|id=326|difficulty=Hard|rate=1.6%|color=yellow}}
+{{SRLTaskRow|1 Sarachnis Kill|Kill [[Sarachnis]] in the [[Forthos Dungeon]].|s=|other=[[Slash weapon]] or a [[knife]] to access area|id=328|difficulty=Hard|rate=18%|color=green}}
+{{SRLTaskRow|25 Sarachnis Kills|Kill [[Sarachnis]] in the [[Forthos Dungeon]] 25 times.|s=|other=[[Slash weapon]] or a [[knife]] to access area|id=329|difficulty=Hard|rate=10%|color=green}}
+{{SRLTaskRow|50 Sarachnis Kills|Kill [[Sarachnis]] in the [[Forthos Dungeon]] 50 times.|s=|other=[[Slash weapon]] or a [[knife]] to access area|id=330|difficulty=Hard|rate=7.4%|color=yellow}}
+{{SRLTaskRow|75 Sarachnis Kills|Kill [[Sarachnis]] in the [[Forthos Dungeon]] 75 times.|s=|other=[[Slash weapon]] or a [[knife]] to access area|id=331|difficulty=Hard|rate=5.7%|color=yellow}}
+{{SRLTaskRow|100 Sarachnis Kills|Kill [[Sarachnis]] in the [[Forthos Dungeon]] 100 times.|s=|other=[[Slash weapon]] or a [[knife]] to access area|id=332|difficulty=Hard|rate=5.2%|color=yellow}}
+{{SRLTaskRow|150 Sarachnis Kills|Kill [[Sarachnis]] in the [[Forthos Dungeon]] 150 times.|s=|other=[[Slash weapon]] or a [[knife]] to access area|id=333|difficulty=Hard|rate=3.8%|color=yellow}}
+{{SRLTaskRow|200 Sarachnis Kills|Kill [[Sarachnis]] in the [[Forthos Dungeon]] 200 times.|s=|other=[[Slash weapon]] or a [[knife]] to access area|id=334|difficulty=Hard|rate=3.4%|color=yellow}}
+{{SRLTaskRow|1 Skotizo Kill|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]].|s=|other=|id=339|difficulty=Hard|rate=26%|color=green}}
+{{SRLTaskRow|10 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 10 times.|s=|other=|id=340|difficulty=Hard|rate=7.4%|color=yellow}}
+{{SRLTaskRow|1 Chambers of Xeric|Complete the [[Chambers of Xeric]].|s=|other=|id=359|difficulty=Hard|rate=16%|color=green}}
+{{SRLTaskRow|25 Chambers of Xeric|Complete the [[Chambers of Xeric]] 25 times.|s=|other=|id=360|difficulty=Hard|rate=3.5%|color=yellow}}
+{{SRLTaskRow|50 Chambers of Xeric|Complete the [[Chambers of Xeric]] 50 times.|s=|other=|id=361|difficulty=Hard|rate=1.0%|color=yellow}}
+{{SRLTaskRow|75 Chambers of Xeric|Complete the [[Chambers of Xeric]] 75 times.|s=|other=|id=362|difficulty=Hard|rate=0.3%|color=orange}}
+{{SRLTaskRow|100 Chambers of Xeric|Complete the [[Chambers of Xeric]] 100 times.|s=|other=|id=363|difficulty=Hard|rate=0.1%|color=orange}}
+{{SRLTaskRow|1 Chambers of Xeric Challenge Mode|Complete the Chambers of Xeric Challenge Mode.|s=|other=|id=368|difficulty=Hard|rate=6.6%|color=yellow}}
+{{SRLTaskRow|10 Chambers of Xeric Challenge Mode|Complete the Chambers of Xeric Challenge Mode 10 times.|s=|other=|id=369|difficulty=Hard|rate=2.1%|color=yellow}}
+{{SRLTaskRow|1 Mimic Kill|Kill the [[Mimic]] as part of a [[treasure trail]].|s=|other=|id=470|difficulty=Hard|rate=1.4%|color=yellow}}
+{{SRLTaskRow|5 Mimic Kills|Kill the [[Mimic]] as part of a [[treasure trail]] 5 times.|s=|other=|id=471|difficulty=Hard|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat a Rune Dragon|Defeat a [[Rune Dragon]] in the [[Lithkren Vault]].|s=|other=|id=777|difficulty=Hard|rate=14%|color=green}}
+{{SRLTaskRow|Defeat the Abyssal Sire|Defeat the [[Abyssal Sire]] in the [[Abyssal Nexus]].|s={{SCP|Slayer|85|link=yes|sort=yes}}|other=|id=789|difficulty=Hard|rate=7.0%|color=yellow}}
+{{SRLTaskRow|Defeat a Waterfiend in Tirannwn|Defeat a [[Waterfiend]] in Tirannwn.|s=|other=|id=837|difficulty=Hard|rate=35%|color=green}}
+{{SRLTaskRow|Defeat a Moss Giant in Tirannwn|Defeat a [[Moss Giant]] in Tirannwn.|s=|other=|id=841|difficulty=Hard|rate=39%|color=green}}
+{{SRLTaskRow|Complete the Gauntlet|Complete [[the Gauntlet]] in Prifddinas.|s=|other=|id=843|difficulty=Hard|rate=31%|color=green}}
+{{SRLTaskRow|Defeat Zalcano|Defeat [[Zalcano]] in Prifddinas.|s=|other=|id=847|difficulty=Hard|rate=13%|color=green}}
+{{SRLTaskRow|Defeat Zulrah|Defeat [[Zulrah]] at the [[Poison Waste]].|s=|other=|id=849|difficulty=Hard|rate=31%|color=green}}
+{{SRLTaskRow|Defeat Zulrah in 1:30|Defeat Zulrah at the Poison Waste in 1:30 or less.|s=|other=|id=855|difficulty=Hard|rate=24%|color=green}}
+{{SRLTaskRow|Complete the Gauntlet in 8:00|Complete the Gauntlet in Prifddinas in 8:00 or less.|s=|other=|id=858|difficulty=Hard|rate=21%|color=green}}
+{{SRLTaskRow|Defeat Vorkath|Defeat [[Vorkath]] on Ungael.|s=|other=|id=902|difficulty=Hard|rate=19%|color=green}}
+{{SRLTaskRow|Defeat Vorkath in 2:00|Defeat [[Vorkath]] on Ungael in 2:00 or less.|s=|other=|id=911|difficulty=Hard|rate=16%|color=green}}
+{{SRLTaskRow|Defeat the Dagannoth Kings Without Leaving|Defeat all three of the [[Dagannoth Kings]] in the [[Waterbirth Island Dungeon]] without leaving their area.|s=|other=|id=916|difficulty=Hard|rate=23%|color=green}}
+{{SRLTaskRow|Defeat a Demonic Gorilla|Defeat a [[demonic gorilla]] in the Crash Site Cavern.|s=|other=|id=1029|difficulty=Hard|rate=21%|color=green}}
+{{SRLTaskRow|Defeat K'ril Tsutsaroth|Defeat [[K'ril Tsutsaroth]] in the [[God Wars Dungeon]].|s={{SCP|Hitpoints|70|link=yes|sort=yes}}|other=|id=1111|difficulty=Hard|rate=28%|color=green}}
+{{SRLTaskRow|Defeat General Graardor|Defeat [[General Graardor]] in the [[God Wars Dungeon]].|s={{SCP|Strength|70|link=yes|sort=yes}}|other=|id=1116|difficulty=Hard|rate=35%|color=green}}
+{{SRLTaskRow|Defeat Kree'arra|Defeat [[Kree'arra]] in the [[God Wars Dungeon]].|s={{SCP|Ranged|70|link=yes|sort=yes}}|other=|id=1120|difficulty=Hard|rate=22%|color=green}}
+{{SRLTaskRow|Defeat Commander Zilyana|Defeat [[Commander Zilyana]] in the [[God Wars Dungeon]].|s={{SCP|Agility|70|link=yes|sort=yes}}|other=|id=1124|difficulty=Hard|rate=23%|color=green}}
+{{SRLTaskRow|Defeat Venenatis|Defeat [[Venenatis]] in the Wilderness.|s=|other=|id=1317|difficulty=Hard|rate=18%|color=green}}
+{{SRLTaskRow|Defeat Callisto|Defeat [[Callisto]] in the Wilderness.|s=|other=|id=1321|difficulty=Hard|rate=17%|color=green}}
+{{SRLTaskRow|Defeat Vet'ion|Defeat [[Vet'ion]] in the Wilderness.|s=|other=|id=1325|difficulty=Hard|rate=13%|color=green}}
+{{SRLTaskRow|Defeat the King Black Dragon|Defeat the [[King Black Dragon]] in the Wilderness.|s=|other=|id=1329|difficulty=Hard|rate=16%|color=green}}
+{{SRLTaskRow|Defeat Phosani's Nightmare|Defeat Phosani's Nightmare in the Sisterhood Sanctuary.|s=|other=Requires one killcount of [[The Nightmare]].|id=1410|difficulty=Hard|rate=2.9%|color=yellow}}
+{{SRLTaskRow|Defeat The Nightmare 5 times|Defeat The Nightmare or Phosani's Nightmare 5 times combined.|s=|other=Requires one killcount of [[The Nightmare]].|id=1411|difficulty=Hard|rate=3.3%|color=yellow}}
+{{SRLTaskRow|Defeat The Nightmare 10 times|Defeat The Nightmare or Phosani's Nightmare 10 times combined.|s=|other=Requires one killcount of [[The Nightmare]].|id=1412|difficulty=Hard|rate=2.4%|color=yellow}}
+{{SRLTaskRow|Defeat The Nightmare 25 times|Defeat The Nightmare or Phosani's Nightmare 25 times combined.|s=|other=Requires one killcount of [[The Nightmare]].|id=1413|difficulty=Hard|rate=1.3%|color=yellow}}
+{{SRLTaskRow|Defeat Nex|Defeat Nex in the God Wars Dungeon.|s={{SCP|Hitpoints|70|link=yes|sort=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Strength|70|link=yes}}, {{SCP|Agility|70|link=yes}}|other=Requires assembling a [[Frozen key (The Frozen Door)|frozen key]].|id=1510|difficulty=Hard|rate=3.6%|color=yellow}}
+{{SRLTaskRow|Defeat Nex 10 Times|Defeat Nex in the God Wars Dungeon 10 times.|s={{SCP|Hitpoints|70|link=yes|sort=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Strength|70|link=yes}}, {{SCP|Agility|70|link=yes}}|other=Requires assembling a [[Frozen key (The Frozen Door)|frozen key]].|id=1511|difficulty=Hard|rate=2.7%|color=yellow}}
+{{SRLTaskRow|Defeat Nex 25 Times|Defeat Nex in the God Wars Dungeon 25 times.|s={{SCP|Hitpoints|70|link=yes|sort=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Strength|70|link=yes}}, {{SCP|Agility|70|link=yes}}|other=Requires assembling a [[Frozen key (The Frozen Door)|frozen key]].|id=1512|difficulty=Hard|rate=2.0%|color=yellow}}
+{{SRLTaskRow|Defeat Nex 50 Times|Defeat Nex in the God Wars Dungeon 50 times.|s={{SCP|Hitpoints|70|link=yes|sort=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Strength|70|link=yes}}, {{SCP|Agility|70|link=yes}}|other=Requires assembling a [[Frozen key (The Frozen Door)|frozen key]].|id=1513|difficulty=Hard|rate=1.3%|color=yellow}}
+
+{{SRLTaskSubheader|Elite}}
+{{SRLTaskRow|25 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 25 times.|s=|other=|id=341|difficulty=Elite|rate=2.1%|color=yellow}}
+{{SRLTaskRow|50 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 50 times.|s=|other=|id=342|difficulty=Elite|rate=1.1%|color=yellow}}
+{{SRLTaskRow|60 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 60 times.|s=|other=|id=343|difficulty=Elite|rate=1.0%|color=orange}}
+{{SRLTaskRow|80 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 80 times.|s=|other=|id=344|difficulty=Elite|rate=0.8%|color=orange}}
+{{SRLTaskRow|100 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 100 times.|s=|other=|id=345|difficulty=Elite|rate=0.6%|color=orange}}
+{{SRLTaskRow|125 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 125 times.|s=|other=|id=346|difficulty=Elite|rate=0.5%|color=orange}}
+{{SRLTaskRow|150 Skotizo Kills|Kill [[Skotizo]] beneath the [[Catacombs of Kourend]] 150 times.|s=|other=|id=347|difficulty=Elite|rate=0.4%|color=orange}}
+{{SRLTaskRow|250 Chambers of Xeric|Complete the [[Chambers of Xeric]] 250 times.|s=|other=|id=364|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|25 Chambers of Xeric Challenge Mode|Complete the Chambers of Xeric Challenge Mode 25 times.|s=|other=|id=370|difficulty=Elite|rate=0.8%|color=orange}}
+{{SRLTaskRow|50 Chambers of Xeric Challenge Mode|Complete the Chambers of Xeric Challenge Mode 50 times.|s=|other=|id=371|difficulty=Elite|rate=0.2%|color=orange}}
+{{SRLTaskRow|100 Chambers of Xeric Challenge Mode|Complete the Chambers of Xeric Challenge Mode 100 times.|s=|other=|id=372|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|25 Mimic Kills|Kill the [[Mimic]] as part of a [[treasure trail]] 25 times.|s=|other=|id=472|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|35 Mimic Kills|Kill the [[Mimic]] as part of a [[treasure trail]] 35 times.|s=|other=|id=473|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat Zulrah in 0:54|Defeat Zulrah at the Poison Waste in 0:54 or less.|s=|other=|id=856|difficulty=Elite|rate=19%|color=green}}
+{{SRLTaskRow|Complete the Gauntlet in 5:00|Complete the [[Gauntlet]] in Prifddinas in 5:00 or less.|s=|other=|id=859|difficulty=Elite|rate=12%|color=green}}
+{{SRLTaskRow|Complete the Corrupted Gauntlet in 8:30|Complete the [[Corrupted Gauntlet]] in Prifddinas in 8:30 or less.|s=|other=|id=860|difficulty=Elite|rate=18%|color=green}}
+{{SRLTaskRow|Complete the Corrupted Gauntlet in 7:00|Complete the [[Corrupted Gauntlet]] in Prifddinas in 7:00 or less.|s=|other=|id=861|difficulty=Elite|rate=15%|color=green}}
+{{SRLTaskRow|Complete the Corrupted Gauntlet 100 Times|Complete the [[Corrupted Gauntlet]] in Prifddinas 100 times.|s=|other=|id=864|difficulty=Elite|rate=4.2%|color=yellow}}
+{{SRLTaskRow|Complete the Corrupted Gauntlet 250 Times|Complete the [[Corrupted Gauntlet]] in Prifddinas 250 times.|s=|other=|id=865|difficulty=Elite|rate=0.5%|color=orange}}
+{{SRLTaskRow|Defeat Zalcano 250 Times|Defeat [[Zalcano]] in Prifddinas 250 times.|s=|other=|id=867|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat Zalcano 500 Times|Defeat [[Zalcano]] in Prifddinas 500 times.|s=|other=|id=868|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat Zulrah 250 Times|Defeat [[Zulrah]] at the Poison Waste 250 times.|s=|other=|id=870|difficulty=Elite|rate=6.7%|color=yellow}}
+{{SRLTaskRow|Defeat Zulrah 500 Times|Defeat [[Zulrah]] at the Poison Waste 500 times.|s=|other=|id=871|difficulty=Elite|rate=1.3%|color=yellow}}
+{{SRLTaskRow|Defeat Vorkath in 1:00|Defeat [[Vorkath]] on Ungael in 1:00 or less.|s=|other=|id=912|difficulty=Elite|rate=13%|color=green}}
+{{SRLTaskRow|Defeat Vorkath 5 Times Without Special Damage|Defeat [[Vorkath]] on Ungael 5 times without taking any damage from his special attacks and without leaving his area. Failing this task requires you to leave the instance to try again.|s=|other=|id=922|difficulty=Elite|rate=4.1%|color=yellow}}
+{{SRLTaskRow|Defeat Vorkath 15 Times Without Leaving|Defeat [[Vorkath]] on Ungael 15 times without leaving his area.|s=|other=|id=925|difficulty=Elite|rate=7.2%|color=yellow}}
+{{SRLTaskRow|Defeat Vorkath 250 Times|Defeat [[Vorkath]] on Ungael 250 times.|s=|other=|id=928|difficulty=Elite|rate=1.0%|color=orange}}
+{{SRLTaskRow|Defeat Vorkath 500 Times|Defeat [[Vorkath]] on Ungael 500 times.|s=|other=|id=929|difficulty=Elite|rate=0.3%|color=orange}}
+{{SRLTaskRow|Defeat Vorkath 750 Times|Defeat [[Vorkath]] on Ungael 750 times.|s=|other=|id=930|difficulty=Elite|rate=0.1%|color=orange}}
+{{SRLTaskRow|Defeat Each Dagannoth King 300 Times|Defeat all three of the [[Dagannoth Kings]] in the Waterbirth Island Dungeon 300 times.|s=|other=|id=933|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat Each Dagannoth King 650 Times|Defeat all three of the [[Dagannoth Kings]] in the Waterbirth Island Dungeon 650 times.|s=|other=|id=934|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat Each Dagannoth King 1000 Times|Defeat all three of the [[Dagannoth Kings]] in the Waterbirth Island Dungeon 1000 times.|s=|other=|id=935|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Complete the Fight Caves in 35:00|Complete the [[Tzhaar Fight Cave]] in [[Mor Ul Rek]] in 35:00 or less.|s=|other=|id=978|difficulty=Elite|rate=12%|color=green}}
+{{SRLTaskRow|Complete the Fight Caves 5 Times|Complete the Tzhaar Fight Cave in Mor Ul Rek 5 times.|s=|other=|id=987|difficulty=Elite|rate=3.5%|color=yellow}}
+{{SRLTaskRow|Complete the Fight Caves 15 Times|Complete the Tzhaar Fight Cave in Mor Ul Rek 15 times.|s=|other=|id=988|difficulty=Elite|rate=1.0%|color=yellow}}
+{{SRLTaskRow|Complete the Fight Caves 30 Times|Complete the Tzhaar Fight Cave in Mor Ul Rek 30 times.|s=|other=|id=989|difficulty=Elite|rate=0.5%|color=orange}}
+{{SRLTaskRow|Complete the Inferno 5 Times|Complete the [[Inferno]] in Mor Ul Rek 5 times.|s=|other=|id=990|difficulty=Elite|rate=0.4%|color=orange}}
+{{SRLTaskRow|Complete the Inferno 10 Times|Complete the Inferno in Mor Ul Rek 10 times.|s=|other=|id=991|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Complete the Inferno 20 Times|Complete the Inferno in Mor Ul Rek 20 times.|s=|other=|id=992|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat the Kraken Boss 250 Times|Defeat the [[Kraken]] boss in Kraken Cove 250 times.|s={{SCP|Slayer|87|link=yes}}|other=Requires a slayer task to attack.|id=1051|difficulty=Elite|rate=13%|color=green}}
+{{SRLTaskRow|Defeat the Kraken Boss 500 Times|Defeat the Kraken boss in Kraken Cove 500 times.|s={{SCP|Slayer|87|link=yes}}|other=Requires a slayer task to attack.|id=1052|difficulty=Elite|rate=4.8%|color=yellow}}
+{{SRLTaskRow|Defeat the Kraken Boss 750 Times|Defeat the Kraken boss in Kraken Cove 750 times.|s={{SCP|Slayer|87|link=yes}}|other=Requires a slayer task to attack.|id=1053|difficulty=Elite|rate=2.9%|color=yellow}}
+{{SRLTaskRow|Defeat 300 Demonic Gorillas|Defeat 300 [[demonic gorilla]]s in the Crash Site Cavern.|s=|other=|id=1054|difficulty=Elite|rate=5.0%|color=yellow}}
+{{SRLTaskRow|Defeat 500 Demonic Gorillas|Defeat 500 [[demonic gorilla]]s in the Crash Site Cavern.|s=|other=|id=1055|difficulty=Elite|rate=1.9%|color=yellow}}
+{{SRLTaskRow|Defeat 750 Demonic Gorillas|Defeat 750 [[demonic gorilla]]s in the Crash Site Cavern.|s=|other=|id=1056|difficulty=Elite|rate=0.6%|color=orange}}
+{{SRLTaskRow|Defeat Any God Wars Dungeon Boss 100 Times|Defeat any God Wars Dungeon boss 100 times.|s=|other=|id=1132|difficulty=Elite|rate=30%|color=green}}
+{{SRLTaskRow|Defeat Any God Wars Dungeon Boss 250 Times|Defeat any God Wars Dungeon boss 250 times.|s=|other=|id=1133|difficulty=Elite|rate=18%|color=green}}
+{{SRLTaskRow|Defeat Any God Wars Dungeon Boss 500 Times|Defeat any God Wars Dungeon boss 500 times.|s=|other=|id=1134|difficulty=Elite|rate=5.3%|color=yellow}}
+{{SRLTaskRow|Defeat the Giant Mole 250 Times|Defeat the Giant Mole beneath Falador 250 times.|s=|other=|id=1135|difficulty=Elite|rate=0.9%|color=orange}}
+{{SRLTaskRow|Defeat the Giant Mole 500 Times|Defeat the Giant Mole beneath Falador 500 times.|s=|other=|id=1136|difficulty=Elite|rate=0.4%|color=orange}}
+{{SRLTaskRow|Defeat the Giant Mole 750 Times|Defeat the Giant Mole beneath Falador 750 times.|s=|other=|id=1137|difficulty=Elite|rate=0.3%|color=orange}}
+{{SRLTaskRow|Defeat the Kalphite Queen|Defeat the [[Kalphite Queen]] in the Kalphite Lair.|s=|other=Two [[rope]]s|id=1187|difficulty=Elite|rate=14%|color=green}}
+{{SRLTaskRow|Defeat the Kalphite Queen 100 Times|Defeat the Kalphite Queen in the Kalphite Lair 100 times.|s=|other=Two [[rope]]s or {{SCP|Diary}} [[Desert Diary#Hard|Desert hard diary]]|id=1197|difficulty=Elite|rate=3.4%|color=yellow}}
+{{SRLTaskRow|Defeat the Kalphite Queen 250 Times|Defeat the Kalphite Queen in the Kalphite Lair 250 times.|s=|other=Two ropes or {{SCP|Diary}} Desert hard diary|id=1198|difficulty=Elite|rate=1.2%|color=yellow}}
+{{SRLTaskRow|Defeat the Kalphite Queen 500 Times|Defeat the Kalphite Queen in the Kalphite Lair 500 times.|s=|other=Two ropes or {{SCP|Diary}} Desert hard diary|id=1199|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat The Nightmare|Defeat [[The Nightmare]] in the [[Sisterhood Sanctuary]].|s=|other=Requires completion of [[Priest in Peril]]|id=1243|difficulty=Elite|rate=5.6%|color=yellow}}
+{{SRLTaskRow|Complete the Theatre of Blood in 20:00|Complete the Theatre of Blood in 20:00 or less challenge time with 3 players or less.|s=|other=Requires completion of [[Priest in Peril]]|id=1270|difficulty=Elite|rate=7.6%|color=yellow}}
+{{SRLTaskRow|Defeat The Nightmare in 3:00|Defeat [[The Nightmare]] in the Sisterhood Sanctuary in 3:00 or less with 5 players or less.|s=|other=Requires completion of [[Priest in Peril]]|id=1272|difficulty=Elite|rate=2.0%|color=yellow}}
+{{SRLTaskRow|Complete the Theatre of Blood 50 Times|Complete the Theatre of Blood on Normal or Hard Mode 50 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1496|difficulty=Elite|rate=2.4%|color=yellow}}
+{{SRLTaskRow|Complete the Theatre of Blood 100 Times|Complete the Theatre of Blood 100 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1273|difficulty=Elite|rate=0.8%|color=orange}}
+{{SRLTaskRow|Complete the Theatre of Blood 200 Times|Complete the Theatre of Blood 200 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1274|difficulty=Elite|rate=0.1%|color=orange}}
+{{SRLTaskRow|Complete the Theatre of Blood 300 Times|Complete the Theatre of Blood on Normal or Hard Mode 300 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1497|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Complete the Theatre of Blood 350 Times|Complete the Theatre of Blood 350 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1275|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Complete the Theatre of Blood 500 Times|Complete the Theatre of Blood 500 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1276|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat the Corporeal Beast|Defeat the [[Corporeal Beast]] in the Wilderness.|s=|other=|id=1333|difficulty=Elite|rate=6.1%|color=yellow}}
+{{SRLTaskRow|Defeat the Corporeal Beast 100 Times|Defeat the Corporeal Beast in the Wilderness 100 times.|s=|other=|id=1334|difficulty=Elite|rate=0.4%|color=orange}}
+{{SRLTaskRow|Defeat the Corporeal Beast 250 Times|Defeat the Corporeal Beast in the Wilderness 250 times.|s=|other=|id=1335|difficulty=Elite|rate=0.1%|color=orange}}
+{{SRLTaskRow|Defeat the Corporeal Beast 500 Times|Defeat the Corporeal Beast in the Wilderness 500 times.|s=|other=|id=1336|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|250 Sarachnis Kills|Kill Sarachnis in the Forthos Dungeon 250 times.|s=|other=|id=1399|difficulty=Elite|rate=3.2%|color=yellow}}
+{{SRLTaskRow|Defeat The Nightmare 50 times|Defeat The Nightmare or Phosani's Nightmare 50 times combined.|s=|other=Requires completion of [[Priest in Peril]]|id=1414|difficulty=Elite|rate=0.8%|color=orange}}
+{{SRLTaskRow|Defeat The Nightmare 100 times|Defeat The Nightmare or Phosani's Nightmare 100 times combined.|s=|other=Requires completion of [[Priest in Peril]]|id=1415|difficulty=Elite|rate=0.3%|color=orange}}
+{{SRLTaskRow|Defeat The Nightmare 250 times|Defeat The Nightmare or Phosani's Nightmare 250 times combined.|s=|other=Requires completion of [[Priest in Peril]]|id=1416|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat The Nightmare 500 times|Defeat The Nightmare or Phosani's Nightmare 500 times combined.|s=|other=Requires completion of [[Priest in Peril]]|id=1417|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat The Nightmare 750 times|Defeat The Nightmare or Phosani's Nightmare 750 times combined.|s=|other=Requires completion of [[Priest in Peril]]|id=1418|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat the Theatre of Blood Hardmode|Defeat the Theatre of Blood Hardmode.|s=|other=Requires completion of [[Priest in Peril]]|id=1419|difficulty=Elite|rate=4.7%|color=yellow}}
+{{SRLTaskRow|Defeat the Theatre of Blood Hardmode 25 times|Defeat the Theatre of Blood Hardmode 25 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1420|difficulty=Elite|rate=1.4%|color=yellow}}
+{{SRLTaskRow|Defeat the Theatre of Blood Hardmode 50 times|Defeat the Theatre of Blood Hardmode 50 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1421|difficulty=Elite|rate=0.7%|color=orange}}
+{{SRLTaskRow|Defeat the Theatre of Blood Hardmode 100 times|Defeat the Theatre of Blood Hardmode 100 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1422|difficulty=Elite|rate=0.2%|color=orange}}
+{{SRLTaskRow|Defeat the Theatre of Blood Hardmode 150 times|Defeat the Theatre of Blood Hardmode 150 times.|s=|other=Requires completion of [[Priest in Peril]]|id=1423|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat Nex 100 Times|Defeat Nex in the God Wars Dungeon 100 times.|s={{SCP|Hitpoints|70|link=yes|sort=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Strength|70|link=yes}}, {{SCP|Agility|70|link=yes}}|other=Requires assembling a [[Frozen key (The Frozen Door)|frozen key]].|id=1514|difficulty=Elite|rate=0.8%|color=orange}}
+{{SRLTaskRow|Defeat Nex 200 Times|Defeat Nex in the God Wars Dungeon 200 times.|s={{SCP|Hitpoints|70|link=yes|sort=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Strength|70|link=yes}}, {{SCP|Agility|70|link=yes}}|other=Requires assembling a [[Frozen key (The Frozen Door)|frozen key]].|id=1515|difficulty=Elite|rate=0.3%|color=orange}}
+
+{{SRLTaskSubheader|Master}}
+{{SRLTaskRow|200 Chambers of Xeric Challenge Mode|Complete the Chambers of Xeric Challenge Mode 200 times.|s=|other=|id=373|difficulty=Master|rate=<0.1%|color=red}}
+{{SRLTaskRow|CM Chambers of Xeric in Target Time|Complete the [[Chambers of Xeric]] Challenge Mode in the target time.|s=|other=|id=395|difficulty=Master|rate=6.2%|color=yellow}}
+{{SRLTaskRow|Solo CM Chambers of Xeric in Target Time|Complete the [[Chambers of Xeric]] Challenge Mode in the target time, alone.|s=|other=|id=396|difficulty=Master|rate=5.0%|color=yellow}}
+{{SRLTaskRow|30 Minutes Chambers of Xeric Solo|Complete the Chambers of Xeric in 30 minutes or less, alone.|s=|other=|id=397|difficulty=Master|rate=7.8%|color=yellow}}
+{{SRLTaskRow|26 Minute Chambers of Xeric Solo|Complete the Chambers of Xeric in 26 minutes or less, alone.|s=|other=|id=398|difficulty=Master|rate=6.9%|color=yellow}}
+{{SRLTaskRow|22 Minute Chambers of Xeric Solo|Complete the Chambers of Xeric in 22 minutes or less, alone.|s=|other=|id=399|difficulty=Master|rate=5.5%|color=yellow}}
+{{SRLTaskRow|18 Minute Chambers of Xeric Solo|Complete the Chambers of Xeric in 18 minutes or less, alone.|s=|other=|id=400|difficulty=Master|rate=3.6%|color=yellow}}
+{{SRLTaskRow|16 Minute Chambers of Xeric Solo|Complete the Chambers of Xeric in 16 minutes or less, alone.|s=|other=|id=401|difficulty=Master|rate=2.6%|color=yellow}}
+{{SRLTaskRow|55 Minute Chambers of Xeric Challenge Mode Solo|Complete the Chambers of Xeric Challenge Mode in 55 minutes or less, alone.|s=|other=|id=402|difficulty=Master|rate=4.5%|color=yellow}}
+{{SRLTaskRow|50 Minute Chambers of Xeric Challenge Mode Solo|Complete the Chambers of Xeric Challenge Mode in 50 minutes or less, alone.|s=|other=|id=403|difficulty=Master|rate=4.2%|color=yellow}}
+{{SRLTaskRow|46 Minute Chambers of Xeric Challenge Mode Solo|Complete the Chambers of Xeric Challenge Mode in 46 minutes or less, alone.|s=|other=|id=404|difficulty=Master|rate=3.8%|color=yellow}}
+{{SRLTaskRow|42 Minute Chambers of Xeric Challenge Mode Solo|Complete the Chambers of Xeric Challenge Mode in 42 minutes or less, alone.|s=|other=|id=405|difficulty=Master|rate=3.4%|color=yellow}}
+{{SRLTaskRow|38 Minute Chambers of Xeric Challenge Mode Solo|Complete the Chambers of Xeric Challenge Mode in 38 minutes or less, alone.|s=|other=|id=406|difficulty=Master|rate=2.9%|color=yellow}}
+{{SRLTaskRow|50 Mimic Kills|Kill the [[Mimic]] as part of a [[treasure trail]] 50 times.|s=|other=|id=474|difficulty=Master|rate=<0.1%|color=red}}
+{{SRLTaskRow|Defeat Zulrah in 0:42|Defeat Zulrah at the Poison Waste in 0:42 or less.|s=|other=|id=857|difficulty=Master|rate=14%|color=green}}
+{{SRLTaskRow|Complete the Corrupted Gauntlet in 5:00|Complete the Corrupted Gauntlet in Prifddinas in 5:00 or less.|s=|other=|id=862|difficulty=Master|rate=8.5%|color=yellow}}
+{{SRLTaskRow|Defeat Vorkath in 0:45|Defeat [[Vorkath]] on Ungael in 0:45 or less.|s=|other=|id=913|difficulty=Master|rate=11%|color=green}}
+{{SRLTaskRow|Complete the Fight Caves in 25:00|Complete the Tzhaar Fight Cave in Mor Ul Rek in 25:00 or less.|s=|other=|id=979|difficulty=Master|rate=4.6%|color=yellow}}
+{{SRLTaskRow|Complete the Inferno in 75:00|Complete the Inferno in Mor Ul Rek in 75:00 or less.|s=|other=|id=984|difficulty=Master|rate=2.5%|color=yellow}}
+{{SRLTaskRow|Complete the Theatre of Blood in 16:00|Complete the Theatre of Blood in 16:00 or less challenge time with 3 players or less.|s=|other=Requires completion of [[Priest in Peril]]|id=1271|difficulty=Master|rate=5.5%|color=yellow}}
+{{SRLTaskRow|Defeat Nex 500 Times|Defeat Nex in the God Wars Dungeon 500 times.|s={{SCP|Hitpoints|70|link=yes|sort=yes}}, {{SCP|Ranged|70|link=yes}}, {{SCP|Strength|70|link=yes}}, {{SCP|Agility|70|link=yes}}|other=Requires assembling a [[Frozen key (The Frozen Door)|frozen key]].|id=1516|difficulty=Master|rate=<0.1%|color=red}}
+{{LeagueTaskBottom}}<noinclude>{{Shattered Relics League}}</noinclude>

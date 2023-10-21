@@ -1,0 +1,69 @@
+<noinclude>__NOTOC__
+{{LeagueSync}}</noinclude>
+{{SRLTaskHeader|unsortable=yes|collapsible=yes}}
+
+{{SRLTaskSubheader|Beginner}}
+{{SRLTaskRow|Complete a Beginner Clue Scroll|Complete a [[beginner clue scroll]] by opening a [[Reward casket (beginner)|Reward Casket]].|s=|other=|id=202|difficulty=Beginner|rate=78%|color=blue}}
+
+{{SRLTaskSubheader|Easy}}
+{{SRLTaskRow|Burn Some Coloured Logs|Burn some logs that have been coloured with a [[firelighter]].|s=|other=|id=11|difficulty=Easy|rate=36%|color=green}}
+{{SRLTaskRow|Eat some Purple Sweets|Eat some [[Purple Sweets]].|s=|other=|id=15|difficulty=Easy|rate=44%|color=green}}
+{{SRLTaskRow|Gain a Unique Item From an Easy Clue|Gain a unique item from an Easy Clue Scroll Reward Casket.|s=|other=|id=165|difficulty=Easy|rate=54%|color=blue}}
+{{SRLTaskRow|Gain a Unique Item From a Beginner Clue|Gain a unique item from a Beginner Clue Scroll Reward Casket.|s=|other=|id=175|difficulty=Easy|rate=39%|color=green}}
+{{SRLTaskRow|Complete an Easy Clue Scroll|Complete an [[easy clue scroll]] by opening a [[Reward casket (easy)|Reward Casket]].|s=|other=|id=192|difficulty=Easy|rate=61%|color=blue}}
+
+{{SRLTaskSubheader|Medium}}
+{{SRLTaskRow|Equip a Trimmed Amulet|Equip a Trimmed Amulet.|s=|other=|id=19|difficulty=Medium|rate=18%|color=green}}
+{{SRLTaskRow|Fill 3 Elite Clue Collection Log Slots|Fill 3 slots in the Elite Clue section of the Collection Log.|s=|other=|id=30|difficulty=Medium|rate=3.1%|color=yellow}}
+{{SRLTaskRow|Fill 3 Hard Clue Collection Log Slots|Fill 3 slots in the Hard Clue section of the Collection Log.|s=|other=|id=49|difficulty=Medium|rate=36%|color=green}}
+{{SRLTaskRow|Fill 5 Medium Clue Collection Log Slots|Fill 5 slots in the Medium Clue section of the Collection Log.|s=|other=|id=57|difficulty=Medium|rate=28%|color=green}}
+{{SRLTaskRow|Fill 5 Easy Clue Collection Log Slots|Fill 5 slots in the Easy Clue section of the Collection Log.|s=|other=|id=76|difficulty=Medium|rate=18%|color=green}}
+{{SRLTaskRow|Fill 5 Beginner Clue Collection Log Slots|Fill 5 slots in the Beginner Clue section of the [[Collection Log]].|s=|other=|id=84|difficulty=Medium|rate=6.6%|color=yellow}}
+{{SRLTaskRow|Gain 5 Unique Items From Hard Clues|Gain 5 unique items from Hard Clue Scroll Reward Caskets.|s=|other=|id=121|difficulty=Medium|rate=36%|color=green}}
+{{SRLTaskRow|Gain 10 Unique Items From Medium Clues|Gain 10 unique items from Medium Clue Scroll Reward Caskets.|s=|other=|id=130|difficulty=Medium|rate=25%|color=green}}
+{{SRLTaskRow|Gain 10 Unique Items From Easy Clues|Gain 10 unique items from Easy Clue Scroll Reward Caskets.|s=|other=|id=139|difficulty=Medium|rate=15%|color=green}}
+{{SRLTaskRow|Gain 10 Unique Items From Beginner Clues|Gain 10 unique items from Beginner Clue Scroll Reward Caskets.|s=|other=|id=148|difficulty=Medium|rate=2.4%|color=yellow}}
+{{SRLTaskRow|Gain a Unique Item From a Hard Clue|Gain a unique item from a Hard Clue Scroll Reward Casket.|s=|other=|id=156|difficulty=Medium|rate=44%|color=green}}
+{{SRLTaskRow|Gain a Unique Item From a Medium Clue|Gain a unique item from a Medium Clue Scroll Reward Casket.|s=|other=|id=166|difficulty=Medium|rate=46%|color=green}}
+{{SRLTaskRow|Complete a Hard Clue Scroll|Complete a [[hard clue scroll]] by opening a [[Reward casket (hard)|Reward Casket]].|s=|other=|id=183|difficulty=Medium|rate=45%|color=green}}
+{{SRLTaskRow|Complete a Medium Clue Scroll|Complete a [[medium clue scroll]] by opening a [[Reward casket (medium)|Reward Casket]].|s=|other=|id=193|difficulty=Medium|rate=48%|color=green}}
+
+{{SRLTaskSubheader|Hard}}
+{{SRLTaskRow|Equip a Full Gilded or Trimmed Wizard Set|Equip either a full set of [[Gold trimmed robes|gilded Wizard robes]] or a full set of [[trimmed robes|trimmed Wizard robes]].|s=|other=|id=12|difficulty=Hard|rate=0.6%|color=orange}}
+{{SRLTaskRow|Equip a Full Vestment Set|Equip a full set of [[Vestment robes]] with all pieces aligned to the same God.|s={{SCP|Prayer|60|link=yes}}<br/>{{SCP|Magic|40|link=yes}}|other=Requires all pieces, from easy, medium '''and''' hard clues|id=13|difficulty=Hard|rate=0.4%|color=orange}}
+{{SRLTaskRow|Fill 5 Master Clue Collection Log Slots|Fill 5 slots in the Master Clue section of the Collection Log.|s=|other=|id=9|difficulty=Hard|rate=0.5%|color=orange}}
+{{SRLTaskRow|Fill 10 Elite Clue Collection Log Slots|Fill 10 slots in the Elite Clue section of the Collection Log.|s=|other=|id=31|difficulty=Hard|rate=0.6%|color=orange}}
+{{SRLTaskRow|Fill 15 Hard Clue Collection Log Slots|Fill 15 slots in the Hard Clue section of the Collection Log.|s=|other=|id=39|difficulty=Hard|rate=18%|color=green}}
+{{SRLTaskRow|Fill 20 Medium Clue Collection Log Slots|Fill 20 slots in the Medium Clue section of the Collection Log.|s=|other=|id=58|difficulty=Hard|rate=14%|color=green}}
+{{SRLTaskRow|Fill 20 Easy Clue Collection Log Slots|Fill 20 slots in the Easy Clue section of the Collection Log.|s=|other=|id=66|difficulty=Hard|rate=4.5%|color=yellow}}
+{{SRLTaskRow|Fill 10 Beginner Clue Collection Log Slots|Fill 10 slots in the Beginner Clue section of the Collection Log.|s=|other=|id=85|difficulty=Hard|rate=1.6%|color=yellow}}
+{{SRLTaskRow|Gain 10 Unique Items From Master Clues|Gain 10 unique items from Master Clue Scroll Reward Caskets.|s=|other=|id=93|difficulty=Hard|rate=0.6%|color=orange}}
+{{SRLTaskRow|Gain 10 Unique Items From Elite Clues|Gain 10 unique items from Elite Clue Scroll Reward Caskets.|s=|other=|id=102|difficulty=Hard|rate=1.7%|color=yellow}}
+{{SRLTaskRow|Gain 20 Unique Items From Hard Clues|Gain 20 unique items from Hard Clue Scroll Reward Caskets.|s=|other=|id=111|difficulty=Hard|rate=22%|color=green}}
+{{SRLTaskRow|Gain 25 Unique Items From Medium Clues|Gain 25 unique items from Medium Clue Scroll Reward Caskets.|s=|other=|id=120|difficulty=Hard|rate=16%|color=green}}
+{{SRLTaskRow|Gain 35 Unique Items From Easy Clues|Gain 35 unique items from Easy Clue Scroll Reward Caskets.|s=|other=|id=129|difficulty=Hard|rate=4.4%|color=yellow}}
+{{SRLTaskRow|Gain 35 Unique Items From Beginner Clues|Gain 35 unique items from Beginner Clue Scroll Reward Caskets.|s=|other=|id=138|difficulty=Hard|rate=0.3%|color=orange}}
+{{SRLTaskRow|Gain a Unique Item From a Master Clue|Gain a unique item from a Master Clue Scroll Reward Casket.|s=|other=|id=147|difficulty=Hard|rate=6.0%|color=yellow}}
+{{SRLTaskRow|Gain a Unique Item From an Elite Clue|Gain a unique item from an Elite Clue Scroll Reward Casket.|s=|other=|id=157|difficulty=Hard|rate=12%|color=green}}
+{{SRLTaskRow|Complete a Master Clue Scroll|Complete a [[master clue scroll]] by opening a [[Reward casket (master)|Reward Casket]].|s=|other=|id=174|difficulty=Hard|rate=6.4%|color=yellow}}
+{{SRLTaskRow|Complete an Elite Clue Scroll|Complete an [[elite clue scroll]] by opening a [[Reward casket (elite)|Reward Casket]].|s=|other=|id=184|difficulty=Hard|rate=13%|color=green}}
+
+{{SRLTaskSubheader|Elite}}
+{{SRLTaskRow|Fill 25 Elite Clue Collection Log Slots|Fill 25 slots in the Elite Clue section of the Collection Log.|s=|other=|id=8|difficulty=Elite|rate=0.1%|color=orange}}
+{{SRLTaskRow|Fill 25 Master Clue Collection Log Slots|Fill 25 slots in the Master Clue section of the Collection Log.|s=|other=|id=10|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Use the Explore Emote|Use the [[Explore]] emote.|s=|other=Solve 600 [[beginner clue]]s|id=14|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Read a Clueless Scroll|Read a [[Clueless scroll]].|s=|other=Solve 400 [[medium clue]]s|id=18|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Equip a Heavy Casket|Equip a [[Heavy casket]].|s=|other=Solve 200 [[elite clue]]s|id=21|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Equip a Scroll Sack|Equip a [[Scroll sack]].|s=|other=Solve 100 [[master clue]]s|id=23|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Transform into Uri|Use the [[Uri Transform]] emote.|s=|other=Solve 300 [[hard clue]]s|id=25|difficulty=Elite|rate=<0.1%|color=red}}
+{{SRLTaskRow|Fill 30 Hard Clue Collection Log Slots|Fill 30 slots in the Hard Clue section of the Collection Log.|s=|other=|id=40|difficulty=Elite|rate=9.4%|color=yellow}}
+{{SRLTaskRow|Fill 40 Medium Clue Collection Log Slots|Fill 40 slots in the Medium Clue section of the Collection Log.|s=|other=|id=48|difficulty=Elite|rate=7.3%|color=yellow}}
+{{SRLTaskRow|Fill 50 Easy Clue Collection Log Slots|Fill 50 slots in the Easy Clue section of the Collection Log.|s=|other=|id=67|difficulty=Elite|rate=1.4%|color=yellow}}
+{{SRLTaskRow|Fill Every Beginner Clue Collection Log Slot|Fill every slot in the Beginner Clue section of the Collection Log.|s=|other=Obtaining a [[black pickaxe]] from easy clue scrolls does count towards this task.|id=75|difficulty=Elite|rate=0.2%|color=orange}}
+{{SRLTaskRow|Gain 25 Unique Items From Master Clues|Gain 25 unique items from Master Clue Scroll Reward Caskets.|s=|other=|id=94|difficulty=Elite|rate=0.1%|color=orange}}
+{{SRLTaskRow|Gain 25 Unique Items From Elite Clues|Gain 25 unique items from Elite Clue Scroll Reward Caskets.|s=|other=|id=103|difficulty=Elite|rate=0.5%|color=orange}}
+{{SRLTaskRow|Gain 50 Unique Items From Hard Clues|Gain 50 unique items from Hard Clue Scroll Reward Caskets.|s=|other=|id=112|difficulty=Elite|rate=10%|color=green}}
+
+{{SRLTaskSubheader|Master}}
+{{SRLTaskRow|500 Elite Clue Scrolls|Open 500 reward caskets for completing elite [[clue scroll]]s.|s=|other=|id=462|difficulty=Master|rate=<0.1%|color=red}}
+{{LeagueTaskBottom}}<noinclude>{{Shattered Relics League}}</noinclude>

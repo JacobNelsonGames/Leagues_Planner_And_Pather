@@ -1,0 +1,55 @@
+<noinclude>__NOTOC__
+{{LeagueSync}}</noinclude>
+
+{{SRLTaskHeader|unsortable=yes|collapsible=yes}}
+{{SRLTaskSubheader|Beginner}}
+{{SRLTaskRow|Complete the Gnome Stronghold Agility Course|Complete a lap of the [[Gnome Stronghold Agility Course]].|s={{SCP|Agility|1|link=yes|sort=yes}}|other=|id=1009|difficulty=Beginner|rate=92%|color=blue}}
+{{SRLTaskSubheader|Easy}}
+{{SRLTaskRow|Obtain a Mark of Grace|Obtain a [[Mark of Grace]] from any [[Rooftop Agility Course]].|s={{SCP|Agility|10|link=yes|sort=yes}}|other=|id=694|difficulty=Easy|rate=90%|color=blue}}
+{{SRLTaskRow|Complete a Rooftop Agility Course|Complete a lap of any Rooftop Agility Course.|s={{SCP|Agility|10|link=yes|sort=yes}}|other=|id=696|difficulty=Easy|rate=91%|color=blue}}
+{{SRLTaskRow|Complete the Draynor Agility Course|Complete a lap of the [[Draynor Village Rooftop Course|Draynor Rooftop Agility Course]].|s={{SCP|Agility|10|link=yes|sort=yes}}|other=|id=768|difficulty=Easy|rate=90%|color=blue}}
+{{SRLTaskRow|Receive an Agility Arena Ticket|Receive an [[Agility Arena Ticket]] from the [[Brimhaven Agility Arena]].|s=|other=|id=958|difficulty=Easy|rate=63%|color=blue}}
+{{SRLTaskRow|Complete the Al Kharid Agility Course|Complete a lap of the [[Al Kharid Rooftop Course|Al Kharid Rooftop Agility Course]].|s={{SCP|Agility|20|link=yes|sort=yes}}|other=|id=1175|difficulty=Easy|rate=88%|color=blue}}
+{{SRLTaskSubheader|Medium}}
+{{SRLTaskRow|Complete 50 Laps of a Rooftop Agility Course|Complete 50 laps of any Rooftop Agility Course.|s={{SCP|Agility|10|link=yes|sort=yes}}|other=Does not need to be 50 laps on the same course.|id=697|difficulty=Medium|rate=82%|color=blue}}
+{{SRLTaskRow|Complete 30 Laps of the Draynor Agility Course|Complete 30 laps of the Draynor Rooftop Agility Course.|s={{SCP|Agility|10|link=yes|sort=yes}}|other=|id=769|difficulty=Medium|rate=83%|color=blue}}
+{{SRLTaskRow|Cross a Trap in Isafdar|Successfully cross any kind of trap in [[Isafdar]].|s=|other=Requires completion of {{SCP|Quest}} [[Underground Pass]]|id=830|difficulty=Medium|rate=52%|color=blue}}
+{{SRLTaskRow|Complete the Penguin Agility Course|Complete a lap of the [[Penguin Agility Course]].|s={{SCP|Agility|30|link=yes|sort=yes}}|other=Requires completion of {{SCP|Quest}} [[Cold War]]|id=891|difficulty=Medium|rate=12%|color=green}}
+{{SRLTaskRow|Buy a Snapdragon From Pirate Jackie the Fruit|Buy a [[Snapdragon]] From [[Pirate Jackie the Fruit]] in [[Brimhaven]].|s=|other=10 [[Agility arena ticket|Agility arena tickets]]|id=959|difficulty=Medium|rate=45%|color=green}}
+{{SRLTaskRow|Complete the Barbarian Outpost Agility Course|Complete a lap of the [[Barbarian Outpost Agility Course]].|s={{SCP|Agility|35|link=yes|sort=yes}}|other=Requires {{SCP|Quest}} [[Alfred Grimhand's Barcrawl]] completed.|id=1010|difficulty=Medium|rate=54%|color=blue}}
+{{SRLTaskRow|Complete the Falador Agility Course|Complete a lap of the [[Falador Rooftop Course]].|s={{SCP|Agility|50|link=yes|sort=yes}}|other=|id=1091|difficulty=Medium|rate=80%|color=blue}}
+{{SRLTaskRow|Turn in a Pyramid Top to Simon Templeton|Turn in a [[Pyramid top]] to [[Simon Templeton]] at the [[Agility Pyramid]].|s={{SCP|Agility|30|link=yes|sort=yes}}|other=|id=1176|difficulty=Medium|rate=65%|color=blue}}
+{{SRLTaskRow|Complete the Canifis Agility Course|Complete a lap of the [[Canifis Rooftop Course|Canifis Rooftop Agility Course]].|s={{SCP|Agility|40|link=yes|sort=yes}}|other=Requires {{SCP|Quest}} [[Priest in Peril]] completed.|id=1232|difficulty=Medium|rate=79%|color=blue}}
+{{SRLTaskRow|Complete the Werewolf Agility Course|Complete a lap of the [[Werewolf Agility Course]].|s={{SCP|Agility|60|link=yes|sort=yes}}|other=[[Ring of Charos]] (can be pickpocketed from [[Dr Fenkenstrain]] in the [[Harmony Island]] windmill basement)|id=1233|difficulty=Medium|rate=24%|color=green}}
+{{SRLTaskRow|Complete the Wilderness Agility Course|Complete a lap of the [[Wilderness Agility Course]].|s={{SCP|Agility|52|link=yes|sort=yes}}|other=|id=1304|difficulty=Medium|rate=69%|color=blue}}
+{{SRLTaskSubheader|Hard}}
+{{SRLTaskRow|Complete 250 Laps of a Rooftop Agility Course|Complete 250 laps of any Rooftop Agility Course.|s={{SCP|Agility|10|link=yes|sort=yes}}|other=Does not need to be 250 laps on the same course.|id=698|difficulty=Hard|rate=21%|color=green}}
+{{SRLTaskRow|Take the Advanced Shortcut to the Cosmic Altar|Use the Advanced Narrow Walkway Agility Shortcut near the [[Cosmic Altar]].|s={{SCP|Agility|66|link=yes|sort=yes}}|other=Completed {{SCP|Quest}} [[Lost City]]|id=770|difficulty=Hard|rate=49%|color=green}}
+{{SRLTaskRow|Complete the Prifddinas Agility Course|Complete a lap of the [[Prifddinas Agility Course]].|s={{SCP|Agility|75|link=yes|sort=yes}}|other=|id=831|difficulty=Hard|rate=43%|color=green}}
+{{SRLTaskRow|Complete the Prifddinas Agility Course in 1:10|Complete a lap of the Prifddinas Agility Course in 1:10 or less.<br>''(Logging out during the course resets the timer to 0:00.)''|s={{SCP|Agility|75|link=yes|sort=yes}}|other=|id=832|difficulty=Hard|rate=38%|color=green}}
+{{SRLTaskRow|Complete the Rellekka Agility Course|Complete a lap of the [[Rellekka Rooftop Course]].|s={{SCP|Agility|80|link=yes|sort=yes}}|other=|id=892|difficulty=Hard|rate=34%|color=green}}
+{{SRLTaskRow|Take a Shortcut Across the Shilo Village River|Use the Stepping Stones Agility Shortcut in [[Shilo Village (location)|Shilo Village]].|s={{SCP|Agility|77|link=yes|sort=yes}}|other=Requires [[Medium Karamja Diary|Medium Karamja Diary]]|id=960|difficulty=Hard|rate=5.7%|color=yellow}}
+{{SRLTaskRow|Complete the Seers' Village Agility Course|Complete a lap of the [[Seers' Village Rooftop Course]].|s={{SCP|Agility|60|link=yes|sort=yes}}|other=|id=1011|difficulty=Hard|rate=69%|color=blue}}
+{{SRLTaskRow|Equip a Karamja Monkey Backpack|Equip a [[Karamjan monkey (item)|Karamja monkey backpack]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=Completed {{SCP|Quest}} [[Monkey Madness II]] and 100 laps around the [[Ape Atoll Agility Course]].|id=1078|difficulty=Hard|rate=4.4%|color=yellow}}
+{{SRLTaskRow|Equip a Maniacal Monkey Backpack|Equip a [[maniacal monkey (item)|maniacal monkey backpack]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=Completed {{SCP|Quest}} [[Monkey Madness II]] and 500 laps around the [[Ape Atoll Agility Course]].|id=1079|difficulty=Hard|rate=1.6%|color=yellow}}
+{{SRLTaskRow|Equip a Full Graceful Outfit|Equip a full set of [[graceful outfit]].|s={{SCP|Agility|10|link=yes}}|other=|id=1092|difficulty=Hard|rate=1.2%|color=yellow}}
+{{SRLTaskRow|Complete Floor 1 of the Hallowed Sepulchre|Complete floor 1 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|52|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1222|difficulty=Hard|rate=29%|color=green}}
+{{SRLTaskRow|Complete Floor 2 of the Hallowed Sepulchre|Complete floor 2 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|62|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1223|difficulty=Hard|rate=27%|color=green}}
+{{SRLTaskRow|Complete Floor 3 of the Hallowed Sepulchre|Complete floor 3 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|72|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1224|difficulty=Hard|rate=18%|color=green}}
+{{SRLTaskRow|Complete Floor 4 of the Hallowed Sepulchre|Complete floor 4 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|82|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1225|difficulty=Hard|rate=9.3%|color=yellow}}
+{{SRLTaskRow|Complete the Hallowed Sepulchre in 8:00|Complete the Hallowed Sepulchre in Darkmeyer in 8:00 or less.|s={{SCP|Agility|92|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1227|difficulty=Hard|rate=2.3%|color=yellow}}
+{{SRLTaskRow|Purchase a Reward From the Hallowed Sepulchre|Purchase a reward from the Hallowed Sepulchre.|s={{SCP|Agility|52|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1230|difficulty=Hard|rate=13%|color=green}}
+{{SRLTaskRow|Obtain Every Hallowed Tool|Obtain all four Hallowed Tools from the Hallowed Sepulchre.|s={{SCP|Agility|52|link=yes|sort=yes}} {{Boostable|no}}|other=Requires [[hallowed grapple]], [[hallowed focus|focus]], [[hallowed symbol|symbol]] and [[hallowed hammer|hammer]]|id=1231|difficulty=Hard|rate=4.2%|color=yellow}}
+{{SRLTaskSubheader|Elite}}
+{{SRLTaskRow|Reach Level 99 Agility|Reach level 99 in your Agility skill.|s={{SCP|Agility|99|link=yes|sort=yes}}|other=|id=550|difficulty=Elite|rate=7.8%|color=yellow}}
+{{SRLTaskRow|Obtain 25 Million Agility XP|Obtain 25 million experience in your Agility skill.|s={{SCP|Agility|99|link=yes|sort=yes}}|other=|id=551|difficulty=Elite|rate=0.6%|color=orange}}
+{{SRLTaskRow|Receive 60 Agility Arena Tickets With No Mistakes|Receive 60 Agility Arena Tickets without missing any pillars.|s={{SCP|Agility|40|link=yes|sort=yes}}|other=|id=961|difficulty=Elite|rate=6.8%|color=yellow}}
+{{SRLTaskRow|Complete the Ardougne Agility Course|Complete a lap of the [[Ardougne Rooftop Course]].|s={{SCP|Agility|90|link=yes|sort=yes}}|other=|id=1012|difficulty=Elite|rate=18%|color=green}}
+{{SRLTaskRow|Equip a Kruk Jr. Monkey Backpack|Equip a [[Kruk jr|kruk jr. monkey backpack]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=Completed {{SCP|Quest}} [[Monkey Madness II]] and 1,500 laps around the [[Ape Atoll Agility Course]].|id=1080|difficulty=Elite|rate=0.7%|color=orange}}
+{{SRLTaskRow|Complete Floor 5 of the Hallowed Sepulchre|Complete floor 5 of the [[Hallowed Sepulchre]] in [[Darkmeyer]].|s={{SCP|Agility|92|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1226|difficulty=Elite|rate=5.3%|color=yellow}}
+{{SRLTaskRow|Complete the Hallowed Sepulchre in 6:30|Complete the Hallowed Sepulchre in Darkmeyer in 6:30 or less.|s={{SCP|Agility|92|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1228|difficulty=Elite|rate=0.7%|color=orange}}
+{{SRLTaskRow|Equip a Ring of Endurance|Equip a Ring of Endurance.|s={{SCP|Agility|92|link=yes|sort=yes}} {{Boostable|no}}|other=Completed {{SCP|Quest}} [[Sins of the Father]]|id=1229|difficulty=Elite|rate=0.6%|color=orange}}
+{{SRLTaskSubheader|Master}}
+{{SRLTaskRow|Trade 1,000 Agility Arena Tickets for XP|Trade in 1,000 or more Agility Arena Tickets for XP in one go.|s=|other=|id=962|difficulty=Master|rate=0.1%|color=orange}}
+{{SRLTaskRow|Equip a Prince Awowogei Monkey Backpack|Equip a [[Princely monkey|Prince Awowogei Monkey Backpack]].|s={{SCP|Agility|48|link=yes|sort=yes}}|other=Completed {{SCP|Quest}} [[Monkey Madness II]] and 2,000 laps around the [[Ape Atoll Agility Course]].|id=1081|difficulty=Master|rate=0.6%|color=orange}}
+{{LeagueTaskBottom}}<noinclude>{{Shattered Relics League}}</noinclude>
