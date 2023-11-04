@@ -67,10 +67,26 @@ public class PathMinimapOverlay extends Overlay {
         ArrayList<Pathfinder> pathfinderArray = plugin.panel.getPathfinderArray() ;
         if (pathfinderArray != null)
         {
+            int Iter = 0;
             for (Pathfinder CurrentPathfinder : pathfinderArray)
             {
                 List<WorldPoint> pathPoints = CurrentPathfinder.getPath();
-                Color pathColor = CurrentPathfinder.isDone() ? Color.RED : Color.CYAN;
+                Color pathColor;
+
+                if (Iter * 50 > 255)
+                {
+                    break;
+                }
+
+                if (CurrentPathfinder.isDone())
+                {
+                    pathColor = new Color(255, 0, 0, 255 - Iter * 50);
+                }
+                else
+                {
+                    pathColor = new Color(0, 255, 255, 255 - Iter * 50);
+                }
+
                 for (WorldPoint pathPoint : pathPoints)
                 {
                     if (pathPoint.getPlane() != client.getPlane())
@@ -80,6 +96,7 @@ public class PathMinimapOverlay extends Overlay {
 
                     drawOnMinimap(graphics, pathPoint, pathColor);
                 }
+                ++Iter;
             }
         }
 

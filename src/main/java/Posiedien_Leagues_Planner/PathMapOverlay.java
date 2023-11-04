@@ -109,11 +109,27 @@ public class PathMapOverlay extends Overlay {
         }
 
         ArrayList<Pathfinder> pathfinderArray = plugin.panel.getPathfinderArray();
+        int Iter = 0;
         if (pathfinderArray != null)
         {
             for (Pathfinder CurrentPathfinder : pathfinderArray)
             {
-                Color colour = CurrentPathfinder.isDone() ? Color.RED : Color.CYAN;
+                Color colour;
+
+                if (Iter * 50 > 255)
+                {
+                    break;
+                }
+
+                if (CurrentPathfinder.isDone())
+                {
+                    colour = new Color(255, 0, 0, 255 - Iter * 50);
+                }
+                else
+                {
+                    colour = new Color(0, 255, 255, 255 - Iter * 50);
+                }
+
                 List<WorldPoint> path = CurrentPathfinder.getPath();
                 for (int i = 0; i < path.size(); i++) {
                     graphics.setColor(colour);
@@ -124,6 +140,7 @@ public class PathMapOverlay extends Overlay {
                     }
                     drawOnMap(graphics, point, true);
                 }
+                ++Iter;
             }
         }
 

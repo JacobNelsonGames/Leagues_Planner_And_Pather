@@ -194,6 +194,7 @@ public class PathTileOverlay extends Overlay {
                         }
                     }
                 }
+                break;
             }
         }
 

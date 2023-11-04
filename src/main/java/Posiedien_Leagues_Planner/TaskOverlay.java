@@ -750,13 +750,16 @@ public class TaskOverlay extends Overlay
         ArrayList<Pathfinder> pathfinderArray = plugin.panel.getPathfinderArray();
         if (player != null)
         {
-            graphics.setColor(new Color(255, 226, 1,255));
             WorldPoint LastWorldPoint = player.getWorldLocation();
             WorldPoint LastActualWorldPoint = player.getWorldLocation();
 
+            int Iter = 0;
             int SortTaskIter = 0;
             for (SortedTask SortedTaskIter : config.UserData.SortedPlannedTasks)
             {
+                graphics.setColor(new Color(255, 226, 1, Math.max(0, 255 - Iter * 50)));
+
+                ++Iter;
                 if (OthFilter == OtherFilter.NEXT_5_TASKS)
                 {
                     if (SortTaskIter > 4)
