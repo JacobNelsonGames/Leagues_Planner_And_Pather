@@ -96,7 +96,7 @@ public class PathMinimapOverlay extends Overlay {
 
                     drawOnMinimap(graphics, pathPoint, pathColor);
                 }
-                ++Iter;
+                break;
             }
         }
 
