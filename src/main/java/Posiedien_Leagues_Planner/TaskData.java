@@ -205,6 +205,7 @@ public class TaskData
         Converted.append("Y");
         Converted.append(",");
         Converted.append("Z");
+        Converted.append(",");
         Converted.append("\r\n");
 
         // Set up for manually adding things

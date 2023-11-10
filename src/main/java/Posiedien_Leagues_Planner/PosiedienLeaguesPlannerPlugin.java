@@ -980,8 +980,8 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
     // Debug flags for saving/loading new data
     private boolean bLoadRawWikiData = true;
-    private boolean bCalculateOverworldPositions = true;
-    private boolean bSaveTaskData = true;
+    private boolean bCalculateOverworldPositions = false;
+    private boolean bSaveTaskData = false;
     private boolean bSaveRegionData = false;
 
     void SaveRegionBounds() throws IOException
