@@ -1,0 +1,275 @@
+===Easy===
+<div class="mw-collapsible" data-collapsible-name="easy">
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Gen1Count}} tasks available, there are a total of {{#var_final:Gen1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Burn Some Coloured Logs|Burn some logs that have been coloured with a [[Gnomish firelighter|firelighter]].|s={{SCP|Firemaking|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Eat some Purple Sweets|Eat some [[Purple sweets|Purple Sweets]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Gain a Unique Item From an Easy Clue|Gain a unique item from an [[Reward casket (easy)|Easy Clue Scroll Reward Casket]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Gain a Unique Item From a Beginner Clue|Gain a unique item from a [[Reward casket (beginner)|Beginner Clue Scroll Reward Casket]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Defeat a Moss Giant|Defeat a [[Moss giant|Moss Giant]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Defeat a Goblin|Defeat a [[Goblin]]. After all, this still isn't the Goblin League.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Defeat a Guard|Defeat a [[Guard]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Restore 5 Prayer Points at an Altar|Restore 5 or more [[Prayer points|Prayer Points]] at any [[altar]].|s={{SCP|Prayer|5}}|other=|tier=easy}}
+{{LeagueTaskRow|Superhuman Strength and Improved Reflexes|Use both the [[Superhuman Strength]] prayer and the [[Improved Reflexes]] prayer at the same time.|s={{SCP|Prayer|16}}|other=|tier=easy}}
+{{LeagueTaskRow|Bury Some Bones|Bury any kind of [[Bones]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|1 Easy Clue Scroll|Open a [[Reward casket (easy)|Reward casket]] for completing an [[Clue scroll (easy)|easy clue scroll]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|25 Easy Clue Scrolls|Open 25 [[Reward casket (easy)|Reward caskets]] for completing [[Clue scroll (easy)|easy clue scrolls]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|1 Medium Clue Scroll|Open a [[Reward casket (medium)|Reward casket]] for completing a [[Clue scroll (medium)|medium clue scroll]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Open the Leagues Menu|Open the Leagues Menu found within the Journal Panel.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Complete the Leagues Tutorial|Complete the Leagues Tutorial and begin your adventure.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Achieve Your First Level Up|Level up any of your [[skill]]s for the first time.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Achieve Your First Level 5|Reach level 5 in any [[skill]] (not including [[Agility]], [[Hitpoints]] and [[Runecraft]]).|s=|other=|tier=easy}}
+{{LeagueTaskRow|Achieve Your First Level 10|Reach level 10 in any [[skill]] (not including [[Agility]] and [[Hitpoints]]).|s=|other=|tier=easy}}
+{{LeagueTaskRow|Achieve Your First Level 20|Reach level 20 in any [[skill]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Reach Total Level 100|Reach a Total Level of 100.|s={{SCP|overall|100}}|other=|tier=easy}}
+{{LeagueTaskRow|Reach Total Level 250|Reach a Total Level of 250.|s={{SCP|overall|250}}|other=|tier=easy}}
+{{LeagueTaskRow|Reach Total Level 500|Reach a Total Level of 500.|s={{SCP|overall|500}}|other=|tier=easy}}
+{{LeagueTaskRow|Reach Base Level 5|Reach level 5 in every [[skill]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Reach Base Level 10|Reach level 10 in every [[skill]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Reach Base Level 20|Reach level 20 in every [[skill]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Pickpocket a Citizen|Pickpocket a [[Man]] or a [[Woman]].|s={{SCP|Thieving|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Open 28 Coin Pouches At Once|Open 28 [[Coin pouch|Coin Pouches]] at once.|s={{SCP|Thieving|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Steal a Chocolate Slice|Steal a [[Chocolate cake#Slice|Chocolate Slice]] from a [[Bakery stall|Bakery Stall]].|s={{SCP|Thieving|5}}|other={{TB|Desert}}, {{TB|Fremennik}}, {{TB|Kandarin}}, or {{TB|Kourend}}|tier=easy}}
+{{LeagueTaskRow|Rake a Farming Patch|Rake any [[Farming/Patch locations|Farming patch]].|s={{SCP|Farming|1}}|other=[[Rake]]|tier=easy}}
+{{LeagueTaskRow|Plant Seeds in an Allotment Patch|Plant some [[seeds]] in an [[Allotment patch]].|s={{SCP|Farming|1}}|other=[[Seed dibbler]] and either {{TB|Asgarnia}}, {{TB|Morytania}}, {{TB|Kandarin}}, {{TB|Kourend}} or {{TB|Tirannwn}}|tier=easy}}
+{{LeagueTaskRow|Protect Your Crops|Pay a farmer to protect any of your crops.|s={{SCP|Farming|1}} to plant crops to be protected|other=Items requested by the farmer to protect the crop|tier=easy}}
+{{LeagueTaskRow|Chop Some Logs|Chop any kind of logs.|s={{SCP|Woodcutting|1}}|other=Any [[axe]]|tier=easy}}
+{{LeagueTaskRow|Chop Some Logs With a Steel Axe|Chop any kind of logs using a [[Steel axe|Steel Axe]].|s={{SCP|Woodcutting|6}}|other=|tier=easy}}
+{{LeagueTaskRow|Obtain a Bird Nest|Obtain a [[Bird nest|Bird Nest]] whilst cutting down trees.|s={{SCP|Woodcutting|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Cook Shrimp|Cook [[Raw shrimps|Raw Shrimp]].|s={{SCP|Cooking|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Burn Some Food|Burn any kind of food while trying to cook it.|s={{SCP|Cooking|1}}<!--You can still fail at 99 Cooking, don't worry.-->|other=|tier=easy}}
+{{LeagueTaskRow|Successfully Cook 5 Pieces of Food|Cook 5 pieces of food in a row without burning them.|s={{SCP|Cooking|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Mine some Copper Ore|Mine some [[Copper ore|Copper Ore]].|s={{SCP|Mining|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Mine some Ore With a Steel Pickaxe|Mine any ore using a [[Steel pickaxe|Steel Pickaxe]].|s={{SCP|Mining|6}}|other=|tier=easy}}
+{{LeagueTaskRow|Obtain a Gem While Mining|Obtain any kind of [[Gems|gem]] whilst mining a rock.|s={{SCP|Mining|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Fletch Some Arrow Shafts|Fletch some [[Arrow shaft|Arrow Shafts]].|s={{SCP|Fletching|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Fletch an Oak Shortbow|Fletch an [[Oak shortbow|Oak Shortbow]].|s={{SCP|Fletching|20}}|other=1 [[Oak logs]] ({{SCP|Woodcutting|15}} if Woodcutting)|tier=easy}}
+{{LeagueTaskRow|Fletch 150 Iron Arrows|Fletch 150 [[Iron arrow|Iron Arrows]].|s={{SCP|Fletching|15}}|other=|tier=easy}}
+{{LeagueTaskRow|Receive a Slayer Task|Receive a [[Slayer task|Slayer Task]] from any [[Slayer Master]].|s=|other=See [[Slayer Master#Slayer Masters]] for [[combat level]] and/or [[quest]] requirements|tier=easy}}
+{{LeagueTaskRow|Check Your Slayer Task|Use an [[Enchanted gem|Enchanted Gem]] to check your [[Slayer task|Slayer Task]].|s=|other={{Coins|1}} to purchase an Enchanted gem <!--Dunno if [[Eternal gem]] works-->|tier=easy}}
+{{LeagueTaskRow|Equip a Spiny Helmet|Equip a [[Spiny helmet|Spiny Helmet]].|s={{SCP|Defence|5}}|other={{Coins|650}} to purchase|tier=easy}}
+{{LeagueTaskRow|Spin a Ball of Wool|Use a [[Spinning wheel|Spinning Wheel]] to spin a [[Ball of wool|Ball of Wool]].|s={{SCP|Crafting|1}}|other=<!--[[Shears]], or one of the shop regions-->|tier=easy}}
+{{LeagueTaskRow|Cut a Sapphire|Cut a [[Sapphire]].|s={{SCP|Crafting|20}}|other=|tier=easy}}
+{{LeagueTaskRow|Craft a Leather Body|Craft a [[Leather body|Leather Body]].|s={{SCP|Crafting|14}}|other=[[Leather]]: Either {{TB|Asgarnia}} ({{SCP|Crafting|40}}), {{TB|Kandarin}} ({{SCP|Ranged|40}}), {{TB|Kourend}}, {{TB|Desert}}, or {{TB|Morytania}} for easier access.
+<!--Fremennik, Tirannwn, Wilderness:-->In a worst case scenario, {{TB|Fremennik}} with {{SCP|Magic|78}} and {{SCP|diary}} [[Fremennik Diary#Hard|Fremennik Hard Diary]] to cast [[Tan Leather]] when no other options are available.<!--Fremennik, Tirannwn, Wilderness-->|tier=easy}}
+{{LeagueTaskRow|Catch a Shrimp|Catch [[Raw shrimps|Raw Shrimp]] while [[Fishing]].|s={{SCP|Fishing|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Catch a Herring|Catch a [[Raw herring|Raw Herring]] whilst [[Fishing]].|s={{SCP|Fishing|10}}|other=|tier=easy}}
+{{LeagueTaskRow|Catch an Anchovy|Catch a [[Raw anchovies|Raw Anchovy]] whilst [[Fishing]].|s={{SCP|Fishing|15}}|other=|tier=easy}}
+{{LeagueTaskRow|Smelt a Bronze Bar|Use a [[Furnace]] to smelt a [[Bronze bar|Bronze Bar]].|s={{SCP|Smithing|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Smelt an Iron Bar|Use a [[Furnace]] to smelt an [[Iron bar|Iron Bar]].|s={{SCP|Smithing|15}}|other=|tier=easy}}
+{{LeagueTaskRow|Smith 150 Iron Arrowtips|Use an [[Anvil]] to smith 150 [[Iron arrowtips|Iron Arrowtips]].|s={{SCP|Smithing|20}}|other=|tier=easy}}
+{{LeagueTaskRow|Purchase a Player Owned House|Purchase a [[Player-owned house|Player Owned House]].|s=|other={{Coins|1000}} or completion of {{SCP|Quest}} [[Daddy's Home]]|tier=easy}}
+{{LeagueTaskRow|Build a Room in Your Player Owned House|Build a room in your [[Player-owned house|Player Owned House]].|s=|other={{Coins|1000}}|tier=easy}}
+{{LeagueTaskRow|Turn any Logs Into a Plank|Use a [[Sawmill]] to turn [[Logs]] into a [[Plank]].|s=|other=1 Logs, {{Coins|100}}|tier=easy}}
+{{LeagueTaskRow|Visit the Rune Essence Mine|Visit the [[Rune essence mine|Rune Essence Mine]].|s=|other=Completion of {{SCP|Quest}} [[Rune Mysteries]]|tier=easy}}
+{{LeagueTaskRow|Craft Any Rune|Use a [[Runic altar|Runecrafting Altar]] to craft any type of rune from Essence.|s=|other=<!--1 Rune Essence or 1 Pure Essence, either a [[talisman]] or {{TB|Wilderness}} or {{TB|Desert}}-->|tier=easy}}
+{{LeagueTaskRow|Locate a Runecrafting Altar With a Talisman|Use any [[talisman]] to check the location of a [[Runic altar|Runecrafting Altar]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Burn Some Normal Logs|Burn some [[Logs|Normal Logs]].|s={{SCP|Firemaking|1}}|tier=easy}}
+{{LeagueTaskRow|Burn Some Oak Logs|Burn some [[Oak logs|Oak Logs]].|s={{SCP|Firemaking|15}}|other=1 Oak logs ({{SCP|Woodcutting|15}} if Woodcutting)|tier=easy}}
+{{LeagueTaskRow|Light a Torch|Light a [[Torch]].|s={{SCP|Firemaking|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Catch a Baby Impling|Catch a [[Baby impling|Baby Impling]].|s={{SCP|Hunter|17}} ({{SCP|Hunter|27}} for barehanded when a [[butterfly net]] is unavailable)|other=|tier=easy}}
+{{LeagueTaskRow|Snare a Bird|Catch any bird with a [[Bird snare|Bird Snare]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Catch a Butterfly|Catch any [[Butterfly (Hunter)|butterfly]].|s=Either {{SCP|Hunter|15}} (with {{TB|Kandarin}} or {{TB|Kourend}}) or {{SCP|Hunter|25}} (with {{TB|Fremennik}})|other={{SCP|Hunter|17}} to equip a [[butterfly net]] or a [[magic butterfly net]] ({{SCP|Hunter|42}} to acquire the latter with a butterfly net or {{SCP|Hunter|52}} while barehanded).
+Without {{TB|Kandarin}} or {{TB|Desert}}: Additionally [[impling jar]]s and {{SCP|Hunter|58}} to catch a [[Nature impling jar|Nature impling in a jar]] required for a [[jar generator]] to acquire a [[butterfly jar]], which requires finding a [[rotating crop circle]] or completion of the {{SCP|Quest}} [[Lost City]] to acquire the required items.|tier=easy}}
+{{LeagueTaskRow|Obtain a Mark of Grace|Obtain a [[Mark of grace|Mark of Grace]] from any [[Rooftop Agility Courses|Rooftop Agility Course]].|s={{SCP|Agility|10}}|other=|tier=easy}}
+{{LeagueTaskRow|Complete a Rooftop Agility Course|Complete a lap of any [[Rooftop Agility Courses|Rooftop Agility Course]].|s={{SCP|Agility|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Clean a Grimy Guam|Clean a [[Grimy guam|Grimy Guam]].|s={{SCP|Herblore|3}}|other=|tier=easy}}
+{{LeagueTaskRow|Make an Attack Potion|Make an [[Attack potion|Attack Potion]].|s={{SCP|Herblore|3}}|other=|tier=easy}}
+{{LeagueTaskRow|Drink a Strength Potion|Drink a [[Strength potion|Strength Potion]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Reach Combat Level 10|Reach Combat Level 10.|s={{SCP|Combat|10}}|other=|tier=easy}}
+{{LeagueTaskRow|Reach Combat Level 25|Reach Combat Level 25.|s={{SCP|Combat|25}}|other=|tier=easy}}
+{{LeagueTaskRow|Visit Death's Domain|Visit [[Death's Office|Death's Domain]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Equip a Mithril Weapon|Equip any [[Mithril equipment|Mithril weapon]].|s={{SCP|Attack|20}}|other=|tier=easy}}
+{{LeagueTaskRow|Equip a Full Mithril Set|Equip a [[Mithril platebody|Mithril Platebody]], a [[Mithril full helm|Mithril Full Helm]] and either some [[Mithril platelegs|Mithril Platelegs]] or a [[Mithril plateskirt|Mithril Plateskirt]].|s={{SCP|Defence|20}}|other=|tier=easy}}
+{{LeagueTaskRow|Equip a Studded Body and Chaps|Equip a [[Studded body|Studded Body]] along with some [[Studded chaps|Studded Chaps]].|s={{SCP|Ranged|20}}, {{SCP|Defence|20}}|other=|tier=easy}}
+{{LeagueTaskRow|Equip a Maple Shortbow|Equip a [[Maple shortbow|Maple Shortbow]].|s={{SCP|Ranged|30}}|other=|tier=easy}}
+{{LeagueTaskRow|Equip an Elemental Staff|Equip a basic [[Elemental staves|elemental staff]].|s=|other=<!--{{Coins|1500}} if purchasing from a store-->|tier=easy}}
+{{LeagueTaskRow|Cast Home Teleport|Cast the [[Home Teleport]]<!--Disambiguation page--> spell.|s={{SCP|Magic|0}}<!--Hopefully not [[Teleport to House]]-->|other=|tier=easy}}
+{{LeagueTaskRow|Enter your Player Owned House|Enter your [[Player-owned house|Player Owned House]].|s=|other=Purchased a player-owned house previously for {{Coins|1000}} or completed the miniquest {{SCP|Quest}} [[Daddy's Home]]|tier=easy}}
+{{LeagueTaskRow|Obtain a Casket from Fishing|Obtain a [[Casket]] from [[Fishing]].|s={{SCP|Fishing|16}} (or {{SCP|Fishing}}{{clarify}} at {{TB|Kourend}})|other=|tier=easy}}
+{{LeagueTaskRow|Steal Some Silk|Steal some [[silk]] from a [[silk stall]].|s={{SCP|Thieving|20}}|other=Either {{TB|Kandarin}}, {{TB|Desert}}, {{TB|Kourend}} or {{TB|Tirannwn}}|tier=easy}}
+{{LeagueTaskRow|Equip some Steel armour|Equip either a [[Steel platebody|Steel Platebody]], some [[Steel platelegs|Steel Platelegs]] or a [[Steel full helm|Steel Full Helm]].|s={{SCP|Defence|5}}|other=|tier=easy}}
+{{LeagueTaskRow|Equip some Black armour|Equip either a [[Black platebody|Black Platebody]], some [[Black platelegs|Black Platelegs]] or a [[Black full helm|Black Full Helm]].|s={{SCP|Defence|10}}|other=|tier=easy}}
+{{LeagueTaskRow|Equip a Willow Shield|Equip a [[Willow shield|Willow Shield]].|s={{SCP|Defence|30}}, {{SCP|Fletching|42}}|other=2 [[Willow logs]] ({{SCP|Woodcutting|30}} if Woodcutting)|tier=easy}}
+{{LeagueTaskRow|Buy Something From Trader Crewmembers|Buy something from the [[Trader Crewmember]]s.|s=|other={{Coins|2}}<!--Ignoring an additional 30 Coins it may cost to access Karamja early in the game.-->|tier=easy}}
+{{LeagueTaskRow|Make some Flour|Make some [[Pot of flour|Flour]] in a [[windmill]].|s=|other=<!--1 [[Pot]], 1 [[Grain]]-->|tier=easy}}
+{{LeagueTaskRow|Enter Puro Puro from Gielinor|Enter [[Puro-Puro|Puro Puro]] from a [[crop circle]] in mainland [[Gielinor]]|s={{SCP|Hunter|17}}|other=|tier=easy}}
+{{LeagueTaskRow|Dye a cape orange|[[Orange dye|Dye]] a [[cape]] orange|s=|other=<!--{{TB|Misthalin}}: {{Coins|10}} for [[Aggie]]-->|tier=easy}}
+{{LeagueTaskRow|Use a [[herring]] on a tree|Not quite of the crimson variety.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Kill a Necromancer|Kill a Necromancer|s=|other=Either {{TB|Kandarin}} ([[Necromancer (Necromancer Tower)]]) or {{TB|Kourend}} ([[Necromancer]])|tier=easy}}
+{{LeagueTaskRow|Cry in a wheat field|[[Cry]] in a wheat field|s=|other=|tier=easy}}
+{{LeagueTaskRow|Dance in a graveyard|[[Dance]] in a graveyard|s=|other=|tier=easy}}
+{{LeagueTaskRow|Scrape some blue dragonhide|Scrape some blue dragonhide{{clarify}}|s=|other=|tier=easy}}
+{{LeagueTaskRow|Have a conversation with a cat|Have a conversation with a [[cat]]|s=|other={{TB|Desert}} to complete [[Icthlarin's Little Helper]] or {{TB|Fremennik}} to auto complete [[Dragon Slayer II]]|tier=easy}}
+{{LeagueTaskRow|Successfully Cut a Red Topaz|Successfully Cut a [[Red topaz|Red Topaz]]|s={{SCP|Crafting|16}}|other=[[Chisel]]|tier=easy}}
+{{LeagueTaskRow|Fletch 25 Oak Stocks|Fletch 25 [[Oak stock|Oak Stocks]]|s={{SCP|Fletching|24}}|other=|tier=easy}}
+{{LeagueTaskRow|Fletch 1000 arrow shafts|Fletch 1000 [[arrow shaft]]s|s={{SCP|Fletching|1}}|other=|tier=easy}}
+{{LeagueTaskRow|Create an Antipoison|Create an [[Antipoison]]|s={{SCP|Herblore|5}}|other=|tier=easy}}
+{{LeagueTaskRow|Create a Compost Potion|Create a [[Compost potion|Compost Potion]]|s={{SCP|Herblore|22}}|other=|tier=easy}}
+{{LeagueTaskRow|Mine 10 Tin Ore|Mine 10 [[Tin ore|Tin Ore]]|s={{SCP|Mining|1}}|other=Any [[pickaxe]]|tier=easy}}
+{{LeagueTaskRow|Mine 15 coal|Mine 15 [[coal]]|s={{SCP|Mining|30}}|other=Any pickaxe|tier=easy}}
+{{LeagueTaskRow|Smith a Bronze full helm|Use an [[Anvil]] to smith a [[Bronze full helm]]|s={{SCP|Smithing|7}}|other=|tier=easy}}
+{{LeagueTaskRow|Smith a Bronze plateskirt|Use an [[Anvil]] to smith a [[Bronze plateskirt]]|s={{SCP|Smithing|16}}|other=|tier=easy}}
+{{LeagueTaskRow|Complete 1 Slayer Task|Complete 1 [[Slayer task|Slayer Task]].|s=|other=See [[Slayer Master#Slayer Masters]] for [[combat level]] and/or [[quest]] requirements|tier=easy}}
+{{LeagueTaskBottom|varname=Gen1|ppt=10}}
+</div>
+===Medium===
+<div class="mw-collapsible" data-collapsible-name="medium">
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''40''' league points upon completion.
+
+With {{#var_final:Gen2Count}} tasks available, there are a total of {{#var_final:Gen2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Equip a Trimmed Amulet|Equip a [[Ornamental armour#Other|Trimmed Amulet]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Fill 3 Elite Clue Collection Log Slots|Fill 3 slots in the [[Clue scroll (elite)|Elite Clue]] section of the [[Collection Log]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Fill 3 Hard Clue Collection Log Slots|Fill 3 slots in the [[Clue scroll (hard)|Hard Clue]] section of the [[Collection Log]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Fill 5 Medium Clue Collection Log Slots|Fill 5 slots in the [[Clue scroll (medium)|Medium Clue]] section of the [[Collection Log]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Fill 5 Easy Clue Collection Log Slots|Fill 5 slots in the [[Clue scroll (easy)|Easy Clue]] section of the [[Collection Log]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Fill 5 Beginner Clue Collection Log Slots|Fill 5 slots in the [[Clue scroll (beginner)|Beginner Clue]] section of the [[Collection Log]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Gain 5 Unique Items From Hard Clues|Gain 5 unique items from [[Reward casket (hard)|Hard Clue Scroll Reward Caskets]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Gain 10 Unique Items From Medium Clues|Gain 10 unique items from [[Reward casket (medium)|Medium Clue Scroll Reward Caskets]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Gain 10 Unique Items From Easy Clues|Gain 10 unique items from [[Reward casket (easy)|Easy Clue Scroll Reward Caskets]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Gain 10 Unique Items From Beginner Clues|Gain 10 unique items from [[Reward casket (beginner)|Beginner Clue Scroll Reward Caskets]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Gain a Unique Item From a Hard Clue|Gain a unique item from a [[Reward casket (hard)|Hard Clue Scroll Reward Casket]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Gain a Unique Item From a Medium Clue|Gain a unique item from a [[Reward casket (medium)|Medium Clue Scroll Reward Casket]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Defeat an Adult Chromatic Dragon|Defeat either an adult [[Green dragon|Green Dragon]], [[Blue dragon|Blue Dragon]], [[Red dragon|Red Dragon]] or [[Black dragon|Black Dragon]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Defeat a Lesser Demon|Defeat a [[Lesser demon|Lesser Demon]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Wizard Robe and Hat|Equip any [[Wizard robes|wizard robe]] along with any wizard hat.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Piece of a Mystic Set|Equip any piece of any [[Mystic robes|Mystic robe]] set.|s={{SCP|Magic|40}}, {{SCP|Defence|20}}|other=|tier=medium}}
+{{LeagueTaskRow|Activate Smite|Activate [[Smite]] in your prayer book.|s={{SCP|Prayer|52}}|other=|tier=medium}}
+{{LeagueTaskRow|Pickpocket a Master Farmer|Successfully pickpocket from a [[Master Farmer|master farmer]].|s={{SCP|Thieving|38}}|other=|tier=medium}}
+{{LeagueTaskRow|25 Superior Slayer Encounters|Defeat 25 [[Superior slayer monster|superior foes]] while on a [[Slayer task|Slayer Task]].|s={{SCP|Slayer|5}}|other=Unlocked Bigger and Badder for 150 Slayer reward points|tier=medium}}
+{{LeagueTaskRow|75 Superior Slayer Encounters|Defeat 75 [[Superior slayer monster|superior foes]] while on a [[Slayer task|Slayer Task]].|s={{SCP|Slayer|5}}|other=Unlocked Bigger and Badder for 150 Slayer reward points|tier=medium}}
+{{LeagueTaskRow|100 Superior Slayer Encounters|Defeat 100 [[Superior slayer monster|superior foes]] while on a [[Slayer task|Slayer Task]].|s={{SCP|Slayer|5}}|other=Unlocked Bigger and Badder for 150 Slayer reward points|tier=medium}}
+{{LeagueTaskRow|Reach a Prayer Bonus of 15|Equip enough item to reach a [[Prayer items|Prayer bonus]] of 15 or more.|s=|other=|tier=medium}}
+{{LeagueTaskRow|75 Easy Clue Scrolls|Open 75 Reward caskets for completing [[Clue scroll (easy)|easy clue scrolls]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|150 Easy Clue Scrolls|Open 150 Reward caskets for completing [[Clue scroll (easy)|easy clue scrolls]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|25 Medium Clue Scrolls|Open 25 Reward caskets for completing [[Clue scroll (medium)|medium clue scrolls]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|75 Medium Clue Scrolls|Open 75 Reward caskets for completing [[Clue scroll (medium)|medium clue scrolls]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|150 Medium Clue Scrolls|Open 150 Reward caskets for completing [[Clue scroll (medium)|medium clue scrolls]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|1 Hard Clue Scroll|Open a Reward casket for completing a [[Clue scroll (hard)|hard clue scroll]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|25 Hard Clue Scrolls|Open 25 Reward caskets for completing [[Clue scroll (hard)|hard clue scrolls]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|1 Elite Clue Scroll|Open a Reward casket for completing an [[Clue scroll (elite)|elite clue scroll]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Bury Some Wyvern or Dragon Bones|Bury either some [[Wyvern bones|Wyvern Bones]] or some [[Dragon bones|Dragon Bones]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Achieve Your First Level 30|Reach level 30 in any skill.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Achieve Your First Level 40|Reach level 40 in any skill.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Achieve Your First Level 50|Reach level 50 in any skill.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Reach Total Level 750|Reach a Total Level of 750.|s={{SCP|total|750}}|other=|tier=medium}}
+{{LeagueTaskRow|Reach Total Level 1000|Reach a Total Level of 1000.|s={{SCP|total|1000}}|other=|tier=medium}}
+{{LeagueTaskRow|Reach Total Level 1250|Reach a Total Level of 1250.|s={{SCP|total|1250}}|other=|tier=medium}}
+{{LeagueTaskRow|Reach Base Level 30|Reach level 30 in every skill.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Reach Base Level 40|Reach level 40 in every skill.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Reach Base Level 50|Reach level 50 in every skill.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Pickpocket a Guard|Pickpocket a [[Guard]].|s={{SCP|Thieving|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Obtain 800 Coins From Coin Pouches At Once|Open a stack of [[Coin pouch|Coin Pouches]] and obtain at least 800 [[Coins]].|s={{SCP|Thieving|40}} (can be completed at lower levels depending on luck when pickpocketing NPCs with variable coin amounts, or with the [[Trickster]] relic)|other=|tier=medium}}
+{{LeagueTaskRow|Pickpocket a Ranarr Seed|Pickpocket a [[Ranarr seed|Ranarr Seed]] from a [[Master Farmer]].|s={{SCP|Thieving|38}}|other=|tier=medium}}
+{{LeagueTaskRow|Harvest an Irit Leaf|Harvest an [[Grimy irit leaf|Irit Leaf]] from any [[Herb patch]].|s={{SCP|Farming|44}}|other=|tier=medium}}
+{{LeagueTaskRow|Fill a Bucket With Supercompost|Fill a [[Bucket]] with [[Supercompost]] from a [[Compost Bin]].|s=|other=Either {{TB|Asgarnia}}, {{TB|Morytania}}, {{TB|Kandarin}}, {{TB|Kourend}} or {{TB|Tirannwn}}|tier=medium}}
+{{LeagueTaskRow|Check a grown Fruit Tree|Check the health of any [[Fruit tree patch|Fruit Tree]] you've grown.|s={{SCP|Farming|27}}|other=|tier=medium}}
+{{LeagueTaskRow|Chop 100 Willow Logs|Chop 100 [[Willow logs|Willow Logs]] from [[Willow tree|Willow Trees]].|s={{SCP|Woodcutting|30}}|other=|tier=medium}}
+{{LeagueTaskRow|Chop Some Logs With a Rune Axe|Chop any kind of logs using a [[Rune axe|Rune Axe]].|s={{SCP|Woodcutting|41}}|other=|tier=medium}}
+{{LeagueTaskRow|Build a Waka Canoe|Build a [[Canoe|Waka Canoe]].|s={{SCP|Woodcutting|57}}|other=|tier=medium}}
+{{LeagueTaskRow|Ferment 100 Jugs of Wine|Successfully ferment 100 [[Jug of wine|Jugs of Wine]].|s={{SCP|Cooking|35}}|other=|tier=medium}}
+{{LeagueTaskRow|Cook 100 Lobsters|Cook 100 [[Raw lobster|Raw Lobsters]].|s={{SCP|Cooking|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Make a Pineapple Pizza|Make a [[Pineapple pizza|Pineapple Pizza]].|s={{SCP|Cooking|65}}|other=|tier=medium}}
+{{LeagueTaskRow|Mine 50 Iron Ore|Mine 50 [[Iron ore|Iron Ore]].|s={{SCP|Mining|15}}|other=|tier=medium}}
+{{LeagueTaskRow|Mine some Ore With a Rune Pickaxe|Mine any ore using a [[Rune pickaxe|Rune Pickaxe]].|s={{SCP|Mining|41}}|other=|tier=medium}}
+{{LeagueTaskRow|Obtain a Clue Geode While Mining|Obtain any kind of [[clue geode]] whilst mining a rock.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Fletch a Willow Shortbow|Fletch a [[Willow shortbow|Willow Shortbow]].|s={{SCP|Fletching|35}}|other=1 [[Willow logs]] ({{SCP|Woodcutting|30}} if Woodcutting)|tier=medium}}
+{{LeagueTaskRow|Create a Mithril Grapple|Create a [[Mith grapple|Mithril Grapple]].|s={{SCP|Fletching|59}}, {{SCP|Smithing|59}}|other=|tier=medium}}
+{{LeagueTaskRow|Fletch some Broad Arrows or Bolts|Fletch either some [[Broad arrows|Broad Arrows]] or some [[Broad bolts|Broad Bolts]].|s={{SCP|Fletching|52}}|other=Unlocked Broader Fletching using 300 Slayer reward points|tier=medium}}
+{{LeagueTaskRow|Slay 250 Creatures|Slay 250 creatures whilst on a [[Slayer task|Slayer Task]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Defeat a Superior Slayer Creature|Defeat any [[Superior slayer monster|Superior Slayer Creature]].|s={{SCP|Slayer|5}}|other=Unlocked Bigger and Badder for 150 Slayer reward points|tier=medium}}
+{{LeagueTaskRow|Craft 100 Unpowered Orbs|Craft 100 [[Unpowered orb|Unpowered Orbs]].|s={{SCP|Crafting|46}}|other=|tier=medium}}
+{{LeagueTaskRow|Craft an Emerald Ring|Craft an [[Emerald ring|Emerald Ring]].|s={{SCP|Crafting|27}}|other=|tier=medium}}
+{{LeagueTaskRow|Craft a Ruby Amulet|Craft a [[Ruby amulet|Ruby Amulet]].|s={{SCP|Crafting|50}}|other=|tier=medium}}
+{{LeagueTaskRow|Catch 100 Lobsters|Catch 100 [[Raw lobster|Raw Lobsters]] whilst [[Fishing]].|s={{SCP|Fishing|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Catch 50 Swordfish|Catch 50 [[Raw swordfish|Raw Swordfish]] whilst [[Fishing]].|s={{SCP|Fishing|50}}|other=|tier=medium}}
+{{LeagueTaskRow|Catch 50 Salmon|Catch 50 [[Raw salmon|Raw Salmon]] whilst [[Fishing]].|s={{SCP|Fishing|30}}|other=|tier=medium}}
+{{LeagueTaskRow|Smith a Steel Platebody|Use an [[Anvil]] to smith a [[Steel platebody|Steel Platebody]].|s={{SCP|Smithing|48}}|other=|tier=medium}}
+{{LeagueTaskRow|Smelt a Steel Bar|Use a [[Furnace]] to smelt a [[Steel bar|Steel Bar]].|s={{SCP|Smithing|30}}|other=|tier=medium}}
+{{LeagueTaskRow|Build a Mahogany Portal|Build a [[Mahogany portal|Mahogany Portal]] in a [[Portal Chamber]] in your Player Owned House.|s={{SCP|Construction|65}}|other=|tier=medium}}
+{{LeagueTaskRow|Build an Oak Larder|Build an Oak Larder in a Kitchen in your [[Player-owned house|Player Owned House]].|s={{SCP|Construction|33}}|other=|tier=medium}}
+{{LeagueTaskRow|Fill a Medium S.T.A.S.H. Unit|Build a Medium [[STASH|S.T.A.S.H. unit]] and fill it with the relevant items.|s={{SCP|Construction|42}}|other=|tier=medium}}
+{{LeagueTaskRow|Craft 200 Essence Into Runes|Use [[Runic altar|Runecrafting Altars]] to craft 200 essence into runes of any type.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Craft 4 Runes With 1 Essence|Use a [[Runic altar|Runecrafting Altar]] to craft 4 of any type of rune using a single essence.|s={{SCP|Runecraft|57}} (or {{SCP|Runecraft|33}} with {{TB|Asgarnia}})|other=|tier=medium}}
+{{LeagueTaskRow|Craft Any Combination Rune|Use a [[Runic altar|Runecrafting Altar]] to craft any type of [[combination rune]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Burn 100 Willow Logs|Burn 100 [[Willow logs|Willow Logs]].|s={{SCP|Firemaking|30}}|other={{SCP|Woodcutting|30}} if Woodcutting|tier=medium}}
+{{LeagueTaskRow|Equip a Harpie Bug Lantern|Equip a [[Bug lantern|Harpie Bug Lantern]].|s={{SCP|Firemaking|33}}, {{SCP|Slayer|33}}|other=|tier=medium}}
+{{LeagueTaskRow|Light a Bullseye Lantern|Light a [[Bullseye lantern|Bullseye Lantern]].|s={{SCP|Firemaking|49}}|other=Either {{TB|Asgarnia}}, {{TB|Morytania}}, {{TB|Kandarin}}, or {{TB|Fremennik}}<br/>See [[Bullseye lantern#Trailblazer Reloaded League|bullseye lantern]] for more details.
+|tier=medium}}
+{{LeagueTaskRow|Equip full Graahk, Larupia or Kyatt|Equip a full set of [[Graahk hunter gear|Graahk]], [[Larupia hunter gear|Larupia]] or [[Kyatt hunter gear|Kyatt]] attire.|s=Either {{SCP|Hunter|38}} ({{TB|Karamja}}), {{SCP|Hunter|28}} ({{TB|Kandarin}}), or {{SCP|Hunter|52}} ({{TB|Fremennik}}) to equip|other=Either {{SCP|Hunter|41}} to trap [[horned graahk]]s ({{TB|Karamja}}), {{SCP|Hunter|31}} to trap [[spined larupia]] ({{TB|Kandarin}}), or {{SCP|Hunter|55}} to trap [[sabre-toothed kyatt]] ({{TB|Fremennik}})|tier=medium}}
+{{LeagueTaskRow|Catch a Swamp Lizard or Salamander|Catch either a [[Swamp Lizard]] or any kind of [[Salamander]].|s=Either {{SCP|Hunter|29}} ({{TB|Morytania}}), {{SCP|Hunter|47}} ({{TB|Desert}}), {{SCP|Hunter|59}} ({{TB|Kandarin}}), or {{SCP|Hunter|67}} ({{TB|Wilderness}})|other=|tier=medium}}
+{{LeagueTaskRow|Use the Protect from Melee Prayer|Use the [[Protect from Melee]] prayer.|s={{SCP|Prayer|43}}|other=|tier=medium}}
+{{LeagueTaskRow|Complete 50 Laps of a Rooftop Agility Course|Complete 50 laps of any [[Rooftop Agility Courses|Rooftop Agility Course]].|s={{SCP|Agility|10}}|other=|tier=medium}}
+{{LeagueTaskRow|Make 30 Prayer Potions|Make 30 [[Prayer potion|Prayer Potions]].|s={{SCP|Herblore|38}}|other=|tier=medium}}
+{{LeagueTaskRow|Clean a Grimy Avantoe|Clean a [[Grimy avantoe|Grimy Avantoe]].|s={{SCP|Herblore|48}}|other=|tier=medium}}
+{{LeagueTaskRow|Make a 4 dose potion|Make any 4 dose potion using an [[Amulet of chemistry|Amulet of Chemistry]].|s={{SCP|Herblore|3}}|other={{SCP|Magic|27}}, {{SCP|Crafting|34}} to create the amulet. [[Amulet mould]] to craft a [[Jade amulet (u)]] (requires either a rare 1/128 drop, {{SCP|Construction|44}}, or a Trailblazer area unlock).|tier=medium}}
+{{LeagueTaskRow|Reach Combat Level 50|Reach Combat Level 50.|s={{SCP|Combat|50}}|other=|tier=medium}}
+{{LeagueTaskRow|Reach Combat Level 75|Reach Combat Level 75.|s={{SCP|Combat|75}}|other=|tier=medium}}
+{{LeagueTaskRow|Perform a Special Attack|Perform any special attack.|s=|other=See the [[Special attacks]] article for other requirements|tier=medium}}
+{{LeagueTaskRow|Equip an Adamant Weapon|Equip any [[Adamant equipment|Adamant weapon]].|s={{SCP|Attack|30}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Rune Weapon|Equip any [[Rune equipment|Rune weapon]].|s={{SCP|Attack|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Full Adamant Set|Equip an [[Adamant platebody|Adamant Platebody]], a [[Adamant full helm|Adamant Full Helm]] and either some [[Adamant platelegs|Adamant Platelegs]] or an [[Adamant plateskirt|Adamant Plateskirt]].|s={{SCP|Defence|30}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Full Rune Set|Equip a [[Rune platebody|Rune Platebody]], a [[Rune full helm|Rune Full Helm]] and either some [[Rune platelegs|Rune Platelegs]] or a [[Rune plateskirt|Rune Plateskirt]].|s={{SCP|Defence|40}}|other=Completion of {{SCP|Quest}} [[Dragon Slayer I]] to equip a rune platebody|tier=medium}}
+{{LeagueTaskRow|Equip a Full Green Dragonhide Set|Equip a [[Green d'hide body|Green Dragonhide Body]], some [[Green d'hide chaps|Green Dragonhide Chaps]] and some [[Green d'hide vambraces|Green Dragonhide Vambraces]].|s={{SCP|Ranged|40}}, {{SCP|Defence|40}}|other=Completion of {{SCP|Quest}} [[Dragon Slayer I]] to equip a green d'hide body|tier=medium}}
+{{LeagueTaskRow|Equip a Full Blue Dragonhide Set|Equip a [[Blue d'hide body|Blue Dragonhide Body]], some [[Blue d'hide chaps|Blue Dragonhide Chaps]] and some [[Blue d'hide vambraces|Blue Dragonhide Vambraces]].|s={{SCP|Ranged|50}}, {{SCP|Defence|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Full Red Dragonhide Set|Equip a [[Red d'hide body|Red Dragonhide Body]], some [[Red d'hide chaps|Red Dragonhide Chaps]] and some [[Red d'hide vambraces|Red Dragonhide Vambraces]].|s={{SCP|Ranged|60}}, {{SCP|Defence|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Yew Shortbow|Equip a [[Yew shortbow|Yew Shortbow]].|s={{SCP|Ranged|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Teleport Using Law Runes|Cast any [[Teleportation spells|teleport spell]] that uses [[Law rune|Law Runes]].|s={{SCP|Magic|25}}, or {{SCP|Magic|6}} with {{TB|Kourend}} and 60% Arceuus favour|other=|tier=medium}}
+{{LeagueTaskRow|Equip an Elemental Battlestaff or Mystic Staff|Equip either an elemental [[Battlestaves|battlestaff]] or an elemental [[Mystic staff|mystic staff]].|s={{SCP|Magic|30}}, {{SCP|Attack|30}}|other=|tier=medium}}
+{{LeagueTaskRow|Cast a Blast Spell|Cast any [[Blast spells|blast spell]].|s={{SCP|Magic|41}}|other=|tier=medium}}
+{{LeagueTaskRow|Cast High Level Alchemy|Cast the [[High Level Alchemy]] spell.|s={{SCP|Magic|55}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Granite Shield|Equip a [[Granite shield|Granite Shield]].|s={{SCP|Defence|50}}, {{SCP|Strength|50}}|other=Requires  {{TB|Kandarin}}, {{TB|Asgarnia}}  or {{TB|Fremennik}}|tier=medium}}
+{{LeagueTaskRow|Equip a Leaf-Bladed Sword|Equip a [[Leaf-bladed sword|Leaf-Bladed Sword]].|s={{SCP|Attack|50}}, {{SCP|Slayer|55}}|other=Requires {{TB|Fremennik}} or {{TB|Tirannwn}}|tier=medium}}
+{{LeagueTaskRow|Complete the Easy Western Provinces Diary|Complete all of the easy tasks in the [[Western Provinces Diary|Western Provinces Achievement Diary]].|s=See [[Western Provinces Diary#Easy]]|other=Requires {{TB|Kandarin}}|tier=medium}}
+{{LeagueTaskRow|Complete the Medium Western Provinces Diary|Complete all of the medium tasks in the [[Western Provinces Diary|Western Provinces Achievement Diary]].|s=See [[Western Provinces Diary#Medium]]|other=Requires {{TB|Kandarin}}|tier=medium}}
+{{LeagueTaskRow|Fill a Large Pouch|Fill a [[Large pouch|Large Pouch]] with Essence.|s={{SCP|Runecraft|50}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Lava Battlestaff|Equip a [[Lava battlestaff|Lava Battlestaff]].|s={{SCP|Attack|30}}, {{SCP|Magic|30}}|other=|tier=medium}}
+{{LeagueTaskRow|1 Combat Achievement|Complete 1 [[Combat Achievements|Combat Achievement]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|10 Combat Achievements|Complete 10 [[Combat Achievements|Combat Achievements]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete a Mahogany homes beginner contract|Complete a [[Mahogany Homes|Mahogany homes]] beginner contract|s=|other=Requires {{TB|Asgarnia}}|tier=medium}}
+{{LeagueTaskRow|Complete a Mahogany homes novice contract|Complete a [[Mahogany Homes|Mahogany homes]] novice contract|s={{SCP|Construction|20}}|other=Requires {{TB|Asgarnia}}|tier=medium}}
+{{LeagueTaskRow|Complete a Mahogany homes adept contract|Complete a [[Mahogany Homes|Mahogany homes]] adept contract|s={{SCP|Construction|50}}|other=Requires {{TB|Asgarnia}}|tier=medium}}
+{{LeagueTaskRow|Complete 50 Mahogany homes contracts|Complete 50 [[Mahogany Homes|Mahogany homes]] contracts|s=|other=Requires {{TB|Asgarnia}}|tier=medium}}
+{{LeagueTaskRow|Chop some Rising Roots|Chop some [[Rising roots|Rising Roots]] spawned via [[Forestry]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete the Struggling Sapling event|Complete the [[Struggling sapling|Struggling Sapling]] event spawned via [[Forestry]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete the Flowering Bush event|Complete the [[Flowering bush|Flowering Bush]] event spawned via [[Forestry]]|s=|other=At least one player with {{SCP|Woodcutting|35}}, {{SCP|Hunter|50}} and {{TB|Kandarin}} to create [[Bees on a stick]] to start the event|tier=medium}}
+{{LeagueTaskRow|Kill three chickens in 6 seconds.|Kill three [[chicken]]s in 6 seconds.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Kill 6 cows in 10 seconds|Kill 6 [[cow]]s in 10 seconds|s=|other=|tier=medium}}
+{{LeagueTaskRow|Read a prayer book near a lectern|Read a prayer book near a lectern{{Clarify|Which prayer book? Is this task only available in Morytania?}}|s=|other=|tier=medium}}
+{{LeagueTaskRow|Fully deplete a Blood Essence|Fully deplete a [[Blood essence|Blood Essence]]|s={{SCP|Runecraft|77}}|other=Either {{TB|Morytania}} with completion of {{SCP|Quest}} [[Sins of the Father]] or {{TB|Kourend}} with 100% [[Arceuus favour]]|tier=medium}}
+{{LeagueTaskRow|Equip a frog mask|Equip a [[frog mask]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|Create a green d'hide shield|Create a [[green d'hide shield]]|s={{SCP|Crafting|62}}|other=|tier=medium}}
+{{LeagueTaskRow|Fletch 100 Yew shortbows|Fletch 100 [[Yew shortbow]]s|s={{SCP|Fletching|65}}|other=|tier=medium}}
+{{LeagueTaskRow|Create a Guthix Rest Tea|Create a [[Guthix rest|Guthix Rest Tea]]|s={{SCP|Herblore|18}}|other=Partial completion of [[One Small Favour]], requiring one of {{TB|Asgarnia}}, {{TB|Desert}}, or {{TB|Kandarin}}|tier=medium}}
+{{LeagueTaskRow|Smith 10 Steel bolts (unf)|Use an [[Anvil]] to smith 10 [[Steel bolts (unf)]]|s={{SCP|Smithing|33}}|other=|tier=medium}}
+{{LeagueTaskRow|5 Collection log slots|Obtain 5 unique [[collection log]] slots|s=|other=|tier=medium}}
+{{LeagueTaskRow|15 Collection log slots|Obtain 15 unique [[collection log]] slots|s=|other=|tier=medium}}
+{{LeagueTaskRow|30 Collection log slots|Obtain 30 unique [[collection log]] slots|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete the Ritual Forestry Event|Complete the Ritual event spawned via [[Forestry]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete the Pheasant Forestry Event|Complete the Pheasant event spawned via [[Forestry]].|s=|other=|tier=medium}}
+{{LeagueTaskBottom|varname=Gen2|ppt=40}}
+</div>
+===Master===
+<div class="mw-collapsible" data-collapsible-name="master">
+[[File:League tasks - Master.png|left]]
+Each task in this tier awards '''400''' league points upon completion.
+
+With {{#var_final:Gen5Count}} tasks available, there are a total of {{#var_final:Gen5Value}} league points that can be earned from master tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Reach Total Level 2277|Reach the highest possible Total Level of 2277.|s=|other=}}
+{{LeagueTaskRow|Reach Base Level 95|Reach level 95 in every skill.|s=|other=}}
+{{LeagueTaskBottom|varname=Gen5|ppt=400}}
+</div>
+
+{{#vardefine:GenTotalCount|{{Formatexpr|{{#var:Gen1Count}}+{{#var:Gen2Count}}+{{#var:Gen3Count}}+{{#var:Gen4Count}}+{{#var:Gen5Count}}}}}}
+{{#vardefine:GenTotalValue|{{Formatexpr|{{#var:Gen1Value}}+{{#var:Gen2Value}}+{{#var:Gen3Value}}+{{#var:Gen4Value}}+{{#var:Gen5Value}}}}}}
+
+<noinclude>{{Trailblazer Reloaded League}}</noinclude>

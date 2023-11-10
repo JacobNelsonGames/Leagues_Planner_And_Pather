@@ -14,6 +14,8 @@ import java.util.UUID;
 
 public class TaskData
 {
+    boolean bIsRemoved = false;
+
     UUID GUID = null;
 
     TaskDifficulty Difficulty;
@@ -186,6 +188,7 @@ public class TaskData
 
         Converted.append(",");
         Converted.append("\r\n");
+        Converted.append(",");
         Converted.append("POSITIONS_START,");
         if (Locations.size() == 0)
         {
@@ -203,13 +206,11 @@ public class TaskData
         Converted.append(",");
         Converted.append("Z");
         Converted.append("\r\n");
-        Converted.append(",");
 
         // Set up for manually adding things
         if (Locations.isEmpty())
         {
             Converted.append("\r\n");
-            Converted.append(",");
         }
 
         for (WorldPoint CurrentPosition : Locations)

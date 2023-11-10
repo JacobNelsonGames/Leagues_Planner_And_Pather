@@ -656,6 +656,11 @@ public class LeaguesPlannerPanel extends PluginPanel
         {
             TaskData data = plugin.GetTaskData(SortedTaskIter.TaskGUID, SortedTaskIter.bIsCustomTask);
 
+            if (data.bIsRemoved)
+            {
+                continue;
+            }
+
             // Skip due to some filter
             boolean bIsPartOfPlan = config.UserData.PlannedTasks.containsKey(SortedTaskIter.TaskGUID);
             if (!bIsPartOfPlan && DiffFilter != TaskDifficulty.NONE && DiffFilter != data.Difficulty)

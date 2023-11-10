@@ -153,6 +153,12 @@ public class TaskOverlay extends Overlay
 
         for (Map.Entry<UUID, TaskData> CurrentTaskPair : TaskCache.entrySet())
         {
+
+            if (CurrentTaskPair.getValue().bIsRemoved)
+            {
+                continue;
+            }
+
             // Skip due to some filter
             boolean bIsPartOfPlan = config.UserData.PlannedTasks.containsKey(CurrentTaskPair.getKey());
             if (!bIsPartOfPlan && DiffFilter != TaskDifficulty.NONE && DiffFilter != CurrentTaskPair.getValue().Difficulty)

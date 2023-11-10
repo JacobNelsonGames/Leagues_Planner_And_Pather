@@ -1,0 +1,39 @@
+===Easy===
+<div class="mw-collapsible" data-collapsible-name="easy">
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Kar1Count}} tasks available, there are a total of {{#var_final:Kar1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Receive an Agility Arena Ticket|Receive an [[Agility arena ticket|Agility Arena Ticket]] from the [[Brimhaven Agility Arena]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Catch a Karambwanji|Catch a [[Raw karambwanji|Karambwanji]] on Karamja.|s={{SCP|Fishing|5}}|other=|tier=easy}}
+{{LeagueTaskRow|Defeat a TzHaar|Defeat any [[TzHaar]] in [[Mor Ul Rek]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Receive a Slayer Task From Duradel|Receive a [[Slayer task|Slayer Task]] From [[Duradel]] in [[Shilo Village (location)|Shilo Village]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Defeat a Greater Demon on Karamja|Defeat a [[Greater demon|Greater Demon]] on Karamja.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Pick a Pineapple on Karamja|Pick a [[Pineapple]] on Karamja.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Enter the Brimhaven Dungeon|Enter the [[Brimhaven Dungeon]].|s=|other=|tier=easy}}
+{{LeagueTaskBottom|varname=Kar1|ppt=10}}
+</div>
+===Medium===
+<div class="mw-collapsible" data-collapsible-name="medium">
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''40''' league points upon completion.
+
+With {{#var_final:Kar2Count}} tasks available, there are a total of {{#var_final:Kar2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Buy a Snapdragon From Pirate Jackie the Fruit|Buy a [[Snapdragon]] From [[Pirate Jackie the Fruit]] in [[Brimhaven]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Catch a Salmon on Karamja|Catch a [[Raw salmon|Salmon]] on Karamja.|s={{SCP|Fishing|30}}|other=|tier=medium}}
+{{LeagueTaskRow|Catch 50 Karambwan|Catch 50 [[Raw karambwan|Karambwan]] on Karamja.|s={{SCP|Fishing|65}}|other=Completion of [[Tai Bwo Wannai Trio]]|tier=medium}}
+{{LeagueTaskRow|Craft 50 Nature Runes|Craft 50 [[Nature rune|Nature Runes]] from [[Pure essence|Essence]] at the [[Nature Altar]].|s={{SCP|Runecraft|44}}|other=|tier=medium}}
+{{LeagueTaskRow|Defeat a Steel Dragon on Karamja|Defeat a [[Steel dragon|Steel Dragon]] on Karamja.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete the Easy Karamja Diary|Complete all of the easy tasks in the [[Karamja Diary|Karamja Achievement Diary]].|s=See [[Karamja Diary#Easy]]|other=See [[Karamja Diary#Easy]]|tier=medium}}
+{{LeagueTaskRow|Complete the Medium Karamja Diary|Complete all of the medium tasks in the [[Karamja Diary|Karamja Achievement Diary]].|s=See [[Karamja Diary#Medium]]|other=See [[Karamja Diary#Medium]]|tier=medium}}
+{{LeagueTaskRow|Fill a Crate With Bananas|Fill a crate with [[Banana]]s for [[Luthas]] at [[Musa Point]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Enter the Tai Bwo Wannai Hardwood Grove|Enter the [[Hardwood Grove]] in [[Tai Bwo Wannai]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Matching Tribal Mask and Broodoo Shield|Equip a matching [[Tribal mask|Tribal Mask]] and [[Broodoo shield|Broodoo Shield]].|s={{SCP|Crafting|35}}, {{SCP|Defence|25}}, {{SCP|Magic|25}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip a Full Tai Bwo Wannai Villager Set|Equip a full set of Tai Bwo Wannai [[villager clothing]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Mine 5 gem rocks in a row without failing|Mine 5 [[gem rocks]] in a row without failing in [[Shilo Village (location)|Shilo Village]]|s={{SCP|Mining|40}}|other=|tier=medium}}
+{{LeagueTaskBottom|varname=Kar2|ppt=40}}
+</div>

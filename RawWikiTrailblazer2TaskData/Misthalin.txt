@@ -1,0 +1,111 @@
+===Easy===
+<div class="mw-collapsible" data-collapsible-name="easy">
+[[File:League tasks - Easy.png|left]]
+Each task in this tier awards '''10''' league points upon completion.
+
+With {{#var_final:Mis1Count}} tasks available, there are a total of {{#var_final:Mis1Value}} league points that can be earned from easy tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Use the Range in Lumbridge Castle|Use the [[Cooking range (Lumbridge Castle)|Range]] in [[Lumbridge Castle]] to cook some food.|s=|other=Completion of [[Cook's Assistant]]|tier=easy}}
+{{LeagueTaskRow|Pickpocket a H.A.M. Member|Pickpocket any [[H.A.M. Member|H.A.M. member]] at their [[H.A.M. Hideout|hideout]].|s={{SCP|Thieving|15}}|other=|tier=easy}}
+{{LeagueTaskRow|Steal From the Varrock Tea Stall|Steal from the [[Tea stall|Tea Stall]] in [[Varrock]].|s={{SCP|Thieving|5}}|other=|tier=easy}}
+{{LeagueTaskRow|Complete the Draynor Agility Course|Complete a lap of the [[Draynor Village Rooftop Course|Draynor Rooftop Agility Course]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Craft 50 Water Runes|Craft 50 [[Water rune|Water Runes]] from Essence at the [[Water Altar]].|s={{SCP|Runecraft|19}}|other=|tier=easy}}
+{{LeagueTaskRow|Defeat the Lesser Demon in the Wizards' Tower|Defeat the [[Lesser demon|Lesser Demon]] at the top of the [[Wizards' Tower]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Receive a Slayer Task From Vannaka|Receive a [[Slayer task|Slayer Task]] from [[Vannaka]] in [[Edgeville Dungeon]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Enter Zanaris|Enter the lost city of [[Zanaris]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Travel to Fossil Island|Take the [[Canal barge|Museum Barge]] to [[Fossil Island]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Pet a Stray Dog in Varrock|Pet a [[Stray dog|Stray Dog]] in [[Varrock]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Complete Sheep Shearer|Complete the [[Sheep Shearer]] quest.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Equip Some Fancy Boots, Fancier Boots, or Fighting Boots|Equip a pair of [[Fancy boots|Fancy Boots]], [[Fancier boots|Fancier Boots]], or [[Fighting boots|Fighting Boots]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Complete Vampyre Slayer|Complete the [[Vampyre Slayer]] quest.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Complete Romeo & Juliet|Complete the [[Romeo & Juliet]] Quest|s=|other=|tier=easy}}
+{{LeagueTaskRow|Fully Unlock the Mycelium Transportation System|Unlock every destination for the [[Mycelium Transportation System]] on [[Fossil Island]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Complete Gertrude's Cat|Complete the [[Gertrude's Cat]] quest.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Build a Bank on Fossil Island|Build a Bank at the [[Museum Camp]] on [[Fossil Island]].|s={{SCP|Construction|21}}|other=|tier=easy}}
+{{LeagueTaskRow|Use a Fairy Ring|Use any Fairy Ring.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Complete the Natural History Quiz|Complete the [[Natural history quiz|Natural History Quiz]] in the [[Varrock Museum]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Enter Draynor Manor|Enter [[Draynor Manor]] through the front door.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Pet the Museum Camp dog|Pet the [[Dog (Museum Camp)|dog]] in the [[Museum Camp]] on [[Fossil Island]].|s=|other=|tier=easy}}
+{{LeagueTaskRow|Taste a Dorgeshuun Delicacy|Taste a Dorgeshuun Delicacy|s=|other=|tier=easy}}
+{{LeagueTaskRow|Milk a cow|Milk a [[cow]] in [[Lumbridge]]|s=|other=|tier=easy}}
+{{LeagueTaskRow|Insult Aggie the Witch|Insult [[Aggie|Aggie the Witch]] in [[Draynor Village]]|s=|other=|tier=easy}}
+{{LeagueTaskRow|Feed a draynor guard some stew|Feed a [[Tree (Draynor guard)|Draynor guard]] some [[stew]] in [[Draynor Village]]|s=|other=|tier=easy}}
+{{LeagueTaskRow|Have Ned make you some rope|Have [[Ned]] make you some [[rope]] in [[Draynor Village]]|s=|other=|tier=easy}}
+{{LeagueTaskRow|Get a chair to follow you|Get a chair to follow you|s=|other=|tier=easy}}
+{{LeagueTaskRow|Get your revenge against a Dark Wizard|Get your revenge against a [[Dark wizard|Dark Wizard]], south of [[Varrock]]|s=|other=|tier=easy}}
+{{LeagueTaskRow|Chop a log from a potato tree|Chop a log from a tree that is curiously in a potato field.|s=|other=|tier=easy}}
+{{LeagueTaskRow|Churn some butter|Use a [[Dairy churn|churn]] to make some [[butter]]|s={{SCP|Cooking|38}}|other=|tier=easy}}
+{{LeagueTaskRow|Have Elsie tell you a story|Have [[Elsie]] tell you a story in [[Varrock]]|s=|other=|tier=easy}}
+{{LeagueTaskRow|Slash a web in varrock sewers|Slash a [[web]] in [[Varrock Sewers|Varrock sewers]]|s=|other=|tier=easy}}
+{{LeagueTaskRow|Charm Gertrude|Charm [[Gertrude]]|s=|other={{TB|Morytania}} to obtain the [[Ring of charos]], one of {{TB|Desert}}, {{TB|Fremennik}}, or {{TB|Kandarin}} for [[Garden of Tranquility]] completion|tier=easy}}
+{{LeagueTaskRow|Complete the Varrock Agility Course|Complete a lap of the [[Varrock Rooftop Course|Varrock Rooftop Agility Course]].|s={{SCP|Agility|30}}|other=|tier=easy}}
+{{LeagueTaskBottom|varname=Mis1|ppt=10}}
+</div>
+===Medium===
+<div class="mw-collapsible" data-collapsible-name="medium">
+[[File:League tasks - Medium.png|left]]
+Each task in this tier awards '''40''' league points upon completion.
+
+With {{#var_final:Mis2Count}} tasks available, there are a total of {{#var_final:Mis2Value}} league points that can be earned from medium tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Dismantle 20 Filled Bird Houses|Dismantle 20 filled [[Bird house trapping|Bird Houses]] on [[Fossil Island]].|s={{SCP|Hunter|5}}, {{SCP|Crafting|5}}|other=|tier=medium}}
+{{LeagueTaskRow|Set up a Yew Bird House|Set up a [[Yew bird house|Yew Bird House]] on [[Fossil Island]].|s={{SCP|Hunter|59}}, {{SCP|Crafting|60}}|other=|tier=medium}}
+{{LeagueTaskRow|Catch 50 Implings in Puro-Puro|Catch 50 [[Impling]]s in [[Puro-Puro]].|s={{SCP|Hunter|17}}|other=|tier=medium}}
+{{LeagueTaskRow|Complete a Volcanic Mine Game|Complete a[[ Volcanic Mine]] game on [[Fossil Island]].|s={{SCP|Mining|50}}|other=150 [[Kudos]]|tier=medium}}
+{{LeagueTaskRow|Enter the Cooks' Guild|Enter the [[Cooks' Guild]] west of [[Varrock]].|s={{SCP|Cooking|32}}|other=|tier=medium}}
+{{LeagueTaskRow|Complete 10 Laps of the Draynor Agility Course|Complete 10 laps of the [[Draynor Village Rooftop Course|Draynor Rooftop Agility Course]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Craft 50 Cosmic Runes|Craft 50 [[Cosmic rune|Cosmic Runes]] from Essence at the [[Cosmic Altar]].|s={{SCP|Runecraft|27}}|other=|tier=medium}}
+{{LeagueTaskRow|Use Enriched Bones on the Strange Machine|Use [[Enriched bone|Enriched Bones]] on the [[Strange Machine]] on [[Fossil Island]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Chop a Sulliuscep Cap|Chop a [[Sulliuscep cap|Sulliuscep Cap]] on [[Fossil Island]].|s={{SCP|Woodcutting|65}}|other=|tier=medium}}
+{{LeagueTaskRow|Defeat a Fossil Island Wyvern|Defeat any type of [[Wyvern]] on [[Fossil Island]].|s={{SCP|Slayer|66}}|other=|tier=medium}}
+{{LeagueTaskRow|Defeat a Wall Beast|Defeat a [[Wall beast|Wall Beast]] in the [[Lumbridge Swamp Caves]].|s={{SCP|Slayer|35}}|other=|tier=medium}}
+{{LeagueTaskRow|Defeat Obor|Defeat [[Obor]] in [[Edgeville Dungeon]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Defeat Bryophyta|Defeat [[Bryophyta]] in [[Varrock Sewers]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Defeat an Ancient Wyvern|Defeat an [[Ancient Wyvern]] on [[Fossil Island]].|s={{SCP|Slayer|82}}|other=|tier=medium}}
+{{LeagueTaskRow|Complete the Easy Lumbridge & Draynor Diary|Complete all of the easy tasks in the [[Lumbridge & Draynor Diary|Lumbridge & Draynor Achievement Diary]].|s=See [[Lumbridge & Draynor Diary#Easy]]|other=See [[Lumbridge & Draynor Diary#Easy]]|tier=medium}}
+{{LeagueTaskRow|Complete the Medium Lumbridge & Draynor Diary|Complete all of the medium tasks in the [[Lumbridge & Draynor Diary|Lumbridge & Draynor Achievement Diary]].|s=See [[Lumbridge & Draynor Diary#Medium]]|other=See [[Lumbridge & Draynor Diary#Medium]]|tier=medium}}
+{{LeagueTaskRow|Complete Rune Mysteries|Complete the [[Rune Mysteries]] quest.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Equip Some Mithril Gloves|Equip a pair of [[Mithril gloves|Mithril Gloves]].|s=Varies|other=At least {{TB|Kandarin}} and {{TB|Asgarnia}} for subquest requirements|tier=medium}}
+{{LeagueTaskRow|Complete Demon Slayer|Complete the [[Demon Slayer]] quest.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Drink From the Tears of Guthix|Drink from the [[Tears of Guthix (minigame)|Tears of Guthix]] in the [[Lumbridge Swamp Caves]].|s=|other=|tier=medium}}
+{{LeagueTaskRow|Use a Digsite Pendant to Teleport to Fossil Island|Use a [[Digsite pendant|Digsite Pendant]] to teleport to [[Fossil Island]].|s={{SCP|Magic|49}}|other=|tier=medium}}
+{{LeagueTaskRow|Complete a Soul's Bane|Complete the [[A Soul's Bane]] quest.|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete the Easy Varrock Diary|Complete all of the easy tasks in the [[Varrock Diary|Varrock Achievement Diary]].|s=See [[Varrock Diary#Easy]]|other=See [[Varrock Diary#Easy]]|tier=medium}}
+{{LeagueTaskRow|Complete the Medium Varrock Diary|Complete all of the medium tasks in the [[Varrock Diary|Varrock Achievement Diary]].|s=See [[Varrock Diary#Medium]]|other=See [[Varrock Diary#Medium]]|tier=medium}}
+{{LeagueTaskRow|Win a Game of Soul Wars|Win a game of [[Soul Wars]].|s={{SCP|Combat|40}}, {{SCP|Overall|40}}|other=|tier=medium}}
+{{LeagueTaskRow|Equip the Forestry Basket|Obtain and Equip the [[Forestry basket|Forestry Basket]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|Complete a task for the Wise Old Man|Complete a [[Wise Old Man tasks|task]] for the [[Wise Old Man]] in [[Draynor]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|Have the wise Old Man get angry with you.|Have the [[Wise Old Man]] get angry with you in [[Draynor Village]]|s=|other={{TB|Desert}} or {{TB|Fremennik}}|tier=medium}}
+{{LeagueTaskRow|Pan for an Uncut Jade|[[Panning tray|Pan]] for an [[Uncut jade|Uncut Jade]]|s=|other=|tier=medium}}
+{{LeagueTaskRow|Open the Dark Chest|Open the [[Dark Chest]]|s={{SCP|Thieving|28}}|other=|tier=medium}}
+{{LeagueTaskRow|Obtain a pufferfish from Drift Net Fishing|Obtain a [[pufferfish]] from [[Drift net fishing|Drift Net Fishing]]|s={{SCP|Hunter|44}}, {{SCP|Fishing|47}}|other=|tier=medium}}
+{{LeagueTaskRow|Complete 10 Laps of the Varrock Agility Course|Complete 10 laps of the [[Varrock Rooftop Course|Varrock Rooftop Agility Course]].|s={{SCP|Agility|30}}|other=|tier=medium}}
+{{LeagueTaskBottom|varname=Mis2|ppt=40}}
+</div>
+===Hard===
+<div class="mw-collapsible" data-collapsible-name="hard">
+[[File:League tasks - Hard.png|left]]
+Each task in this tier awards '''80''' league points upon completion.
+
+With {{#var_final:Mis3Count}} tasks available, there are a total of {{#var_final:Mis3Value}} league points that can be earned from hard tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Check a grown Magic Tree in Lumbridge|Check the health of a [[Magic Tree]] you've grown in Lumbridge.|s={{SCP|Farming|75|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Check a grown Mahogany Tree|Check the health of a [[Mahogany Tree]] you've grown on Fossil Island.|s={{SCP|Farming|55|link=yes|sort=yes}}|other=}}
+{{LeagueTaskRow|Take the Advanced Shortcut to the Cosmic Altar|Use the Advanced Narrow Walkway Agility Shortcut near the [[Cosmic Altar]].|s={{SCP|Agility|66|link=yes|sort=yes}}|other=}}
+{{LeagueTaskBottom|varname=Mis3|ppt=80}}
+</div>
+===Elite===
+<div class="mw-collapsible" data-collapsible-name="elite">
+[[File:League tasks - Elite.png|left]]
+Each task in this tier awards '''200''' league points upon completion.
+
+With {{#var_final:Mis4Count}} tasks available, there are a total of {{#var_final:Mis4Value}} league points that can be earned from elite tasks.
+
+{{LeagueTaskHeader|collapsible=yes}}
+{{LeagueTaskRow|Buy an Ash Covered Tome|Buy an [[ash covered tome]] from [[Petrified Pete's Ore Shop]] on Fossil Island.|s={{SCP|Mining|50|link=yes|sort=yes}}|other=150 kudos to access [[Volcanic Mine]]}}
+{{LeagueTaskRow|Mine a Runite Ore Fragment|Mine a [[runite ore fragment]] in the [[Volcanic Mine]] on Fossil Island.|s={{SCP|Mining|85|link=yes|sort=yes}}|other=150 kudos to access [[Volcanic Mine]]}}
+{{LeagueTaskBottom|varname=Mis4|ppt=200}}
+</div>

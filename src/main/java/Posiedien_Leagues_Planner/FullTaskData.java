@@ -331,7 +331,7 @@ public class FullTaskData
         for (RegionType CurrentRegion : RegionType.values())
         {
             // We open a file for each of our regions
-            File file = new File("RawWikiTaskData/" + CurrentRegion.toString() + ".txt");
+            File file = new File("RawWikiTrailblazer2TaskData/" + CurrentRegion.toString() + ".txt");
             if (file.exists())
             {
                 try (Scanner sc = new Scanner(file))
@@ -460,21 +460,19 @@ public class FullTaskData
                                         break;
                                     }
 
-                                    SkillRequirementString =  NextString.substring(0, NextString.indexOf("|"));
+                                    SkillRequirementString = NextString;
+                                    if (SkillRequirementString.contains(" "))
+                                    {
+                                        SkillRequirementString = SkillRequirementString.substring(0, SkillRequirementString.indexOf(" "));
+                                    }
+                                    if (SkillRequirementString.contains("|"))
+                                    {
+                                        SkillRequirementString =  SkillRequirementString.substring(0, SkillRequirementString.indexOf("|"));
+                                    }
+
                                     NextString = NextString.substring(NextString.indexOf("|") + 1);
 
-                                    // Could have no link or sort strings
-                                    if (SkillRequirementString.contains("}}"))
-                                    {
-                                        SkillRequirementString = SkillRequirementString.replace("}}", "");
-                                    }
-
-                                    if (SkillRequirementString.contains(","))
-                                    {
-                                        SkillRequirementString = SkillRequirementString.substring(0, SkillRequirementString.indexOf(","));
-                                    }
-
-                                    int SkillRequirementLevel = Integer.parseInt(SkillRequirementString);
+                                    int SkillRequirementLevel = Integer.parseInt(SkillRequirementString.replaceAll("[\\D]", ""));
                                     if (SkillName.equals("COMBAT"))
                                     {
                                         CombatLevelRequirement newCombatReq = new CombatLevelRequirement(SkillRequirementLevel);
@@ -538,19 +536,15 @@ public class FullTaskData
             }
         }
 
-        // Figure out what tasks to remove (wasn't present in the raw data)
-        HashSet<UUID> TasksToRemove = new HashSet<>();
-        for (Map.Entry<UUID, TaskData> SearchingTask : LeaguesTaskList.entrySet())
         {
-            if (!TaskGUIDSet.contains(SearchingTask.getKey()))
+            // Figure out what tasks to remove (wasn't present in the raw data)
+            for (Map.Entry<UUID, TaskData> SearchingTask : LeaguesTaskList.entrySet())
             {
-                TasksToRemove.add(SearchingTask.getKey());
+                if (!TaskGUIDSet.contains(SearchingTask.getKey()))
+                {
+                    SearchingTask.getValue().bIsRemoved = true;
+                }
             }
-        }
-
-        for (UUID SearchingTask : TasksToRemove)
-        {
-            LeaguesTaskList.remove(SearchingTask);
         }
 
         // Re-construct String to UUID lookup

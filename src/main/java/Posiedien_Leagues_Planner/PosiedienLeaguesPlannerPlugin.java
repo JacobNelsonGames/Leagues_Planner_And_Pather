@@ -979,9 +979,9 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
 
 
     // Debug flags for saving/loading new data
-    private boolean bLoadRawWikiData = false;
-    private boolean bCalculateOverworldPositions = false;
-    private boolean bSaveTaskData = false;
+    private boolean bLoadRawWikiData = true;
+    private boolean bCalculateOverworldPositions = true;
+    private boolean bSaveTaskData = true;
     private boolean bSaveRegionData = false;
 
     void SaveRegionBounds() throws IOException
@@ -1005,15 +1005,15 @@ public class PosiedienLeaguesPlannerPlugin extends Plugin {
         config.TaskData.StringToTask.clear();
 
         {
-            // Task info, Trailblazer
+            // Converted task data
             File targ = new File("ConvertedTaskData/TrailblazerTaskData.csv");
             config.TaskData.importFromConverted(targ);
         }
 
         {
             // Task info, Shattered
-            File targ = new File("ConvertedTaskData/ShatteredTaskData.csv");
-            config.TaskData.importFromConverted(targ);
+            //File targ = new File("ConvertedTaskData/ShatteredTaskData.csv");
+            //config.TaskData.importFromConverted(targ);
         }
 
         if (bLoadRawWikiData)
