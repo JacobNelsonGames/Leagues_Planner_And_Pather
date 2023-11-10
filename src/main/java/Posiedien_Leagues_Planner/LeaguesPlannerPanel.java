@@ -698,7 +698,7 @@ public class LeaguesPlannerPanel extends PluginPanel
             {
                 if (bIsPartOfPlan)
                 {
-                    if (config.UserData.PlannedTasks.get(SortedTaskIter.TaskGUID).SortPriority >= MaxSortPriority)
+                    if (config.UserData.PlannedTasks.get(SortedTaskIter.TaskGUID).SortPriority > MaxSortPriority)
                     {
                         continue;
                     }

@@ -209,7 +209,7 @@ public class TaskOverlay extends Overlay
             {
                 if (bIsPartOfPlan)
                 {
-                    if (config.UserData.PlannedTasks.get(CurrentTaskPair.getKey()).SortPriority >= MaxSortPriority)
+                    if (config.UserData.PlannedTasks.get(CurrentTaskPair.getKey()).SortPriority > MaxSortPriority)
                     {
                         continue;
                     }
@@ -487,6 +487,7 @@ public class TaskOverlay extends Overlay
 
         Color highlightnamecolor2 = new Color(0, 0, 0,255);
 
+        Integer MaxSortPriority = config.UserData.FindSortPriorityMaxOfIndices(5);
         boolean bSetHighlighted = false;
         for (Map.Entry<UUID, TaskDisplayPoint> CurrentTaskPair : CachedTaskDisplayPoints.entrySet())
         {
@@ -701,14 +702,17 @@ public class TaskOverlay extends Overlay
                     // bIsTaskPlanned
                     else if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
-                        QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
-                                0,
-                                GraphicsPoint.getX() - 1,
-                                GraphicsPoint.getY() - TaskNum2 * 15 + 1,
-                                taskhighlightFont2,
-                                highlightnamecolor2));
+                        if (config.UserData.PlannedTasks.get(CurrentTask.GUID).SortPriority <= MaxSortPriority)
+                        {
+                            QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
+                                    0,
+                                    GraphicsPoint.getX() - 1,
+                                    GraphicsPoint.getY() - TaskNum2 * 15 + 1,
+                                    taskhighlightFont2,
+                                    highlightnamecolor2));
 
-                        ++TaskNum2;
+                            ++TaskNum2;
+                        }
                     }
                 }
                 Font taskhighlightFont = new FontUIResource("taskhighlightFont", Font.BOLD, 15);
@@ -738,14 +742,17 @@ public class TaskOverlay extends Overlay
                     // bIsTaskPlanned
                     else if (config.UserData.PlannedTasks.containsKey(CurrentTask.GUID))
                     {
-                        QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
-                                0,
-                                GraphicsPoint.getX(),
-                                GraphicsPoint.getY() - TaskNum * 15,
-                                taskhighlightFont,
-                                TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
+                        if (config.UserData.PlannedTasks.get(CurrentTask.GUID).SortPriority <= MaxSortPriority)
+                        {
+                            QueuedTextCommands.add(new OverlayQueuedText(ModifiedString,
+                                    0,
+                                    GraphicsPoint.getX(),
+                                    GraphicsPoint.getY() - TaskNum * 15,
+                                    taskhighlightFont,
+                                    TaskDifficulty.GetTaskDifficultyColor(CurrentTask.Difficulty)));
 
-                        ++TaskNum;
+                            ++TaskNum;
+                        }
                     }
                 }
             }
